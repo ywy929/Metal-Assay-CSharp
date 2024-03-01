@@ -2,8 +2,10 @@
 using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using System.Diagnostics;
 using System.IO;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Metal_Assay
 {
@@ -69,7 +71,7 @@ namespace Metal_Assay
             }
 
         }
-
+        List<string> NewFormListboxItemList = new List<string>();
         private void LoadCustomerList()
         {
             try
@@ -77,16 +79,18 @@ namespace Metal_Assay
                 var con = new MySqlConnection(connection_string);
                 con.Open();
 
-                sql = "SELECT name FROM user WHERE role ='customer'";
+                sql = "SELECT name FROM user WHERE role ='customer' ORDER BY name ASC";
                 var cmd = new MySqlCommand(sql, con);
 
                 MySqlDataReader data_reader = cmd.ExecuteReader();
-                NewCustomerCombobox.Items.Clear();
+                NewCustomerListbox.Items.Clear();
+                NewFormListboxItemList.Clear();
                 if (data_reader.HasRows)
                 {
                     while (data_reader.Read())
                     {
-                        NewCustomerCombobox.Items.Add(data_reader.GetString("name"));
+                        NewCustomerListbox.Items.Add(data_reader.GetString("name"));
+                        NewFormListboxItemList.Add(data_reader.GetString("name"));
                     }
                 }
                 data_reader.Close();
@@ -138,7 +142,7 @@ namespace Metal_Assay
             // checks to make sure only 1 decimal is allowed
             if (e.KeyChar == 46)
             {
-                if ((sender as TextBox).Text.IndexOf(e.KeyChar) != -1)
+                if ((sender as System.Windows.Forms.TextBox).Text.IndexOf(e.KeyChar) != -1)
                     e.Handled = true;
             }
 
@@ -161,7 +165,7 @@ namespace Metal_Assay
         private void SaveNewRecord()
         {
             //Blank Validation
-            if (NewCustomerCombobox.Text == "" || NewItemcodeTextbox.Text == "" || NewSampleWeightTextbox.Text == "")
+            if (NewCustomerTextbox.Text == "" || NewItemcodeTextbox.Text == "" || NewSampleWeightTextbox.Text == "")
             {
                 MessageBox.Show("Please fill all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -173,7 +177,7 @@ namespace Metal_Assay
                 var con = new MySqlConnection(connection_string);
                 con.Open();
 
-                sql = $"SELECT id FROM user WHERE name='{NewCustomerCombobox.Text}'";
+                sql = $"SELECT id FROM user WHERE name='{NewCustomerTextbox.Text}'";
                 var cmd = new MySqlCommand(sql, con);
 
                 MySqlDataReader data_reader = cmd.ExecuteReader();
@@ -229,7 +233,7 @@ namespace Metal_Assay
                 cmd.Parameters.AddWithValue("@formcode", NewFormCodeContent.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
-                WriteToLogFile($"New Record. Customer:{NewCustomerCombobox.Text}, FC:{NewFormCodeContent.Text}, IC:{NewItemcodeTextbox.Text}, SW:{NewSampleWeightTextbox.Text}");
+                WriteToLogFile($"New Record. Customer:{NewCustomerTextbox.Text}, FC:{NewFormCodeContent.Text}, IC:{NewItemcodeTextbox.Text}, SW:{NewSampleWeightTextbox.Text}");
             }
             catch (Exception ex)
             {
@@ -268,11 +272,11 @@ namespace Metal_Assay
                 MessageBox.Show(ex.Message);
             }
 
-            MainForm.AddNewToMainLeft(NewFormCodeContent.Text, created, NewCustomerCombobox.Text, color);
+            MainForm.AddNewToMainLeft(NewFormCodeContent.Text, created, NewCustomerTextbox.Text, color);
             MainForm.AddNewToMainRight(NewFormCodeContent.Text, NewItemcodeTextbox.Text, sw_to_send, assayrecord_id, color);
-            MainForm.AddNewToFW(NewCustomerCombobox.Text, NewItemcodeTextbox.Text, assayrecord_id, color);
-            MainForm.AddNewToLW(NewCustomerCombobox.Text, NewItemcodeTextbox.Text, assayrecord_id, color, NewFormCodeContent.Text, created);
-            MainForm.AddNewToSR(NewCustomerCombobox.Text, NewFormCodeContent.Text, NewItemcodeTextbox.Text, sw_to_send, created, assayrecord_id, color);
+            MainForm.AddNewToFW(NewCustomerTextbox.Text, NewItemcodeTextbox.Text, assayrecord_id, color);
+            MainForm.AddNewToLW(NewCustomerTextbox.Text, NewItemcodeTextbox.Text, assayrecord_id, color, NewFormCodeContent.Text, created);
+            MainForm.AddNewToSR(NewCustomerTextbox.Text, NewFormCodeContent.Text, NewItemcodeTextbox.Text, sw_to_send, created, assayrecord_id, color);
 
         }
 
@@ -281,10 +285,10 @@ namespace Metal_Assay
             try
             {
                 LoadLatestFormCode();
-                NewCustomerCombobox.Text = "";
+                NewCustomerTextbox.Text = "";
                 NewItemcodeTextbox.Text = "";
                 NewSampleWeightTextbox.Text = "";
-                NewCustomerCombobox.Focus();
+                NewCustomerTextbox.Focus();
                 itemcode_check.Clear();
             }
             catch (Exception ex)
@@ -296,7 +300,82 @@ namespace Metal_Assay
 
         private void NewForm_Shown(object sender, EventArgs e)
         {
-            NewCustomerCombobox.Focus();
+            NewCustomerTextbox.Focus();
+        }
+
+
+        private void NewCustomerTextbox_TextChanged(object sender, EventArgs e)
+        {
+            NewCustomerListbox.BringToFront();
+            if (NewCustomerTextbox.Text == string.Empty)
+            {
+                NewCustomerListbox.Visible = false;
+                NewCustomerListbox.Items.Clear();
+                for (int i = 0; i < NewFormListboxItemList.Count; i++)
+                {
+                    NewCustomerListbox.Items.Add(NewFormListboxItemList[i]);
+                }
+            }
+            else
+            {
+                NewCustomerListbox.Items.Clear();
+                string search_str = NewCustomerTextbox.Text;
+                for (int i = 0; i < NewFormListboxItemList.Count; i++)
+                {
+                    if (NewFormListboxItemList[i].Contains(search_str))
+                    {
+                        NewCustomerListbox.Items.Add(NewFormListboxItemList[i]);
+                    }
+                }
+
+                NewCustomerListbox.Visible = true;
+                Cursor.Current = Cursors.Default;
+                NewCustomerListbox.SelectedIndex = -1;
+            }
+        }
+        private void NewCustomerTextbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 40)
+            {
+                NewCustomerListbox.Focus();
+                NewCustomerListbox.SelectedIndex = 0;
+                e.SuppressKeyPress = true;
+
+            }
+            if (e.KeyValue == 13)
+            {
+                NewItemcodeTextbox.Focus();
+                e.SuppressKeyPress = true;
+
+            }
+        }
+
+        private void NewCustomerTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
+            {
+                e.KeyChar -= (char)32;
+            }
+        }
+
+        private void NewCustomerListbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                NewCustomerTextbox.Focus();
+                NewCustomerTextbox.Text = NewCustomerListbox.GetItemText(NewCustomerListbox.SelectedItem);
+                NewCustomerTextbox.SelectionStart = NewCustomerTextbox.Text.Length;
+                NewCustomerTextbox.SelectionLength = 0;
+                NewCustomerListbox.Visible = false;
+                e.SuppressKeyPress = true;
+
+            }
+            if (e.KeyValue == 38 && NewCustomerListbox.SelectedIndex == 0)
+            {
+                NewCustomerTextbox.Focus();
+                e.SuppressKeyPress = true;
+
+            }
         }
     }
 }

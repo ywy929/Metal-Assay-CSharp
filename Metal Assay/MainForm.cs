@@ -288,7 +288,7 @@ namespace Metal_Assay
                         //Show Info
                         MainFormcodeLabel.Text = "Formcode: " + row.Cells[0].Value.ToString();
                         MainCustomerLabel.Text = "Customer: " + MainLeftDataGridView.CurrentRow.Cells[3].Value.ToString();
-                        MainDateLabel.Text = "Date: " + MainLeftDataGridView.CurrentRow.Cells[2].Value.ToString().Substring(0, 10);
+                        MainDateLabel.Text = "Date: " + DateTime.Parse(MainLeftDataGridView.CurrentRow.Cells[2].Value.ToString()).ToString("dddd, dd MMMM yyyy");
                         MainItemcodeLabel.Text = "Itemcode: " + row.Cells[1].Value.ToString();
                         MainSampleWeightLabel.Text = "Sample Weight(g): " + row.Cells[2].Value.ToString();
                         //Set Current clicked
@@ -1287,7 +1287,14 @@ namespace Metal_Assay
                 LWDataGridView.CurrentRow.Cells[10].Value = LWAverageResultTextBox.Text;
                 LWDataGridView.CurrentRow.Cells[11].Value = LWLossContent.Text;
                 LWDataGridView.CurrentRow.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-
+                //Update FW Color
+                foreach (DataGridViewRow row in FWDataGridView.Rows)
+                {
+                    if (row.Cells[5].Value.ToString() == LWDataGridView.CurrentRow.Cells[12].Value.ToString())
+                    {
+                        row.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
+                    }
+                }
                 //Update Main Right Value
                 foreach (DataGridViewRow row in MainRightDataGridView.Rows)
                 {
@@ -2537,26 +2544,103 @@ namespace Metal_Assay
             }
         }
 
-
+        List<string> HistoryListboxItemList = new List<string>();
         //History
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
+            {
+                e.KeyChar -= (char)32;
+            }
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 40)
+            {
+                HistoryListbox.Focus();
+                HistoryListbox.SelectedIndex = 0;
+                e.SuppressKeyPress = true;
+
+            }
+            if (e.KeyValue == 13)
+            {
+                HistoryItemcodeTextbox.Focus();
+                e.SuppressKeyPress = true;
+
+            }
+        }
+        private void listBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                HistoryCustomerTextbox.Focus();
+                HistoryCustomerTextbox.Text = HistoryListbox.GetItemText(HistoryListbox.SelectedItem);
+                HistoryCustomerTextbox.SelectionStart = HistoryCustomerTextbox.Text.Length;
+                HistoryCustomerTextbox.SelectionLength = 0;
+                HistoryListbox.Visible = false;
+                e.SuppressKeyPress = true;
+
+            }
+            if (e.KeyValue == 38 && HistoryListbox.SelectedIndex == 0)
+            {
+                HistoryCustomerTextbox.Focus();
+                e.SuppressKeyPress = true;
+
+            }
+        }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (HistoryCustomerTextbox.Text == string.Empty)
+            {
+                HistoryListbox.Visible = false;
+                HistoryListbox.Items.Clear();
+                for (int i = 0; i < HistoryListboxItemList.Count; i++)
+                {
+                    HistoryListbox.Items.Add(HistoryListboxItemList[i]);
+                }
+            }
+            else
+            {
+                HistoryListbox.Items.Clear();
+                string search_str = HistoryCustomerTextbox.Text;
+                for (int i = 0; i < HistoryListboxItemList.Count; i++)
+                {
+                    if (HistoryListboxItemList[i].Contains(search_str))
+                    {
+                        HistoryListbox.Items.Add(HistoryListboxItemList[i]);
+                    }
+                }
+
+                HistoryListbox.Visible = true;
+                Cursor.Current = Cursors.Default;
+                HistoryListbox.SelectedIndex = -1;
+
+                //HistoryCustomerCombobox.Text = search_str;
+                //listBox1.Select(listBox1.Text.Length, 0);
+
+            }
+        }
         public void LoadHistoryCustomerList()
         {
             try
             {
-                HistoryCustomerCombobox.Items.Clear();
                 var con = new MySqlConnection(connection_string);
                 con.Open();
 
-                sql = "SELECT name FROM user WHERE role ='customer'";
+                sql = "SELECT name FROM user WHERE role ='customer' ORDER BY name ASC";
                 var cmd = new MySqlCommand(sql, con);
 
                 MySqlDataReader data_reader = cmd.ExecuteReader();
-                HistoryCustomerCombobox.Items.Clear();
+                HistoryListbox.Items.Clear();
+                HistoryListboxItemList.Clear();
                 if (data_reader.HasRows)
                 {
                     while (data_reader.Read())
                     {
-                        HistoryCustomerCombobox.Items.Add(data_reader.GetString("name"));
+                        HistoryListbox.Items.Add(data_reader.GetString("name"));
+                        HistoryListboxItemList.Add(data_reader.GetString("name"));
                     }
                 }
                 data_reader.Close();
@@ -2569,42 +2653,24 @@ namespace Metal_Assay
             }
         }
 
-        private void HistoryCustomerCombobox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyValue == 13)
-            {
-                SendKeys.Send("{TAB}");
-                e.SuppressKeyPress = true;
-
-            }
-        }
-
-        private void HistoryCustomerCombobox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
-            {
-                e.KeyChar -= (char)32;
-            }
-        }
-
         private void HistorySearchButton_Click(object sender, EventArgs e)
         {
             try
             {
 
-                if (HistoryCustomerCombobox.Text != "" && HistoryItemcodeTextbox.Text != "")
+                if (HistoryCustomerTextbox.Text != "" && HistoryItemcodeTextbox.Text != "")
                 {
-                    sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.created AS date, assayresult.fwa AS FWA, assayresult.fwb AS FWB, assayresult.lwa AS LWA, assayresult.lwb AS LWB, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn,assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE user.name = '{HistoryCustomerCombobox.Text}' AND assayresult.itemcode = '{HistoryItemcodeTextbox.Text}' ORDER BY assayresult.formcode DESC, assayresult.created DESC";
+                    sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.created AS date, assayresult.fwa AS FWA, assayresult.fwb AS FWB, assayresult.lwa AS LWA, assayresult.lwb AS LWB, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn,assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE user.name = '{HistoryCustomerTextbox.Text}' AND assayresult.itemcode = '{HistoryItemcodeTextbox.Text}' ORDER BY assayresult.formcode DESC, assayresult.created DESC";
                 }
-                else if (HistoryCustomerCombobox.Text != "" && HistoryItemcodeTextbox.Text == "")
+                else if (HistoryCustomerTextbox.Text != "" && HistoryItemcodeTextbox.Text == "")
                 {
-                    sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.created AS date, assayresult.fwa AS FWA, assayresult.fwb AS FWB, assayresult.lwa AS LWA, assayresult.lwb AS LWB, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE user.name = '{HistoryCustomerCombobox.Text}' ORDER BY assayresult.formcode DESC, assayresult.created DESC";
+                    sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.created AS date, assayresult.fwa AS FWA, assayresult.fwb AS FWB, assayresult.lwa AS LWA, assayresult.lwb AS LWB, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE user.name = '{HistoryCustomerTextbox.Text}' ORDER BY assayresult.formcode DESC, assayresult.created DESC";
                 }
-                else if (HistoryCustomerCombobox.Text == "" && HistoryItemcodeTextbox.Text != "")
+                else if (HistoryCustomerTextbox.Text == "" && HistoryItemcodeTextbox.Text != "")
                 {
                     sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.created AS date, assayresult.fwa AS FWA, assayresult.fwb AS FWB, assayresult.lwa AS LWA, assayresult.lwb AS LWB, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.itemcode = '{HistoryItemcodeTextbox.Text}' ORDER BY assayresult.formcode DESC, assayresult.created DESC";
                 }
-                else if (HistoryCustomerCombobox.Text == "" && HistoryItemcodeTextbox.Text == "")
+                else if (HistoryCustomerTextbox.Text == "" && HistoryItemcodeTextbox.Text == "")
                 {
                     MessageBox.Show("Please enter customer or itemcode for normal search.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -2698,7 +2764,7 @@ namespace Metal_Assay
                         {
                             HistoryDatagridViewRow.Cells[10].Value = data_reader.GetString("samplereturn");
                         }
-                        
+
                         HistoryDatagridViewRow.Cells[11].Value = data_reader.GetString("id");
 
                         History_rows.Add(HistoryDatagridViewRow);
@@ -2718,22 +2784,22 @@ namespace Metal_Assay
         {
             try
             {
-                if (HistoryCustomerCombobox.Text != "" && HistoryItemcodeTextbox.Text != "")
+                if (HistoryCustomerTextbox.Text != "" && HistoryItemcodeTextbox.Text != "")
                 {
                     return;
-                    sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn, assayresult.created AS date, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE user.name = '{HistoryCustomerCombobox.Text}' AND assayresult.itemcode = '{HistoryItemcodeTextbox.Text}' ORDER BY assayresult.formcode DESC, assayresult.created DESC";
+                    sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn, assayresult.created AS date, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE user.name = '{HistoryCustomerTextbox.Text}' AND assayresult.itemcode = '{HistoryItemcodeTextbox.Text}' ORDER BY assayresult.formcode DESC, assayresult.created DESC";
                 }
-                else if (HistoryCustomerCombobox.Text != "" && HistoryItemcodeTextbox.Text == "")
+                else if (HistoryCustomerTextbox.Text != "" && HistoryItemcodeTextbox.Text == "")
                 {
                     return;
-                    sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn, assayresult.created AS date, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE user.name = '{HistoryCustomerCombobox.Text}' ORDER BY assayresult.formcode DESC, assayresult.created DESC";
+                    sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn, assayresult.created AS date, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE user.name = '{HistoryCustomerTextbox.Text}' ORDER BY assayresult.formcode DESC, assayresult.created DESC";
                 }
-                else if (HistoryCustomerCombobox.Text == "" && HistoryItemcodeTextbox.Text != "")
+                else if (HistoryCustomerTextbox.Text == "" && HistoryItemcodeTextbox.Text != "")
                 {
                     return;
                     sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn, assayresult.created AS date, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.itemcode = '{HistoryItemcodeTextbox.Text}' ORDER BY assayresult.formcode DESC, assayresult.created DESC";
                 }
-                else if (HistoryCustomerCombobox.Text == "" && HistoryItemcodeTextbox.Text == "")
+                else if (HistoryCustomerTextbox.Text == "" && HistoryItemcodeTextbox.Text == "")
                 {
                     sql = $"SELECT user.name AS customer, spoilrecord.formcode AS formcode, spoilrecord.itemcode AS itemcode,  spoilrecord.created AS date, spoilrecord.fwa AS FWA, spoilrecord.fwb AS FWB, spoilrecord.lwa AS LWA, spoilrecord.lwb AS LWB, spoilrecord.finalresult AS finalresult, spoilrecord.sampleweight AS sampleweight, spoilrecord.samplereturn as samplereturn, spoilrecord.id AS id FROM spoilrecord INNER JOIN user ON spoilrecord.customer = user.id ORDER BY spoilrecord.formcode DESC, spoilrecord.created DESC LIMIT 1000";
                 }
@@ -2842,25 +2908,27 @@ namespace Metal_Assay
                 WriteToLogFile($"Exception: {ex.ToString()}");
             }
         }
-
+        //Customer Info
+        List<string> CustomerListboxItemList = new List<string>();
         public void LoadCustomerCustomerList()
         {
             try
             {
-                CustomerCustomerCombobox.Items.Clear();
                 var con = new MySqlConnection(connection_string);
                 con.Open();
 
-                sql = "SELECT name FROM user WHERE role ='customer'";
+                sql = "SELECT name FROM user WHERE role ='customer' ORDER BY name ASC";
                 var cmd = new MySqlCommand(sql, con);
 
                 MySqlDataReader data_reader = cmd.ExecuteReader();
-                CustomerCustomerCombobox.Items.Clear();
+                CustomerCustomerListbox.Items.Clear();
+                CustomerListboxItemList.Clear();
                 if (data_reader.HasRows)
                 {
                     while (data_reader.Read())
                     {
-                        CustomerCustomerCombobox.Items.Add(data_reader.GetString("name"));
+                        CustomerCustomerListbox.Items.Add(data_reader.GetString("name"));
+                        CustomerListboxItemList.Add(data_reader.GetString("name"));
                     }
                 }
                 data_reader.Close();
@@ -2872,6 +2940,7 @@ namespace Metal_Assay
                 WriteToLogFile($"Exception: {ex.ToString()}");
             }
         }
+
         public void LoadCustomerTable()
         {
             try
@@ -2941,7 +3010,7 @@ namespace Metal_Assay
         private void CustomerResetButton_Click(object sender, EventArgs e)
         {
             LoadCustomerTable();
-            CustomerCustomerCombobox.Text = "";
+            CustomerCustomerTextbox.Text = "";
         }
 
         private void CustomerNewButton_Click(object sender, EventArgs e)
@@ -2995,19 +3064,95 @@ namespace Metal_Assay
                 WriteToLogFile($"Exception: {ex.ToString()}");
             }
         }
+        private void CustomerCustomerTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (CustomerCustomerTextbox.Text == string.Empty)
+            {
+                CustomerCustomerListbox.Visible = false;
+                CustomerCustomerListbox.Items.Clear();
+                for (int i = 0; i < CustomerListboxItemList.Count; i++)
+                {
+                    CustomerCustomerListbox.Items.Add(CustomerListboxItemList[i]);
+                }
+            }
+            else
+            {
+                CustomerCustomerListbox.Items.Clear();
+                string search_str = CustomerCustomerTextbox.Text;
+                for (int i = 0; i < CustomerListboxItemList.Count; i++)
+                {
+                    if (CustomerListboxItemList[i].Contains(search_str))
+                    {
+                        CustomerCustomerListbox.Items.Add(CustomerListboxItemList[i]);
+                    }
+                }
 
+                CustomerCustomerListbox.Visible = true;
+                Cursor.Current = Cursors.Default;
+                CustomerCustomerListbox.SelectedIndex = -1;
+
+                //HistoryCustomerCombobox.Text = search_str;
+                //listBox1.Select(listBox1.Text.Length, 0);
+
+            }
+        }
+
+        private void CustomerCustomerTextbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 40)
+            {
+                CustomerCustomerListbox.Focus();
+                CustomerCustomerListbox.SelectedIndex = 0;
+                e.SuppressKeyPress = true;
+
+            }
+            if (e.KeyValue == 13)
+            {
+                CustomerSearchButton.Focus();
+                e.SuppressKeyPress = true;
+
+            }
+        }
+
+        private void CustomerCustomerTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar >= 'a' && e.KeyChar <= 'z')
+            {
+                e.KeyChar -= (char)32;
+            }
+        }
+
+        private void CustomerCustomerListbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                CustomerCustomerTextbox.Focus();
+                CustomerCustomerTextbox.Text = CustomerCustomerListbox.GetItemText(CustomerCustomerListbox.SelectedItem);
+                CustomerCustomerTextbox.SelectionStart = CustomerCustomerTextbox.Text.Length;
+                CustomerCustomerTextbox.SelectionLength = 0;
+                CustomerCustomerListbox.Visible = false;
+                e.SuppressKeyPress = true;
+
+            }
+            if (e.KeyValue == 38 && CustomerCustomerListbox.SelectedIndex == 0)
+            {
+                CustomerCustomerTextbox.Focus();
+                e.SuppressKeyPress = true;
+
+            }
+        }
         private void CustomerSearchButton_Click(object sender, EventArgs e)
         {
             try
             {
-                if (CustomerCustomerCombobox.Text == "")
+                if (CustomerCustomerTextbox.Text == "")
                 {
                     return;
                 }
 
                 var con = new MySqlConnection(connection_string);
                 con.Open();
-                sql = $"SELECT name, phone, email, fax, area, billing, coupon FROM user WHERE role ='customer' AND name='{CustomerCustomerCombobox.Text}' ORDER BY name, created";
+                sql = $"SELECT name, phone, email, fax, area, billing, coupon FROM user WHERE role ='customer' AND name='{CustomerCustomerTextbox.Text}' ORDER BY name, created";
                 var cmd = new MySqlCommand(sql, con);
 
                 MySqlDataReader data_reader = cmd.ExecuteReader();
@@ -3476,15 +3621,16 @@ namespace Metal_Assay
                 row.Selected = true;
                 HistoryContextMenuStrip.Show(this, PointToClient(Cursor.Position));
                 right_click_formcode = HistoryDataGridView.CurrentRow.Cells[1].Value.ToString();
-                right_click_id = HistoryDataGridView.CurrentRow.Cells[7].Value.ToString();
-                right_click_date = HistoryDataGridView.CurrentRow.Cells[6].Value.ToString();
+                right_click_id = HistoryDataGridView.CurrentRow.Cells[11].Value.ToString();
+                right_click_date = HistoryDataGridView.CurrentRow.Cells[3].Value.ToString();
                 right_click_source = "History";
-                right_click_customer = SRDataGridView.CurrentRow.Cells[0].Value.ToString();
+                right_click_customer = HistoryDataGridView.CurrentRow.Cells[0].Value.ToString();
             }
         }
 
         private void HistorySaveFormCodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            right_click_source = "History";
             string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} ORDER BY assayresult.created;";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
@@ -3494,6 +3640,7 @@ namespace Metal_Assay
             //Open Preview
             previewForm.PreviewActionButton.Text = "SAVE";
             previewForm.customer = right_click_customer;
+            Debug.WriteLine(right_click_customer);
             previewForm.pdf_count = 1;
             previewForm.ItemcodeList = ItemcodeList;
             previewForm.button_enable = true;
@@ -3502,6 +3649,7 @@ namespace Metal_Assay
 
         private void HistorySaveItemsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            right_click_source = "History";
             string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id};";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
@@ -3519,6 +3667,7 @@ namespace Metal_Assay
 
         private void HistorySaveSplitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            right_click_source = "History";
             ChooseItemForm chooseItemForm = new ChooseItemForm(this);
             chooseItemForm.customer = right_click_customer;
             chooseItemForm.formcode = right_click_formcode;
@@ -3531,6 +3680,7 @@ namespace Metal_Assay
 
         private void HistorySaveMultipleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            right_click_source = "History";
             ChooseItemForm chooseItemForm = new ChooseItemForm(this);
             chooseItemForm.customer = right_click_customer;
             chooseItemForm.formcode = right_click_formcode;
@@ -3543,6 +3693,7 @@ namespace Metal_Assay
 
         private void HistoryFaxFormCodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            right_click_source = "History";
             string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} ORDER BY assayresult.created;";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
@@ -3595,6 +3746,7 @@ namespace Metal_Assay
 
         private void HistoryFaxItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            right_click_source = "History";
             string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id};";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
@@ -3647,7 +3799,7 @@ namespace Metal_Assay
 
         private void HistoryFaxSplitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            right_click_source = "LW";
+            right_click_source = "History";
             ChooseItemForm chooseItemForm = new ChooseItemForm(this);
             chooseItemForm.customer = right_click_customer;
             chooseItemForm.formcode = right_click_formcode;
@@ -3660,6 +3812,7 @@ namespace Metal_Assay
 
         private void HistoryFaxMultipleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            right_click_source = "History";
             ChooseItemForm chooseItemForm = new ChooseItemForm(this);
             chooseItemForm.customer = right_click_customer;
             chooseItemForm.formcode = right_click_formcode;
@@ -3672,6 +3825,7 @@ namespace Metal_Assay
 
         private void HistoryPrintFormcodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            right_click_source = "History";
             string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} ORDER BY assayresult.created;";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
@@ -3689,6 +3843,7 @@ namespace Metal_Assay
 
         private void HistoryPrintItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            right_click_source = "History";
             string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id};";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
@@ -3706,6 +3861,7 @@ namespace Metal_Assay
 
         private void HistoryPrintSplitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            right_click_source = "History";
             ChooseItemForm chooseItemForm = new ChooseItemForm(this);
             chooseItemForm.customer = right_click_customer;
             chooseItemForm.formcode = right_click_formcode;
@@ -3718,6 +3874,7 @@ namespace Metal_Assay
 
         private void HistoryPrintMultipleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            right_click_source = "History";
             ChooseItemForm chooseItemForm = new ChooseItemForm(this);
             chooseItemForm.customer = right_click_customer;
             chooseItemForm.formcode = right_click_formcode;
@@ -3730,6 +3887,7 @@ namespace Metal_Assay
 
         private void HistoryEmailFormcodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            right_click_source = "History";
             string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} ORDER BY assayresult.created;";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
@@ -3782,6 +3940,7 @@ namespace Metal_Assay
 
         private void HistoryEmailItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            right_click_source = "History";
             string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id};";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
@@ -3834,6 +3993,7 @@ namespace Metal_Assay
 
         private void HistoryEmailSplitToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            right_click_source = "History";
             ChooseItemForm chooseItemForm = new ChooseItemForm(this);
             chooseItemForm.customer = right_click_customer;
             chooseItemForm.formcode = right_click_formcode;
@@ -3846,6 +4006,7 @@ namespace Metal_Assay
 
         private void HistoryEmailMultipleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            right_click_source = "History";
             ChooseItemForm chooseItemForm = new ChooseItemForm(this);
             chooseItemForm.customer = right_click_customer;
             chooseItemForm.formcode = right_click_formcode;
@@ -4449,6 +4610,6 @@ namespace Metal_Assay
             }
         }
 
-
+        
     }
 }

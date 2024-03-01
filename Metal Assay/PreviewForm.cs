@@ -102,7 +102,7 @@ namespace Metal_Assay
                 {
                     try
                     {
-                        File.Copy($"temp/{i}.pdf", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"{customer.Replace("/", " ")} {ItemcodeList[i].Replace("/", " ")} {DateTime.Now.ToString("yyMMdd HHmmss")}.pdf"), true);
+                        File.Copy($"temp/{i}.pdf", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"{customer.Replace("/", " ").Replace(":", " ")} {ItemcodeList[i].Replace("/", " ").Replace(":", " ")} {DateTime.Now.ToString("yyMMdd HHmmss")}.pdf"), true);
                         File.Delete($"temp/{i}.pdf");
                         WriteToLogFile($"Saved PDF: {customer.Replace("/", " ")} {ItemcodeList[i].Replace("/", " ")} {DateTime.Now.ToString("yyMMdd HHmmss")}.pdf");
                     }

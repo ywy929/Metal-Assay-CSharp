@@ -36,9 +36,10 @@
             this.NewSampleWeightLabel = new System.Windows.Forms.Label();
             this.NewItemcodeTextbox = new System.Windows.Forms.TextBox();
             this.NewSampleWeightTextbox = new System.Windows.Forms.TextBox();
-            this.NewCustomerCombobox = new System.Windows.Forms.ComboBox();
             this.NewFormCodeContent = new System.Windows.Forms.Label();
             this.NewDateContent = new System.Windows.Forms.Label();
+            this.NewCustomerListbox = new System.Windows.Forms.ListBox();
+            this.NewCustomerTextbox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // NewFormCodeButton
@@ -122,19 +123,6 @@
             this.NewSampleWeightTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NewSampleWeightTextbox_KeyDown);
             this.NewSampleWeightTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Decimal_Validation);
             // 
-            // NewCustomerCombobox
-            // 
-            this.NewCustomerCombobox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.NewCustomerCombobox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.NewCustomerCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NewCustomerCombobox.FormattingEnabled = true;
-            this.NewCustomerCombobox.Location = new System.Drawing.Point(128, 170);
-            this.NewCustomerCombobox.Name = "NewCustomerCombobox";
-            this.NewCustomerCombobox.Size = new System.Drawing.Size(436, 33);
-            this.NewCustomerCombobox.TabIndex = 9;
-            this.NewCustomerCombobox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NewCustomerCombobox_KeyPress);
-            this.NewCustomerCombobox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.NewCustomerCombobox_KeyUp);
-            // 
             // NewFormCodeContent
             // 
             this.NewFormCodeContent.AutoSize = true;
@@ -153,14 +141,38 @@
             this.NewDateContent.Size = new System.Drawing.Size(0, 25);
             this.NewDateContent.TabIndex = 11;
             // 
+            // NewCustomerListbox
+            // 
+            this.NewCustomerListbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewCustomerListbox.FormattingEnabled = true;
+            this.NewCustomerListbox.ItemHeight = 20;
+            this.NewCustomerListbox.Location = new System.Drawing.Point(127, 210);
+            this.NewCustomerListbox.Name = "NewCustomerListbox";
+            this.NewCustomerListbox.Size = new System.Drawing.Size(437, 124);
+            this.NewCustomerListbox.TabIndex = 34;
+            this.NewCustomerListbox.Visible = false;
+            this.NewCustomerListbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NewCustomerListbox_KeyDown);
+            // 
+            // NewCustomerTextbox
+            // 
+            this.NewCustomerTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NewCustomerTextbox.Location = new System.Drawing.Point(128, 173);
+            this.NewCustomerTextbox.Name = "NewCustomerTextbox";
+            this.NewCustomerTextbox.Size = new System.Drawing.Size(436, 31);
+            this.NewCustomerTextbox.TabIndex = 33;
+            this.NewCustomerTextbox.TextChanged += new System.EventHandler(this.NewCustomerTextbox_TextChanged);
+            this.NewCustomerTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NewCustomerTextbox_KeyDown);
+            this.NewCustomerTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.NewCustomerTextbox_KeyPress);
+            // 
             // NewForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(576, 337);
+            this.ClientSize = new System.Drawing.Size(576, 354);
+            this.Controls.Add(this.NewCustomerListbox);
+            this.Controls.Add(this.NewCustomerTextbox);
             this.Controls.Add(this.NewDateContent);
             this.Controls.Add(this.NewFormCodeContent);
-            this.Controls.Add(this.NewCustomerCombobox);
             this.Controls.Add(this.NewSampleWeightTextbox);
             this.Controls.Add(this.NewItemcodeTextbox);
             this.Controls.Add(this.NewSampleWeightLabel);
@@ -170,7 +182,7 @@
             this.Controls.Add(this.NewFormCodeLabel);
             this.Controls.Add(this.NewFormCodeButton);
             this.Name = "NewForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "New";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.Shown += new System.EventHandler(this.NewForm_Shown);
@@ -189,8 +201,9 @@
         private System.Windows.Forms.Label NewSampleWeightLabel;
         private System.Windows.Forms.TextBox NewItemcodeTextbox;
         private System.Windows.Forms.TextBox NewSampleWeightTextbox;
-        private System.Windows.Forms.ComboBox NewCustomerCombobox;
         private System.Windows.Forms.Label NewFormCodeContent;
         private System.Windows.Forms.Label NewDateContent;
+        private System.Windows.Forms.ListBox NewCustomerListbox;
+        private System.Windows.Forms.TextBox NewCustomerTextbox;
     }
 }

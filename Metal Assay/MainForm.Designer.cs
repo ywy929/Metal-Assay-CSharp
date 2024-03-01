@@ -151,15 +151,30 @@
             this.SampleReturnCustomerContentLabel = new System.Windows.Forms.Label();
             this.SampleReturnCustomerLabel = new System.Windows.Forms.Label();
             this.HistoryTab = new System.Windows.Forms.TabPage();
+            this.HistoryListbox = new System.Windows.Forms.ListBox();
+            this.HistoryCustomerTextbox = new System.Windows.Forms.TextBox();
             this.HistorySearchSpoilButton = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.HistoryDataGridView = new System.Windows.Forms.DataGridView();
-            this.HistoryCustomerCombobox = new System.Windows.Forms.ComboBox();
+            this.HistoryDataGridViewCustomerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewFormcodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewItemcodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewFWAColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewFWBColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewLWAColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewLWBColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewResultColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewSampleWeightColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewSampleReturnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HistorySearchButton = new System.Windows.Forms.Button();
             this.HistoryItemcodeTextbox = new System.Windows.Forms.TextBox();
             this.HistoryItemcodeLabel = new System.Windows.Forms.Label();
             this.HIstoryCustomerLabel = new System.Windows.Forms.Label();
             this.CustomerTab = new System.Windows.Forms.TabPage();
+            this.CustomerCustomerListbox = new System.Windows.Forms.ListBox();
+            this.CustomerCustomerTextbox = new System.Windows.Forms.TextBox();
             this.CustomerResetButton = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.CustomerDataGridView = new System.Windows.Forms.DataGridView();
@@ -173,7 +188,6 @@
             this.CustomerSearchButton = new System.Windows.Forms.Button();
             this.CustomerDeleteButton = new System.Windows.Forms.Button();
             this.CustomerEditButton = new System.Windows.Forms.Button();
-            this.CustomerCustomerCombobox = new System.Windows.Forms.ComboBox();
             this.CustomerNewButton = new System.Windows.Forms.Button();
             this.CustomerCustomerLabel = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -225,18 +239,6 @@
             this.FWBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.LWBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.SRBackgroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.HistoryDataGridViewCustomerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewFormcodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewItemcodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewFWAColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewFWBColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewLWAColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewLWBColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewResultColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewSampleWeightColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewSampleReturnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.MainRightDataGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -303,7 +305,7 @@
             // 
             this.MainItemcodeLabel.AutoSize = true;
             this.MainItemcodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MainItemcodeLabel.Location = new System.Drawing.Point(295, 67);
+            this.MainItemcodeLabel.Location = new System.Drawing.Point(481, 67);
             this.MainItemcodeLabel.Name = "MainItemcodeLabel";
             this.MainItemcodeLabel.Size = new System.Drawing.Size(113, 29);
             this.MainItemcodeLabel.TabIndex = 3;
@@ -313,7 +315,7 @@
             // 
             this.MainSampleWeightLabel.AutoSize = true;
             this.MainSampleWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MainSampleWeightLabel.Location = new System.Drawing.Point(618, 67);
+            this.MainSampleWeightLabel.Location = new System.Drawing.Point(804, 67);
             this.MainSampleWeightLabel.Name = "MainSampleWeightLabel";
             this.MainSampleWeightLabel.Size = new System.Drawing.Size(213, 29);
             this.MainSampleWeightLabel.TabIndex = 4;
@@ -1534,9 +1536,10 @@
             // 
             // HistoryTab
             // 
+            this.HistoryTab.Controls.Add(this.HistoryListbox);
+            this.HistoryTab.Controls.Add(this.HistoryCustomerTextbox);
             this.HistoryTab.Controls.Add(this.HistorySearchSpoilButton);
             this.HistoryTab.Controls.Add(this.panel6);
-            this.HistoryTab.Controls.Add(this.HistoryCustomerCombobox);
             this.HistoryTab.Controls.Add(this.HistorySearchButton);
             this.HistoryTab.Controls.Add(this.HistoryItemcodeTextbox);
             this.HistoryTab.Controls.Add(this.HistoryItemcodeLabel);
@@ -1548,6 +1551,28 @@
             this.HistoryTab.TabIndex = 4;
             this.HistoryTab.Text = "History";
             this.HistoryTab.UseVisualStyleBackColor = true;
+            // 
+            // HistoryListbox
+            // 
+            this.HistoryListbox.FormattingEnabled = true;
+            this.HistoryListbox.ItemHeight = 20;
+            this.HistoryListbox.Location = new System.Drawing.Point(20, 74);
+            this.HistoryListbox.Name = "HistoryListbox";
+            this.HistoryListbox.Size = new System.Drawing.Size(251, 384);
+            this.HistoryListbox.TabIndex = 28;
+            this.HistoryListbox.Visible = false;
+            this.HistoryListbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listBox1_KeyDown);
+            // 
+            // HistoryCustomerTextbox
+            // 
+            this.HistoryCustomerTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HistoryCustomerTextbox.Location = new System.Drawing.Point(20, 37);
+            this.HistoryCustomerTextbox.Name = "HistoryCustomerTextbox";
+            this.HistoryCustomerTextbox.Size = new System.Drawing.Size(251, 31);
+            this.HistoryCustomerTextbox.TabIndex = 27;
+            this.HistoryCustomerTextbox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.HistoryCustomerTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
+            this.HistoryCustomerTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // HistorySearchSpoilButton
             // 
@@ -1602,18 +1627,84 @@
             this.HistoryDataGridView.TabIndex = 11;
             this.HistoryDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.HistoryDataGridView_CellMouseDown);
             // 
-            // HistoryCustomerCombobox
+            // HistoryDataGridViewCustomerColumn
             // 
-            this.HistoryCustomerCombobox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.HistoryCustomerCombobox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.HistoryCustomerCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HistoryCustomerCombobox.FormattingEnabled = true;
-            this.HistoryCustomerCombobox.Location = new System.Drawing.Point(20, 37);
-            this.HistoryCustomerCombobox.Name = "HistoryCustomerCombobox";
-            this.HistoryCustomerCombobox.Size = new System.Drawing.Size(251, 33);
-            this.HistoryCustomerCombobox.TabIndex = 20;
-            this.HistoryCustomerCombobox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HistoryCustomerCombobox_KeyDown);
-            this.HistoryCustomerCombobox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.HistoryCustomerCombobox_KeyPress);
+            this.HistoryDataGridViewCustomerColumn.HeaderText = "Customer";
+            this.HistoryDataGridViewCustomerColumn.Name = "HistoryDataGridViewCustomerColumn";
+            this.HistoryDataGridViewCustomerColumn.ReadOnly = true;
+            this.HistoryDataGridViewCustomerColumn.Width = 310;
+            // 
+            // HistoryDataGridViewFormcodeColumn
+            // 
+            this.HistoryDataGridViewFormcodeColumn.HeaderText = "Formcode";
+            this.HistoryDataGridViewFormcodeColumn.Name = "HistoryDataGridViewFormcodeColumn";
+            this.HistoryDataGridViewFormcodeColumn.ReadOnly = true;
+            this.HistoryDataGridViewFormcodeColumn.Width = 130;
+            // 
+            // HistoryDataGridViewItemcodeColumn
+            // 
+            this.HistoryDataGridViewItemcodeColumn.HeaderText = "ItemCode";
+            this.HistoryDataGridViewItemcodeColumn.Name = "HistoryDataGridViewItemcodeColumn";
+            this.HistoryDataGridViewItemcodeColumn.ReadOnly = true;
+            this.HistoryDataGridViewItemcodeColumn.Width = 170;
+            // 
+            // HistoryDataGridViewDateColumn
+            // 
+            this.HistoryDataGridViewDateColumn.HeaderText = "Date";
+            this.HistoryDataGridViewDateColumn.Name = "HistoryDataGridViewDateColumn";
+            this.HistoryDataGridViewDateColumn.ReadOnly = true;
+            this.HistoryDataGridViewDateColumn.Width = 150;
+            // 
+            // HistoryDataGridViewFWAColumn
+            // 
+            this.HistoryDataGridViewFWAColumn.HeaderText = "FWA";
+            this.HistoryDataGridViewFWAColumn.Name = "HistoryDataGridViewFWAColumn";
+            this.HistoryDataGridViewFWAColumn.ReadOnly = true;
+            // 
+            // HistoryDataGridViewFWBColumn
+            // 
+            this.HistoryDataGridViewFWBColumn.HeaderText = "FWB";
+            this.HistoryDataGridViewFWBColumn.Name = "HistoryDataGridViewFWBColumn";
+            this.HistoryDataGridViewFWBColumn.ReadOnly = true;
+            // 
+            // HistoryDataGridViewLWAColumn
+            // 
+            this.HistoryDataGridViewLWAColumn.HeaderText = "LWA";
+            this.HistoryDataGridViewLWAColumn.Name = "HistoryDataGridViewLWAColumn";
+            this.HistoryDataGridViewLWAColumn.ReadOnly = true;
+            // 
+            // HistoryDataGridViewLWBColumn
+            // 
+            this.HistoryDataGridViewLWBColumn.HeaderText = "LWB";
+            this.HistoryDataGridViewLWBColumn.Name = "HistoryDataGridViewLWBColumn";
+            this.HistoryDataGridViewLWBColumn.ReadOnly = true;
+            // 
+            // HistoryDataGridViewResultColumn
+            // 
+            this.HistoryDataGridViewResultColumn.HeaderText = "Result";
+            this.HistoryDataGridViewResultColumn.Name = "HistoryDataGridViewResultColumn";
+            this.HistoryDataGridViewResultColumn.ReadOnly = true;
+            // 
+            // HistoryDataGridViewSampleWeightColumn
+            // 
+            this.HistoryDataGridViewSampleWeightColumn.HeaderText = "S. Weight";
+            this.HistoryDataGridViewSampleWeightColumn.Name = "HistoryDataGridViewSampleWeightColumn";
+            this.HistoryDataGridViewSampleWeightColumn.ReadOnly = true;
+            this.HistoryDataGridViewSampleWeightColumn.Width = 125;
+            // 
+            // HistoryDataGridViewSampleReturnColumn
+            // 
+            this.HistoryDataGridViewSampleReturnColumn.HeaderText = "S. Return";
+            this.HistoryDataGridViewSampleReturnColumn.Name = "HistoryDataGridViewSampleReturnColumn";
+            this.HistoryDataGridViewSampleReturnColumn.ReadOnly = true;
+            this.HistoryDataGridViewSampleReturnColumn.Width = 125;
+            // 
+            // HistoryDataGridViewIDColumn
+            // 
+            this.HistoryDataGridViewIDColumn.HeaderText = "ID";
+            this.HistoryDataGridViewIDColumn.Name = "HistoryDataGridViewIDColumn";
+            this.HistoryDataGridViewIDColumn.ReadOnly = true;
+            this.HistoryDataGridViewIDColumn.Visible = false;
             // 
             // HistorySearchButton
             // 
@@ -1656,12 +1747,13 @@
             // 
             // CustomerTab
             // 
+            this.CustomerTab.Controls.Add(this.CustomerCustomerListbox);
+            this.CustomerTab.Controls.Add(this.CustomerCustomerTextbox);
             this.CustomerTab.Controls.Add(this.CustomerResetButton);
             this.CustomerTab.Controls.Add(this.panel7);
             this.CustomerTab.Controls.Add(this.CustomerSearchButton);
             this.CustomerTab.Controls.Add(this.CustomerDeleteButton);
             this.CustomerTab.Controls.Add(this.CustomerEditButton);
-            this.CustomerTab.Controls.Add(this.CustomerCustomerCombobox);
             this.CustomerTab.Controls.Add(this.CustomerNewButton);
             this.CustomerTab.Controls.Add(this.CustomerCustomerLabel);
             this.CustomerTab.Location = new System.Drawing.Point(4, 29);
@@ -1671,6 +1763,28 @@
             this.CustomerTab.TabIndex = 5;
             this.CustomerTab.Text = "Customer";
             this.CustomerTab.UseVisualStyleBackColor = true;
+            // 
+            // CustomerCustomerListbox
+            // 
+            this.CustomerCustomerListbox.FormattingEnabled = true;
+            this.CustomerCustomerListbox.ItemHeight = 20;
+            this.CustomerCustomerListbox.Location = new System.Drawing.Point(14, 308);
+            this.CustomerCustomerListbox.Name = "CustomerCustomerListbox";
+            this.CustomerCustomerListbox.Size = new System.Drawing.Size(251, 384);
+            this.CustomerCustomerListbox.TabIndex = 32;
+            this.CustomerCustomerListbox.Visible = false;
+            this.CustomerCustomerListbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CustomerCustomerListbox_KeyDown);
+            // 
+            // CustomerCustomerTextbox
+            // 
+            this.CustomerCustomerTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomerCustomerTextbox.Location = new System.Drawing.Point(14, 271);
+            this.CustomerCustomerTextbox.Name = "CustomerCustomerTextbox";
+            this.CustomerCustomerTextbox.Size = new System.Drawing.Size(251, 31);
+            this.CustomerCustomerTextbox.TabIndex = 31;
+            this.CustomerCustomerTextbox.TextChanged += new System.EventHandler(this.CustomerCustomerTextbox_TextChanged);
+            this.CustomerCustomerTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CustomerCustomerTextbox_KeyDown);
+            this.CustomerCustomerTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CustomerCustomerTextbox_KeyPress);
             // 
             // CustomerResetButton
             // 
@@ -1799,17 +1913,6 @@
             this.CustomerEditButton.Text = "EDIT";
             this.CustomerEditButton.UseVisualStyleBackColor = true;
             this.CustomerEditButton.Click += new System.EventHandler(this.CustomerEditButton_Click);
-            // 
-            // CustomerCustomerCombobox
-            // 
-            this.CustomerCustomerCombobox.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.CustomerCustomerCombobox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CustomerCustomerCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomerCustomerCombobox.FormattingEnabled = true;
-            this.CustomerCustomerCombobox.Location = new System.Drawing.Point(20, 271);
-            this.CustomerCustomerCombobox.Name = "CustomerCustomerCombobox";
-            this.CustomerCustomerCombobox.Size = new System.Drawing.Size(230, 33);
-            this.CustomerCustomerCombobox.TabIndex = 25;
             // 
             // CustomerNewButton
             // 
@@ -2196,85 +2299,6 @@
             // 
             this.SRBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.SRBackgroundWorker_DoWork);
             // 
-            // HistoryDataGridViewCustomerColumn
-            // 
-            this.HistoryDataGridViewCustomerColumn.HeaderText = "Customer";
-            this.HistoryDataGridViewCustomerColumn.Name = "HistoryDataGridViewCustomerColumn";
-            this.HistoryDataGridViewCustomerColumn.ReadOnly = true;
-            this.HistoryDataGridViewCustomerColumn.Width = 310;
-            // 
-            // HistoryDataGridViewFormcodeColumn
-            // 
-            this.HistoryDataGridViewFormcodeColumn.HeaderText = "Formcode";
-            this.HistoryDataGridViewFormcodeColumn.Name = "HistoryDataGridViewFormcodeColumn";
-            this.HistoryDataGridViewFormcodeColumn.ReadOnly = true;
-            this.HistoryDataGridViewFormcodeColumn.Width = 130;
-            // 
-            // HistoryDataGridViewItemcodeColumn
-            // 
-            this.HistoryDataGridViewItemcodeColumn.HeaderText = "ItemCode";
-            this.HistoryDataGridViewItemcodeColumn.Name = "HistoryDataGridViewItemcodeColumn";
-            this.HistoryDataGridViewItemcodeColumn.ReadOnly = true;
-            this.HistoryDataGridViewItemcodeColumn.Width = 170;
-            // 
-            // HistoryDataGridViewDateColumn
-            // 
-            this.HistoryDataGridViewDateColumn.HeaderText = "Date";
-            this.HistoryDataGridViewDateColumn.Name = "HistoryDataGridViewDateColumn";
-            this.HistoryDataGridViewDateColumn.ReadOnly = true;
-            this.HistoryDataGridViewDateColumn.Width = 150;
-            // 
-            // HistoryDataGridViewFWAColumn
-            // 
-            this.HistoryDataGridViewFWAColumn.HeaderText = "FWA";
-            this.HistoryDataGridViewFWAColumn.Name = "HistoryDataGridViewFWAColumn";
-            this.HistoryDataGridViewFWAColumn.ReadOnly = true;
-            // 
-            // HistoryDataGridViewFWBColumn
-            // 
-            this.HistoryDataGridViewFWBColumn.HeaderText = "FWB";
-            this.HistoryDataGridViewFWBColumn.Name = "HistoryDataGridViewFWBColumn";
-            this.HistoryDataGridViewFWBColumn.ReadOnly = true;
-            // 
-            // HistoryDataGridViewLWAColumn
-            // 
-            this.HistoryDataGridViewLWAColumn.HeaderText = "LWA";
-            this.HistoryDataGridViewLWAColumn.Name = "HistoryDataGridViewLWAColumn";
-            this.HistoryDataGridViewLWAColumn.ReadOnly = true;
-            // 
-            // HistoryDataGridViewLWBColumn
-            // 
-            this.HistoryDataGridViewLWBColumn.HeaderText = "LWB";
-            this.HistoryDataGridViewLWBColumn.Name = "HistoryDataGridViewLWBColumn";
-            this.HistoryDataGridViewLWBColumn.ReadOnly = true;
-            // 
-            // HistoryDataGridViewResultColumn
-            // 
-            this.HistoryDataGridViewResultColumn.HeaderText = "Result";
-            this.HistoryDataGridViewResultColumn.Name = "HistoryDataGridViewResultColumn";
-            this.HistoryDataGridViewResultColumn.ReadOnly = true;
-            // 
-            // HistoryDataGridViewSampleWeightColumn
-            // 
-            this.HistoryDataGridViewSampleWeightColumn.HeaderText = "S. Weight";
-            this.HistoryDataGridViewSampleWeightColumn.Name = "HistoryDataGridViewSampleWeightColumn";
-            this.HistoryDataGridViewSampleWeightColumn.ReadOnly = true;
-            this.HistoryDataGridViewSampleWeightColumn.Width = 125;
-            // 
-            // HistoryDataGridViewSampleReturnColumn
-            // 
-            this.HistoryDataGridViewSampleReturnColumn.HeaderText = "S. Return";
-            this.HistoryDataGridViewSampleReturnColumn.Name = "HistoryDataGridViewSampleReturnColumn";
-            this.HistoryDataGridViewSampleReturnColumn.ReadOnly = true;
-            this.HistoryDataGridViewSampleReturnColumn.Width = 125;
-            // 
-            // HistoryDataGridViewIDColumn
-            // 
-            this.HistoryDataGridViewIDColumn.HeaderText = "ID";
-            this.HistoryDataGridViewIDColumn.Name = "HistoryDataGridViewIDColumn";
-            this.HistoryDataGridViewIDColumn.ReadOnly = true;
-            this.HistoryDataGridViewIDColumn.Visible = false;
-            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2427,7 +2451,6 @@
         private System.Windows.Forms.TextBox HistoryItemcodeTextbox;
         private System.Windows.Forms.Label HistoryItemcodeLabel;
         private System.Windows.Forms.Label HIstoryCustomerLabel;
-        private System.Windows.Forms.ComboBox HistoryCustomerCombobox;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.DataGridView HistoryDataGridView;
         private System.Windows.Forms.Panel panel7;
@@ -2442,7 +2465,6 @@
         private System.Windows.Forms.Button CustomerSearchButton;
         private System.Windows.Forms.Button CustomerDeleteButton;
         private System.Windows.Forms.Button CustomerEditButton;
-        private System.Windows.Forms.ComboBox CustomerCustomerCombobox;
         private System.Windows.Forms.Button CustomerNewButton;
         private System.Windows.Forms.Label CustomerCustomerLabel;
         private System.Windows.Forms.Button CustomerResetButton;
@@ -2538,6 +2560,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewSampleWeightColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewSampleReturnColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewIDColumn;
+        private System.Windows.Forms.ListBox HistoryListbox;
+        private System.Windows.Forms.TextBox HistoryCustomerTextbox;
+        private System.Windows.Forms.ListBox CustomerCustomerListbox;
+        private System.Windows.Forms.TextBox CustomerCustomerTextbox;
     }
 }
 
