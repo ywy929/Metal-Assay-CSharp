@@ -26,7 +26,8 @@ namespace Metal_Assay
         public string formcode { get; set; }
         public string itemcode { get; set; }
         public string sample_weight { get; set; }
-        string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
+        string connection_string = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
+        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
         string sql = "";
         private void Form3_Load(object sender, EventArgs e)
         {

@@ -21,7 +21,8 @@ namespace Metal_Assay
             InitializeComponent();
             MainForm = mainForm;
         }
-        string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
+        string connection_string = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
+        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
         string sql = "";
         private void NewCustomer_Load(object sender, EventArgs e)
         {

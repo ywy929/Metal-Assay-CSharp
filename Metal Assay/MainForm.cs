@@ -17,6 +17,7 @@ using System.ComponentModel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Data;
 using System.Drawing;
+using System.Threading;
 namespace Metal_Assay
 {
     public partial class Main : Form
@@ -27,7 +28,8 @@ namespace Metal_Assay
         }
         //string connection_string = @"server=192.168.0.8;uid=view1;pwd=Assay123!;database=assay";
         //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
-        string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
+        string connection_string = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
+        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
         string sql = "";
 
         private void Form1_Load(object sender, EventArgs e)
@@ -110,6 +112,23 @@ namespace Metal_Assay
             if (tabControl1.SelectedTab == SampleReturnTab)
             {
                 SRPointToBlank();
+            }
+            if (tabControl1.SelectedTab == LogTab)
+            {
+                LoadDateIntoCombobox();
+            }
+        }
+        string logFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "log");
+        private void LoadDateIntoCombobox()
+        {
+            if (Directory.Exists(logFolderPath))
+            {
+                string[] logFiles = Directory.GetFiles(logFolderPath);
+
+                foreach (string file in logFiles)
+                {
+                    LogDateCombobox.Items.Add(Path.GetFileName(file));
+                }
             }
         }
 
@@ -448,7 +467,7 @@ namespace Metal_Assay
                     {
                         if (row.Cells[0].Value.ToString() == MainRightDataGridView.CurrentRow.Cells[0].Value.ToString())
                         {
-                            if (row.Cells[0].Value.ToString() == "1")
+                            if (row.Cells[1].Value.ToString() == "1")
                             {
                                 MainLeftDataGridView.Rows.Remove(row);
                             }
@@ -2571,7 +2590,15 @@ namespace Metal_Assay
 
             }
         }
-        private void listBox1_KeyDown(object sender, KeyEventArgs e)
+        private void HistoryListbox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            HistoryCustomerTextbox.Focus();
+            HistoryCustomerTextbox.Text = HistoryListbox.GetItemText(HistoryListbox.SelectedItem);
+            HistoryCustomerTextbox.SelectionStart = HistoryCustomerTextbox.Text.Length;
+            HistoryCustomerTextbox.SelectionLength = 0;
+            HistoryListbox.Visible = false;
+        }
+        private void HistoryListbox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == 13)
             {
@@ -2590,7 +2617,7 @@ namespace Metal_Assay
 
             }
         }
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void HistoryListbox_TextChanged(object sender, EventArgs e)
         {
             if (HistoryCustomerTextbox.Text == string.Empty)
             {
@@ -2786,18 +2813,15 @@ namespace Metal_Assay
             {
                 if (HistoryCustomerTextbox.Text != "" && HistoryItemcodeTextbox.Text != "")
                 {
-                    return;
-                    sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn, assayresult.created AS date, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE user.name = '{HistoryCustomerTextbox.Text}' AND assayresult.itemcode = '{HistoryItemcodeTextbox.Text}' ORDER BY assayresult.formcode DESC, assayresult.created DESC";
+                    sql = $"SELECT user.name AS customer, spoilrecord.formcode AS formcode, spoilrecord.itemcode AS itemcode,  spoilrecord.created AS date, spoilrecord.fwa AS FWA, spoilrecord.fwb AS FWB, spoilrecord.lwa AS LWA, spoilrecord.lwb AS LWB, spoilrecord.finalresult AS finalresult, spoilrecord.sampleweight AS sampleweight, spoilrecord.samplereturn as samplereturn, spoilrecord.id AS id FROM spoilrecord INNER JOIN user ON spoilrecord.customer = user.id WHERE user.name = '{HistoryCustomerTextbox.Text}' AND spoilrecord.itemcode = '{HistoryItemcodeTextbox.Text}' ORDER BY spoilrecord.formcode DESC, spoilrecord.created";
                 }
                 else if (HistoryCustomerTextbox.Text != "" && HistoryItemcodeTextbox.Text == "")
                 {
-                    return;
-                    sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn, assayresult.created AS date, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE user.name = '{HistoryCustomerTextbox.Text}' ORDER BY assayresult.formcode DESC, assayresult.created DESC";
+                    sql = $"SELECT user.name AS customer, spoilrecord.formcode AS formcode, spoilrecord.itemcode AS itemcode,  spoilrecord.created AS date, spoilrecord.fwa AS FWA, spoilrecord.fwb AS FWB, spoilrecord.lwa AS LWA, spoilrecord.lwb AS LWB, spoilrecord.finalresult AS finalresult, spoilrecord.sampleweight AS sampleweight, spoilrecord.samplereturn as samplereturn, spoilrecord.id AS id FROM spoilrecord INNER JOIN user ON spoilrecord.customer = user.id WHERE user.name = '{HistoryCustomerTextbox.Text}' ORDER BY spoilrecord.formcode DESC, spoilrecord.created";
                 }
                 else if (HistoryCustomerTextbox.Text == "" && HistoryItemcodeTextbox.Text != "")
                 {
-                    return;
-                    sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn, assayresult.created AS date, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.itemcode = '{HistoryItemcodeTextbox.Text}' ORDER BY assayresult.formcode DESC, assayresult.created DESC";
+                    sql = $"SELECT user.name AS customer, spoilrecord.formcode AS formcode, spoilrecord.itemcode AS itemcode,  spoilrecord.created AS date, spoilrecord.fwa AS FWA, spoilrecord.fwb AS FWB, spoilrecord.lwa AS LWA, spoilrecord.lwb AS LWB, spoilrecord.finalresult AS finalresult, spoilrecord.sampleweight AS sampleweight, spoilrecord.samplereturn as samplereturn, spoilrecord.id AS id FROM spoilrecord INNER JOIN user ON spoilrecord.customer = user.id WHERE spoilrecord.itemcode = '{HistoryItemcodeTextbox.Text}' ORDER BY spoilrecord.formcode DESC, spoilrecord.created";
                 }
                 else if (HistoryCustomerTextbox.Text == "" && HistoryItemcodeTextbox.Text == "")
                 {
@@ -3063,6 +3087,14 @@ namespace Metal_Assay
                 MessageBox.Show(ex.ToString());
                 WriteToLogFile($"Exception: {ex.ToString()}");
             }
+        }
+        private void CustomerCustomerListbox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            CustomerCustomerTextbox.Focus();
+            CustomerCustomerTextbox.Text = CustomerCustomerListbox.GetItemText(CustomerCustomerListbox.SelectedItem);
+            CustomerCustomerTextbox.SelectionStart = CustomerCustomerTextbox.Text.Length;
+            CustomerCustomerTextbox.SelectionLength = 0;
+            CustomerCustomerListbox.Visible = false;
         }
         private void CustomerCustomerTextbox_TextChanged(object sender, EventArgs e)
         {
@@ -4610,6 +4642,1842 @@ namespace Metal_Assay
             }
         }
 
-        
+        private void LWDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //Show Info
+                LWCustomerContent.Text = LWDataGridView.CurrentRow.Cells[0].Value.ToString();
+                LWItemcodeContent.Text = LWDataGridView.CurrentRow.Cells[1].Value.ToString();
+                LWFirstWeightATextBox.Text = LWDataGridView.CurrentRow.Cells[2].Value.ToString();
+                LWFirstWeightBTextBox.Text = LWDataGridView.CurrentRow.Cells[3].Value.ToString();
+                LWLastWeightATextBox.Text = LWDataGridView.CurrentRow.Cells[4].Value.ToString();
+                LWLastWeightBTextBox.Text = LWDataGridView.CurrentRow.Cells[5].Value.ToString();
+                LWPreresultATextBox.Text = LWDataGridView.CurrentRow.Cells[8].Value.ToString();
+                LWPreresultBTextBox.Text = LWDataGridView.CurrentRow.Cells[9].Value.ToString();
+                LWAverageResultTextBox.Text = LWDataGridView.CurrentRow.Cells[10].Value.ToString();
+                LWFinalResultTextBox.Text = LWDataGridView.CurrentRow.Cells[7].Value.ToString();
+                LWLossContent.Text = LWDataGridView.CurrentRow.Cells[11].Value.ToString();
+
+                if (LWLastWeightATextBox.Text != "" && LWLastWeightBTextBox.Text != "")
+                {
+                    LWLastWeightATextBox.Enabled = false;
+                    LWLastWeightBTextBox.Enabled = false;
+                    LWEditButton.Enabled = true;
+
+                }
+                else
+                {
+                    LWLastWeightATextBox.Enabled = true;
+                    LWLastWeightBTextBox.Enabled = true;
+                    LWLastWeightATextBox.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                WriteToLogFile($"Exception: {ex.ToString()}");
+            }
+        }
+
+        private void MainLeftDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //Show formcode at right table
+                foreach (DataGridViewRow row in MainRightDataGridView.Rows)
+                {
+                    if (row.Cells[0].Value.ToString() == MainLeftDataGridView.CurrentRow.Cells[0].Value.ToString())
+                    {
+                        MainRightDataGridView.ClearSelection();
+                        MainRightDataGridView.FirstDisplayedScrollingRowIndex = row.Index;
+                        MainRightDataGridView.CurrentCell = MainRightDataGridView.Rows[row.Cells[0].RowIndex].Cells[0];
+                        MainRightDataGridView_CellClick(this.MainRightDataGridView, new DataGridViewCellEventArgs(0, 0));
+                        row.Selected = true;
+                        //Show Info
+                        MainFormcodeLabel.Text = "Formcode: " + row.Cells[0].Value.ToString();
+                        MainCustomerLabel.Text = "Customer: " + MainLeftDataGridView.CurrentRow.Cells[3].Value.ToString();
+                        MainDateLabel.Text = "Date: " + DateTime.Parse(MainLeftDataGridView.CurrentRow.Cells[2].Value.ToString()).ToString("dddd, dd MMMM yyyy");
+                        MainItemcodeLabel.Text = "Itemcode: " + row.Cells[1].Value.ToString();
+                        MainSampleWeightLabel.Text = "Sample Weight(g): " + row.Cells[2].Value.ToString();
+                        //Set Current clicked
+                        left_selected_formcode = row.Cells[0].Value.ToString();
+                        right_selected_id = 0;
+                        break;
+                    }
+                }
+            }
+            catch
+            (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                WriteToLogFile($"Exception: {ex.ToString()}");
+            }
+        }
+
+        private void MainRightDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //Show Info
+                //Show formcode at right table
+                foreach (DataGridViewRow row in MainLeftDataGridView.Rows)
+                {
+                    if (row.Cells[0].Value.ToString() == MainRightDataGridView.CurrentRow.Cells[0].Value.ToString())
+                    {
+                        //Show Info
+                        MainFormcodeLabel.Text = "Formcode: " + row.Cells[0].Value.ToString();
+                        MainCustomerLabel.Text = "Customer: " + row.Cells[3].Value.ToString();
+                        MainDateLabel.Text = "Date: " + row.Cells[2].Value.ToString().Substring(0, 10);
+                        MainItemcodeLabel.Text = "Itemcode: " + MainRightDataGridView.CurrentRow.Cells[1].Value.ToString();
+                        MainSampleWeightLabel.Text = "Sample Weight(g): " + MainRightDataGridView.CurrentRow.Cells[2].Value.ToString();
+                        //Set Current clicked
+                        right_selected_id = int.Parse(MainRightDataGridView.CurrentRow.Cells[5].Value.ToString());
+                        left_selected_formcode = "";
+                        break;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                WriteToLogFile($"Exception: {ex.ToString()}");
+            }
+        }
+
+        private void FWDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //Show Info
+                FWCustomerContent.Text = FWDataGridView.CurrentRow.Cells[0].Value.ToString();
+                FWItemcodeContent.Text = FWDataGridView.CurrentRow.Cells[1].Value.ToString();
+                FWATextbox.Text = FWDataGridView.CurrentRow.Cells[2].Value.ToString();
+                FWBTextbox.Text = FWDataGridView.CurrentRow.Cells[3].Value.ToString();
+                FWSilverPctCombobox.Text = FWDataGridView.CurrentRow.Cells[4].Value.ToString();
+                if (FWATextbox.Text != "" && FWBTextbox.Text != "")
+                {
+                    FWATextbox.Enabled = false;
+                    FWBTextbox.Enabled = false;
+                    FWSilverPctCombobox.Enabled = false;
+                    FWSaveButton.Text = "Edit";
+
+                }
+                else
+                {
+                    FWATextbox.Enabled = true;
+                    FWBTextbox.Enabled = true;
+                    FWSilverPctCombobox.Enabled = true;
+                    FWSaveButton.Text = "Save";
+                    FWATextbox.Focus();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                WriteToLogFile($"Exception: {ex.ToString()}");
+            }
+        }
+
+        private void SRDataGridView_SelectionChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                //Show Info
+                SampleReturnCustomerContentLabel.Text = SRDataGridView.CurrentRow.Cells[0].Value.ToString();
+                SampleReturnItemcodeContentLabel.Text = SRDataGridView.CurrentRow.Cells[2].Value.ToString();
+                SampleReturnResultContentLabel.Text = SRDataGridView.CurrentRow.Cells[3].Value.ToString();
+                SampleReturnSampleWeightContentLabel.Text = SRDataGridView.CurrentRow.Cells[4].Value.ToString();
+                SampleReturnSampleReturnTextbox.Text = SRDataGridView.CurrentRow.Cells[5].Value.ToString();
+
+
+                if (SampleReturnSampleReturnTextbox.Text != "")
+                {
+                    SampleReturnSampleReturnTextbox.Enabled = false;
+                    SampleReturnSaveButton.Text = "EDIT";
+                }
+                else
+                {
+                    SampleReturnSampleReturnTextbox.Enabled = true;
+                    SampleReturnSaveButton.Text = "SAVE";
+                    SampleReturnSampleReturnTextbox.Focus();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                WriteToLogFile($"Exception: {ex.ToString()}");
+            }
+        }
+
+        private void CheckingA1LWTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingA1LWTextbox.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1Textbox.Text) != 0)
+                {
+
+                    CheckingA1FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingA1LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2Textbox.Text) != 0)
+                {
+                    CheckingA1SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingA1LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingA2LWTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingA2LWTextbox.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1Textbox.Text) != 0)
+                {
+                    CheckingA2FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingA2LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2Textbox.Text) != 0)
+                {
+                    CheckingA2SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingA2LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingB1LWTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingB1LWTextbox.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1Textbox.Text) != 0)
+                {
+                    CheckingB1FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingB1LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2Textbox.Text) != 0)
+                {
+                    CheckingB1SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingB1LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingB2LWTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingB2LWTextbox.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1Textbox.Text) != 0)
+                {
+                    CheckingB2FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingB2LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2Textbox.Text) != 0)
+                {
+                    CheckingB2SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingB2LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingC1LWTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingC1LWTextbox.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1Textbox.Text) != 0)
+                {
+                    CheckingC1FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingC1LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2Textbox.Text) != 0)
+                {
+                    CheckingC1SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingC1LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingC2LWTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingC2LWTextbox.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1Textbox.Text) != 0)
+                {
+                    CheckingC2FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingC2LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2Textbox.Text) != 0)
+                {
+                    CheckingC2SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingC2LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingD1LWTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingD1LWTextbox.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1Textbox.Text) != 0)
+                {
+                    CheckingD1FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingD1LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2Textbox.Text) != 0)
+                {
+                    CheckingD1SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingD1LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingD2LWTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingD2LWTextbox.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1Textbox.Text) != 0)
+                {
+                    CheckingD2FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingD2LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2Textbox.Text) != 0)
+                {
+                    CheckingD2SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingD2LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingE1LWTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingE1LWTextbox.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1Textbox.Text) != 0)
+                {
+                    CheckingE1FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingE1LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2Textbox.Text) != 0)
+                {
+                    CheckingE1SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingE1LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingE2LWTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingE2LWTextbox.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1Textbox.Text) != 0)
+                {
+                    CheckingE2FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingE2LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2Textbox.Text) != 0)
+                {
+                    CheckingE2SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingE2LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingF1LWTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingF1LWTextbox.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1Textbox.Text) != 0)
+                {
+                    CheckingF1FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingF1LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2Textbox.Text) != 0)
+                {
+                    CheckingF1SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingF1LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingF2LWTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingF2LWTextbox.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1Textbox.Text) != 0)
+                {
+                    CheckingF2FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingF2LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2Textbox.Text) != 0)
+                {
+                    CheckingF2SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingF2LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingG1LWTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingG1LWTextbox.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1Textbox.Text) != 0)
+                {
+                    CheckingG1FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingG1LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2Textbox.Text) != 0)
+                {
+                    CheckingG1SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingG1LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingG2LWTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingG2LWTextbox.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1Textbox.Text) != 0)
+                {
+                    CheckingG2FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingG2LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2Textbox.Text) != 0)
+                {
+                    CheckingG2SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingG2LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingFW1Textbox_TextChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(CheckingFW1Textbox.Text) == 0) return;
+            if (CheckingA1LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingA1LWTextbox.Text) != 0)
+                {
+                    CheckingA1FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingA1LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingA1FirstResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingA1FirstResultLabel.Text = "000.0";
+            }
+
+            if (CheckingA2LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingA2LWTextbox.Text) != 0)
+                {
+                    CheckingA2FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingA2LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingA2FirstResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingA2FirstResultLabel.Text = "000.0";
+            }
+
+            if (CheckingB1LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingB1LWTextbox.Text) != 0)
+                {
+                    CheckingB1FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingB1LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingB1FirstResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingB1FirstResultLabel.Text = "000.0";
+            }
+
+            if (CheckingB2LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingB2LWTextbox.Text) != 0)
+                {
+                    CheckingB2FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingB2LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingB2FirstResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingB2FirstResultLabel.Text = "000.0";
+            }
+
+            if (CheckingC1LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingC1LWTextbox.Text) != 0)
+                {
+                    CheckingC1FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingC1LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingC1FirstResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingC1FirstResultLabel.Text = "000.0";
+            }
+
+            if (CheckingC2LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingC2LWTextbox.Text) != 0)
+                {
+                    CheckingC2FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingC2LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingC2FirstResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingC2FirstResultLabel.Text = "000.0";
+            }
+
+            if (CheckingD1LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingD1LWTextbox.Text) != 0)
+                {
+                    CheckingD1FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingD1LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingD1FirstResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingD1FirstResultLabel.Text = "000.0";
+            }
+
+            if (CheckingD2LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingD2LWTextbox.Text) != 0)
+                {
+                    CheckingD2FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingD2LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingD2FirstResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingD2FirstResultLabel.Text = "000.0";
+            }
+
+            if (CheckingE1LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingE1LWTextbox.Text) != 0)
+                {
+                    CheckingE1FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingE1LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingE1FirstResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingE1FirstResultLabel.Text = "000.0";
+            }
+
+            if (CheckingE2LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingE2LWTextbox.Text) != 0)
+                {
+                    CheckingE2FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingE2LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingE2FirstResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingE2FirstResultLabel.Text = "000.0";
+            }
+
+            if (CheckingF1LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingF1LWTextbox.Text) != 0)
+                {
+                    CheckingF1FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingF1LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingF1FirstResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingF1FirstResultLabel.Text = "000.0";
+            }
+
+            if (CheckingF2LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingF2LWTextbox.Text) != 0)
+                {
+                    CheckingF2FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingF2LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingF2FirstResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingF2FirstResultLabel.Text = "000.0";
+            }
+
+            if (CheckingG1LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingG1LWTextbox.Text) != 0)
+                {
+                    CheckingG1FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingG1LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingG1FirstResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingG1FirstResultLabel.Text = "000.0";
+            }
+
+            if (CheckingG2LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingG2LWTextbox.Text) != 0)
+                {
+                    CheckingG2FirstResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingG2LWTextbox.Text), Decimal.Parse(CheckingFW1Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingG2FirstResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingG2FirstResultLabel.Text = "000.0";
+            }
+
+        }
+
+        private void CheckingFW2Textbox_TextChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(CheckingFW2Textbox.Text) == 0) return;
+            if (CheckingA1LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingA1LWTextbox.Text) != 0)
+                {
+                    CheckingA1SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingA1LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingA1SecondResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingA1SecondResultLabel.Text = "000.0";
+            }
+
+            if (CheckingA2LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingA2LWTextbox.Text) != 0)
+                {
+                    CheckingA2SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingA2LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingA2SecondResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingA2SecondResultLabel.Text = "000.0";
+            }
+
+            if (CheckingB1LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingB1LWTextbox.Text) != 0)
+                {
+                    CheckingB1SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingB1LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingB1SecondResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingB1SecondResultLabel.Text = "000.0";
+            }
+
+            if (CheckingB2LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingB2LWTextbox.Text) != 0)
+                {
+                    CheckingB2SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingB2LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingB2SecondResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingB2SecondResultLabel.Text = "000.0";
+            }
+
+            if (CheckingC1LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingC1LWTextbox.Text) != 0)
+                {
+                    CheckingC1SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingC1LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingC1SecondResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingC1SecondResultLabel.Text = "000.0";
+            }
+
+            if (CheckingC2LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingC2LWTextbox.Text) != 0)
+                {
+                    CheckingC2SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingC2LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingC2SecondResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingC2SecondResultLabel.Text = "000.0";
+            }
+
+            if (CheckingD1LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingD1LWTextbox.Text) != 0)
+                {
+                    CheckingD1SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingD1LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingD1SecondResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingD1SecondResultLabel.Text = "000.0";
+            }
+
+            if (CheckingD2LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingD2LWTextbox.Text) != 0)
+                {
+                    CheckingD2SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingD2LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingD2SecondResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingD2SecondResultLabel.Text = "000.0";
+            }
+
+            if (CheckingE1LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingE1LWTextbox.Text) != 0)
+                {
+                    CheckingE1SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingE1LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingE1SecondResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingE1SecondResultLabel.Text = "000.0";
+            }
+
+            if (CheckingE2LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingE2LWTextbox.Text) != 0)
+                {
+                    CheckingE2SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingE2LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingE2SecondResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingE2SecondResultLabel.Text = "000.0";
+            }
+
+            if (CheckingF1LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingF1LWTextbox.Text) != 0)
+                {
+                    CheckingF1SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingF1LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingF1SecondResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingF1SecondResultLabel.Text = "000.0";
+            }
+
+            if (CheckingF2LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingF2LWTextbox.Text) != 0)
+                {
+                    CheckingF2SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingF2LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingF2SecondResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingF2SecondResultLabel.Text = "000.0";
+            }
+
+            if (CheckingG1LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingG1LWTextbox.Text) != 0)
+                {
+                    CheckingG1SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingG1LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingG1SecondResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingG1SecondResultLabel.Text = "000.0";
+            }
+
+            if (CheckingG2LWTextbox.Text != "")
+            {
+                if (int.Parse(CheckingG2LWTextbox.Text) != 0)
+                {
+                    CheckingG2SecondResultLabel.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingG2LWTextbox.Text), Decimal.Parse(CheckingFW2Textbox.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingG2SecondResultLabel.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingG2SecondResultLabel.Text = "000.0";
+            }
+
+        }
+
+        private void CheckingA1LWTextboxRight_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingA1LWTextboxRight.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1TextboxRight.Text) != 0)
+                {
+
+                    CheckingA1FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingA1LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2TextboxRight.Text) != 0)
+                {
+                    CheckingA1SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingA1LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingA2LWTextboxRight_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingA2LWTextboxRight.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1TextboxRight.Text) != 0)
+                {
+                    CheckingA2FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingA2LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2TextboxRight.Text) != 0)
+                {
+                    CheckingA2SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingA2LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingB1LWTextboxRight_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingB1LWTextboxRight.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1TextboxRight.Text) != 0)
+                {
+                    CheckingB1FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingB1LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2TextboxRight.Text) != 0)
+                {
+                    CheckingB1SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingB1LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingB2LWTextboxRight_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingB2LWTextboxRight.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1TextboxRight.Text) != 0)
+                {
+                    CheckingB2FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingB2LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2TextboxRight.Text) != 0)
+                {
+                    CheckingB2SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingB2LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingC1LWTextboxRight_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingC1LWTextboxRight.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1TextboxRight.Text) != 0)
+                {
+                    CheckingC1FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingC1LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2TextboxRight.Text) != 0)
+                {
+                    CheckingC1SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingC1LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingC2LWTextboxRight_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingC2LWTextboxRight.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1TextboxRight.Text) != 0)
+                {
+                    CheckingC2FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingC2LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2TextboxRight.Text) != 0)
+                {
+                    CheckingC2SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingC2LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingD1LWTextboxRight_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingD1LWTextboxRight.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1TextboxRight.Text) != 0)
+                {
+                    CheckingD1FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingD1LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2TextboxRight.Text) != 0)
+                {
+                    CheckingD1SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingD1LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingD2LWTextboxRight_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingD2LWTextboxRight.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1TextboxRight.Text) != 0)
+                {
+                    CheckingD2FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingD2LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2TextboxRight.Text) != 0)
+                {
+                    CheckingD2SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingD2LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingE1LWTextboxRight_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingE1LWTextboxRight.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1TextboxRight.Text) != 0)
+                {
+                    CheckingE1FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingE1LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2TextboxRight.Text) != 0)
+                {
+                    CheckingE1SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingE1LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingE2LWTextboxRight_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingE2LWTextboxRight.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1TextboxRight.Text) != 0)
+                {
+                    CheckingE2FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingE2LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2TextboxRight.Text) != 0)
+                {
+                    CheckingE2SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingE2LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingF1LWTextboxRight_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingF1LWTextboxRight.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1TextboxRight.Text) != 0)
+                {
+                    CheckingF1FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingF1LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2TextboxRight.Text) != 0)
+                {
+                    CheckingF1SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingF1LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingF2LWTextboxRight_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingF2LWTextboxRight.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1TextboxRight.Text) != 0)
+                {
+                    CheckingF2FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingF2LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2TextboxRight.Text) != 0)
+                {
+                    CheckingF2SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingF2LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingG1LWTextboxRight_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingG1LWTextboxRight.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1TextboxRight.Text) != 0)
+                {
+                    CheckingG1FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingG1LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2TextboxRight.Text) != 0)
+                {
+                    CheckingG1SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingG1LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingG2LWTextboxRight_TextChanged(object sender, EventArgs e)
+        {
+            if (CheckingG2LWTextboxRight.Text.Length >= 3)
+            {
+                if (int.Parse(CheckingFW1TextboxRight.Text) != 0)
+                {
+                    CheckingG2FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingG2LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                if (int.Parse(CheckingFW2TextboxRight.Text) != 0)
+                {
+                    CheckingG2SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingG2LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+            }
+        }
+
+        private void CheckingFW1TextboxRight_TextChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(CheckingFW1TextboxRight.Text) == 0) return;
+            if (CheckingA1LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingA1LWTextboxRight.Text) != 0)
+                {
+                    CheckingA1FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingA1LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingA1FirstResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingA1FirstResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingA2LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingA2LWTextboxRight.Text) != 0)
+                {
+                    CheckingA2FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingA2LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingA2FirstResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingA2FirstResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingB1LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingB1LWTextboxRight.Text) != 0)
+                {
+                    CheckingB1FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingB1LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingB1FirstResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingB1FirstResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingB2LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingB2LWTextboxRight.Text) != 0)
+                {
+                    CheckingB2FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingB2LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingB2FirstResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingB2FirstResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingC1LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingC1LWTextboxRight.Text) != 0)
+                {
+                    CheckingC1FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingC1LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingC1FirstResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingC1FirstResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingC2LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingC2LWTextboxRight.Text) != 0)
+                {
+                    CheckingC2FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingC2LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingC2FirstResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingC2FirstResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingD1LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingD1LWTextboxRight.Text) != 0)
+                {
+                    CheckingD1FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingD1LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingD1FirstResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingD1FirstResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingD2LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingD2LWTextboxRight.Text) != 0)
+                {
+                    CheckingD2FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingD2LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingD2FirstResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingD2FirstResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingE1LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingE1LWTextboxRight.Text) != 0)
+                {
+                    CheckingE1FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingE1LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingE1FirstResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingE1FirstResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingE2LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingE2LWTextboxRight.Text) != 0)
+                {
+                    CheckingE2FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingE2LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingE2FirstResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingE2FirstResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingF1LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingF1LWTextboxRight.Text) != 0)
+                {
+                    CheckingF1FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingF1LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingF1FirstResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingF1FirstResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingF2LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingF2LWTextboxRight.Text) != 0)
+                {
+                    CheckingF2FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingF2LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingF2FirstResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingF2FirstResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingG1LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingG1LWTextboxRight.Text) != 0)
+                {
+                    CheckingG1FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingG1LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingG1FirstResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingG1FirstResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingG2LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingG2LWTextboxRight.Text) != 0)
+                {
+                    CheckingG2FirstResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingG2LWTextboxRight.Text), Decimal.Parse(CheckingFW1TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingG2FirstResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingG2FirstResultLabelRight.Text = "000.0";
+            }
+
+        }
+
+        private void CheckingFW2TextboxRight_TextChanged(object sender, EventArgs e)
+        {
+            if (int.Parse(CheckingFW2TextboxRight.Text) == 0) return;
+            if (CheckingA1LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingA1LWTextboxRight.Text) != 0)
+                {
+                    CheckingA1SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingA1LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingA1SecondResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingA1SecondResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingA2LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingA2LWTextboxRight.Text) != 0)
+                {
+                    CheckingA2SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingA2LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingA2SecondResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingA2SecondResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingB1LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingB1LWTextboxRight.Text) != 0)
+                {
+                    CheckingB1SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingB1LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingB1SecondResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingB1SecondResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingB2LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingB2LWTextboxRight.Text) != 0)
+                {
+                    CheckingB2SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingB2LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingB2SecondResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingB2SecondResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingC1LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingC1LWTextboxRight.Text) != 0)
+                {
+                    CheckingC1SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingC1LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingC1SecondResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingC1SecondResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingC2LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingC2LWTextboxRight.Text) != 0)
+                {
+                    CheckingC2SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingC2LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingC2SecondResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingC2SecondResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingD1LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingD1LWTextboxRight.Text) != 0)
+                {
+                    CheckingD1SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingD1LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingD1SecondResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingD1SecondResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingD2LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingD2LWTextboxRight.Text) != 0)
+                {
+                    CheckingD2SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingD2LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingD2SecondResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingD2SecondResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingE1LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingE1LWTextboxRight.Text) != 0)
+                {
+                    CheckingE1SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingE1LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingE1SecondResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingE1SecondResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingE2LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingE2LWTextboxRight.Text) != 0)
+                {
+                    CheckingE2SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingE2LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingE2SecondResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingE2SecondResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingF1LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingF1LWTextboxRight.Text) != 0)
+                {
+                    CheckingF1SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingF1LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingF1SecondResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingF1SecondResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingF2LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingF2LWTextboxRight.Text) != 0)
+                {
+                    CheckingF2SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingF2LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingF2SecondResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingF2SecondResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingG1LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingG1LWTextboxRight.Text) != 0)
+                {
+                    CheckingG1SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingG1LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingG1SecondResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingG1SecondResultLabelRight.Text = "000.0";
+            }
+
+            if (CheckingG2LWTextboxRight.Text != "")
+            {
+                if (int.Parse(CheckingG2LWTextboxRight.Text) != 0)
+                {
+                    CheckingG2SecondResultLabelRight.Text = Math.Round((Decimal.Divide(Decimal.Parse(CheckingG2LWTextboxRight.Text), Decimal.Parse(CheckingFW2TextboxRight.Text)) * 1000), 1, MidpointRounding.AwayFromZero).ToString();
+                }
+                else
+                {
+                    CheckingG2SecondResultLabelRight.Text = "000.0";
+                }
+            }
+            else
+            {
+                CheckingG2SecondResultLabelRight.Text = "000.0";
+            }
+
+        }
+
+        private void LogDateCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            try
+            {
+                using (StreamReader reader = new StreamReader(logFolderPath + "//" + LogDateCombobox.Text))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        listBox1.Items.Add(line);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void LogSearchTextbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                listBox1.Items.Clear();
+                try
+                {
+                    using (StreamReader reader = new StreamReader(logFolderPath + "//" + LogDateCombobox.Text))
+                    {
+                        string line;
+                        while ((line = reader.ReadLine()) != null)
+                        {
+                            if (line.ToUpper().Contains(LogSearchTextbox.Text.ToUpper()))
+                            {
+
+                                listBox1.Items.Add(line);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("The file could not be read:");
+                    Console.WriteLine(ex.Message);
+                }
+
+
+            }
+        }
+
+        private void LogResetButton_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            try
+            {
+                using (StreamReader reader = new StreamReader(logFolderPath + "//" + LogDateCombobox.Text))
+                {
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
+                    {
+                        listBox1.Items.Add(line);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("The file could not be read:");
+                Console.WriteLine(ex.Message);
+            }
+        }
+
+        private void CheckingLeftResetButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to reset left?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Check the result
+            if (result == DialogResult.Yes)
+            {
+                
+                CheckingA1LWTextbox.Text = "";
+                CheckingA2LWTextbox.Text = "";
+                CheckingB1LWTextbox.Text = "";
+                CheckingB2LWTextbox.Text = "";
+                CheckingC1LWTextbox.Text = "";
+                CheckingC2LWTextbox.Text = "";
+                CheckingD1LWTextbox.Text = "";
+                CheckingD2LWTextbox.Text = "";
+                CheckingE1LWTextbox.Text = "";
+                CheckingE2LWTextbox.Text = "";
+                CheckingF1LWTextbox.Text = "";
+                CheckingF2LWTextbox.Text = "";
+                CheckingG1LWTextbox.Text = "";
+                CheckingG2LWTextbox.Text = "";
+                CheckingFW1Textbox.Text = "";
+                CheckingFW2Textbox.Text = "";
+            }
+        }
+
+        private void CheckingRightResetButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to reset right?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            // Check the result
+            if (result == DialogResult.Yes)
+            {
+                
+                CheckingA1LWTextboxRight.Text = "";
+                CheckingA2LWTextboxRight.Text = "";
+                CheckingB1LWTextboxRight.Text = "";
+                CheckingB2LWTextboxRight.Text = "";
+                CheckingC1LWTextboxRight.Text = "";
+                CheckingC2LWTextboxRight.Text = "";
+                CheckingD1LWTextboxRight.Text = "";
+                CheckingD2LWTextboxRight.Text = "";
+                CheckingE1LWTextboxRight.Text = "";
+                CheckingE2LWTextboxRight.Text = "";
+                CheckingF1LWTextboxRight.Text = "";
+                CheckingF2LWTextboxRight.Text = "";
+                CheckingG1LWTextboxRight.Text = "";
+                CheckingG2LWTextboxRight.Text = "";
+                CheckingFW1TextboxRight.Text = "";
+                CheckingFW2TextboxRight.Text = "";
+            }
+        }
+
+
+        private void GenerateCheckingPDF(string click_source)
+        {
+
+            FileStream fs = new FileStream($"temp/checking.pdf", FileMode.Create, FileAccess.Write, FileShare.None);
+            Document document = new Document(PageSize.A5, 20f, 20f, 20f, 20f);
+            PdfWriter.GetInstance(document, fs);
+            //TIME
+            Paragraph time_paragraph = new Paragraph(DateTime.Now.ToString("dddd, dd MMMM yyyy HH:mm:ss"), title_bold_helvetica);
+            time_paragraph.Leading = 10f;
+
+            //RESULT TABLE
+            PdfPTable result_table = new PdfPTable(4);
+            result_table.TotalWidth = 380;
+            result_table.LockedWidth = true;
+
+            //relative col widths
+            float[] result_widths = new float[] { 2f, 4f, 4f, 4f };
+            result_table.SetWidths(result_widths);
+            result_table.HorizontalAlignment = 0;
+            result_table.SpacingBefore = 5f;
+            //result_table.SpacingAfter = 5f;
+            if (click_source == "left")
+            {
+                //FW Row
+                result_table.AddCell(new Phrase("", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingFW1Textbox.Text, bold_helvetica));
+                result_table.AddCell(new Phrase("LW", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingFW2Textbox.Text, bold_helvetica));
+                //A1 Row
+                result_table.AddCell(new Phrase("A1", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingA1FirstResultLabel.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingA1LWTextbox.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingA1SecondResultLabel.Text, bold_helvetica));
+                //A2 Row
+                result_table.AddCell(new Phrase("A2", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingA2FirstResultLabel.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingA2LWTextbox.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingA2SecondResultLabel.Text, bold_helvetica));
+                //B1 Row
+                result_table.AddCell(new Phrase("B1", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingB1FirstResultLabel.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingB1LWTextbox.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingB1SecondResultLabel.Text, bold_helvetica));
+                //B2 Row
+                result_table.AddCell(new Phrase("B2", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingB2FirstResultLabel.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingB2LWTextbox.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingB2SecondResultLabel.Text, bold_helvetica));
+                //C1 Row
+                result_table.AddCell(new Phrase("C1", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingC1FirstResultLabel.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingC1LWTextbox.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingC1SecondResultLabel.Text, bold_helvetica));
+                //C2 Row
+                result_table.AddCell(new Phrase("C2", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingC2FirstResultLabel.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingC2LWTextbox.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingC2SecondResultLabel.Text, bold_helvetica));
+                //D1 Row
+                result_table.AddCell(new Phrase("D1", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingD1FirstResultLabel.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingD1LWTextbox.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingD1SecondResultLabel.Text, bold_helvetica));
+                //D2 Row
+                result_table.AddCell(new Phrase("D2", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingD2FirstResultLabel.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingD2LWTextbox.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingD2SecondResultLabel.Text, bold_helvetica));
+                //E1 Row
+                result_table.AddCell(new Phrase("E1", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingE1FirstResultLabel.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingE1LWTextbox.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingE1SecondResultLabel.Text, bold_helvetica));
+                //E2 Row
+                result_table.AddCell(new Phrase("E2", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingE2FirstResultLabel.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingE2LWTextbox.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingE2SecondResultLabel.Text, bold_helvetica));
+                //F1 Row
+                result_table.AddCell(new Phrase("F1", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingF1FirstResultLabel.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingF1LWTextbox.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingF1SecondResultLabel.Text, bold_helvetica));
+                //F2 Row
+                result_table.AddCell(new Phrase("F2", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingF2FirstResultLabel.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingF2LWTextbox.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingF2SecondResultLabel.Text, bold_helvetica));
+                //G1 Row
+                result_table.AddCell(new Phrase("G1", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingG1FirstResultLabel.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingG1LWTextbox.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingG1SecondResultLabel.Text, bold_helvetica));
+                //G2 Row
+                result_table.AddCell(new Phrase("G2", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingG2FirstResultLabel.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingG2LWTextbox.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingG2SecondResultLabel.Text, bold_helvetica));
+            }
+            else
+            {
+                //FW Row
+                result_table.AddCell(new Phrase("", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingFW1TextboxRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase("LW", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingFW2TextboxRight.Text, bold_helvetica));
+                //A1 Row
+                result_table.AddCell(new Phrase("A1", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingA1FirstResultLabelRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingA1LWTextboxRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingA1SecondResultLabelRight.Text, bold_helvetica));
+                //A2 Row
+                result_table.AddCell(new Phrase("A2", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingA2FirstResultLabelRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingA2LWTextboxRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingA2SecondResultLabelRight.Text, bold_helvetica));
+                //B1 Row
+                result_table.AddCell(new Phrase("B1", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingB1FirstResultLabelRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingB1LWTextboxRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingB1SecondResultLabelRight.Text, bold_helvetica));
+                //B2 Row
+                result_table.AddCell(new Phrase("B2", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingB2FirstResultLabelRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingB2LWTextboxRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingB2SecondResultLabelRight.Text, bold_helvetica));
+                //C1 Row
+                result_table.AddCell(new Phrase("C1", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingC1FirstResultLabelRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingC1LWTextboxRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingC1SecondResultLabelRight.Text, bold_helvetica));
+                //C2 Row
+                result_table.AddCell(new Phrase("C2", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingC2FirstResultLabelRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingC2LWTextboxRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingC2SecondResultLabelRight.Text, bold_helvetica));
+                //D1 Row
+                result_table.AddCell(new Phrase("D1", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingD1FirstResultLabelRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingD1LWTextboxRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingD1SecondResultLabelRight.Text, bold_helvetica));
+                //D2 Row
+                result_table.AddCell(new Phrase("D2", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingD2FirstResultLabelRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingD2LWTextboxRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingD2SecondResultLabelRight.Text, bold_helvetica));
+                //E1 Row
+                result_table.AddCell(new Phrase("E1", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingE1FirstResultLabelRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingE1LWTextboxRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingE1SecondResultLabelRight.Text, bold_helvetica));
+                //E2 Row
+                result_table.AddCell(new Phrase("E2", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingE2FirstResultLabelRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingE2LWTextboxRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingE2SecondResultLabelRight.Text, bold_helvetica));
+                //F1 Row
+                result_table.AddCell(new Phrase("F1", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingF1FirstResultLabelRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingF1LWTextboxRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingF1SecondResultLabelRight.Text, bold_helvetica));
+                //F2 Row
+                result_table.AddCell(new Phrase("F2", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingF2FirstResultLabelRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingF2LWTextboxRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingF2SecondResultLabelRight.Text, bold_helvetica));
+                //G1 Row
+                result_table.AddCell(new Phrase("G1", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingG1FirstResultLabelRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingG1LWTextboxRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingG1SecondResultLabelRight.Text, bold_helvetica));
+                //G2 Row
+                result_table.AddCell(new Phrase("G2", bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingG2FirstResultLabelRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingG2LWTextboxRight.Text, bold_helvetica));
+                result_table.AddCell(new Phrase(CheckingG2SecondResultLabelRight.Text, bold_helvetica));
+            }
+            document.Open();
+            document.Add(time_paragraph);
+            document.Add(result_table);
+            document.Close();
+            //PdfToJpg($"temp/checking.pdf", $"temp/checking");
+
+            ProcessStartInfo info = new ProcessStartInfo();
+            info.Verb = "print";
+            info.FileName = Path.Combine(Directory.GetCurrentDirectory(), "temp/checking.pdf"); 
+            info.CreateNoWindow = true;
+            info.WindowStyle = ProcessWindowStyle.Hidden;
+
+            Process p = new Process();
+            p.StartInfo = info;
+            p.Start();
+
+        }
+        private void CheckingPrintLeftButton_Click(object sender, EventArgs e)
+        {
+            GenerateCheckingPDF("left");
+        }
+
+        private void CheckingPrintRightButton_Click(object sender, EventArgs e)
+        {
+            GenerateCheckingPDF("right");
+        }
     }
 }

@@ -22,7 +22,8 @@ namespace Metal_Assay
         }
         //string connection_string = @"server=192.168.0.8;uid=view1;pwd=Assay123!;database=assay";
         //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
-        string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
+        string connection_string = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
+        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
         string sql = "";
 
         List<SendInfo> info_list = new List<SendInfo>();

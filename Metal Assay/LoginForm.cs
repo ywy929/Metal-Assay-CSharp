@@ -26,7 +26,8 @@ namespace Metal_Assay
             InitializeComponent();
             MainForm = mainForm;
         }
-        string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
+        string connection_string = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
+        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
         string sql = "";
         //class that includes function for encryption
         public class EncryptionHelper
@@ -122,7 +123,7 @@ namespace Metal_Assay
                 var loginHash = EncryptionHelper.GetHash(creds.salt, textBox2.Text);
                 Console.WriteLine($"DB Hash: {Convert.ToBase64String(existing_hash)}");
                 Console.WriteLine($"DB Salt: {Convert.ToBase64String(existing_salt)}");
-                Console.WriteLine($"Original Hash: {creds.hash}");
+                //Console.WriteLine($"Original Hash: {creds.hash}");
                 //Console.WriteLine($"     New Hash: {loginHash}");
                 Console.WriteLine($"Result: {Convert.ToBase64String(existing_hash) == creds.hash}");
                 if (Convert.ToBase64String(existing_hash) == creds.hash)

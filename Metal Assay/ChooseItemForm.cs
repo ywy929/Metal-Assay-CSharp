@@ -29,7 +29,8 @@ namespace Metal_Assay
         public string formcode { get; set; }
         public string action { get; set; }
         public bool split { get; set; }
-        string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
+        string connection_string = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
+        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
         string sql = "";
         private void ChooseItemForm_Load(object sender, EventArgs e)
         {

@@ -36,5 +36,9 @@ namespace Metal_Assay
             MainForm.SaveProblemLastWeight("LOW");
             Close();
         }
+
+        private void ProblematicResultForm_Load(object sender, EventArgs e)
+        {
+        }
     }
 }

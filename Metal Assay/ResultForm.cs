@@ -24,7 +24,8 @@ namespace Metal_Assay
         public string customer { get; set; }
         public string item_code { get; set; }
         public string id { get; set; }
-        string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
+        string connection_string = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
+        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
         string sql = "";
 
         private void ResultForm_Load(object sender, EventArgs e)

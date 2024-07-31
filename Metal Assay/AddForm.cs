@@ -26,7 +26,8 @@ namespace Metal_Assay
         public string date { get; set; }
         public string formcode { get; set; }
         public int item_count { get; set; }
-        string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
+        string connection_string = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
+        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
         string sql = "";
         public bool round_color { get; set; }
         List<string> itemcode_check = new List<string>();

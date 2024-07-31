@@ -152,6 +152,7 @@
             this.NewCustomerListbox.TabIndex = 34;
             this.NewCustomerListbox.Visible = false;
             this.NewCustomerListbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.NewCustomerListbox_KeyDown);
+            this.NewCustomerListbox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.NewCustomerListbox_MouseDoubleClick);
             // 
             // NewCustomerTextbox
             // 

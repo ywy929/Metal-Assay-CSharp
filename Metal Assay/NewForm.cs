@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.IO;
+using System.Net.Sockets;
+using System.Net;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -18,7 +20,8 @@ namespace Metal_Assay
             this.MainForm = main_form;
         }
         public string ClickSource { get; set; }
-        string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
+        string connection_string = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
+        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
         string sql = "";
         int item_counter = 0;
         List<string> itemcode_check = new List<string>();
@@ -368,6 +371,7 @@ namespace Metal_Assay
                 NewCustomerTextbox.SelectionLength = 0;
                 NewCustomerListbox.Visible = false;
                 e.SuppressKeyPress = true;
+                NewItemcodeTextbox.Focus();
 
             }
             if (e.KeyValue == 38 && NewCustomerListbox.SelectedIndex == 0)
@@ -376,6 +380,16 @@ namespace Metal_Assay
                 e.SuppressKeyPress = true;
 
             }
+        }
+
+        private void NewCustomerListbox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            NewCustomerTextbox.Focus();
+            NewCustomerTextbox.Text = NewCustomerListbox.GetItemText(NewCustomerListbox.SelectedItem);
+            NewCustomerTextbox.SelectionStart = NewCustomerTextbox.Text.Length;
+            NewCustomerTextbox.SelectionLength = 0;
+            NewCustomerListbox.Visible = false;
+            NewItemcodeTextbox.Focus();
         }
     }
 }
