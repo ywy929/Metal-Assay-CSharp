@@ -79,8 +79,15 @@ namespace Metal_Assay
         }
         private void ResultLossTextbox_TextChanged(object sender, EventArgs e)
         {
-            ResultFinalResultTextbox.Text = (float.Parse(ResultPreresultTextbox.Text) - float.Parse(ResultLossTextbox.Text)).ToString("0.0");
-            ResultBigResultContentLabel.Text = ResultFinalResultTextbox.Text;
+            if (!string.IsNullOrEmpty(ResultLossTextbox.Text))
+            {
+                ResultFinalResultTextbox.Text = (float.Parse(ResultPreresultTextbox.Text) - float.Parse(ResultLossTextbox.Text)).ToString("0.0");
+                ResultBigResultContentLabel.Text = ResultFinalResultTextbox.Text;
+            }
+            else
+            {
+                ResultLossTextbox.BorderStyle
+            }
         }
 
         private void ResultLossTextbox_KeyPress(object sender, KeyPressEventArgs e)
@@ -90,13 +97,18 @@ namespace Metal_Assay
                 e.Handled = true;
             }
             // only allow one decimal point
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -2))
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
             }
         }
         private void ResultOKButton_Click(object sender, EventArgs e)
         {
+            if (ResultLossTextbox.Text == "")
+            {
+                MessageBox.Show("No loss is specified.");
+                return;
+            }
             MainForm.LWFinalResultTextBox.Text = ResultBigResultContentLabel.Text;
             MainForm.LWLossContent.Text = ResultLossTextbox.Text;
             MainForm.SaveLastWeight();
