@@ -69,7 +69,7 @@ namespace Metal_Assay
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 WriteToLogFile($"Exception: {ex.ToString()}");
             }
 
@@ -101,7 +101,7 @@ namespace Metal_Assay
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 WriteToLogFile($"Exception: {ex.ToString()}");
             }
         }
@@ -199,7 +199,7 @@ namespace Metal_Assay
             catch (Exception ex)
             {
                 WriteToLogFile($"Exception: {ex.ToString()}");
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //Do some validations
             if (itemcode_check.Contains(NewItemcodeTextbox.Text))
@@ -241,7 +241,7 @@ namespace Metal_Assay
             catch (Exception ex)
             {
                 WriteToLogFile($"Exception: {ex.ToString()}");
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             //Get assayrecord ID           
@@ -272,7 +272,7 @@ namespace Metal_Assay
             catch (Exception ex)
             {
                 WriteToLogFile($"Exception: {ex.ToString()}");
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             MainForm.AddNewToMainLeft(NewFormCodeContent.Text, created, NewCustomerTextbox.Text, color);
@@ -297,7 +297,7 @@ namespace Metal_Assay
             catch (Exception ex)
             {
                 WriteToLogFile($"Exception: {ex.ToString()}");
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

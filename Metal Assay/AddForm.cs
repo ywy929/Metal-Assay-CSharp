@@ -61,7 +61,7 @@ namespace Metal_Assay
             catch (Exception ex)
             {
                 WriteToLogFile($"Exception: {ex.ToString()}");
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString(),"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             WriteToLogFile("Add Form Opened.");
         }
@@ -137,7 +137,7 @@ namespace Metal_Assay
             catch (Exception ex)
             {
                 WriteToLogFile($"Exception: {ex.ToString()}");
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString(),"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
             //Do some validations           
 
@@ -172,7 +172,7 @@ namespace Metal_Assay
             catch (Exception ex)
             {
                 WriteToLogFile($"Exception: {ex.ToString()}");
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
             //Get added record ID
@@ -203,7 +203,7 @@ namespace Metal_Assay
             catch (Exception ex)
             {
                 WriteToLogFile($"Exception: {ex.ToString()}");
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //Update Main Left, Main Right, FW, LW, SR
             MainForm.UpdateAdded(customer, AddFormCodeContent.Text, AddItemcodeTextbox.Text, sw_to_send,assayrecord_id.ToString(),created, round_color);

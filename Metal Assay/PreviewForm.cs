@@ -82,7 +82,7 @@ namespace Metal_Assay
             catch (Exception ex)
             {
                 WriteToLogFile($"Exception: {ex.ToString()}");
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -109,7 +109,7 @@ namespace Metal_Assay
                     catch (IOException iox)
                     {
                         WriteToLogFile($"Exception: {iox.ToString()}");
-                        MessageBox.Show(iox.Message);
+                        MessageBox.Show(iox.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 Close();
@@ -129,7 +129,7 @@ namespace Metal_Assay
                     catch (Exception ex)
                     {
                         WriteToLogFile($"Exception: {ex.ToString()}");
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 Close();
@@ -147,7 +147,7 @@ namespace Metal_Assay
                     catch (Exception ex)
                     {
                         WriteToLogFile($"Exception: {ex.ToString()}");
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else if (pdf_count > 1)
@@ -162,7 +162,7 @@ namespace Metal_Assay
                         catch (Exception ex)
                         {
                             WriteToLogFile($"Exception: {ex.ToString()}");
-                            MessageBox.Show(ex.Message);
+                            MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -181,7 +181,7 @@ namespace Metal_Assay
                     catch (Exception ex)
                     {
                         WriteToLogFile($"Exception: {ex.ToString()}");
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 Close();
@@ -215,7 +215,7 @@ namespace Metal_Assay
             catch (Exception ex)
             {
                 WriteToLogFile($"Exception: {ex.ToString()}");
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -240,7 +240,7 @@ namespace Metal_Assay
             catch (Exception ex)
             {
                 WriteToLogFile($"Exception: {ex.ToString()}");
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

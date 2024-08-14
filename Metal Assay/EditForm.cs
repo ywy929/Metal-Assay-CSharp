@@ -67,7 +67,7 @@ namespace Metal_Assay
             catch (Exception ex)
             {
                 WriteToLogFile($"Exception: {ex.ToString()}");
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             Close();
             MainForm.MainItemcodeLabel.Text = EditItemcodeTextbox.Text;

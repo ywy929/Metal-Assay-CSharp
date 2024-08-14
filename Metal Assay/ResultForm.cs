@@ -67,7 +67,7 @@ namespace Metal_Assay
             catch (Exception ex)
             {
                 WriteToLogFile($"Exception: {ex.ToString()}");
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         private void WriteToLogFile(string content)
@@ -106,7 +106,7 @@ namespace Metal_Assay
         {
             if (ResultLossTextbox.Text == "")
             {
-                MessageBox.Show("No loss is specified.");
+                MessageBox.Show("No loss is specified.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             MainForm.LWFinalResultTextBox.Text = ResultBigResultContentLabel.Text;

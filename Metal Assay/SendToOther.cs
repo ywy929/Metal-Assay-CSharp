@@ -128,7 +128,7 @@ namespace Metal_Assay
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                 }
                 else if (pdf_count > 1)
@@ -141,7 +141,7 @@ namespace Metal_Assay
                         }
                         catch (Exception ex)
                         {
-                            Console.WriteLine(ex.Message);
+                            MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -167,7 +167,7 @@ namespace Metal_Assay
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                 }
             }
@@ -188,7 +188,7 @@ namespace Metal_Assay
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     }
                 }
                 else if (pdf_count > 1)
@@ -201,7 +201,7 @@ namespace Metal_Assay
                         }
                         catch (Exception ex)
                         {
-                            Console.WriteLine(ex.Message);
+                            MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
                         }
                     }
                 }
@@ -218,7 +218,7 @@ namespace Metal_Assay
                     }
                     catch (Exception ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
