@@ -26,8 +26,7 @@ namespace Metal_Assay
         public string formcode { get; set; }
         public string itemcode { get; set; }
         public string sample_weight { get; set; }
-        string connection_string = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
-        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
+        string connection_string = GlobalConfig.ConnectionString;
         string sql = "";
         private void Form3_Load(object sender, EventArgs e)
         {
@@ -74,11 +73,11 @@ namespace Metal_Assay
             MainForm.MainSampleWeightLabel.Text = EditSampleWeightTextbox.Text;
 
             //Update Main Right, FW, LW, SR
-            MainForm.UpdateEdited(EditItemcodeTextbox.Text,EditSampleWeightTextbox.Text,result_id);
-            //MainForm.MainBackgroundWorker.RunWorkerAsync();
-            //MainForm.FWBackgroundWorker.RunWorkerAsync();
-            //MainForm.LWBackgroundWorker.RunWorkerAsync();
-            //MainForm.SRBackgroundWorker.RunWorkerAsync();
+            //MainForm.UpdateEdited(EditItemcodeTextbox.Text,EditSampleWeightTextbox.Text,result_id);
+            MainForm.LoadMainPageTable();
+            MainForm.LoadFirstWeightTable();
+            MainForm.LoadLastWeightTable();
+            MainForm.LoadSampleReturnTable();
         }
 
         private void CancelSaveButton_Click(object sender, EventArgs e)

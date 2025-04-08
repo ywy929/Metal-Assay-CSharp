@@ -26,8 +26,7 @@ namespace Metal_Assay
         public string date { get; set; }
         public string formcode { get; set; }
         public int item_count { get; set; }
-        string connection_string = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
-        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
+        string connection_string = GlobalConfig.ConnectionString;
         string sql = "";
         public bool round_color { get; set; }
         List<string> itemcode_check = new List<string>();
@@ -61,7 +60,7 @@ namespace Metal_Assay
             catch (Exception ex)
             {
                 WriteToLogFile($"Exception: {ex.ToString()}");
-                MessageBox.Show(ex.ToString(),"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             WriteToLogFile("Add Form Opened.");
         }
@@ -137,7 +136,7 @@ namespace Metal_Assay
             catch (Exception ex)
             {
                 WriteToLogFile($"Exception: {ex.ToString()}");
-                MessageBox.Show(ex.ToString(),"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             //Do some validations           
 
@@ -153,7 +152,7 @@ namespace Metal_Assay
 
             try
             {
-                
+
                 var con = new MySqlConnection(connection_string);
                 con.Open();
                 string cmdText = "INSERT INTO assayresult (created, modified, itemcode, sampleweight, color, customer, formcode) VALUES (@created, @modified, @itemcode, @sampleweight, @color, @customer, @formcode)";
@@ -174,47 +173,15 @@ namespace Metal_Assay
                 WriteToLogFile($"Exception: {ex.ToString()}");
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
-            //Get added record ID
-            try
-            {
-                var con = new MySqlConnection(connection_string);
-                con.Open();
 
-                sql = $"SELECT id, sampleweight,created FROM assayresult WHERE formcode='{AddFormCodeContent.Text}' AND itemcode='{AddItemcodeTextbox.Text}'";
-                var cmd = new MySqlCommand(sql, con);
-
-                MySqlDataReader data_reader = cmd.ExecuteReader();
-
-                if (data_reader.HasRows)
-                {
-                    while (data_reader.Read())
-                    {
-                        assayrecord_id = data_reader.GetInt32("id");
-                        //color = data_reader.GetBoolean("color");
-                        sw_to_send = data_reader.GetString("sampleweight");
-                        created = data_reader.GetDateTime("created");
-                    }
-                }
-                data_reader.Close();
-                con.Close();
-
-            }
-            catch (Exception ex)
-            {
-                WriteToLogFile($"Exception: {ex.ToString()}");
-                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            //Update Main Left, Main Right, FW, LW, SR
-            MainForm.UpdateAdded(customer, AddFormCodeContent.Text, AddItemcodeTextbox.Text, sw_to_send,assayrecord_id.ToString(),created, round_color);
             AddItemcodeTextbox.Text = "";
             AddSampleWeightTextbox.Text = "";
             AddItemcodeTextbox.Focus();
             item_count += 1;
-            //MainForm.MainBackgroundWorker.RunWorkerAsync();
-            //MainForm.FWBackgroundWorker.RunWorkerAsync();
-            //MainForm.LWBackgroundWorker.RunWorkerAsync();
-            //MainForm.SRBackgroundWorker.RunWorkerAsync();
+            MainForm.LoadMainPageTable();
+            MainForm.LoadFirstWeightTable();
+            MainForm.LoadLastWeightTable();
+            MainForm.LoadSampleReturnTable();
         }
         private void WriteToLogFile(string content)
         {

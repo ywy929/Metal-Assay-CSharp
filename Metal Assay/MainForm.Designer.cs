@@ -40,21 +40,11 @@
             this.MainEditButton = new System.Windows.Forms.Button();
             this.MainAddButton = new System.Windows.Forms.Button();
             this.MainRightDataGridView = new System.Windows.Forms.DataGridView();
-            this.MainRightFormCodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MainRightItemcodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MainRightSampleWeightColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MainRightSampleReturnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MainRightResultColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MainRightIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.MainTab = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.MainLeftDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FirstWeightTab = new System.Windows.Forms.TabPage();
             this.FWRedoGroupbox = new System.Windows.Forms.GroupBox();
             this.FWGoToRedoButton = new System.Windows.Forms.Button();
@@ -156,18 +146,6 @@
             this.HistorySearchSpoilButton = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.HistoryDataGridView = new System.Windows.Forms.DataGridView();
-            this.HistoryDataGridViewCustomerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewFormcodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewItemcodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewFWAColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewFWBColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewLWAColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewLWBColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewResultColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewSampleWeightColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewSampleReturnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HistoryDataGridViewIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.HistorySearchButton = new System.Windows.Forms.Button();
             this.HistoryItemcodeTextbox = new System.Windows.Forms.TextBox();
             this.HistoryItemcodeLabel = new System.Windows.Forms.Label();
@@ -191,6 +169,8 @@
             this.CustomerNewButton = new System.Windows.Forms.Button();
             this.CustomerCustomerLabel = new System.Windows.Forms.Label();
             this.CheckingTab = new System.Windows.Forms.TabPage();
+            this.CheckingRightResetButton = new System.Windows.Forms.Button();
+            this.CheckingLeftResetButton = new System.Windows.Forms.Button();
             this.CheckingPrintRightButton = new System.Windows.Forms.Button();
             this.CheckingRightPanel = new System.Windows.Forms.Panel();
             this.CheckingG2LabelRight = new System.Windows.Forms.Label();
@@ -369,8 +349,28 @@
             this.FWBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.LWBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.SRBackgroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.CheckingLeftResetButton = new System.Windows.Forms.Button();
-            this.CheckingRightResetButton = new System.Windows.Forms.Button();
+            this.HistoryDataGridViewIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewSampleReturnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewSampleWeightColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewResultColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewLWBColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewLWAColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewFWBColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewFWAColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewItemcodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewFormcodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HistoryDataGridViewCustomerColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MainRightIDColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MainRightResultColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MainRightSampleReturnColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MainRightSampleWeightColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MainRightItemcodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MainRightFormCodeColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.MainRightDataGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -537,48 +537,6 @@
             this.MainRightDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MainRightDataGridView_CellClick);
             this.MainRightDataGridView.SelectionChanged += new System.EventHandler(this.MainRightDataGridView_SelectionChanged);
             // 
-            // MainRightFormCodeColumn
-            // 
-            this.MainRightFormCodeColumn.HeaderText = "FormCode";
-            this.MainRightFormCodeColumn.Name = "MainRightFormCodeColumn";
-            this.MainRightFormCodeColumn.ReadOnly = true;
-            this.MainRightFormCodeColumn.Width = 150;
-            // 
-            // MainRightItemcodeColumn
-            // 
-            this.MainRightItemcodeColumn.HeaderText = "ItemCode";
-            this.MainRightItemcodeColumn.Name = "MainRightItemcodeColumn";
-            this.MainRightItemcodeColumn.ReadOnly = true;
-            this.MainRightItemcodeColumn.Width = 200;
-            // 
-            // MainRightSampleWeightColumn
-            // 
-            this.MainRightSampleWeightColumn.HeaderText = "Sample Weight";
-            this.MainRightSampleWeightColumn.Name = "MainRightSampleWeightColumn";
-            this.MainRightSampleWeightColumn.ReadOnly = true;
-            this.MainRightSampleWeightColumn.Width = 190;
-            // 
-            // MainRightSampleReturnColumn
-            // 
-            this.MainRightSampleReturnColumn.HeaderText = "Sample Return";
-            this.MainRightSampleReturnColumn.Name = "MainRightSampleReturnColumn";
-            this.MainRightSampleReturnColumn.ReadOnly = true;
-            this.MainRightSampleReturnColumn.Width = 190;
-            // 
-            // MainRightResultColumn
-            // 
-            this.MainRightResultColumn.HeaderText = "Result";
-            this.MainRightResultColumn.Name = "MainRightResultColumn";
-            this.MainRightResultColumn.ReadOnly = true;
-            this.MainRightResultColumn.Width = 130;
-            // 
-            // MainRightIDColumn
-            // 
-            this.MainRightIDColumn.HeaderText = "ID";
-            this.MainRightIDColumn.Name = "MainRightIDColumn";
-            this.MainRightIDColumn.ReadOnly = true;
-            this.MainRightIDColumn.Visible = false;
-            // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.MainTab);
@@ -661,34 +619,6 @@
             this.MainLeftDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.MainLeftDataGridView_CellClick);
             this.MainLeftDataGridView.SelectionChanged += new System.EventHandler(this.MainLeftDataGridView_SelectionChanged);
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "FormCode";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Item";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Date";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 270;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Customer";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 400;
-            // 
             // FirstWeightTab
             // 
             this.FirstWeightTab.BackColor = System.Drawing.SystemColors.Control;
@@ -748,7 +678,6 @@
             this.FWDataGridView.AllowUserToAddRows = false;
             this.FWDataGridView.AllowUserToDeleteRows = false;
             this.FWDataGridView.AllowUserToResizeRows = false;
-            this.FWDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.FWDataGridView.ColumnHeadersHeight = 35;
             this.FWDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.FWDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1254,7 +1183,6 @@
             this.LWDataGridView.AllowUserToAddRows = false;
             this.LWDataGridView.AllowUserToDeleteRows = false;
             this.LWDataGridView.AllowUserToResizeRows = false;
-            this.LWDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.LWDataGridView.ColumnHeadersHeight = 35;
             this.LWDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.LWDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1544,7 +1472,6 @@
             this.SRDataGridView.AllowUserToAddRows = false;
             this.SRDataGridView.AllowUserToDeleteRows = false;
             this.SRDataGridView.AllowUserToResizeRows = false;
-            this.SRDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.SRDataGridView.ColumnHeadersHeight = 35;
             this.SRDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.SRDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1744,7 +1671,6 @@
             this.HistoryDataGridView.AllowUserToAddRows = false;
             this.HistoryDataGridView.AllowUserToDeleteRows = false;
             this.HistoryDataGridView.AllowUserToResizeRows = false;
-            this.HistoryDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.HistoryDataGridView.ColumnHeadersHeight = 35;
             this.HistoryDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.HistoryDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1771,85 +1697,6 @@
             this.HistoryDataGridView.Size = new System.Drawing.Size(1532, 913);
             this.HistoryDataGridView.TabIndex = 11;
             this.HistoryDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.HistoryDataGridView_CellMouseDown);
-            // 
-            // HistoryDataGridViewCustomerColumn
-            // 
-            this.HistoryDataGridViewCustomerColumn.HeaderText = "Customer";
-            this.HistoryDataGridViewCustomerColumn.Name = "HistoryDataGridViewCustomerColumn";
-            this.HistoryDataGridViewCustomerColumn.ReadOnly = true;
-            this.HistoryDataGridViewCustomerColumn.Width = 310;
-            // 
-            // HistoryDataGridViewFormcodeColumn
-            // 
-            this.HistoryDataGridViewFormcodeColumn.HeaderText = "Formcode";
-            this.HistoryDataGridViewFormcodeColumn.Name = "HistoryDataGridViewFormcodeColumn";
-            this.HistoryDataGridViewFormcodeColumn.ReadOnly = true;
-            this.HistoryDataGridViewFormcodeColumn.Width = 130;
-            // 
-            // HistoryDataGridViewItemcodeColumn
-            // 
-            this.HistoryDataGridViewItemcodeColumn.HeaderText = "ItemCode";
-            this.HistoryDataGridViewItemcodeColumn.Name = "HistoryDataGridViewItemcodeColumn";
-            this.HistoryDataGridViewItemcodeColumn.ReadOnly = true;
-            this.HistoryDataGridViewItemcodeColumn.Width = 170;
-            // 
-            // HistoryDataGridViewDateColumn
-            // 
-            this.HistoryDataGridViewDateColumn.HeaderText = "Date";
-            this.HistoryDataGridViewDateColumn.Name = "HistoryDataGridViewDateColumn";
-            this.HistoryDataGridViewDateColumn.ReadOnly = true;
-            this.HistoryDataGridViewDateColumn.Width = 150;
-            // 
-            // HistoryDataGridViewFWAColumn
-            // 
-            this.HistoryDataGridViewFWAColumn.HeaderText = "FWA";
-            this.HistoryDataGridViewFWAColumn.Name = "HistoryDataGridViewFWAColumn";
-            this.HistoryDataGridViewFWAColumn.ReadOnly = true;
-            // 
-            // HistoryDataGridViewFWBColumn
-            // 
-            this.HistoryDataGridViewFWBColumn.HeaderText = "FWB";
-            this.HistoryDataGridViewFWBColumn.Name = "HistoryDataGridViewFWBColumn";
-            this.HistoryDataGridViewFWBColumn.ReadOnly = true;
-            // 
-            // HistoryDataGridViewLWAColumn
-            // 
-            this.HistoryDataGridViewLWAColumn.HeaderText = "LWA";
-            this.HistoryDataGridViewLWAColumn.Name = "HistoryDataGridViewLWAColumn";
-            this.HistoryDataGridViewLWAColumn.ReadOnly = true;
-            // 
-            // HistoryDataGridViewLWBColumn
-            // 
-            this.HistoryDataGridViewLWBColumn.HeaderText = "LWB";
-            this.HistoryDataGridViewLWBColumn.Name = "HistoryDataGridViewLWBColumn";
-            this.HistoryDataGridViewLWBColumn.ReadOnly = true;
-            // 
-            // HistoryDataGridViewResultColumn
-            // 
-            this.HistoryDataGridViewResultColumn.HeaderText = "Result";
-            this.HistoryDataGridViewResultColumn.Name = "HistoryDataGridViewResultColumn";
-            this.HistoryDataGridViewResultColumn.ReadOnly = true;
-            // 
-            // HistoryDataGridViewSampleWeightColumn
-            // 
-            this.HistoryDataGridViewSampleWeightColumn.HeaderText = "S. Weight";
-            this.HistoryDataGridViewSampleWeightColumn.Name = "HistoryDataGridViewSampleWeightColumn";
-            this.HistoryDataGridViewSampleWeightColumn.ReadOnly = true;
-            this.HistoryDataGridViewSampleWeightColumn.Width = 125;
-            // 
-            // HistoryDataGridViewSampleReturnColumn
-            // 
-            this.HistoryDataGridViewSampleReturnColumn.HeaderText = "S. Return";
-            this.HistoryDataGridViewSampleReturnColumn.Name = "HistoryDataGridViewSampleReturnColumn";
-            this.HistoryDataGridViewSampleReturnColumn.ReadOnly = true;
-            this.HistoryDataGridViewSampleReturnColumn.Width = 125;
-            // 
-            // HistoryDataGridViewIDColumn
-            // 
-            this.HistoryDataGridViewIDColumn.HeaderText = "ID";
-            this.HistoryDataGridViewIDColumn.Name = "HistoryDataGridViewIDColumn";
-            this.HistoryDataGridViewIDColumn.ReadOnly = true;
-            this.HistoryDataGridViewIDColumn.Visible = false;
             // 
             // HistorySearchButton
             // 
@@ -1958,7 +1805,6 @@
             this.CustomerDataGridView.AllowUserToAddRows = false;
             this.CustomerDataGridView.AllowUserToDeleteRows = false;
             this.CustomerDataGridView.AllowUserToResizeRows = false;
-            this.CustomerDataGridView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.CustomerDataGridView.ColumnHeadersHeight = 35;
             this.CustomerDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.CustomerDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2096,6 +1942,28 @@
             this.CheckingTab.Size = new System.Drawing.Size(1896, 944);
             this.CheckingTab.TabIndex = 6;
             this.CheckingTab.Text = "Checking";
+            // 
+            // CheckingRightResetButton
+            // 
+            this.CheckingRightResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingRightResetButton.Location = new System.Drawing.Point(985, 872);
+            this.CheckingRightResetButton.Name = "CheckingRightResetButton";
+            this.CheckingRightResetButton.Size = new System.Drawing.Size(133, 49);
+            this.CheckingRightResetButton.TabIndex = 89;
+            this.CheckingRightResetButton.Text = "RESET";
+            this.CheckingRightResetButton.UseVisualStyleBackColor = true;
+            this.CheckingRightResetButton.Click += new System.EventHandler(this.CheckingRightResetButton_Click);
+            // 
+            // CheckingLeftResetButton
+            // 
+            this.CheckingLeftResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingLeftResetButton.Location = new System.Drawing.Point(196, 872);
+            this.CheckingLeftResetButton.Name = "CheckingLeftResetButton";
+            this.CheckingLeftResetButton.Size = new System.Drawing.Size(133, 49);
+            this.CheckingLeftResetButton.TabIndex = 88;
+            this.CheckingLeftResetButton.Text = "RESET";
+            this.CheckingLeftResetButton.UseVisualStyleBackColor = true;
+            this.CheckingLeftResetButton.Click += new System.EventHandler(this.CheckingLeftResetButton_Click);
             // 
             // CheckingPrintRightButton
             // 
@@ -3858,27 +3726,154 @@
             // 
             this.SRBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.SRBackgroundWorker_DoWork);
             // 
-            // CheckingLeftResetButton
+            // HistoryDataGridViewIDColumn
             // 
-            this.CheckingLeftResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckingLeftResetButton.Location = new System.Drawing.Point(196, 872);
-            this.CheckingLeftResetButton.Name = "CheckingLeftResetButton";
-            this.CheckingLeftResetButton.Size = new System.Drawing.Size(133, 49);
-            this.CheckingLeftResetButton.TabIndex = 88;
-            this.CheckingLeftResetButton.Text = "RESET";
-            this.CheckingLeftResetButton.UseVisualStyleBackColor = true;
-            this.CheckingLeftResetButton.Click += new System.EventHandler(this.CheckingLeftResetButton_Click);
+            this.HistoryDataGridViewIDColumn.HeaderText = "ID";
+            this.HistoryDataGridViewIDColumn.Name = "HistoryDataGridViewIDColumn";
+            this.HistoryDataGridViewIDColumn.ReadOnly = true;
+            this.HistoryDataGridViewIDColumn.Visible = false;
             // 
-            // CheckingRightResetButton
+            // HistoryDataGridViewSampleReturnColumn
             // 
-            this.CheckingRightResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CheckingRightResetButton.Location = new System.Drawing.Point(985, 872);
-            this.CheckingRightResetButton.Name = "CheckingRightResetButton";
-            this.CheckingRightResetButton.Size = new System.Drawing.Size(133, 49);
-            this.CheckingRightResetButton.TabIndex = 89;
-            this.CheckingRightResetButton.Text = "RESET";
-            this.CheckingRightResetButton.UseVisualStyleBackColor = true;
-            this.CheckingRightResetButton.Click += new System.EventHandler(this.CheckingRightResetButton_Click);
+            this.HistoryDataGridViewSampleReturnColumn.HeaderText = "S. Return";
+            this.HistoryDataGridViewSampleReturnColumn.Name = "HistoryDataGridViewSampleReturnColumn";
+            this.HistoryDataGridViewSampleReturnColumn.ReadOnly = true;
+            this.HistoryDataGridViewSampleReturnColumn.Width = 125;
+            // 
+            // HistoryDataGridViewSampleWeightColumn
+            // 
+            this.HistoryDataGridViewSampleWeightColumn.HeaderText = "S. Weight";
+            this.HistoryDataGridViewSampleWeightColumn.Name = "HistoryDataGridViewSampleWeightColumn";
+            this.HistoryDataGridViewSampleWeightColumn.ReadOnly = true;
+            this.HistoryDataGridViewSampleWeightColumn.Width = 125;
+            // 
+            // HistoryDataGridViewResultColumn
+            // 
+            this.HistoryDataGridViewResultColumn.HeaderText = "Result";
+            this.HistoryDataGridViewResultColumn.Name = "HistoryDataGridViewResultColumn";
+            this.HistoryDataGridViewResultColumn.ReadOnly = true;
+            // 
+            // HistoryDataGridViewLWBColumn
+            // 
+            this.HistoryDataGridViewLWBColumn.HeaderText = "LWB";
+            this.HistoryDataGridViewLWBColumn.Name = "HistoryDataGridViewLWBColumn";
+            this.HistoryDataGridViewLWBColumn.ReadOnly = true;
+            // 
+            // HistoryDataGridViewLWAColumn
+            // 
+            this.HistoryDataGridViewLWAColumn.HeaderText = "LWA";
+            this.HistoryDataGridViewLWAColumn.Name = "HistoryDataGridViewLWAColumn";
+            this.HistoryDataGridViewLWAColumn.ReadOnly = true;
+            // 
+            // HistoryDataGridViewFWBColumn
+            // 
+            this.HistoryDataGridViewFWBColumn.HeaderText = "FWB";
+            this.HistoryDataGridViewFWBColumn.Name = "HistoryDataGridViewFWBColumn";
+            this.HistoryDataGridViewFWBColumn.ReadOnly = true;
+            // 
+            // HistoryDataGridViewFWAColumn
+            // 
+            this.HistoryDataGridViewFWAColumn.HeaderText = "FWA";
+            this.HistoryDataGridViewFWAColumn.Name = "HistoryDataGridViewFWAColumn";
+            this.HistoryDataGridViewFWAColumn.ReadOnly = true;
+            // 
+            // HistoryDataGridViewDateColumn
+            // 
+            this.HistoryDataGridViewDateColumn.HeaderText = "Date";
+            this.HistoryDataGridViewDateColumn.Name = "HistoryDataGridViewDateColumn";
+            this.HistoryDataGridViewDateColumn.ReadOnly = true;
+            this.HistoryDataGridViewDateColumn.Width = 150;
+            // 
+            // HistoryDataGridViewItemcodeColumn
+            // 
+            this.HistoryDataGridViewItemcodeColumn.HeaderText = "ItemCode";
+            this.HistoryDataGridViewItemcodeColumn.Name = "HistoryDataGridViewItemcodeColumn";
+            this.HistoryDataGridViewItemcodeColumn.ReadOnly = true;
+            this.HistoryDataGridViewItemcodeColumn.Width = 170;
+            // 
+            // HistoryDataGridViewFormcodeColumn
+            // 
+            this.HistoryDataGridViewFormcodeColumn.HeaderText = "Formcode";
+            this.HistoryDataGridViewFormcodeColumn.Name = "HistoryDataGridViewFormcodeColumn";
+            this.HistoryDataGridViewFormcodeColumn.ReadOnly = true;
+            this.HistoryDataGridViewFormcodeColumn.Width = 130;
+            // 
+            // HistoryDataGridViewCustomerColumn
+            // 
+            this.HistoryDataGridViewCustomerColumn.HeaderText = "Customer";
+            this.HistoryDataGridViewCustomerColumn.Name = "HistoryDataGridViewCustomerColumn";
+            this.HistoryDataGridViewCustomerColumn.ReadOnly = true;
+            this.HistoryDataGridViewCustomerColumn.Width = 310;
+            // 
+            // MainRightIDColumn
+            // 
+            this.MainRightIDColumn.HeaderText = "ID";
+            this.MainRightIDColumn.Name = "MainRightIDColumn";
+            this.MainRightIDColumn.ReadOnly = true;
+            this.MainRightIDColumn.Visible = false;
+            // 
+            // MainRightResultColumn
+            // 
+            this.MainRightResultColumn.HeaderText = "Result";
+            this.MainRightResultColumn.Name = "MainRightResultColumn";
+            this.MainRightResultColumn.ReadOnly = true;
+            this.MainRightResultColumn.Width = 130;
+            // 
+            // MainRightSampleReturnColumn
+            // 
+            this.MainRightSampleReturnColumn.HeaderText = "Sample Return";
+            this.MainRightSampleReturnColumn.Name = "MainRightSampleReturnColumn";
+            this.MainRightSampleReturnColumn.ReadOnly = true;
+            this.MainRightSampleReturnColumn.Width = 190;
+            // 
+            // MainRightSampleWeightColumn
+            // 
+            this.MainRightSampleWeightColumn.HeaderText = "Sample Weight";
+            this.MainRightSampleWeightColumn.Name = "MainRightSampleWeightColumn";
+            this.MainRightSampleWeightColumn.ReadOnly = true;
+            this.MainRightSampleWeightColumn.Width = 190;
+            // 
+            // MainRightItemcodeColumn
+            // 
+            this.MainRightItemcodeColumn.HeaderText = "ItemCode";
+            this.MainRightItemcodeColumn.Name = "MainRightItemcodeColumn";
+            this.MainRightItemcodeColumn.ReadOnly = true;
+            this.MainRightItemcodeColumn.Width = 200;
+            // 
+            // MainRightFormCodeColumn
+            // 
+            this.MainRightFormCodeColumn.HeaderText = "FormCode";
+            this.MainRightFormCodeColumn.Name = "MainRightFormCodeColumn";
+            this.MainRightFormCodeColumn.ReadOnly = true;
+            this.MainRightFormCodeColumn.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Customer";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 400;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Date";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 270;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Item";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "FormCode";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 150;
             // 
             // Main
             // 
@@ -4126,28 +4121,6 @@
         private System.Windows.Forms.Button HistorySearchSpoilButton;
         private System.Windows.Forms.Label SampleReturnResultContentLabel;
         private System.Windows.Forms.Label SampleReturnResultLabel;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MainRightFormCodeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MainRightItemcodeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MainRightSampleWeightColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MainRightSampleReturnColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MainRightResultColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn MainRightIDColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewCustomerColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewFormcodeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewItemcodeColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewDateColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewFWAColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewFWBColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewLWAColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewLWBColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewResultColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewSampleWeightColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewSampleReturnColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewIDColumn;
         private System.Windows.Forms.ListBox HistoryListbox;
         private System.Windows.Forms.TextBox HistoryCustomerTextbox;
         private System.Windows.Forms.ListBox CustomerCustomerListbox;
@@ -4284,6 +4257,28 @@
         private System.Windows.Forms.Button LogResetButton;
         private System.Windows.Forms.Button CheckingRightResetButton;
         private System.Windows.Forms.Button CheckingLeftResetButton;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MainRightFormCodeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MainRightItemcodeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MainRightSampleWeightColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MainRightSampleReturnColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MainRightResultColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MainRightIDColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewCustomerColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewFormcodeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewItemcodeColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewDateColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewFWAColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewFWBColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewLWAColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewLWBColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewResultColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewSampleWeightColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewSampleReturnColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewIDColumn;
     }
 }
 

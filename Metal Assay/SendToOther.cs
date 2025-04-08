@@ -20,10 +20,7 @@ namespace Metal_Assay
             InitializeComponent();
             MainForm = mainForm;
         }
-        //string connection_string = @"server=192.168.0.8;uid=view1;pwd=Assay123!;database=assay";
-        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
-        string connection_string = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
-        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
+        string connection_string = GlobalConfig.ConnectionString;
         string sql = "";
 
         List<SendInfo> info_list = new List<SendInfo>();

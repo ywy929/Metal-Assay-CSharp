@@ -21,8 +21,7 @@ namespace Metal_Assay
             InitializeComponent();
             MainForm = mainForm;
         }
-        string connection_string = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
-        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
+        string connection_string = GlobalConfig.ConnectionString;
         string sql = "";
         private void NewCustomer_Load(object sender, EventArgs e)
         {
@@ -137,10 +136,15 @@ namespace Metal_Assay
             MainForm.LoadCustomerTable();
             MainForm.LoadCustomerCustomerList();
             MainForm.LoadHistoryCustomerList();
-            MainForm.MainBackgroundWorker.RunWorkerAsync();
-            MainForm.FWBackgroundWorker.RunWorkerAsync();
-            MainForm.LWBackgroundWorker.RunWorkerAsync();
-            MainForm.SRBackgroundWorker.RunWorkerAsync();
+            //MainForm.LoadMainPageTable();
+            //MainForm.LoadFirstWeightTable();
+            //MainForm.LoadLastWeightTable();
+            //MainForm.LoadSampleReturnTable();
+            
+            //MainForm.MainBackgroundWorker.RunWorkerAsync();
+            //MainForm.FWBackgroundWorker.RunWorkerAsync();
+            //MainForm.LWBackgroundWorker.RunWorkerAsync();
+            //MainForm.SRBackgroundWorker.RunWorkerAsync();
             Close();
         }
 

@@ -24,8 +24,7 @@ namespace Metal_Assay
         public string customer { get; set; }
         public string item_code { get; set; }
         public string id { get; set; }
-        string connection_string = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
-        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
+        string connection_string = GlobalConfig.ConnectionString;
         string sql = "";
 
         private void ResultForm_Load(object sender, EventArgs e)
@@ -83,10 +82,6 @@ namespace Metal_Assay
             {
                 ResultFinalResultTextbox.Text = (float.Parse(ResultPreresultTextbox.Text) - float.Parse(ResultLossTextbox.Text)).ToString("0.0");
                 ResultBigResultContentLabel.Text = ResultFinalResultTextbox.Text;
-            }
-            else
-            {
-                ResultLossTextbox.BorderStyle
             }
         }
 

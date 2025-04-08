@@ -26,10 +26,7 @@ namespace Metal_Assay
         {
             InitializeComponent();
         }
-        //string connection_string = @"server=192.168.0.8;uid=view1;pwd=Assay123!;database=assay";
-        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
-        string connection_string = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
-        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
+        string connection_string = GlobalConfig.ConnectionString;
         string sql = "";
 
         private void Form1_Load(object sender, EventArgs e)
@@ -57,7 +54,7 @@ namespace Metal_Assay
 
                 if (Process.GetProcesses().Count(p => p.ProcessName == thisprocessname) > 1)
                 {
-                    MessageBox.Show("Application already running.","Error",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                    MessageBox.Show("Application already running.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     Environment.Exit(0);
                     return;
                 }
@@ -70,10 +67,6 @@ namespace Metal_Assay
                 FWDataGridView.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(FWDataGridView, true, null);
                 LWDataGridView.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(LWDataGridView, true, null);
                 SRDataGridView.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(SRDataGridView, true, null);
-                MainBackgroundWorker.DoWork += new DoWorkEventHandler(MainBackgroundWorker_DoWork);
-                FWBackgroundWorker.DoWork += new DoWorkEventHandler(FWBackgroundWorker_DoWork);
-                LWBackgroundWorker.DoWork += new DoWorkEventHandler(LWBackgroundWorker_DoWork);
-                SRBackgroundWorker.DoWork += new DoWorkEventHandler(SRBackgroundWorker_DoWork);
                 LoadAllTable();
                 LoadCompanyInfo();
                 LoadHistoryCustomerList();
@@ -125,9 +118,19 @@ namespace Metal_Assay
             {
                 string[] logFiles = Directory.GetFiles(logFolderPath);
 
-                foreach (string file in logFiles)
+                if (logFiles.Length > 0)
                 {
-                    LogDateCombobox.Items.Add(Path.GetFileName(file));
+                    // Sort files by LastWriteTime descending and take the top 100
+                    var recentFiles = logFiles
+                        .OrderByDescending(file => File.GetLastWriteTime(file))
+                        .Take(100);
+
+                    // Add the most recent files' names to the combobox
+                    LogDateCombobox.Items.Clear();
+                    foreach (string file in recentFiles)
+                    {
+                        LogDateCombobox.Items.Add(Path.GetFileName(file));
+                    }
                 }
             }
         }
@@ -174,9 +177,9 @@ namespace Metal_Assay
                 MySqlDataReader data_reader = cmd.ExecuteReader();
                 string current_formcode = "0";
                 MainLeftDataGridView.Rows.Clear();
-                MainLeftDataGridView.Refresh();
+                //MainLeftDataGridView.Refresh();
                 MainRightDataGridView.Rows.Clear();
-                MainRightDataGridView.Refresh();
+                //MainRightDataGridView.Refresh();
                 List<DataGridViewRow> left_rows = new List<DataGridViewRow>();
                 List<DataGridViewRow> right_rows = new List<DataGridViewRow>();
                 int item_count = 0;
@@ -401,6 +404,41 @@ namespace Metal_Assay
                 //Proceed to delete
                 if (left_selected_formcode != "")
                 {
+                    // get deleted items under formcode info
+                    sql = $"SELECT assayresult.id AS id, user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, assayresult.fwa AS fwa, assayresult.fwb AS fwb, assayresult.silverpct AS silverpct, assayresult.lwa AS lwa, assayresult.lwb AS lwb,assayresult.loss AS loss, assayresult.finalresult AS finalresult, assayresult.created AS created FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode='{left_selected_formcode}' ORDER BY assayresult.created DESC";
+
+                    using (MySqlConnection connection = new MySqlConnection(connection_string))
+                    {
+                        connection.Open();
+                        using (MySqlCommand command = new MySqlCommand(sql, connection))
+                        {
+                            using (MySqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    DeletedItem item = new DeletedItem
+                                    {
+                                        ID = reader.GetInt32("id"), // ID is assumed not nullable
+                                        Customer = reader.IsDBNull(reader.GetOrdinal("customer")) ? "" : reader.GetString("customer"),
+                                        FormCode = reader.IsDBNull(reader.GetOrdinal("formcode")) ? "" : reader.GetString("formcode"),
+                                        ItemCode = reader.IsDBNull(reader.GetOrdinal("itemcode")) ? "" : reader.GetString("itemcode"),
+                                        SampleWeight = reader.IsDBNull(reader.GetOrdinal("sampleweight")) ? "" : reader.GetString("sampleweight"),
+                                        SampleResult = reader.IsDBNull(reader.GetOrdinal("samplereturn")) ? "" : reader.GetString("samplereturn"),
+                                        FWA = reader.IsDBNull(reader.GetOrdinal("fwa")) ? "" : reader.GetString("fwa"),
+                                        FWB = reader.IsDBNull(reader.GetOrdinal("fwb")) ? "" : reader.GetString("fwb"),
+                                        LWA = reader.IsDBNull(reader.GetOrdinal("lwa")) ? "" : reader.GetString("lwa"),
+                                        LWB = reader.IsDBNull(reader.GetOrdinal("lwb")) ? "" : reader.GetString("lwb"),
+                                        PCT = reader.IsDBNull(reader.GetOrdinal("silverpct")) ? "" : reader.GetString("silverpct"),
+                                        Loss = reader.IsDBNull(reader.GetOrdinal("loss")) ? "" : reader.GetString("loss"),
+                                        Result = reader.IsDBNull(reader.GetOrdinal("finalresult")) ? "" : reader.GetString("finalresult"),
+                                        Created = reader.IsDBNull(reader.GetOrdinal("created")) ? "" : reader.GetString("created")
+                                    };
+
+                                    WriteToLogFile("DELETED FORMCODE: " + item.ToString()); ;
+                                }
+                            }
+                        }
+                    }
                     //Delete based on left clicked
                     var con = new MySqlConnection(connection_string);
                     con.Open();
@@ -409,51 +447,50 @@ namespace Metal_Assay
                     MySqlCommand cmd = new MySqlCommand(sql, con);
                     cmd.ExecuteReader();
                     con.Close();
-                    //get the IDs of deleted assay record and delete from Main Right
-                    List<int> delete_id_list = new List<int>();
-                    delete_id_list.Clear();
-                    List<DataGridViewRow> temp_right_rows = MainRightDataGridView.Rows.Cast<DataGridViewRow>().ToList();
-                    foreach (DataGridViewRow row in temp_right_rows)
-                    {
-                        if (row.Cells[0].Value.ToString() == MainLeftDataGridView.CurrentRow.Cells[0].Value.ToString())
-                        {
-                            delete_id_list.Add(int.Parse(row.Cells[5].Value.ToString()));
-                            MainRightDataGridView.Rows.Remove(row);
-                        }
-                    }
-                    //Delete from Main Left
-                    MainLeftDataGridView.Rows.RemoveAt(MainLeftDataGridView.CurrentRow.Index);
-                    //Delete from FW
-                    List<DataGridViewRow> temp_fw_rows = FWDataGridView.Rows.Cast<DataGridViewRow>().ToList();
-                    foreach (DataGridViewRow row in temp_fw_rows)
-                    {
-                        if (delete_id_list.Contains(int.Parse(row.Cells[5].Value.ToString())))
-                        {
-                            FWDataGridView.Rows.Remove(row);
-                        }
-                    }
-                    //Delete from LW
-                    List<DataGridViewRow> temp_lw_rows = LWDataGridView.Rows.Cast<DataGridViewRow>().ToList();
-                    foreach (DataGridViewRow row in temp_lw_rows)
-                    {
-                        if (delete_id_list.Contains(int.Parse(row.Cells[12].Value.ToString())))
-                        {
-                            LWDataGridView.Rows.Remove(row);
-                        }
-                    }
-                    //Delete from SR
-                    List<DataGridViewRow> temp_sr_rows = SRDataGridView.Rows.Cast<DataGridViewRow>().ToList();
-                    foreach (DataGridViewRow row in temp_sr_rows)
-                    {
-                        if (delete_id_list.Contains(int.Parse(row.Cells[7].Value.ToString())))
-                        {
-                            SRDataGridView.Rows.Remove(row);
-                        }
-                    }
+                    WriteToLogFile("Deleted all in Formcode " + left_selected_formcode);
+                    LoadMainPageTable();
+                    LoadFirstWeightTable();
+                    LoadLastWeightTable();
+                    LoadSampleReturnTable();
 
                 }
                 else
                 {
+                    //get the single deleted item info                   
+                    sql = $"SELECT assayresult.id AS id, user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, assayresult.fwa AS fwa, assayresult.fwb AS fwb, assayresult.silverpct AS silverpct, assayresult.lwa AS lwa, assayresult.lwb AS lwb,assayresult.loss AS loss, assayresult.finalresult AS finalresult, assayresult.created AS created FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id='{right_selected_id}'";
+
+                    using (MySqlConnection connection = new MySqlConnection(connection_string))
+                    {
+                        connection.Open();
+                        using (MySqlCommand command = new MySqlCommand(sql, connection))
+                        {
+                            using (MySqlDataReader reader = command.ExecuteReader())
+                            {
+                                while (reader.Read())
+                                {
+                                    DeletedItem item = new DeletedItem
+                                    {
+                                        ID = reader.GetInt32("id"), // ID is assumed not nullable
+                                        Customer = reader.IsDBNull(reader.GetOrdinal("customer")) ? "" : reader.GetString("customer"),
+                                        FormCode = reader.IsDBNull(reader.GetOrdinal("formcode")) ? "" : reader.GetString("formcode"),
+                                        ItemCode = reader.IsDBNull(reader.GetOrdinal("itemcode")) ? "" : reader.GetString("itemcode"),
+                                        SampleWeight = reader.IsDBNull(reader.GetOrdinal("sampleweight")) ? "" : reader.GetString("sampleweight"),
+                                        SampleResult = reader.IsDBNull(reader.GetOrdinal("samplereturn")) ? "" : reader.GetString("samplereturn"),
+                                        FWA = reader.IsDBNull(reader.GetOrdinal("fwa")) ? "" : reader.GetString("fwa"),
+                                        FWB = reader.IsDBNull(reader.GetOrdinal("fwb")) ? "" : reader.GetString("fwb"),
+                                        LWA = reader.IsDBNull(reader.GetOrdinal("lwa")) ? "" : reader.GetString("lwa"),
+                                        LWB = reader.IsDBNull(reader.GetOrdinal("lwb")) ? "" : reader.GetString("lwb"),
+                                        PCT = reader.IsDBNull(reader.GetOrdinal("silverpct")) ? "" : reader.GetString("silverpct"),
+                                        Loss = reader.IsDBNull(reader.GetOrdinal("loss")) ? "" : reader.GetString("loss"),
+                                        Result = reader.IsDBNull(reader.GetOrdinal("finalresult")) ? "" : reader.GetString("finalresult"),
+                                        Created = reader.IsDBNull(reader.GetOrdinal("created")) ? "" : reader.GetString("created")
+                                    };
+
+                                    WriteToLogFile("DELETED SINGLE: " + item.ToString()); ;
+                                }
+                            }
+                        }
+                    }
                     //Delete based on right clicked
                     var con = new MySqlConnection(connection_string);
                     con.Open();
@@ -462,61 +499,12 @@ namespace Metal_Assay
                     MySqlCommand cmd = new MySqlCommand(sql, con);
                     cmd.ExecuteReader();
                     con.Close();
-                    //Delete from Main Left
-                    foreach (DataGridViewRow row in MainLeftDataGridView.Rows)
-                    {
-                        if (row.Cells[0].Value.ToString() == MainRightDataGridView.CurrentRow.Cells[0].Value.ToString())
-                        {
-                            if (row.Cells[1].Value.ToString() == "1")
-                            {
-                                MainLeftDataGridView.Rows.Remove(row);
-                            }
-                            else
-                            {
-                                row.Cells[1].Value = (int.Parse(row.Cells[1].Value.ToString()) - 1).ToString();
-                            }
-                            break;
-                        }
-                    }
-                    //Delete from Main Right
-                    MainRightDataGridView.Rows.RemoveAt(MainRightDataGridView.CurrentRow.Index);
-                    //Delete from FW
-                    foreach (DataGridViewRow row in FWDataGridView.Rows)
-                    {
-                        if (int.Parse(row.Cells[5].Value.ToString()) == right_selected_id)
-                        {
-                            FWDataGridView.Rows.Remove(row);
-                            break;
-                        }
-                    }
-                    //Delete from LW
-                    foreach (DataGridViewRow row in LWDataGridView.Rows)
-                    {
-                        if (int.Parse(row.Cells[12].Value.ToString()) == right_selected_id)
-                        {
-                            LWDataGridView.Rows.Remove(row);
-                            break;
-                        }
-                    }
-                    //Delete from SR
-                    foreach (DataGridViewRow row in SRDataGridView.Rows)
-                    {
-                        if (int.Parse(row.Cells[7].Value.ToString()) == right_selected_id)
-                        {
-                            SRDataGridView.Rows.Remove(row);
-                            break;
-                        }
-                    }
+                    WriteToLogFile("Deleted Formcode " + right_selected_id);
+                    LoadMainPageTable();
+                    LoadFirstWeightTable();
+                    LoadLastWeightTable();
+                    LoadSampleReturnTable();
                 }
-                MainLeftDataGridView.ClearSelection();
-                MainRightDataGridView.ClearSelection();
-                MainFormcodeLabel.Text = "";
-                MainCustomerLabel.Text = "";
-                MainDateLabel.Text = "";
-                MainItemcodeLabel.Text = "";
-                MainSampleWeightLabel.Text = "";
-                left_selected_formcode = "";
-                right_selected_id = 0;
             }
             catch (Exception ex)
             {
@@ -627,7 +615,7 @@ namespace Metal_Assay
                 MySqlDataReader data_reader = cmd.ExecuteReader();
 
                 FWDataGridView.Rows.Clear();
-                FWDataGridView.Refresh();
+                //FWDataGridView.Refresh();
 
                 List<DataGridViewRow> FW_rows = new List<DataGridViewRow>();
                 if (data_reader.HasRows)
@@ -752,21 +740,20 @@ namespace Metal_Assay
         {
             try
             {
-
                 foreach (DataGridViewRow row in FWDataGridView.Rows)
                 {
                     if (row.Cells[2].Value.ToString() == "" || row.Cells[3].Value.ToString() == "")
                     {
                         FWDataGridView.ClearSelection();
                         FWDataGridView.Rows[row.Cells[0].RowIndex].Selected = true;
-                        if (row.Cells[0].RowIndex - 1 < 0)
+                        if (row.Cells[0].RowIndex - 5 < 0)
                         {
                             FWDataGridView.FirstDisplayedScrollingRowIndex = row.Cells[0].RowIndex;
                         }
                         else
                         {
 
-                            FWDataGridView.FirstDisplayedScrollingRowIndex = row.Cells[0].RowIndex - 1;
+                            FWDataGridView.FirstDisplayedScrollingRowIndex = row.Cells[0].RowIndex - 5;
                         }
                         FWDataGridView.CurrentCell = FWDataGridView.Rows[row.Cells[0].RowIndex].Cells[0];
                         FWDatagridview_CellClick(this.FWDataGridView, new DataGridViewCellEventArgs(0, 0));
@@ -797,7 +784,47 @@ namespace Metal_Assay
                 WriteToLogFile($"Exception: {ex.ToString()}");
             }
         }
-
+        private void FWPointToNext(int rowIndex)
+        {
+            try
+            {
+                if (FWDataGridView.Rows.Count == rowIndex)
+                {
+                    FWDataGridView.Rows[FWDataGridView.Rows.Count - 1].Selected = true;
+                    FWDataGridView.FirstDisplayedScrollingRowIndex = FWDataGridView.Rows.Count - 1;
+                    FWDataGridView.CurrentCell = FWDataGridView.Rows[FWDataGridView.Rows.Count - 1].Cells[0];
+                    FWDatagridview_CellClick(this.FWDataGridView, new DataGridViewCellEventArgs(0, 0));
+                    if (FWDataGridView.CurrentRow.Cells[4].Value.ToString() == "")
+                    {
+                        FWSilverPctCombobox.SelectedIndex = 0;
+                    }
+                }
+                else
+                {
+                    if (rowIndex - 5 < 0)
+                    {
+                        FWDataGridView.Rows[rowIndex].Selected = true;
+                        FWDataGridView.FirstDisplayedScrollingRowIndex = rowIndex;
+                    }
+                    else
+                    {
+                        FWDataGridView.Rows[rowIndex].Selected = true;
+                        FWDataGridView.FirstDisplayedScrollingRowIndex = rowIndex - 5;
+                    }
+                    FWDataGridView.CurrentCell = FWDataGridView.Rows[rowIndex].Cells[0];
+                    FWDatagridview_CellClick(this.FWDataGridView, new DataGridViewCellEventArgs(0, 0));
+                    if (FWDataGridView.CurrentRow.Cells[4].Value.ToString() == "")
+                    {
+                        FWSilverPctCombobox.SelectedIndex = 0;
+                    }
+                }                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                WriteToLogFile($"Exception: {ex.ToString()}");
+            }
+        }
         private void FWSaveButton_Click(object sender, EventArgs e)
         {
             try
@@ -827,40 +854,12 @@ namespace Metal_Assay
                     cmd.ExecuteReader();
                     con.Close();
                     WriteToLogFile($"Saved FW. Customer:{FWCustomerContent.Text}, IC:{FWItemcodeContent.Text}, FWA:{FWATextbox.Text}, FWB:{FWBTextbox.Text}");
-
-                    //Add data to FW table
-                    FWDataGridView.CurrentRow.Cells[2].Value = FWATextbox.Text;
-                    FWDataGridView.CurrentRow.Cells[3].Value = FWBTextbox.Text;
-                    FWDataGridView.CurrentRow.Cells[4].Value = FWSilverPctCombobox.Text;
-                    FWSaveButton.Text = "Save";
-
-                    //Add data to LW table
-                    foreach (DataGridViewRow row in LWDataGridView.Rows)
-                    {
-                        if (row.Cells[12].Value.ToString() == FWDataGridView.CurrentRow.Cells[5].Value.ToString())
-                        {
-                            row.Cells[2].Value = FWATextbox.Text;
-                            row.Cells[3].Value = FWBTextbox.Text;
-                            row.Cells[6].Value = FWSilverPctCombobox.Text;
-                        }
-                    }
-
-                    //Move to next row in FW table
-                    FWDataGridView.ClearSelection();
-                    if (FWDataGridView.Rows.Count - 1 == FWDataGridView.CurrentRow.Cells[0].RowIndex)
-                    {
-                        FWDataGridView.Rows[FWDataGridView.CurrentRow.Cells[0].RowIndex].Selected = true;
-                        FWDataGridView.CurrentCell = FWDataGridView.Rows[FWDataGridView.CurrentRow.Cells[0].RowIndex].Cells[0];
-                    }
-                    else
-                    {
-
-                        FWDataGridView.Rows[FWDataGridView.CurrentRow.Cells[0].RowIndex + 1].Selected = true;
-                        FWDataGridView.CurrentCell = FWDataGridView.Rows[FWDataGridView.CurrentRow.Cells[0].RowIndex + 1].Cells[0];
-                    }
-
-                    FWDatagridview_CellClick(this.FWDataGridView, new DataGridViewCellEventArgs(0, 0));
-                    //LWBackgroundWorker.RunWorkerAsync();
+                    int rowIndex = FWDataGridView.CurrentCell.RowIndex;
+                    LoadMainPageTable();
+                    LoadFirstWeightTable();
+                    LoadLastWeightTable();
+                    LoadSampleReturnTable();
+                    FWPointToNext(rowIndex + 1);
 
                 }
             }
@@ -887,7 +886,7 @@ namespace Metal_Assay
                 MySqlDataReader data_reader = cmd.ExecuteReader();
 
                 LWDataGridView.Rows.Clear();
-                LWDataGridView.Refresh();
+                //LWDataGridView.Refresh();
 
                 List<DataGridViewRow> LW_rows = new List<DataGridViewRow>();
                 if (data_reader.HasRows)
@@ -1064,7 +1063,39 @@ namespace Metal_Assay
                 WriteToLogFile($"Exception: {ex.ToString()}");
             }
         }
-
+        private void LWPointToNext(int rowIndex)
+        {
+            try
+            {
+                if (LWDataGridView.Rows.Count == rowIndex)
+                {
+                    LWDataGridView.Rows[LWDataGridView.Rows.Count - 1].Selected = true;
+                    LWDataGridView.FirstDisplayedScrollingRowIndex = LWDataGridView.Rows.Count - 1;
+                    LWDataGridView.CurrentCell = LWDataGridView.Rows[LWDataGridView.Rows.Count - 1].Cells[0];
+                    LWDataGridView_CellClick(this.LWDataGridView, new DataGridViewCellEventArgs(0, 0));
+                }
+                else
+                {
+                    if (rowIndex - 5 < 0)
+                    {
+                        LWDataGridView.Rows[rowIndex].Selected = true;
+                        LWDataGridView.FirstDisplayedScrollingRowIndex = rowIndex;
+                    }
+                    else
+                    {
+                        LWDataGridView.Rows[rowIndex].Selected = true;
+                        LWDataGridView.FirstDisplayedScrollingRowIndex = rowIndex - 5;
+                    }
+                    LWDataGridView.CurrentCell = LWDataGridView.Rows[rowIndex].Cells[0];
+                    LWDataGridView_CellClick(this.LWDataGridView, new DataGridViewCellEventArgs(0, 0));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                WriteToLogFile($"Exception: {ex.ToString()}");
+            }
+        }
         private void LWDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -1218,60 +1249,12 @@ namespace Metal_Assay
                 MySqlCommand spoilcmd = new MySqlCommand(spoilcmdText, con);
                 spoilcmd.ExecuteNonQuery();
                 con.Close();
-
-                //Update LW Value
-                LWFinalResultTextBox.Text = mode;
-                LWDataGridView.CurrentRow.Cells[4].Value = LWLastWeightATextBox.Text;
-                LWDataGridView.CurrentRow.Cells[5].Value = LWLastWeightBTextBox.Text;
-                LWDataGridView.CurrentRow.Cells[7].Value = LWFinalResultTextBox.Text;
-                LWDataGridView.CurrentRow.Cells[8].Value = LWPreresultATextBox.Text;
-                LWDataGridView.CurrentRow.Cells[9].Value = LWPreresultBTextBox.Text;
-                LWDataGridView.CurrentRow.Cells[10].Value = LWAverageResultTextBox.Text;
-                LWDataGridView.CurrentRow.Cells[11].Value = LWLossContent.Text;
-                LWDataGridView.CurrentRow.DefaultCellStyle.ForeColor = System.Drawing.Color.Red;
-
-                //Update Main Right Value
-                foreach (DataGridViewRow row in MainRightDataGridView.Rows)
-                {
-                    if (row.Cells[5].Value.ToString() == LWDataGridView.CurrentRow.Cells[12].Value.ToString())
-                    {
-                        row.Cells[4].Value = LWFinalResultTextBox.Text;
-                    }
-                }
-                //Update SR Value
-                foreach (DataGridViewRow row in LWDataGridView.Rows)
-                {
-                    if (row.Cells[7].Value.ToString() == LWDataGridView.CurrentRow.Cells[12].Value.ToString())
-                    {
-                        row.Cells[3].Value = LWFinalResultTextBox.Text;
-                    }
-                }
-                //Update FW Color
-                foreach (DataGridViewRow row in FWDataGridView.Rows)
-                {
-                    if (row.Cells[5].Value.ToString() == LWDataGridView.CurrentRow.Cells[12].Value.ToString())
-                    {
-                        row.DefaultCellStyle.ForeColor = System.Drawing.Color.Red;
-                    }
-                }
-                //Go to next row in LW
-                LWDataGridView.ClearSelection();
-                if (LWDataGridView.Rows.Count - 1 == LWDataGridView.CurrentRow.Cells[0].RowIndex)
-                {
-                    LWDataGridView.Rows[LWDataGridView.CurrentRow.Cells[0].RowIndex].Selected = true;
-                    LWDataGridView.CurrentCell = LWDataGridView.Rows[LWDataGridView.CurrentRow.Cells[0].RowIndex].Cells[0];
-                }
-                else
-                {
-                    LWDataGridView.Rows[LWDataGridView.CurrentRow.Cells[0].RowIndex + 1].Selected = true;
-                    LWDataGridView.CurrentCell = LWDataGridView.Rows[LWDataGridView.CurrentRow.Cells[0].RowIndex + 1].Cells[0];
-                }
-                LWDataGridView_CellClick(this.LWDataGridView, new DataGridViewCellEventArgs(0, 0));
-
-                MainBackgroundWorker.RunWorkerAsync();
-                SRBackgroundWorker.RunWorkerAsync();
-
-                //e.SuppressKeyPress = true;
+                int rowIndex = LWDataGridView.CurrentCell.RowIndex;
+                LoadMainPageTable();
+                LoadFirstWeightTable();
+                LoadLastWeightTable();
+                LoadSampleReturnTable();
+                LWPointToNext(rowIndex + 1);
             }
             catch (Exception ex)
             {
@@ -1298,57 +1281,12 @@ namespace Metal_Assay
                 cmd.ExecuteReader();
                 con.Close();
                 WriteToLogFile($"Last Weight Saved. Customer:{LWCustomerContent.Text}, IC:{LWItemcodeContent.Text}, LWA:{LWLastWeightATextBox.Text}, LWB:{LWLastWeightBTextBox.Text}, finalresult:{LWFinalResultTextBox.Text}, loss:{LWLossContent.Text}");
-                LWDataGridView.CurrentRow.Cells[4].Value = LWLastWeightATextBox.Text;
-                LWDataGridView.CurrentRow.Cells[5].Value = LWLastWeightBTextBox.Text;
-                LWDataGridView.CurrentRow.Cells[7].Value = LWFinalResultTextBox.Text;
-                LWDataGridView.CurrentRow.Cells[8].Value = LWPreresultATextBox.Text;
-                LWDataGridView.CurrentRow.Cells[9].Value = LWPreresultBTextBox.Text;
-                LWDataGridView.CurrentRow.Cells[10].Value = LWAverageResultTextBox.Text;
-                LWDataGridView.CurrentRow.Cells[11].Value = LWLossContent.Text;
-                LWDataGridView.CurrentRow.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-                //Update FW Color
-                foreach (DataGridViewRow row in FWDataGridView.Rows)
-                {
-                    if (row.Cells[5].Value.ToString() == LWDataGridView.CurrentRow.Cells[12].Value.ToString())
-                    {
-                        row.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
-                    }
-                }
-                //Update Main Right Value
-                foreach (DataGridViewRow row in MainRightDataGridView.Rows)
-                {
-                    if (row.Cells[5].Value.ToString() == LWDataGridView.CurrentRow.Cells[12].Value.ToString())
-                    {
-                        row.Cells[4].Value = LWFinalResultTextBox.Text;
-                    }
-                }
-                //Update SR Value
-                foreach (DataGridViewRow row in LWDataGridView.Rows)
-                {
-                    if (row.Cells[7].Value.ToString() == LWDataGridView.CurrentRow.Cells[12].Value.ToString())
-                    {
-                        row.Cells[3].Value = LWFinalResultTextBox.Text;
-                    }
-                }
-                //Go to next row in LW
-                LWDataGridView.ClearSelection();
-                if (LWDataGridView.Rows.Count - 1 == LWDataGridView.CurrentRow.Cells[0].RowIndex)
-                {
-                    LWDataGridView.Rows[LWDataGridView.CurrentRow.Cells[0].RowIndex].Selected = true;
-                    LWDataGridView.CurrentCell = LWDataGridView.Rows[LWDataGridView.CurrentRow.Cells[0].RowIndex].Cells[0];
-                }
-                else
-                {
-                    LWDataGridView.Rows[LWDataGridView.CurrentRow.Cells[0].RowIndex + 1].Selected = true;
-                    LWDataGridView.CurrentCell = LWDataGridView.Rows[LWDataGridView.CurrentRow.Cells[0].RowIndex + 1].Cells[0];
-                }
-
-                LWDataGridView_CellClick(this.LWDataGridView, new DataGridViewCellEventArgs(0, 0));
-
-                MainBackgroundWorker.RunWorkerAsync();
-                SRBackgroundWorker.RunWorkerAsync();
-
-                //e.SuppressKeyPress = true;
+                int rowIndex = LWDataGridView.CurrentCell.RowIndex;
+                LoadMainPageTable();
+                LoadFirstWeightTable();
+                LoadLastWeightTable();
+                LoadSampleReturnTable();
+                LWPointToNext(rowIndex + 1);
             }
             catch (Exception ex)
             {
@@ -1512,7 +1450,39 @@ namespace Metal_Assay
             }
 
         }
-
+        private void SRPointToNext(int rowIndex)
+        {
+            try
+            {
+                if (SRDataGridView.Rows.Count == rowIndex)
+                {
+                    SRDataGridView.Rows[SRDataGridView.Rows.Count - 1].Selected = true;
+                    SRDataGridView.FirstDisplayedScrollingRowIndex = SRDataGridView.Rows.Count - 1;
+                    SRDataGridView.CurrentCell = SRDataGridView.Rows[SRDataGridView.Rows.Count - 1].Cells[0];
+                    SRDataGridView_CellClick(this.SRDataGridView, new DataGridViewCellEventArgs(0, 0));
+                }
+                else
+                {
+                    if (rowIndex - 5 < 0)
+                    {
+                        SRDataGridView.Rows[rowIndex].Selected = true;
+                        SRDataGridView.FirstDisplayedScrollingRowIndex = rowIndex;
+                    }
+                    else
+                    {
+                        SRDataGridView.Rows[rowIndex].Selected = true;
+                        SRDataGridView.FirstDisplayedScrollingRowIndex = rowIndex - 5;
+                    }
+                    SRDataGridView.CurrentCell = SRDataGridView.Rows[rowIndex].Cells[0];
+                    SRDataGridView_CellClick(this.SRDataGridView, new DataGridViewCellEventArgs(0, 0));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                WriteToLogFile($"Exception: {ex.ToString()}");
+            }
+        }
         private void SRDataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -1570,51 +1540,12 @@ namespace Metal_Assay
                     cmd.ExecuteReader();
                     con.Close();
                     WriteToLogFile($"Sample Return Saved. Customer:{SampleReturnCustomerContentLabel.Text}, IC:{SampleReturnItemcodeContentLabel.Text}, SR:{SampleReturnSampleReturnTextbox.Text}");
-
-
-                    //Add data to table
-                    string srstring = SampleReturnSampleReturnTextbox.Text;
-
-                    if (srstring.StartsWith("."))
-                    {
-                        srstring = "0" + srstring;
-                    }
-                    if (srstring.Length < 4)
-                    {
-                        if (srstring.Contains("."))
-                        {
-                            srstring = srstring.PadRight(4, '0');
-                        }
-                        else
-                        {
-                            srstring = srstring + ".";
-                            srstring = srstring.PadRight(4, '0');
-                        }
-                    }
-
-                    //Update SR Value
-                    SRDataGridView.CurrentRow.Cells[5].Value = srstring;
-                    //Update Main Right Value
-                    foreach (DataGridViewRow row in MainRightDataGridView.Rows)
-                    {
-                        if (row.Cells[5].Value.ToString() == SRDataGridView.CurrentRow.Cells[7].Value.ToString())
-                        {
-                            row.Cells[3].Value = SRDataGridView.CurrentRow.Cells[5].Value.ToString();
-                        }
-                    }
-                    SRDataGridView.ClearSelection();
-                    if (SRDataGridView.Rows.Count - 1 == SRDataGridView.CurrentRow.Cells[0].RowIndex)
-                    {
-                        SRDataGridView.Rows[SRDataGridView.CurrentRow.Cells[0].RowIndex].Selected = true;
-                        SRDataGridView.CurrentCell = SRDataGridView.Rows[SRDataGridView.CurrentRow.Cells[0].RowIndex].Cells[0];
-                    }
-                    else
-                    {
-                        SRDataGridView.Rows[SRDataGridView.CurrentRow.Cells[0].RowIndex + 1].Selected = true;
-                        SRDataGridView.CurrentCell = SRDataGridView.Rows[SRDataGridView.CurrentRow.Cells[0].RowIndex + 1].Cells[0];
-                    }
-                    SRDataGridView_CellClick(this.SRDataGridView, new DataGridViewCellEventArgs(0, 0));
-                    //MainBackgroundWorker.RunWorkerAsync();
+                    int rowIndex = SRDataGridView.CurrentCell.RowIndex;
+                    LoadMainPageTable();
+                    LoadFirstWeightTable();
+                    LoadLastWeightTable();
+                    LoadSampleReturnTable();
+                    SRPointToNext(rowIndex + 1);
                 }
             }
             catch (Exception ex)
@@ -1648,52 +1579,12 @@ namespace Metal_Assay
                     con.Close();
 
                     WriteToLogFile($"Sample Return Saved. Customer:{SampleReturnCustomerContentLabel.Text}, IC:{SampleReturnItemcodeContentLabel.Text}, SR:{SampleReturnSampleReturnTextbox.Text}");
-                    //Add data to table
-                    string srstring = SampleReturnSampleReturnTextbox.Text;
-
-                    if (srstring.StartsWith("."))
-                    {
-                        srstring = "0" + srstring;
-                    }
-                    if (srstring.Length < 4)
-                    {
-
-                        if (srstring.Contains("."))
-                        {
-                            srstring = srstring.PadRight(4, '0');
-                        }
-                        else
-                        {
-                            srstring = srstring + ".";
-                            srstring = srstring.PadRight(4, '0');
-                        }
-
-
-                    }
-                    //Update SR Value
-                    SRDataGridView.CurrentRow.Cells[5].Value = srstring;
-                    //Update Main Right Value
-                    foreach (DataGridViewRow row in MainRightDataGridView.Rows)
-                    {
-                        if (row.Cells[5].Value.ToString() == SRDataGridView.CurrentRow.Cells[7].Value.ToString())
-                        {
-                            row.Cells[3].Value = SRDataGridView.CurrentRow.Cells[5].Value.ToString();
-                        }
-                    }
-                    SRDataGridView.ClearSelection();
-                    if (SRDataGridView.Rows.Count - 1 == SRDataGridView.CurrentRow.Cells[0].RowIndex)
-                    {
-                        SRDataGridView.Rows[SRDataGridView.CurrentRow.Cells[0].RowIndex].Selected = true;
-                        SRDataGridView.CurrentCell = SRDataGridView.Rows[SRDataGridView.CurrentRow.Cells[0].RowIndex].Cells[0];
-                    }
-                    else
-                    {
-                        SRDataGridView.Rows[SRDataGridView.CurrentRow.Cells[0].RowIndex + 1].Selected = true;
-                        SRDataGridView.CurrentCell = SRDataGridView.Rows[SRDataGridView.CurrentRow.Cells[0].RowIndex + 1].Cells[0];
-                    }
-
-                    SRDataGridView_CellClick(this.SRDataGridView, new DataGridViewCellEventArgs(0, 0));
-                    //MainBackgroundWorker.RunWorkerAsync();
+                    int rowIndex = SRDataGridView.CurrentCell.RowIndex;
+                    LoadMainPageTable();
+                    LoadFirstWeightTable();
+                    LoadLastWeightTable();
+                    LoadSampleReturnTable();
+                    SRPointToNext(rowIndex + 1);
 
 
                 }
@@ -2711,7 +2602,7 @@ namespace Metal_Assay
                 MySqlDataReader data_reader = cmd.ExecuteReader();
 
                 HistoryDataGridView.Rows.Clear();
-                HistoryDataGridView.Refresh();
+                //HistoryDataGridView.Refresh();
 
                 List<DataGridViewRow> History_rows = new List<DataGridViewRow>();
                 if (data_reader.HasRows)
@@ -2836,7 +2727,7 @@ namespace Metal_Assay
                 MySqlDataReader data_reader = cmd.ExecuteReader();
 
                 HistoryDataGridView.Rows.Clear();
-                HistoryDataGridView.Refresh();
+                //HistoryDataGridView.Refresh();
 
                 List<DataGridViewRow> History_rows = new List<DataGridViewRow>();
                 if (data_reader.HasRows)
@@ -2977,7 +2868,7 @@ namespace Metal_Assay
                 MySqlDataReader data_reader = cmd.ExecuteReader();
 
                 CustomerDataGridView.Rows.Clear();
-                CustomerDataGridView.Refresh();
+                //CustomerDataGridView.Refresh();
 
                 List<DataGridViewRow> Customer_rows = new List<DataGridViewRow>();
                 if (data_reader.HasRows)
@@ -3190,7 +3081,7 @@ namespace Metal_Assay
                 MySqlDataReader data_reader = cmd.ExecuteReader();
 
                 CustomerDataGridView.Rows.Clear();
-                CustomerDataGridView.Refresh();
+                //CustomerDataGridView.Refresh();
 
                 List<DataGridViewRow> Customer_rows = new List<DataGridViewRow>();
                 if (data_reader.HasRows)
@@ -6228,7 +6119,7 @@ namespace Metal_Assay
             // Check the result
             if (result == DialogResult.Yes)
             {
-                
+
                 CheckingA1LWTextbox.Text = "";
                 CheckingA2LWTextbox.Text = "";
                 CheckingB1LWTextbox.Text = "";
@@ -6255,7 +6146,7 @@ namespace Metal_Assay
             // Check the result
             if (result == DialogResult.Yes)
             {
-                
+
                 CheckingA1LWTextboxRight.Text = "";
                 CheckingA2LWTextboxRight.Text = "";
                 CheckingB1LWTextboxRight.Text = "";
@@ -6461,7 +6352,7 @@ namespace Metal_Assay
 
             ProcessStartInfo info = new ProcessStartInfo();
             info.Verb = "print";
-            info.FileName = Path.Combine(Directory.GetCurrentDirectory(), "temp/checking.pdf"); 
+            info.FileName = Path.Combine(Directory.GetCurrentDirectory(), "temp/checking.pdf");
             info.CreateNoWindow = true;
             info.WindowStyle = ProcessWindowStyle.Hidden;
 
@@ -6480,4 +6371,59 @@ namespace Metal_Assay
             GenerateCheckingPDF("right");
         }
     }
+    public class DeletedItem
+    {
+        // Properties
+        public int ID { get; set; }
+        public string Customer { get; set; }
+        public string FormCode { get; set; }
+        public string ItemCode { get; set; }
+        public string SampleWeight { get; set; }
+        public string SampleResult { get; set; }
+        public string FWA { get; set; }
+        public string FWB { get; set; }
+        public string LWA { get; set; }
+        public string LWB { get; set; }
+        public string PCT { get; set; }
+        public string Loss { get; set; }
+        public string Result { get; set; }
+        public string Created { get; set; }
+
+        // Constructor
+        public DeletedItem(int id, string customer, string formCode, string itemCode,
+                               string sampleWeight, string sampleResult, string fwa, string fwb,
+                               string lwa, string lwb, string pct, string loss, string result,
+                               string created)
+        {
+            ID = id;
+            Customer = customer;
+            FormCode = formCode;
+            ItemCode = itemCode;
+            SampleWeight = sampleWeight;
+            SampleResult = sampleResult;
+            FWA = fwa;
+            FWB = fwb;
+            LWA = lwa;
+            LWB = lwb;
+            PCT = pct;
+            Loss = loss;
+            Result = result;
+            Created = created;
+        }
+
+        // Default Constructor
+        public DeletedItem()
+        {
+        }
+
+        // Override ToString for easy display
+        public override string ToString()
+        {
+            return $"ID: {ID}, Customer: {Customer}, FormCode: {FormCode}, ItemCode: {ItemCode}, " +
+                   $"SampleWeight: {SampleWeight}, SampleResult: {SampleResult}, FWA: {FWA}, FWB: {FWB}, " +
+                   $"LWA: {LWA}, LWB: {LWB}, PCT: {PCT}, Loss: {Loss}, Result: {Result}, " +
+                   $"Created: {Created}";
+        }
+    }
+
 }

@@ -93,6 +93,14 @@ namespace Metal_Assay
                 sw.WriteLine($"[{DateTime.Now}]:{content}");
             }
         }
+
+        private string CleanIllegalFilename(string filename)
+        {
+            string clean_filename;
+            clean_filename = filename.Replace("/", " ").Replace(":", " ").Replace("*", " ").Replace("#", " ").Replace("%", " ").Replace("&", " ").Replace("{", " ").Replace("}", " ").Replace("\\", " ").Replace("<", " ").Replace(">", " ").Replace("?", " ").Replace("$", " ").Replace("!", " ").Replace("'", " ").Replace("\"", " ").Replace("@", " ").Replace("+", " ").Replace("`", " ").Replace("|", " ").Replace("=", " ");
+            return clean_filename;
+        }
+
         private void PreviewActionButton_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(PreviewActionButton.Text);
@@ -102,9 +110,9 @@ namespace Metal_Assay
                 {
                     try
                     {
-                        File.Copy($"temp/{i}.pdf", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"{customer.Replace("/", " ").Replace(":", " ")} {ItemcodeList[i].Replace("/", " ").Replace(":", " ")} {DateTime.Now.ToString("yyMMdd HHmmss")}.pdf"), true);
+                        File.Copy($"temp/{i}.pdf", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"{CleanIllegalFilename(customer)} {CleanIllegalFilename(ItemcodeList[i])} {DateTime.Now.ToString("yyMMdd HHmmss")}.pdf"), true);
                         File.Delete($"temp/{i}.pdf");
-                        WriteToLogFile($"Saved PDF: {customer.Replace("/", " ")} {ItemcodeList[i].Replace("/", " ")} {DateTime.Now.ToString("yyMMdd HHmmss")}.pdf");
+                        WriteToLogFile($"Saved PDF: {CleanIllegalFilename(customer)} {CleanIllegalFilename(ItemcodeList[i])} {DateTime.Now.ToString("yyMMdd HHmmss")}.pdf");
                     }
                     catch (IOException iox)
                     {

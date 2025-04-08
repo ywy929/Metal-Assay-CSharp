@@ -20,8 +20,7 @@ namespace Metal_Assay
             this.MainForm = main_form;
         }
         public string ClickSource { get; set; }
-        string connection_string = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
-        //string connection_string = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
+        string connection_string = GlobalConfig.ConnectionString;
         string sql = "";
         int item_counter = 0;
         List<string> itemcode_check = new List<string>();
@@ -33,7 +32,7 @@ namespace Metal_Assay
             {
                 round_color = round_color == true ? false : true;
             }
-            WriteToLogFile($"Opened New Form");
+            WriteToLogFile($"Opened New Form from New Round");
         }
         private void WriteToLogFile(string content)
         {
@@ -218,7 +217,6 @@ namespace Metal_Assay
                 NewFormCodeContent.Text = (int.Parse(NewFormCodeContent.Text) + 1).ToString();
                 itemcode_check.Clear();
                 item_counter = 0;
-                round_color = round_color == true ? false : true;
             }
             //Insert into DB
             try
@@ -236,7 +234,7 @@ namespace Metal_Assay
                 cmd.Parameters.AddWithValue("@formcode", NewFormCodeContent.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
-                WriteToLogFile($"New Record. Customer:{NewCustomerTextbox.Text}, FC:{NewFormCodeContent.Text}, IC:{NewItemcodeTextbox.Text}, SW:{NewSampleWeightTextbox.Text}");
+                WriteToLogFile($"New Record. Customer:{NewCustomerTextbox.Text}, FC:{NewFormCodeContent.Text}, IC:{NewItemcodeTextbox.Text}, SW:{NewSampleWeightTextbox.Text}, itemcount:{item_counter}");
             }
             catch (Exception ex)
             {
@@ -245,41 +243,45 @@ namespace Metal_Assay
             }
 
             //Get assayrecord ID           
-            try
-            {
-                var con = new MySqlConnection(connection_string);
-                con.Open();
+            //try
+            //{
+            //    var con = new MySqlConnection(connection_string);
+            //    con.Open();
 
-                sql = $"SELECT id,created, color,sampleweight FROM assayresult WHERE formcode='{NewFormCodeContent.Text}' AND itemcode='{NewItemcodeTextbox.Text}'";
-                var cmd = new MySqlCommand(sql, con);
+            //    sql = $"SELECT id,created, color,sampleweight FROM assayresult WHERE formcode='{NewFormCodeContent.Text}' AND itemcode='{NewItemcodeTextbox.Text}'";
+            //    var cmd = new MySqlCommand(sql, con);
 
-                MySqlDataReader data_reader = cmd.ExecuteReader();
+            //    MySqlDataReader data_reader = cmd.ExecuteReader();
 
-                if (data_reader.HasRows)
-                {
-                    while (data_reader.Read())
-                    {
-                        assayrecord_id = data_reader.GetInt32("id");
-                        created = data_reader.GetDateTime("created");
-                        color = data_reader.GetBoolean("color");
-                        sw_to_send = data_reader.GetString("sampleweight");
-                    }
-                }
-                data_reader.Close();
-                con.Close();
+            //    if (data_reader.HasRows)
+            //    {
+            //        while (data_reader.Read())
+            //        {
+            //            assayrecord_id = data_reader.GetInt32("id");
+            //            created = data_reader.GetDateTime("created");
+            //            color = data_reader.GetBoolean("color");
+            //            sw_to_send = data_reader.GetString("sampleweight");
+            //        }
+            //    }
+            //    data_reader.Close();
+            //    con.Close();
 
-            }
-            catch (Exception ex)
-            {
-                WriteToLogFile($"Exception: {ex.ToString()}");
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    WriteToLogFile($"Exception: {ex.ToString()}");
+            //    MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
 
-            MainForm.AddNewToMainLeft(NewFormCodeContent.Text, created, NewCustomerTextbox.Text, color);
-            MainForm.AddNewToMainRight(NewFormCodeContent.Text, NewItemcodeTextbox.Text, sw_to_send, assayrecord_id, color);
-            MainForm.AddNewToFW(NewCustomerTextbox.Text, NewItemcodeTextbox.Text, assayrecord_id, color);
-            MainForm.AddNewToLW(NewCustomerTextbox.Text, NewItemcodeTextbox.Text, assayrecord_id, color, NewFormCodeContent.Text, created);
-            MainForm.AddNewToSR(NewCustomerTextbox.Text, NewFormCodeContent.Text, NewItemcodeTextbox.Text, sw_to_send, created, assayrecord_id, color);
+            //MainForm.AddNewToMainLeft(NewFormCodeContent.Text, created, NewCustomerTextbox.Text, color);
+            //MainForm.AddNewToMainRight(NewFormCodeContent.Text, NewItemcodeTextbox.Text, sw_to_send, assayrecord_id, color);
+            //MainForm.AddNewToFW(NewCustomerTextbox.Text, NewItemcodeTextbox.Text, assayrecord_id, color);
+            //MainForm.AddNewToLW(NewCustomerTextbox.Text, NewItemcodeTextbox.Text, assayrecord_id, color, NewFormCodeContent.Text, created);
+            //MainForm.AddNewToSR(NewCustomerTextbox.Text, NewFormCodeContent.Text, NewItemcodeTextbox.Text, sw_to_send, created, assayrecord_id, color);
+            MainForm.LoadMainPageTable();
+            MainForm.LoadFirstWeightTable();
+            MainForm.LoadLastWeightTable();
+            MainForm.LoadSampleReturnTable();
 
         }
 
