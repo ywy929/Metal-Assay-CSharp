@@ -128,6 +128,12 @@
     <Compile Include="ChooseItemForm.Designer.cs">
       <DependentUpon>ChooseItemForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="SendReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SendReportForm.Designer.cs">
+      <DependentUpon>SendReportForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GlobalConfig.cs" />
     <Compile Include="LoginForm.cs">
       <SubType>Form</SubType>
@@ -230,6 +236,9 @@
     </Compile>
     <EmbeddedResource Include="ResultForm.resx">
       <DependentUpon>ResultForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SendReportForm.resx">
+      <DependentUpon>SendReportForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SendToOther.resx">
       <DependentUpon>SendToOther.cs</DependentUpon>

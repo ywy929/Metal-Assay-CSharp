@@ -6370,6 +6370,12 @@ namespace Metal_Assay
         {
             GenerateCheckingPDF("right");
         }
+
+        private void SendReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SendReportForm reportForm = new SendReportForm();
+            reportForm.Show();
+        }
     }
     public class DeletedItem
     {
