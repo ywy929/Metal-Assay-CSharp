@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,25 +24,18 @@ namespace Metal_Assay
         {
             MainForm.SaveProblemLastWeight("REJECT");
             Close();
-            MainForm.LWLastWeightATextBox.Focus();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             MainForm.SaveProblemLastWeight("REDO");
-            Close();
-            MainForm.LWLastWeightATextBox.Focus();
+            Close();            
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             MainForm.SaveProblemLastWeight("LOW");
             Close();
-            MainForm.LWLastWeightATextBox.Focus();
-        }
-
-        private void ProblematicResultForm_Load(object sender, EventArgs e)
-        {
         }
     }
 }

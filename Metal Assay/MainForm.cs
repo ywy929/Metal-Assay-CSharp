@@ -1166,6 +1166,7 @@ namespace Metal_Assay
                     {
                         ProblematicResultForm problematicResultForm = new ProblematicResultForm(this);
                         problematicResultForm.ShowDialog();
+                        LWLastWeightATextBox.Focus();
                     }
                     else
                     {
