@@ -178,13 +178,6 @@
             this.CustomerResetButton = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.CustomerDataGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerSearchButton = new System.Windows.Forms.Button();
             this.CustomerDeleteButton = new System.Windows.Forms.Button();
             this.CustomerEditButton = new System.Windows.Forms.Button();
@@ -325,6 +318,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.assaySettingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sendReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.refreshF1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.LastWeightContextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.saveFormCodePDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -371,7 +365,14 @@
             this.FWBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.LWBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.SRBackgroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.sendReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxLast = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.MainRightDataGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -1947,7 +1948,7 @@
             this.panel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel7.Location = new System.Drawing.Point(290, 17);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1222, 916);
+            this.panel7.Size = new System.Drawing.Size(1409, 916);
             this.panel7.TabIndex = 29;
             // 
             // CustomerDataGridView
@@ -1964,7 +1965,8 @@
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11});
+            this.dataGridViewTextBoxColumn11,
+            this.dataGridViewTextBoxLast});
             this.CustomerDataGridView.Location = new System.Drawing.Point(3, 0);
             this.CustomerDataGridView.Name = "CustomerDataGridView";
             this.CustomerDataGridView.ReadOnly = true;
@@ -1973,56 +1975,8 @@
             this.CustomerDataGridView.RowTemplate.Height = 200;
             this.CustomerDataGridView.RowTemplate.ReadOnly = true;
             this.CustomerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.CustomerDataGridView.Size = new System.Drawing.Size(1216, 913);
+            this.CustomerDataGridView.Size = new System.Drawing.Size(1403, 913);
             this.CustomerDataGridView.TabIndex = 11;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Customer";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 360;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Phone";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 130;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Email";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 170;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Fax";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "A";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "B";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 125;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "C";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 150;
             // 
             // CustomerSearchButton
             // 
@@ -3536,15 +3490,22 @@
             // assaySettingToolStripMenuItem
             // 
             this.assaySettingToolStripMenuItem.Name = "assaySettingToolStripMenuItem";
-            this.assaySettingToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.assaySettingToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
             this.assaySettingToolStripMenuItem.Text = "Assay Setting";
             this.assaySettingToolStripMenuItem.Visible = false;
             this.assaySettingToolStripMenuItem.Click += new System.EventHandler(this.assaySettingToolStripMenuItem_Click);
             // 
+            // sendReportToolStripMenuItem
+            // 
+            this.sendReportToolStripMenuItem.Name = "sendReportToolStripMenuItem";
+            this.sendReportToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
+            this.sendReportToolStripMenuItem.Text = "Send Report";
+            this.sendReportToolStripMenuItem.Click += new System.EventHandler(this.SendReportToolStripMenuItem_Click);
+            // 
             // refreshF1ToolStripMenuItem
             // 
             this.refreshF1ToolStripMenuItem.Name = "refreshF1ToolStripMenuItem";
-            this.refreshF1ToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.refreshF1ToolStripMenuItem.Size = new System.Drawing.Size(173, 26);
             this.refreshF1ToolStripMenuItem.Text = "Refresh (F1)";
             this.refreshF1ToolStripMenuItem.Click += new System.EventHandler(this.refreshF1ToolStripMenuItem_Click);
             // 
@@ -3877,12 +3838,60 @@
             // 
             this.SRBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.SRBackgroundWorker_DoWork);
             // 
-            // sendReportToolStripMenuItem
+            // dataGridViewTextBoxColumn5
             // 
-            this.sendReportToolStripMenuItem.Name = "sendReportToolStripMenuItem";
-            this.sendReportToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.sendReportToolStripMenuItem.Text = "Send Report";
-            this.sendReportToolStripMenuItem.Click += new System.EventHandler(this.SendReportToolStripMenuItem_Click);
+            this.dataGridViewTextBoxColumn5.HeaderText = "Customer";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 360;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Phone";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Email";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 170;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Fax";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "A";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "B";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "C";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 110;
+            // 
+            // dataGridViewTextBoxLast
+            // 
+            this.dataGridViewTextBoxLast.HeaderText = "Last";
+            this.dataGridViewTextBoxLast.Name = "dataGridViewTextBoxLast";
+            this.dataGridViewTextBoxLast.ReadOnly = true;
+            this.dataGridViewTextBoxLast.Width = 150;
             // 
             // Main
             // 
@@ -4047,13 +4056,6 @@
         private System.Windows.Forms.DataGridView HistoryDataGridView;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.DataGridView CustomerDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.Button CustomerSearchButton;
         private System.Windows.Forms.Button CustomerDeleteButton;
         private System.Windows.Forms.Button CustomerEditButton;
@@ -4289,6 +4291,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewSampleReturnColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn HistoryDataGridViewIDColumn;
         private System.Windows.Forms.ToolStripMenuItem sendReportToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxLast;
     }
 }
 

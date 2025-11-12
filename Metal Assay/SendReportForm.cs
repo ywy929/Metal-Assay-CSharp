@@ -115,40 +115,39 @@ namespace Metal_Assay
             data_reader = cmd.ExecuteReader();
             if (data_reader.HasRows)
             {
+
                 while (data_reader.Read())
                 {
-                    while (data_reader.Read())
-                    {
-                        bool billing = data_reader.GetBoolean("billing");
-                        bool coupon = data_reader.GetBoolean("coupon");
+                    bool billing = data_reader.GetBoolean("billing");
+                    bool coupon = data_reader.GetBoolean("coupon");
 
-                        if (billing && coupon)
-                        {
-                            pgbillingcoupon++;
-                            pgbillingtotal++;
-                            pgcoupontotal++;
-                        }
-                        else if (!billing && coupon)
-                        {
-                            pgnobillingcoupon++;
-                            pgnobillingtotal++;
-                            pgcoupontotal++;
-                        }
-                        else if (billing && !coupon)
-                        {
-                            pgbillingnocoupon++;
-                            pgbillingtotal++;
-                            pgnocoupontotal++;
-                        }
-                        else // !billing && !coupon
-                        {
-                            pgnobillingnocoupon++;
-                            pgnobillingtotal++;
-                            pgnocoupontotal++;
-                        }
-                        totalpg++;
+                    if (billing && coupon)
+                    {
+                        pgbillingcoupon++;
+                        pgbillingtotal++;
+                        pgcoupontotal++;
                     }
+                    else if (!billing && coupon)
+                    {
+                        pgnobillingcoupon++;
+                        pgnobillingtotal++;
+                        pgcoupontotal++;
+                    }
+                    else if (billing && !coupon)
+                    {
+                        pgbillingnocoupon++;
+                        pgbillingtotal++;
+                        pgnocoupontotal++;
+                    }
+                    else // !billing && !coupon
+                    {
+                        pgnobillingnocoupon++;
+                        pgnobillingtotal++;
+                        pgnocoupontotal++;
+                    }
+                    totalpg++;
                 }
+
             }
             data_reader.Close();
             con.Close();

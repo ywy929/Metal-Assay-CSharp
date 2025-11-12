@@ -2863,7 +2863,7 @@ namespace Metal_Assay
             {
                 var con = new MySqlConnection(connection_string);
                 con.Open();
-                sql = "SELECT name, phone, email, fax, area, billing, coupon FROM user WHERE role ='customer' ORDER BY name, created";
+                sql = "SELECT u.name AS name, u.phone AS phone, u.email AS email, u.fax AS fax, u.area AS area, u.billing AS billing, u.coupon AS coupon, MAX(a.created) AS latest_assay_date FROM user u INNER JOIN assayresult a ON a.customer = u.id WHERE u.role = 'customer' GROUP BY u.id, u.name, u.phone, u.email, u.fax, u.area, u.billing, u.coupon ORDER BY u.name, latest_assay_date DESC;";
                 var cmd = new MySqlCommand(sql, con);
 
                 MySqlDataReader data_reader = cmd.ExecuteReader();
@@ -2880,6 +2880,7 @@ namespace Metal_Assay
                         CustomerDatagridViewRow.CreateCells(CustomerDataGridView);
                         CustomerDatagridViewRow.Cells[0].Value = data_reader.GetString("name");
                         CustomerDatagridViewRow.Cells[1].Value = data_reader.GetString("phone");
+                        CustomerDatagridViewRow.Cells[7].Value = data_reader.GetDateTime("latest_assay_date");
                         if (data_reader.IsDBNull(2))
                         {
                             CustomerDatagridViewRow.Cells[2].Value = "";
@@ -2971,6 +2972,7 @@ namespace Metal_Assay
                     MySqlCommand cmd = new MySqlCommand(sql, con);
                     cmd.ExecuteReader();
                     con.Close();
+                    WriteToLogFile($"Deleted customer {CustomerDataGridView.CurrentRow.Cells[0].Value.ToString()}");
                     LoadCustomerTable();
                 }
             }

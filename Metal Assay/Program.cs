@@ -14,8 +14,8 @@ namespace Metal_Assay
         [STAThread]
         static void Main()
         {
-            //GlobalConfig.ConnectionString = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
-            GlobalConfig.ConnectionString = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
+            GlobalConfig.ConnectionString = @"server=192.168.0.36;uid=view1;pwd=Assay123!;database=assay";
+            //GlobalConfig.ConnectionString = @"server=localhost;uid=root;pwd=Assay123!;database=assay";
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
