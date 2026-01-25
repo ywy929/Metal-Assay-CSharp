@@ -37,5 +37,35 @@ namespace Metal_Assay
             MainForm.SaveProblemLastWeight("LOW");
             Close();
         }
+
+        private void RedoButton_MouseEnter(object sender, EventArgs e)
+        {
+            RedoButton.BackColor = System.Drawing.Color.FromArgb(184, 134, 11); // Darker gold
+        }
+
+        private void RedoButton_MouseLeave(object sender, EventArgs e)
+        {
+            RedoButton.BackColor = System.Drawing.Color.FromArgb(218, 165, 32); // Original gold
+        }
+
+        private void RejectButton_MouseEnter(object sender, EventArgs e)
+        {
+            RejectButton.BackColor = System.Drawing.Color.FromArgb(184, 134, 11); // Darker gold
+        }
+
+        private void RejectButton_MouseLeave(object sender, EventArgs e)
+        {
+            RejectButton.BackColor = System.Drawing.Color.FromArgb(218, 165, 32); // Original gold
+        }
+
+        private void LowButton_MouseEnter(object sender, EventArgs e)
+        {
+            LowButton.BackColor = System.Drawing.Color.FromArgb(184, 134, 11); // Darker gold
+        }
+
+        private void LowButton_MouseLeave(object sender, EventArgs e)
+        {
+            LowButton.BackColor = System.Drawing.Color.FromArgb(218, 165, 32); // Original gold
+        }
     }
 }

@@ -208,5 +208,14 @@ namespace Metal_Assay
                 WriteToLogFile($"Exception: {ex.ToString()}");
             }
         }
+        private void ChooseItemButton_MouseEnter(object sender, EventArgs e)
+        {
+            ChooseItemButton.BackColor = System.Drawing.Color.FromArgb(184, 134, 11);
+        }
+
+        private void ChooseItemButton_MouseLeave(object sender, EventArgs e)
+        {
+            ChooseItemButton.BackColor = System.Drawing.Color.FromArgb(218, 165, 32);
+        }
     }
 }

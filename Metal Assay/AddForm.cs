@@ -190,5 +190,27 @@ namespace Metal_Assay
                 sw.WriteLine($"[{DateTime.Now}]:{content}");
             }
         }
+
+        // Hover effects for Add button
+        private void AddButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddButton.BackColor = System.Drawing.Color.FromArgb(184, 134, 11); // Darker gold
+        }
+
+        private void AddButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddButton.BackColor = System.Drawing.Color.FromArgb(218, 165, 32); // Original gold
+        }
+
+        // Hover effects for Cancel button
+        private void AddCancelButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddCancelButton.BackColor = System.Drawing.Color.FromArgb(70, 70, 70); // Darker gray
+        }
+
+        private void AddCancelButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddCancelButton.BackColor = System.Drawing.Color.FromArgb(100, 100, 100); // Original gray
+        }
     }
 }

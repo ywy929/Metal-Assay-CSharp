@@ -71,6 +71,7 @@ namespace Metal_Assay
                 LoadCompanyInfo();
                 LoadHistoryCustomerList();
                 LoadCustomerCustomerList();
+                ApplyResolutionConfig();
                 WriteToLogFile("Program Opened.");
                 Login login = new Login(this);
                 // show Login
@@ -82,7 +83,33 @@ namespace Metal_Assay
                 WriteToLogFile($"Exception: {ex.ToString()}");
             }
         }
+        private void ApplyResolutionConfig()
+        {
+            if (!DesignConfig.Is1600x900) return;
 
+            // Apply each tab's config
+            DesignApplier.ApplyConfig(MainTab, DesignConfig.GetMainTabConfig());
+            DesignApplier.ApplyConfig(FirstWeightTab, DesignConfig.GetFirstWeightTabConfig());
+            DesignApplier.ApplyConfig(LastWeightTab, DesignConfig.GetLastWeightTabConfig());
+            DesignApplier.ApplyConfig(SampleReturnTab, DesignConfig.GetSampleReturnTabConfig());
+            DesignApplier.ApplyConfig(HistoryTab, DesignConfig.GetHistoryTabConfig());
+            DesignApplier.ApplyConfig(CustomerTab, DesignConfig.GetCustomerTabConfig());
+            DesignApplier.ApplyConfig(CheckingTab, DesignConfig.GetCheckingTabConfig());
+            DesignApplier.ApplyConfig(LogTab, DesignConfig.GetLogTabConfig());
+
+            // Apply column widths
+            var colWidths = DesignConfig.GetColumnWidths();
+            if (colWidths != null)
+            {
+                DesignApplier.ApplyColumnWidths(MainLeftDataGridView, colWidths["MainLeftDataGridView"]);
+                DesignApplier.ApplyColumnWidths(MainRightDataGridView, colWidths["MainRightDataGridView"]);
+                DesignApplier.ApplyColumnWidths(FWDataGridView, colWidths["FWDataGridView"]);
+                DesignApplier.ApplyColumnWidths(LWDataGridView, colWidths["LWDataGridView"]);
+                DesignApplier.ApplyColumnWidths(SRDataGridView, colWidths["SRDataGridView"]);
+                DesignApplier.ApplyColumnWidths(HistoryDataGridView, colWidths["HistoryDataGridView"]);
+                DesignApplier.ApplyColumnWidths(CustomerDataGridView, colWidths["CustomerDataGridView"]);
+            }
+        }
         //Logging
         private void WriteToLogFile(string content)
         {
@@ -171,7 +198,7 @@ namespace Metal_Assay
                 var con = new MySqlConnection(connection_string);
                 con.Open();
 
-                sql = "SELECT assayresult.formcode AS formcode, assayresult.created AS created, user.name AS customer, assayresult.color AS color, assayresult.itemcode AS itemcode, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, assayresult.finalresult AS finalresult, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id ORDER BY assayresult.formcode DESC, assayresult.created DESC LIMIT 500";
+                sql = "SELECT assayresult.formcode AS formcode, assayresult.created AS created, user.name AS customer, assayresult.color AS color, assayresult.itemcode AS itemcode, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, assayresult.finalresult AS finalresult, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.formcode DESC, assayresult.created DESC LIMIT 500";
                 var cmd = new MySqlCommand(sql, con);
 
                 MySqlDataReader data_reader = cmd.ExecuteReader();
@@ -405,7 +432,7 @@ namespace Metal_Assay
                 if (left_selected_formcode != "")
                 {
                     // get deleted items under formcode info
-                    sql = $"SELECT assayresult.id AS id, user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, assayresult.fwa AS fwa, assayresult.fwb AS fwb, assayresult.silverpct AS silverpct, assayresult.lwa AS lwa, assayresult.lwb AS lwb,assayresult.loss AS loss, assayresult.finalresult AS finalresult, assayresult.created AS created FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode='{left_selected_formcode}' ORDER BY assayresult.created DESC";
+                    sql = $"SELECT assayresult.id AS id, user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, assayresult.fwa AS fwa, assayresult.fwb AS fwb, assayresult.silverpct AS silverpct, assayresult.lwa AS lwa, assayresult.lwb AS lwb,assayresult.loss AS loss, assayresult.finalresult AS finalresult, assayresult.created AS created FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode='{left_selected_formcode}' AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.created DESC";
 
                     using (MySqlConnection connection = new MySqlConnection(connection_string))
                     {
@@ -418,7 +445,7 @@ namespace Metal_Assay
                                 {
                                     DeletedItem item = new DeletedItem
                                     {
-                                        ID = reader.GetInt32("id"), // ID is assumed not nullable
+                                        ID = reader.GetInt32("id"),
                                         Customer = reader.IsDBNull(reader.GetOrdinal("customer")) ? "" : reader.GetString("customer"),
                                         FormCode = reader.IsDBNull(reader.GetOrdinal("formcode")) ? "" : reader.GetString("formcode"),
                                         ItemCode = reader.IsDBNull(reader.GetOrdinal("itemcode")) ? "" : reader.GetString("itemcode"),
@@ -434,29 +461,31 @@ namespace Metal_Assay
                                         Created = reader.IsDBNull(reader.GetOrdinal("created")) ? "" : reader.GetString("created")
                                     };
 
-                                    WriteToLogFile("DELETED FORMCODE: " + item.ToString()); ;
+                                    WriteToLogFile("SOFT-DELETED FORMCODE: " + item.ToString());
                                 }
                             }
                         }
                     }
-                    //Delete based on left clicked
-                    var con = new MySqlConnection(connection_string);
-                    con.Open();
-                    sql = $"DELETE from assayresult WHERE formcode='{left_selected_formcode}'";
 
-                    MySqlCommand cmd = new MySqlCommand(sql, con);
-                    cmd.ExecuteReader();
-                    con.Close();
-                    WriteToLogFile("Deleted all in Formcode " + left_selected_formcode);
+                    // Soft-delete based on left clicked
+                    using (var con = new MySqlConnection(connection_string))
+                    {
+                        con.Open();
+                        sql = $"UPDATE assayresult SET deleted = 1, modified = NOW() WHERE formcode='{left_selected_formcode}'";
+                        using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    WriteToLogFile("Soft-deleted all in Formcode " + left_selected_formcode);
                     LoadMainPageTable();
                     LoadFirstWeightTable();
                     LoadLastWeightTable();
                     LoadSampleReturnTable();
-
                 }
                 else
                 {
-                    //get the single deleted item info                   
+                    // get the single deleted item info                   
                     sql = $"SELECT assayresult.id AS id, user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, assayresult.fwa AS fwa, assayresult.fwb AS fwb, assayresult.silverpct AS silverpct, assayresult.lwa AS lwa, assayresult.lwb AS lwb,assayresult.loss AS loss, assayresult.finalresult AS finalresult, assayresult.created AS created FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id='{right_selected_id}'";
 
                     using (MySqlConnection connection = new MySqlConnection(connection_string))
@@ -470,7 +499,7 @@ namespace Metal_Assay
                                 {
                                     DeletedItem item = new DeletedItem
                                     {
-                                        ID = reader.GetInt32("id"), // ID is assumed not nullable
+                                        ID = reader.GetInt32("id"),
                                         Customer = reader.IsDBNull(reader.GetOrdinal("customer")) ? "" : reader.GetString("customer"),
                                         FormCode = reader.IsDBNull(reader.GetOrdinal("formcode")) ? "" : reader.GetString("formcode"),
                                         ItemCode = reader.IsDBNull(reader.GetOrdinal("itemcode")) ? "" : reader.GetString("itemcode"),
@@ -486,20 +515,23 @@ namespace Metal_Assay
                                         Created = reader.IsDBNull(reader.GetOrdinal("created")) ? "" : reader.GetString("created")
                                     };
 
-                                    WriteToLogFile("DELETED SINGLE: " + item.ToString()); ;
+                                    WriteToLogFile("SOFT-DELETED SINGLE: " + item.ToString());
                                 }
                             }
                         }
                     }
-                    //Delete based on right clicked
-                    var con = new MySqlConnection(connection_string);
-                    con.Open();
-                    sql = $"DELETE from assayresult WHERE id='{right_selected_id}'";
 
-                    MySqlCommand cmd = new MySqlCommand(sql, con);
-                    cmd.ExecuteReader();
-                    con.Close();
-                    WriteToLogFile("Deleted Formcode " + right_selected_id);
+                    // Soft-delete based on right clicked
+                    using (var con = new MySqlConnection(connection_string))
+                    {
+                        con.Open();
+                        sql = $"UPDATE assayresult SET deleted = 1, modified = NOW() WHERE id='{right_selected_id}'";
+                        using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                        {
+                            cmd.ExecuteNonQuery();
+                        }
+                    }
+                    WriteToLogFile("Soft-deleted ID " + right_selected_id);
                     LoadMainPageTable();
                     LoadFirstWeightTable();
                     LoadLastWeightTable();
@@ -609,7 +641,7 @@ namespace Metal_Assay
                 var con = new MySqlConnection(connection_string);
                 con.Open();
 
-                sql = "SELECT user.name AS customer, assayresult.itemcode AS itemcode, assayresult.fwa AS fwa, assayresult.fwb AS fwb, assayresult.silverpct AS silverpct, assayresult.color AS color, assayresult.finalresult AS finalresult, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id ORDER BY assayresult.formcode DESC, assayresult.created DESC LIMIT 500";
+                sql = "SELECT user.name AS customer, assayresult.itemcode AS itemcode, assayresult.fwa AS fwa, assayresult.fwb AS fwb, assayresult.silverpct AS silverpct, assayresult.color AS color, assayresult.finalresult AS finalresult, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.formcode DESC, assayresult.created DESC LIMIT 500";
                 var cmd = new MySqlCommand(sql, con);
 
                 MySqlDataReader data_reader = cmd.ExecuteReader();
@@ -880,7 +912,7 @@ namespace Metal_Assay
                 var con = new MySqlConnection(connection_string);
                 con.Open();
 
-                sql = "SELECT user.name AS customer, assayresult.itemcode AS itemcode, assayresult.fwa AS fwa, assayresult.fwb AS fwb, assayresult.lwa AS lwa, assayresult.lwb AS lwb, assayresult.silverpct AS silverpct, assayresult.finalresult AS finalresult, assayresult.resulta AS resulta, assayresult.resultb AS resultb, assayresult.preresult AS preresult, assayresult.loss AS loss, assayresult.color AS color, assayresult.id AS id, assayresult.formcode AS formcode, assayresult.created AS date FROM assayresult INNER JOIN user ON assayresult.customer = user.id ORDER BY assayresult.formcode DESC, assayresult.created DESC LIMIT 500";
+                sql = "SELECT user.name AS customer, assayresult.itemcode AS itemcode, assayresult.fwa AS fwa, assayresult.fwb AS fwb, assayresult.lwa AS lwa, assayresult.lwb AS lwb, assayresult.silverpct AS silverpct, assayresult.finalresult AS finalresult, assayresult.resulta AS resulta, assayresult.resultb AS resultb, assayresult.preresult AS preresult, assayresult.loss AS loss, assayresult.color AS color, assayresult.id AS id, assayresult.formcode AS formcode, assayresult.created AS date FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.formcode DESC, assayresult.created DESC LIMIT 500";
                 var cmd = new MySqlCommand(sql, con);
 
                 MySqlDataReader data_reader = cmd.ExecuteReader();
@@ -1324,7 +1356,7 @@ namespace Metal_Assay
                 var con = new MySqlConnection(connection_string);
                 con.Open();
 
-                sql = "SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, assayresult.color AS color, assayresult.id AS id, assayresult.created AS created, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id ORDER BY assayresult.formcode DESC, assayresult.created DESC LIMIT 500";
+                sql = "SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, assayresult.returndate AS returndate, assayresult.color AS color, assayresult.finalresult AS finalresult, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.formcode DESC, assayresult.created DESC LIMIT 500";
                 var cmd = new MySqlCommand(sql, con);
 
                 MySqlDataReader data_reader = cmd.ExecuteReader();
@@ -1338,61 +1370,93 @@ namespace Metal_Assay
                     {
                         DataGridViewRow SRDatagridViewRow = new DataGridViewRow() { Height = 30 };
                         SRDatagridViewRow.CreateCells(SRDataGridView);
+
+                        // Customer name
                         SRDatagridViewRow.Cells[0].Value = data_reader.GetString("customer");
+
+                        // Form code
                         SRDatagridViewRow.Cells[1].Value = data_reader.GetString("formcode");
+
+                        // Item code
                         SRDatagridViewRow.Cells[2].Value = data_reader.GetString("itemcode");
-                        if (data_reader.IsDBNull(3))
+
+                        // Final result - check if NULL first
+                        if (data_reader.IsDBNull(data_reader.GetOrdinal("finalresult")))
                         {
                             SRDatagridViewRow.Cells[3].Value = "";
                         }
                         else
                         {
-                            if (data_reader.GetString("finalresult") == "-1.0")
+                            string finalResult = data_reader.GetString("finalresult");
+                            if (finalResult == "-1.0")
                             {
                                 SRDatagridViewRow.Cells[3].Value = "REJECT";
                                 SRDatagridViewRow.DefaultCellStyle.ForeColor = System.Drawing.Color.Red;
                             }
-                            else if (data_reader.GetString("finalresult") == "-2.0")
+                            else if (finalResult == "-2.0")
                             {
                                 SRDatagridViewRow.Cells[3].Value = "REDO";
                                 SRDatagridViewRow.DefaultCellStyle.ForeColor = System.Drawing.Color.Red;
                             }
-                            else if (data_reader.GetString("finalresult") == "-3.0")
+                            else if (finalResult == "-3.0")
                             {
                                 SRDatagridViewRow.Cells[3].Value = "LOW";
                                 SRDatagridViewRow.DefaultCellStyle.ForeColor = System.Drawing.Color.Red;
                             }
                             else
                             {
-                                SRDatagridViewRow.Cells[3].Value = data_reader.GetString("finalresult");
+                                SRDatagridViewRow.Cells[3].Value = finalResult;
                             }
                         }
-                        if (!data_reader.IsDBNull(4))
-                        {
-                            SRDatagridViewRow.Cells[4].Value = data_reader.GetString("sampleweight");
-                        }
-                        else
+
+                        // Sample weight
+                        if (data_reader.IsDBNull(data_reader.GetOrdinal("sampleweight")))
                         {
                             SRDatagridViewRow.Cells[4].Value = "";
                         }
-                        if (!data_reader.IsDBNull(5))
-                        {
-                            SRDatagridViewRow.Cells[5].Value = data_reader.GetString("samplereturn");
-                        }
                         else
+                        {
+                            SRDatagridViewRow.Cells[4].Value = data_reader.GetString("sampleweight");
+                        }
+
+                        // Sample return
+                        if (data_reader.IsDBNull(data_reader.GetOrdinal("samplereturn")))
                         {
                             SRDatagridViewRow.Cells[5].Value = "";
                         }
-
-                        SRDatagridViewRow.Cells[6].Value = data_reader.GetDateTime("created").ToString("dd/MM/yyyy");
-                        SRDatagridViewRow.Cells[7].Value = data_reader.GetString("id");
-                        if (data_reader.GetBoolean("color"))
+                        else
                         {
-                            SRDatagridViewRow.DefaultCellStyle.BackColor = System.Drawing.Color.LightCyan;
+                            SRDatagridViewRow.Cells[5].Value = data_reader.GetString("samplereturn");
+                        }
+
+                        // Return date - check if NULL
+                        if (data_reader.IsDBNull(data_reader.GetOrdinal("returndate")))
+                        {
+                            SRDatagridViewRow.Cells[6].Value = "";
                         }
                         else
                         {
-                            SRDatagridViewRow.DefaultCellStyle.BackColor = System.Drawing.Color.Pink;
+                            SRDatagridViewRow.Cells[6].Value = data_reader.GetDateTime("returndate").ToString("dd/MM/yyyy");
+                        }
+
+                        // ID
+                        SRDatagridViewRow.Cells[7].Value = data_reader.GetString("id");
+
+                        // Color - check if NULL
+                        if (data_reader.IsDBNull(data_reader.GetOrdinal("color")))
+                        {
+                            SRDatagridViewRow.DefaultCellStyle.BackColor = System.Drawing.Color.White; // Default color
+                        }
+                        else
+                        {
+                            if (data_reader.GetBoolean("color"))
+                            {
+                                SRDatagridViewRow.DefaultCellStyle.BackColor = System.Drawing.Color.LightCyan;
+                            }
+                            else
+                            {
+                                SRDatagridViewRow.DefaultCellStyle.BackColor = System.Drawing.Color.Pink;
+                            }
                         }
 
                         SR_rows.Insert(0, SRDatagridViewRow);
@@ -2548,7 +2612,7 @@ namespace Metal_Assay
                 var con = new MySqlConnection(connection_string);
                 con.Open();
 
-                sql = "SELECT name FROM user WHERE role ='customer' ORDER BY name ASC";
+                sql = "SELECT name FROM user WHERE role ='customer' AND (deleted = 0 OR deleted IS NULL) ORDER BY name ASC";
                 var cmd = new MySqlCommand(sql, con);
 
                 MySqlDataReader data_reader = cmd.ExecuteReader();
@@ -2579,15 +2643,15 @@ namespace Metal_Assay
 
                 if (HistoryCustomerTextbox.Text != "" && HistoryItemcodeTextbox.Text != "")
                 {
-                    sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.created AS date, assayresult.fwa AS FWA, assayresult.fwb AS FWB, assayresult.lwa AS LWA, assayresult.lwb AS LWB, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn,assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE user.name = '{HistoryCustomerTextbox.Text}' AND assayresult.itemcode = '{HistoryItemcodeTextbox.Text}' ORDER BY assayresult.formcode DESC, assayresult.created DESC";
+                    sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.created AS date, assayresult.fwa AS FWA, assayresult.fwb AS FWB, assayresult.lwa AS LWA, assayresult.lwb AS LWB, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn,assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE user.name = '{HistoryCustomerTextbox.Text}' AND assayresult.itemcode = '{HistoryItemcodeTextbox.Text}' AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.formcode DESC, assayresult.created DESC";
                 }
                 else if (HistoryCustomerTextbox.Text != "" && HistoryItemcodeTextbox.Text == "")
                 {
-                    sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.created AS date, assayresult.fwa AS FWA, assayresult.fwb AS FWB, assayresult.lwa AS LWA, assayresult.lwb AS LWB, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE user.name = '{HistoryCustomerTextbox.Text}' ORDER BY assayresult.formcode DESC, assayresult.created DESC";
+                    sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.created AS date, assayresult.fwa AS FWA, assayresult.fwb AS FWB, assayresult.lwa AS LWA, assayresult.lwb AS LWB, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE user.name = '{HistoryCustomerTextbox.Text}' AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.formcode DESC, assayresult.created DESC";
                 }
                 else if (HistoryCustomerTextbox.Text == "" && HistoryItemcodeTextbox.Text != "")
                 {
-                    sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.created AS date, assayresult.fwa AS FWA, assayresult.fwb AS FWB, assayresult.lwa AS LWA, assayresult.lwb AS LWB, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.itemcode = '{HistoryItemcodeTextbox.Text}' ORDER BY assayresult.formcode DESC, assayresult.created DESC";
+                    sql = $"SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.created AS date, assayresult.fwa AS FWA, assayresult.fwb AS FWB, assayresult.lwa AS LWA, assayresult.lwb AS LWB, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn as samplereturn, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.itemcode = '{HistoryItemcodeTextbox.Text}' AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.formcode DESC, assayresult.created DESC";
                 }
                 else if (HistoryCustomerTextbox.Text == "" && HistoryItemcodeTextbox.Text == "")
                 {
@@ -2833,7 +2897,7 @@ namespace Metal_Assay
                 var con = new MySqlConnection(connection_string);
                 con.Open();
 
-                sql = "SELECT name FROM user WHERE role ='customer' ORDER BY name ASC";
+                sql = "SELECT name FROM user WHERE role ='customer' AND (deleted = 0 OR deleted IS NULL) ORDER BY name ASC";
                 var cmd = new MySqlCommand(sql, con);
 
                 MySqlDataReader data_reader = cmd.ExecuteReader();
@@ -2863,7 +2927,7 @@ namespace Metal_Assay
             {
                 var con = new MySqlConnection(connection_string);
                 con.Open();
-                sql = "SELECT u.name AS name, u.phone AS phone, u.email AS email, u.fax AS fax, u.area AS area, u.billing AS billing, u.coupon AS coupon, MAX(a.created) AS latest_assay_date FROM user u INNER JOIN assayresult a ON a.customer = u.id WHERE u.role = 'customer' GROUP BY u.id, u.name, u.phone, u.email, u.fax, u.area, u.billing, u.coupon ORDER BY u.name, latest_assay_date DESC;";
+                sql = "SELECT u.name AS name, u.phone AS phone, u.email AS email, u.fax AS fax, u.area AS area, u.billing AS billing, u.coupon AS coupon, MAX(a.created) AS latest_assay_date FROM user u INNER JOIN assayresult a ON a.customer = u.id WHERE u.role = 'customer' AND (u.deleted = 0 OR u.deleted IS NULL) GROUP BY u.id, u.name, u.phone, u.email, u.fax, u.area, u.billing, u.coupon ORDER BY u.name, latest_assay_date DESC;";
                 var cmd = new MySqlCommand(sql, con);
 
                 MySqlDataReader data_reader = cmd.ExecuteReader();
@@ -3078,7 +3142,7 @@ namespace Metal_Assay
 
                 var con = new MySqlConnection(connection_string);
                 con.Open();
-                sql = $"SELECT name, phone, email, fax, area, billing, coupon FROM user WHERE role ='customer' AND name='{CustomerCustomerTextbox.Text}' ORDER BY name, created";
+                sql = $"SELECT name, phone, email, fax, area, billing, coupon FROM user WHERE role ='customer' AND name='{CustomerCustomerTextbox.Text}' AND (deleted = 0 OR deleted IS NULL) ORDER BY name, created";
                 var cmd = new MySqlCommand(sql, con);
 
                 MySqlDataReader data_reader = cmd.ExecuteReader();

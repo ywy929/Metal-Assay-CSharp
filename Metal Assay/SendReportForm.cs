@@ -220,5 +220,15 @@ namespace Metal_Assay
                 }
             }
         }
+
+        private void SendReportButton_MouseEnter(object sender, EventArgs e)
+        {
+            SendReportButton.BackColor = System.Drawing.Color.FromArgb(184, 134, 11); // Darker gold
+        }
+
+        private void SendReportButton_MouseLeave(object sender, EventArgs e)
+        {
+            SendReportButton.BackColor = System.Drawing.Color.FromArgb(218, 165, 32); // Original gold
+        }
     }
 }

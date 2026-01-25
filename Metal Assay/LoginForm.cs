@@ -75,15 +75,15 @@ namespace Metal_Assay
         {
             var con = new MySqlConnection(connection_string);
             con.Open();
-            if (textBox1.Text == "brightness")
+            if (txtUsername.Text == "brightness" || txtUsername.Text == "user")
             {
                 sql = "SELECT pwhash, salt FROM user WHERE role='worker'";
             }
-            else if (textBox1.Text == "admin")
+            else if (txtUsername.Text == "admin")
             {
                 sql = "SELECT pwhash, salt FROM user WHERE role='admin'";
             }
-            else if (textBox1.Text == "boss")
+            else if (txtUsername.Text == "boss")
             {
                 sql = "SELECT pwhash, salt FROM user WHERE role='boss'";
             }
@@ -116,10 +116,10 @@ namespace Metal_Assay
                 //get hash and salt from db
                 GetSaltAndHash();
                 // Generate the hash
-                var creds = EncryptionHelper.CreateHashWithExistingSalt(textBox2.Text);
+                var creds = EncryptionHelper.CreateHashWithExistingSalt(txtPassword.Text);
 
                 //compare existing hash and computed hash
-                var loginHash = EncryptionHelper.GetHash(creds.salt, textBox2.Text);
+                var loginHash = EncryptionHelper.GetHash(creds.salt, txtPassword.Text);
                 Console.WriteLine($"DB Hash: {Convert.ToBase64String(existing_hash)}");
                 Console.WriteLine($"DB Salt: {Convert.ToBase64String(existing_salt)}");
                 //Console.WriteLine($"Original Hash: {creds.hash}");
@@ -131,20 +131,21 @@ namespace Metal_Assay
                     MainForm.Visible = true;
                     // close login form
                     this.DialogResult = DialogResult.OK;
-                    if (textBox1.Text == "admin" || textBox1.Text == "boss")
+                    if (txtUsername.Text == "admin" || txtUsername.Text == "boss")
                     {
                         MainForm.assaySettingToolStripMenuItem.Visible = true;
                     }
-                    WriteToLogFile($"Successful login. User:{textBox1.Text}");
+                    WriteToLogFile($"Successful login. User:{txtUsername.Text}");
                     Close();
                 }
                 else
                 {
-                    WriteToLogFile($"Failed login. User:{textBox1.Text}, PW:{textBox2.Text}");
+                    WriteToLogFile($"Failed login. User:{txtUsername.Text}, PW:{txtPassword.Text}");
                     MessageBox.Show("Wrong user or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 WriteToLogFile($"Exception: {ex.ToString()}");
@@ -172,7 +173,7 @@ namespace Metal_Assay
         {
             try
             {
-                textBox2.Focus();
+                txtPassword.Focus();
                 WriteToLogFile("Login form opened.");
             }
             catch (Exception ex)
@@ -181,6 +182,18 @@ namespace Metal_Assay
                 MessageBox.Show(ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // Hover effects for modern button
+        private void btnLogin_MouseEnter(object sender, EventArgs e)
+        {
+            btnLogin.BackColor = System.Drawing.Color.FromArgb(184, 134, 11); // Darker gold
+        }
+
+        private void btnLogin_MouseLeave(object sender, EventArgs e)
+        {
+            btnLogin.BackColor = System.Drawing.Color.FromArgb(218, 165, 32); // Original gold
+        }
+
         private void WriteToLogFile(string content)
         {
             using (StreamWriter sw = File.AppendText($".\\log\\{DateTime.Today.ToString("yyyyMdd")}.txt"))

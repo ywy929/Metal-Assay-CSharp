@@ -66,6 +66,9 @@
     <Reference Include="MySql.Data, Version=8.1.0.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.1.0\lib\net462\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="SkiaSharp, Version=2.88.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\SkiaSharp.2.88.6\lib\net462\SkiaSharp.dll</HintPath>
     </Reference>
@@ -128,6 +131,8 @@
     <Compile Include="ChooseItemForm.Designer.cs">
       <DependentUpon>ChooseItemForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="DesignApplier.cs" />
+    <Compile Include="DesignConfig.cs" />
     <Compile Include="SendReportForm.cs">
       <SubType>Form</SubType>
     </Compile>

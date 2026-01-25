@@ -27,18 +27,18 @@ namespace Metal_Assay
         {
             if (clicksource == "EDIT")
             {
-                textBox1.Text = customer;
-                textBox2.Text = phone;
-                textBox3.Text = email;
-                textBox4.Text = fax;
-                comboBox1.Text = area;
-                comboBox2.Text = billing;
-                comboBox3.Text = coupon;
-                button1.Text = "EDIT";
+                CustomerNameTextBox.Text = customer;
+                PhoneTextBox.Text = phone;
+                EmailTextBox.Text = email;
+                FaxTextBox.Text = fax;
+                OrientationComboBox.Text = area;
+                BillingComboBox.Text = billing;
+                CouponComboBox.Text = coupon;
+                AddCustomerButton.Text = "EDIT";
             }
             else
             {
-                textBox1.Enabled = true;
+                CustomerNameTextBox.Enabled = true;
             }
             WriteToLogFile("New/Edit Customer Form Opened.");
         }
@@ -49,7 +49,7 @@ namespace Metal_Assay
                 sw.WriteLine($"[{DateTime.Now}]:{content}");
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void AddCustomerButton_Click(object sender, EventArgs e)
         {
             if (clicksource == "NEW")
             {
@@ -61,13 +61,13 @@ namespace Metal_Assay
                     MySqlCommand cmd = new MySqlCommand(cmdText, con);
                     cmd.Parameters.AddWithValue("@created", DateTime.Now);
                     cmd.Parameters.AddWithValue("@modified", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@name", textBox1.Text);
-                    cmd.Parameters.AddWithValue("@phone", textBox2.Text);
-                    cmd.Parameters.AddWithValue("@email", textBox3.Text);
-                    cmd.Parameters.AddWithValue("@fax", textBox4.Text);
-                    cmd.Parameters.AddWithValue("@area", comboBox1.Text);
+                    cmd.Parameters.AddWithValue("@name", CustomerNameTextBox.Text);
+                    cmd.Parameters.AddWithValue("@phone", PhoneTextBox.Text);
+                    cmd.Parameters.AddWithValue("@email", EmailTextBox.Text);
+                    cmd.Parameters.AddWithValue("@fax", FaxTextBox.Text);
+                    cmd.Parameters.AddWithValue("@area", OrientationComboBox.Text);
                     cmd.Parameters.AddWithValue("@role", "customer");
-                    if (comboBox2.Text == "YES")
+                    if (BillingComboBox.Text == "YES")
                     {
                         cmd.Parameters.AddWithValue("@billing", true);
                     }
@@ -75,7 +75,7 @@ namespace Metal_Assay
                     {
                         cmd.Parameters.AddWithValue("@billing", false);
                     }
-                    if (comboBox3.Text == "YES")
+                    if (CouponComboBox.Text == "YES")
                     {
                         cmd.Parameters.AddWithValue("@coupon", true);
                     }
@@ -85,7 +85,7 @@ namespace Metal_Assay
                     }
                     cmd.ExecuteNonQuery();
                     con.Close();
-                    WriteToLogFile($"New Customer. Name:{textBox1.Text}, Phone:{textBox2.Text}, Email:{textBox3.Text}, Area:{comboBox1.Text}");
+                    WriteToLogFile($"New Customer. Name:{CustomerNameTextBox.Text}, Phone:{PhoneTextBox.Text}, Email:{EmailTextBox.Text}, Area:{OrientationComboBox.Text}");
                 }
                 catch (Exception ex)
                 {
@@ -97,17 +97,17 @@ namespace Metal_Assay
                 try
                 {
                     var con = new MySqlConnection(connection_string);
-                    sql = $"UPDATE user SET modified=@modified,name=@name,phone=@phone,email=@email,fax=@fax,area=@area,billing=@billing,coupon=@coupon WHERE name='{textBox1.Text}'";
+                    sql = $"UPDATE user SET modified=@modified,name=@name,phone=@phone,email=@email,fax=@fax,area=@area,billing=@billing,coupon=@coupon WHERE name='{CustomerNameTextBox.Text}'";
                     MySqlCommand cmd = new MySqlCommand(sql, con);
                     con.Open();
                     cmd.Parameters.AddWithValue("@modified", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@name", textBox1.Text);
-                    cmd.Parameters.AddWithValue("@phone", textBox2.Text);
-                    cmd.Parameters.AddWithValue("@email", textBox3.Text);
-                    cmd.Parameters.AddWithValue("@fax", textBox4.Text);
-                    cmd.Parameters.AddWithValue("@area", comboBox1.Text);
+                    cmd.Parameters.AddWithValue("@name", CustomerNameTextBox.Text);
+                    cmd.Parameters.AddWithValue("@phone", PhoneTextBox.Text);
+                    cmd.Parameters.AddWithValue("@email", EmailTextBox.Text);
+                    cmd.Parameters.AddWithValue("@fax", FaxTextBox.Text);
+                    cmd.Parameters.AddWithValue("@area", OrientationComboBox.Text);
 
-                    if (comboBox2.Text == "YES")
+                    if (BillingComboBox.Text == "YES")
                     {
                         cmd.Parameters.AddWithValue("@billing", true);
                     }
@@ -115,7 +115,7 @@ namespace Metal_Assay
                     {
                         cmd.Parameters.AddWithValue("@billing", false);
                     }
-                    if (comboBox3.Text == "YES")
+                    if (CouponComboBox.Text == "YES")
                     {
                         cmd.Parameters.AddWithValue("@coupon", true);
                     }
@@ -125,7 +125,7 @@ namespace Metal_Assay
                     }
                     cmd.ExecuteReader();
                     con.Close();
-                    WriteToLogFile($"Updated Customer. Name:{textBox1.Text}, Phone:{textBox2.Text}, Email:{textBox3.Text}, Area:{comboBox1.Text}");
+                    WriteToLogFile($"Updated Customer. Name:{CustomerNameTextBox.Text}, Phone:{PhoneTextBox.Text}, Email:{EmailTextBox.Text}, Area:{OrientationComboBox.Text}");
                 }
                 catch (Exception ex)
                 {
@@ -140,7 +140,7 @@ namespace Metal_Assay
             //MainForm.LoadFirstWeightTable();
             //MainForm.LoadLastWeightTable();
             //MainForm.LoadSampleReturnTable();
-            
+
             //MainForm.MainBackgroundWorker.RunWorkerAsync();
             //MainForm.FWBackgroundWorker.RunWorkerAsync();
             //MainForm.LWBackgroundWorker.RunWorkerAsync();
@@ -148,6 +148,14 @@ namespace Metal_Assay
             Close();
         }
 
+        private void AddCustomerButton_MouseEnter(object sender, EventArgs e)
+        {
+            AddCustomerButton.BackColor = System.Drawing.Color.FromArgb(184, 134, 11); // Darker gold
+        }
 
+        private void AddCustomerButton_MouseLeave(object sender, EventArgs e)
+        {
+            AddCustomerButton.BackColor = System.Drawing.Color.FromArgb(218, 165, 32); // Original gold
+        }
     }
 }

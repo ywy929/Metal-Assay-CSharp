@@ -113,5 +113,15 @@ namespace Metal_Assay
         {
             MainForm.LWLastWeightATextBox.Focus();
         }
+
+        private void ResultOKButton_MouseEnter(object sender, EventArgs e)
+        {
+            ResultOKButton.BackColor = System.Drawing.Color.FromArgb(184, 134, 11); // Darker gold
+        }
+
+        private void ResultOKButton_MouseLeave(object sender, EventArgs e)
+        {
+            ResultOKButton.BackColor = System.Drawing.Color.FromArgb(218, 165, 32); // Original gold
+        }
     }
 }

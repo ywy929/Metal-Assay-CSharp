@@ -277,5 +277,61 @@ namespace Metal_Assay
                 sendToOther.ShowDialog();
             }
         }
+
+        private void PreviewActionButton_MouseEnter(object sender, EventArgs e)
+        {
+            PreviewActionButton.BackColor = System.Drawing.Color.FromArgb(184, 134, 11); // Darker gold
+        }
+
+        private void PreviewActionButton_MouseLeave(object sender, EventArgs e)
+        {
+            PreviewActionButton.BackColor = System.Drawing.Color.FromArgb(218, 165, 32); // Original gold
+        }
+
+        private void PreviewOtherButton_MouseEnter(object sender, EventArgs e)
+        {
+            if (PreviewOtherButton.Enabled)
+                PreviewOtherButton.BackColor = System.Drawing.Color.FromArgb(184, 134, 11); // Darker gold
+        }
+
+        private void PreviewOtherButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (PreviewOtherButton.Enabled)
+                PreviewOtherButton.BackColor = System.Drawing.Color.FromArgb(218, 165, 32); // Original gold
+        }
+
+        private void PreviewCancelButton_MouseEnter(object sender, EventArgs e)
+        {
+            PreviewCancelButton.BackColor = System.Drawing.Color.FromArgb(90, 98, 104); // Darker gray
+        }
+
+        private void PreviewCancelButton_MouseLeave(object sender, EventArgs e)
+        {
+            PreviewCancelButton.BackColor = System.Drawing.Color.FromArgb(108, 117, 125); // Original gray
+        }
+
+        private void PreviewBackButton_MouseEnter(object sender, EventArgs e)
+        {
+            if (PreviewBackButton.Enabled)
+                PreviewBackButton.BackColor = System.Drawing.Color.FromArgb(184, 134, 11); // Darker gold
+        }
+
+        private void PreviewBackButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (PreviewBackButton.Enabled)
+                PreviewBackButton.BackColor = System.Drawing.Color.FromArgb(218, 165, 32); // Original gold
+        }
+
+        private void PreviewNextButton_MouseEnter(object sender, EventArgs e)
+        {
+            if (PreviewNextButton.Enabled)
+                PreviewNextButton.BackColor = System.Drawing.Color.FromArgb(184, 134, 11); // Darker gold
+        }
+
+        private void PreviewNextButton_MouseLeave(object sender, EventArgs e)
+        {
+            if (PreviewNextButton.Enabled)
+                PreviewNextButton.BackColor = System.Drawing.Color.FromArgb(218, 165, 32); // Original gold
+        }
     }
 }

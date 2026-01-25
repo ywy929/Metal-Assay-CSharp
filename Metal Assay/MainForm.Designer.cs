@@ -407,61 +407,61 @@
             this.SampleReturnContextMenuStrip.SuspendLayout();
             this.HistoryContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
-            // 
+            //
             // MainFormcodeLabel
-            // 
+            //
             this.MainFormcodeLabel.AutoSize = true;
-            this.MainFormcodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainFormcodeLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainFormcodeLabel.Location = new System.Drawing.Point(28, 14);
             this.MainFormcodeLabel.Name = "MainFormcodeLabel";
             this.MainFormcodeLabel.Size = new System.Drawing.Size(124, 29);
             this.MainFormcodeLabel.TabIndex = 0;
             this.MainFormcodeLabel.Text = "Formcode";
-            // 
+            //
             // MainCustomerLabel
-            // 
+            //
             this.MainCustomerLabel.AutoSize = true;
-            this.MainCustomerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainCustomerLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainCustomerLabel.Location = new System.Drawing.Point(295, 14);
             this.MainCustomerLabel.Name = "MainCustomerLabel";
             this.MainCustomerLabel.Size = new System.Drawing.Size(117, 29);
             this.MainCustomerLabel.TabIndex = 1;
             this.MainCustomerLabel.Text = "Customer";
             this.MainCustomerLabel.UseMnemonic = false;
-            // 
+            //
             // MainDateLabel
-            // 
+            //
             this.MainDateLabel.AutoSize = true;
-            this.MainDateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainDateLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainDateLabel.Location = new System.Drawing.Point(28, 67);
             this.MainDateLabel.Name = "MainDateLabel";
             this.MainDateLabel.Size = new System.Drawing.Size(63, 29);
             this.MainDateLabel.TabIndex = 2;
             this.MainDateLabel.Text = "Date";
-            // 
+            //
             // MainItemcodeLabel
-            // 
+            //
             this.MainItemcodeLabel.AutoSize = true;
-            this.MainItemcodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainItemcodeLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainItemcodeLabel.Location = new System.Drawing.Point(481, 67);
             this.MainItemcodeLabel.Name = "MainItemcodeLabel";
             this.MainItemcodeLabel.Size = new System.Drawing.Size(113, 29);
             this.MainItemcodeLabel.TabIndex = 3;
             this.MainItemcodeLabel.Text = "Itemcode";
-            // 
+            //
             // MainSampleWeightLabel
-            // 
+            //
             this.MainSampleWeightLabel.AutoSize = true;
-            this.MainSampleWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MainSampleWeightLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainSampleWeightLabel.Location = new System.Drawing.Point(804, 67);
             this.MainSampleWeightLabel.Name = "MainSampleWeightLabel";
             this.MainSampleWeightLabel.Size = new System.Drawing.Size(213, 29);
             this.MainSampleWeightLabel.TabIndex = 4;
             this.MainSampleWeightLabel.Text = "Sample Weight (g)";
-            // 
+            //
             // MainNewButton
-            // 
-            this.MainNewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.MainNewButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainNewButton.Location = new System.Drawing.Point(33, 119);
             this.MainNewButton.Name = "MainNewButton";
             this.MainNewButton.Size = new System.Drawing.Size(167, 42);
@@ -469,10 +469,10 @@
             this.MainNewButton.Text = "NEW";
             this.MainNewButton.UseVisualStyleBackColor = true;
             this.MainNewButton.Click += new System.EventHandler(this.MainNewButton_Click);
-            // 
+            //
             // MainNewRoundButton
-            // 
-            this.MainNewRoundButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.MainNewRoundButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainNewRoundButton.Location = new System.Drawing.Point(255, 119);
             this.MainNewRoundButton.Name = "MainNewRoundButton";
             this.MainNewRoundButton.Size = new System.Drawing.Size(167, 42);
@@ -480,10 +480,10 @@
             this.MainNewRoundButton.Text = "NEW ROUND";
             this.MainNewRoundButton.UseVisualStyleBackColor = true;
             this.MainNewRoundButton.Click += new System.EventHandler(this.MainNewRoundButton_Click);
-            // 
+            //
             // MainDeleteButton
-            // 
-            this.MainDeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.MainDeleteButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainDeleteButton.Location = new System.Drawing.Point(477, 119);
             this.MainDeleteButton.Name = "MainDeleteButton";
             this.MainDeleteButton.Size = new System.Drawing.Size(167, 42);
@@ -491,10 +491,10 @@
             this.MainDeleteButton.Text = "DELETE";
             this.MainDeleteButton.UseVisualStyleBackColor = true;
             this.MainDeleteButton.Click += new System.EventHandler(this.MainDeleteButton_Click);
-            // 
+            //
             // MainEditButton
-            // 
-            this.MainEditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.MainEditButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainEditButton.Location = new System.Drawing.Point(699, 119);
             this.MainEditButton.Name = "MainEditButton";
             this.MainEditButton.Size = new System.Drawing.Size(167, 42);
@@ -502,10 +502,10 @@
             this.MainEditButton.Text = "EDIT";
             this.MainEditButton.UseVisualStyleBackColor = true;
             this.MainEditButton.Click += new System.EventHandler(this.MainEditButton_Click);
-            // 
+            //
             // MainAddButton
-            // 
-            this.MainAddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.MainAddButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainAddButton.Location = new System.Drawing.Point(921, 119);
             this.MainAddButton.Name = "MainAddButton";
             this.MainAddButton.Size = new System.Drawing.Size(167, 42);
@@ -513,9 +513,9 @@
             this.MainAddButton.Text = "ADD";
             this.MainAddButton.UseVisualStyleBackColor = true;
             this.MainAddButton.Click += new System.EventHandler(this.MainAddButton_Click);
-            // 
+            //
             // MainRightDataGridView
-            // 
+            //
             this.MainRightDataGridView.AllowUserToAddRows = false;
             this.MainRightDataGridView.AllowUserToDeleteRows = false;
             this.MainRightDataGridView.ColumnHeadersHeight = 35;
@@ -591,7 +591,7 @@
             this.tabControl1.Controls.Add(this.CustomerTab);
             this.tabControl1.Controls.Add(this.CheckingTab);
             this.tabControl1.Controls.Add(this.LogTab);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 32);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -623,7 +623,7 @@
             // panel2
             // 
             this.panel2.Controls.Add(this.MainRightDataGridView);
-            this.panel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel2.Location = new System.Drawing.Point(977, 181);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(893, 727);
@@ -632,14 +632,14 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.MainLeftDataGridView);
-            this.panel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel1.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel1.Location = new System.Drawing.Point(33, 181);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(911, 727);
             this.panel1.TabIndex = 13;
-            // 
+            //
             // MainLeftDataGridView
-            // 
+            //
             this.MainLeftDataGridView.AllowUserToAddRows = false;
             this.MainLeftDataGridView.AllowUserToDeleteRows = false;
             this.MainLeftDataGridView.ColumnHeadersHeight = 35;
@@ -713,9 +713,9 @@
             this.FirstWeightTab.Size = new System.Drawing.Size(1896, 944);
             this.FirstWeightTab.TabIndex = 1;
             this.FirstWeightTab.Text = "First Weight";
-            // 
+            //
             // FWRedoGroupbox
-            // 
+            //
             this.FWRedoGroupbox.Controls.Add(this.FWGoToRedoButton);
             this.FWRedoGroupbox.Location = new System.Drawing.Point(10, 591);
             this.FWRedoGroupbox.Name = "FWRedoGroupbox";
@@ -723,10 +723,10 @@
             this.FWRedoGroupbox.TabIndex = 13;
             this.FWRedoGroupbox.TabStop = false;
             this.FWRedoGroupbox.Text = "Go to Redo";
-            // 
+            //
             // FWGoToRedoButton
-            // 
-            this.FWGoToRedoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.FWGoToRedoButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWGoToRedoButton.Location = new System.Drawing.Point(57, 45);
             this.FWGoToRedoButton.Name = "FWGoToRedoButton";
             this.FWGoToRedoButton.Size = new System.Drawing.Size(155, 46);
@@ -739,14 +739,14 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.Control;
             this.panel3.Controls.Add(this.FWDataGridView);
-            this.panel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel3.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel3.Location = new System.Drawing.Point(349, 15);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1040, 901);
             this.panel3.TabIndex = 12;
-            // 
+            //
             // FWDataGridView
-            // 
+            //
             this.FWDataGridView.AllowUserToAddRows = false;
             this.FWDataGridView.AllowUserToDeleteRows = false;
             this.FWDataGridView.AllowUserToResizeRows = false;
@@ -819,10 +819,10 @@
             this.FWFinalResultColumn.Name = "FWFinalResultColumn";
             this.FWFinalResultColumn.ReadOnly = true;
             this.FWFinalResultColumn.Visible = false;
-            // 
+            //
             // FWSaveButton
-            // 
-            this.FWSaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.FWSaveButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWSaveButton.Location = new System.Drawing.Point(76, 471);
             this.FWSaveButton.Name = "FWSaveButton";
             this.FWSaveButton.Size = new System.Drawing.Size(135, 46);
@@ -834,7 +834,7 @@
             // FWSilverPctCombobox
             // 
             this.FWSilverPctCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.FWSilverPctCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FWSilverPctCombobox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWSilverPctCombobox.FormattingEnabled = true;
             this.FWSilverPctCombobox.Items.AddRange(new object[] {
             "950",
@@ -859,7 +859,7 @@
             // 
             // FWBTextbox
             // 
-            this.FWBTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FWBTextbox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWBTextbox.Location = new System.Drawing.Point(49, 328);
             this.FWBTextbox.Name = "FWBTextbox";
             this.FWBTextbox.Size = new System.Drawing.Size(230, 31);
@@ -869,81 +869,81 @@
             // 
             // FWATextbox
             // 
-            this.FWATextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FWATextbox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWATextbox.Location = new System.Drawing.Point(49, 279);
             this.FWATextbox.Name = "FWATextbox";
             this.FWATextbox.Size = new System.Drawing.Size(229, 31);
             this.FWATextbox.TabIndex = 7;
             this.FWATextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TabToNext);
             this.FWATextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
-            // 
+            //
             // FWSIlverPctLabel
-            // 
+            //
             this.FWSIlverPctLabel.AutoSize = true;
-            this.FWSIlverPctLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FWSIlverPctLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWSIlverPctLabel.Location = new System.Drawing.Point(7, 405);
             this.FWSIlverPctLabel.Name = "FWSIlverPctLabel";
-            this.FWSIlverPctLabel.Size = new System.Drawing.Size(103, 25);
+            this.FWSIlverPctLabel.Size = new System.Drawing.Size(103, 30);
             this.FWSIlverPctLabel.TabIndex = 6;
             this.FWSIlverPctLabel.Text = "Silver %: ";
-            // 
+            //
             // FWBLabel
-            // 
+            //
             this.FWBLabel.AutoSize = true;
-            this.FWBLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FWBLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWBLabel.Location = new System.Drawing.Point(17, 331);
             this.FWBLabel.Name = "FWBLabel";
-            this.FWBLabel.Size = new System.Drawing.Size(26, 25);
+            this.FWBLabel.Size = new System.Drawing.Size(26, 30);
             this.FWBLabel.TabIndex = 5;
             this.FWBLabel.Text = "B";
-            // 
+            //
             // FWALabel
-            // 
+            //
             this.FWALabel.AutoSize = true;
-            this.FWALabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FWALabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWALabel.Location = new System.Drawing.Point(17, 282);
             this.FWALabel.Name = "FWALabel";
-            this.FWALabel.Size = new System.Drawing.Size(26, 25);
+            this.FWALabel.Size = new System.Drawing.Size(27, 30);
             this.FWALabel.TabIndex = 4;
             this.FWALabel.Text = "A";
-            // 
+            //
             // FWItemcodeContent
-            // 
+            //
             this.FWItemcodeContent.AutoSize = true;
-            this.FWItemcodeContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FWItemcodeContent.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWItemcodeContent.Location = new System.Drawing.Point(17, 216);
             this.FWItemcodeContent.Name = "FWItemcodeContent";
-            this.FWItemcodeContent.Size = new System.Drawing.Size(134, 31);
+            this.FWItemcodeContent.Size = new System.Drawing.Size(134, 37);
             this.FWItemcodeContent.TabIndex = 3;
             this.FWItemcodeContent.Text = "Itemcode";
-            // 
+            //
             // FWItemcodeLabel
-            // 
+            //
             this.FWItemcodeLabel.AutoSize = true;
-            this.FWItemcodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FWItemcodeLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWItemcodeLabel.Location = new System.Drawing.Point(17, 176);
             this.FWItemcodeLabel.Name = "FWItemcodeLabel";
-            this.FWItemcodeLabel.Size = new System.Drawing.Size(126, 31);
+            this.FWItemcodeLabel.Size = new System.Drawing.Size(126, 37);
             this.FWItemcodeLabel.TabIndex = 2;
             this.FWItemcodeLabel.Text = "Itemcode";
-            // 
+            //
             // FWCustomerContent
-            // 
-            this.FWCustomerContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.FWCustomerContent.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWCustomerContent.Location = new System.Drawing.Point(17, 58);
             this.FWCustomerContent.Name = "FWCustomerContent";
             this.FWCustomerContent.Size = new System.Drawing.Size(326, 103);
             this.FWCustomerContent.TabIndex = 1;
             this.FWCustomerContent.Text = "TKC AURUM MANUFACTURING SDN BHD";
             this.FWCustomerContent.UseMnemonic = false;
-            // 
+            //
             // FWCustomerLabel
-            // 
+            //
             this.FWCustomerLabel.AutoSize = true;
-            this.FWCustomerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FWCustomerLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWCustomerLabel.Location = new System.Drawing.Point(17, 15);
             this.FWCustomerLabel.Name = "FWCustomerLabel";
-            this.FWCustomerLabel.Size = new System.Drawing.Size(132, 31);
+            this.FWCustomerLabel.Size = new System.Drawing.Size(132, 37);
             this.FWCustomerLabel.TabIndex = 0;
             this.FWCustomerLabel.Text = "Customer";
             // 
@@ -974,10 +974,10 @@
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Go to Redo";
-            // 
+            //
             // LWGoToRedoButton
-            // 
-            this.LWGoToRedoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.LWGoToRedoButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWGoToRedoButton.Location = new System.Drawing.Point(57, 45);
             this.LWGoToRedoButton.Name = "LWGoToRedoButton";
             this.LWGoToRedoButton.Size = new System.Drawing.Size(155, 46);
@@ -985,10 +985,10 @@
             this.LWGoToRedoButton.Text = "Go To Redo";
             this.LWGoToRedoButton.UseVisualStyleBackColor = true;
             this.LWGoToRedoButton.Click += new System.EventHandler(this.LWGoToRedoButton_Click);
-            // 
+            //
             // LWEditButton
-            // 
-            this.LWEditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.LWEditButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWEditButton.Location = new System.Drawing.Point(1312, 60);
             this.LWEditButton.Name = "LWEditButton";
             this.LWEditButton.Size = new System.Drawing.Size(153, 58);
@@ -1030,7 +1030,7 @@
             // LWLastWeightLabel
             // 
             this.LWLastWeightLabel.AutoSize = true;
-            this.LWLastWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWLastWeightLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWLastWeightLabel.Location = new System.Drawing.Point(49, 28);
             this.LWLastWeightLabel.Name = "LWLastWeightLabel";
             this.LWLastWeightLabel.Size = new System.Drawing.Size(107, 24);
@@ -1040,7 +1040,7 @@
             // LWALabel
             // 
             this.LWALabel.AutoSize = true;
-            this.LWALabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWALabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWALabel.Location = new System.Drawing.Point(27, 75);
             this.LWALabel.Name = "LWALabel";
             this.LWALabel.Size = new System.Drawing.Size(23, 24);
@@ -1050,7 +1050,7 @@
             // LWAverageResultTextBox
             // 
             this.LWAverageResultTextBox.Enabled = false;
-            this.LWAverageResultTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWAverageResultTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWAverageResultTextBox.Location = new System.Drawing.Point(446, 92);
             this.LWAverageResultTextBox.Name = "LWAverageResultTextBox";
             this.LWAverageResultTextBox.Size = new System.Drawing.Size(100, 29);
@@ -1059,7 +1059,7 @@
             // LWBLabel
             // 
             this.LWBLabel.AutoSize = true;
-            this.LWBLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWBLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWBLabel.Location = new System.Drawing.Point(27, 110);
             this.LWBLabel.Name = "LWBLabel";
             this.LWBLabel.Size = new System.Drawing.Size(22, 24);
@@ -1069,7 +1069,7 @@
             // LWDivideByTwoLabel
             // 
             this.LWDivideByTwoLabel.AutoSize = true;
-            this.LWDivideByTwoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWDivideByTwoLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWDivideByTwoLabel.Location = new System.Drawing.Point(418, 95);
             this.LWDivideByTwoLabel.Name = "LWDivideByTwoLabel";
             this.LWDivideByTwoLabel.Size = new System.Drawing.Size(25, 24);
@@ -1079,7 +1079,7 @@
             // LWASlashLabel
             // 
             this.LWASlashLabel.AutoSize = true;
-            this.LWASlashLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWASlashLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWASlashLabel.Location = new System.Drawing.Point(162, 78);
             this.LWASlashLabel.Name = "LWASlashLabel";
             this.LWASlashLabel.Size = new System.Drawing.Size(15, 24);
@@ -1089,7 +1089,7 @@
             // LWFinalResultTextBox
             // 
             this.LWFinalResultTextBox.Enabled = false;
-            this.LWFinalResultTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWFinalResultTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWFinalResultTextBox.Location = new System.Drawing.Point(649, 92);
             this.LWFinalResultTextBox.Name = "LWFinalResultTextBox";
             this.LWFinalResultTextBox.Size = new System.Drawing.Size(100, 29);
@@ -1098,7 +1098,7 @@
             // LWBSlashLabel
             // 
             this.LWBSlashLabel.AutoSize = true;
-            this.LWBSlashLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWBSlashLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWBSlashLabel.Location = new System.Drawing.Point(162, 113);
             this.LWBSlashLabel.Name = "LWBSlashLabel";
             this.LWBSlashLabel.Size = new System.Drawing.Size(15, 24);
@@ -1108,7 +1108,7 @@
             // LWPreresultBTextBox
             // 
             this.LWPreresultBTextBox.Enabled = false;
-            this.LWPreresultBTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWPreresultBTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWPreresultBTextBox.Location = new System.Drawing.Point(312, 110);
             this.LWPreresultBTextBox.Name = "LWPreresultBTextBox";
             this.LWPreresultBTextBox.Size = new System.Drawing.Size(100, 29);
@@ -1117,7 +1117,7 @@
             // LWFirstWeightLabel
             // 
             this.LWFirstWeightLabel.AutoSize = true;
-            this.LWFirstWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWFirstWeightLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWFirstWeightLabel.Location = new System.Drawing.Point(177, 27);
             this.LWFirstWeightLabel.Name = "LWFirstWeightLabel";
             this.LWFirstWeightLabel.Size = new System.Drawing.Size(109, 24);
@@ -1127,7 +1127,7 @@
             // LWPreresultATextBox
             // 
             this.LWPreresultATextBox.Enabled = false;
-            this.LWPreresultATextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWPreresultATextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWPreresultATextBox.Location = new System.Drawing.Point(312, 75);
             this.LWPreresultATextBox.Name = "LWPreresultATextBox";
             this.LWPreresultATextBox.Size = new System.Drawing.Size(100, 29);
@@ -1136,7 +1136,7 @@
             // LWAEqualLabel
             // 
             this.LWAEqualLabel.AutoSize = true;
-            this.LWAEqualLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWAEqualLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWAEqualLabel.Location = new System.Drawing.Point(288, 78);
             this.LWAEqualLabel.Name = "LWAEqualLabel";
             this.LWAEqualLabel.Size = new System.Drawing.Size(21, 24);
@@ -1146,7 +1146,7 @@
             // LWFirstWeightBTextBox
             // 
             this.LWFirstWeightBTextBox.Enabled = false;
-            this.LWFirstWeightBTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWFirstWeightBTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWFirstWeightBTextBox.Location = new System.Drawing.Point(181, 110);
             this.LWFirstWeightBTextBox.Name = "LWFirstWeightBTextBox";
             this.LWFirstWeightBTextBox.Size = new System.Drawing.Size(100, 29);
@@ -1155,7 +1155,7 @@
             // LWBEqualLabel
             // 
             this.LWBEqualLabel.AutoSize = true;
-            this.LWBEqualLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWBEqualLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWBEqualLabel.Location = new System.Drawing.Point(288, 113);
             this.LWBEqualLabel.Name = "LWBEqualLabel";
             this.LWBEqualLabel.Size = new System.Drawing.Size(21, 24);
@@ -1165,7 +1165,7 @@
             // LWFirstWeightATextBox
             // 
             this.LWFirstWeightATextBox.Enabled = false;
-            this.LWFirstWeightATextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWFirstWeightATextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWFirstWeightATextBox.Location = new System.Drawing.Point(181, 75);
             this.LWFirstWeightATextBox.Name = "LWFirstWeightATextBox";
             this.LWFirstWeightATextBox.Size = new System.Drawing.Size(100, 29);
@@ -1174,7 +1174,7 @@
             // LWLossLabel
             // 
             this.LWLossLabel.AutoSize = true;
-            this.LWLossLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWLossLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWLossLabel.Location = new System.Drawing.Point(572, 28);
             this.LWLossLabel.Name = "LWLossLabel";
             this.LWLossLabel.Size = new System.Drawing.Size(49, 24);
@@ -1183,7 +1183,7 @@
             // 
             // LWLastWeightBTextBox
             // 
-            this.LWLastWeightBTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWLastWeightBTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWLastWeightBTextBox.Location = new System.Drawing.Point(56, 110);
             this.LWLastWeightBTextBox.Name = "LWLastWeightBTextBox";
             this.LWLastWeightBTextBox.Size = new System.Drawing.Size(100, 29);
@@ -1194,7 +1194,7 @@
             // LWMinusLabel
             // 
             this.LWMinusLabel.AutoSize = true;
-            this.LWMinusLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWMinusLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWMinusLabel.Location = new System.Drawing.Point(552, 95);
             this.LWMinusLabel.Name = "LWMinusLabel";
             this.LWMinusLabel.Size = new System.Drawing.Size(16, 24);
@@ -1203,7 +1203,7 @@
             // 
             // LWLastWeightATextBox
             // 
-            this.LWLastWeightATextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWLastWeightATextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWLastWeightATextBox.Location = new System.Drawing.Point(56, 75);
             this.LWLastWeightATextBox.Name = "LWLastWeightATextBox";
             this.LWLastWeightATextBox.Size = new System.Drawing.Size(100, 29);
@@ -1214,7 +1214,7 @@
             // LWLossContent
             // 
             this.LWLossContent.AutoSize = true;
-            this.LWLossContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWLossContent.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWLossContent.Location = new System.Drawing.Point(574, 95);
             this.LWLossContent.Name = "LWLossContent";
             this.LWLossContent.Size = new System.Drawing.Size(20, 24);
@@ -1224,7 +1224,7 @@
             // LWResultLabel
             // 
             this.LWResultLabel.AutoSize = true;
-            this.LWResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWResultLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWResultLabel.Location = new System.Drawing.Point(665, 28);
             this.LWResultLabel.Name = "LWResultLabel";
             this.LWResultLabel.Size = new System.Drawing.Size(62, 24);
@@ -1234,7 +1234,7 @@
             // LWEqualLabel
             // 
             this.LWEqualLabel.AutoSize = true;
-            this.LWEqualLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWEqualLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWEqualLabel.Location = new System.Drawing.Point(625, 95);
             this.LWEqualLabel.Name = "LWEqualLabel";
             this.LWEqualLabel.Size = new System.Drawing.Size(21, 24);
@@ -1244,7 +1244,7 @@
             // panel4
             // 
             this.panel4.Controls.Add(this.LWDataGridView);
-            this.panel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel4.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.Location = new System.Drawing.Point(12, 191);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1332, 742);
@@ -1390,7 +1390,7 @@
             // LWItemcodeContent
             // 
             this.LWItemcodeContent.AutoSize = true;
-            this.LWItemcodeContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWItemcodeContent.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWItemcodeContent.Location = new System.Drawing.Point(6, 132);
             this.LWItemcodeContent.Name = "LWItemcodeContent";
             this.LWItemcodeContent.Size = new System.Drawing.Size(107, 25);
@@ -1400,7 +1400,7 @@
             // LWItemcodeLabel
             // 
             this.LWItemcodeLabel.AutoSize = true;
-            this.LWItemcodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWItemcodeLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWItemcodeLabel.Location = new System.Drawing.Point(7, 96);
             this.LWItemcodeLabel.Name = "LWItemcodeLabel";
             this.LWItemcodeLabel.Size = new System.Drawing.Size(99, 25);
@@ -1409,7 +1409,7 @@
             // 
             // LWCustomerContent
             // 
-            this.LWCustomerContent.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWCustomerContent.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWCustomerContent.Location = new System.Drawing.Point(7, 28);
             this.LWCustomerContent.Name = "LWCustomerContent";
             this.LWCustomerContent.Size = new System.Drawing.Size(492, 68);
@@ -1420,7 +1420,7 @@
             // LWCustomerLabel
             // 
             this.LWCustomerLabel.AutoSize = true;
-            this.LWCustomerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LWCustomerLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWCustomerLabel.Location = new System.Drawing.Point(7, 3);
             this.LWCustomerLabel.Name = "LWCustomerLabel";
             this.LWCustomerLabel.Size = new System.Drawing.Size(104, 25);
@@ -1452,7 +1452,7 @@
             // SampleReturnResultContentLabel
             // 
             this.SampleReturnResultContentLabel.AutoSize = true;
-            this.SampleReturnResultContentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SampleReturnResultContentLabel.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnResultContentLabel.Location = new System.Drawing.Point(8, 329);
             this.SampleReturnResultContentLabel.Name = "SampleReturnResultContentLabel";
             this.SampleReturnResultContentLabel.Size = new System.Drawing.Size(92, 33);
@@ -1462,7 +1462,7 @@
             // SampleReturnResultLabel
             // 
             this.SampleReturnResultLabel.AutoSize = true;
-            this.SampleReturnResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SampleReturnResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnResultLabel.Location = new System.Drawing.Point(8, 289);
             this.SampleReturnResultLabel.Name = "SampleReturnResultLabel";
             this.SampleReturnResultLabel.Size = new System.Drawing.Size(92, 31);
@@ -1478,10 +1478,10 @@
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Go to Non-Redo";
-            // 
+            //
             // SRGoToNonRedoButton
-            // 
-            this.SRGoToNonRedoButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.SRGoToNonRedoButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SRGoToNonRedoButton.Location = new System.Drawing.Point(58, 43);
             this.SRGoToNonRedoButton.Name = "SRGoToNonRedoButton";
             this.SRGoToNonRedoButton.Size = new System.Drawing.Size(197, 46);
@@ -1492,7 +1492,7 @@
             // 
             // SampleReturnSampleReturnTextbox
             // 
-            this.SampleReturnSampleReturnTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SampleReturnSampleReturnTextbox.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnSampleReturnTextbox.Location = new System.Drawing.Point(224, 455);
             this.SampleReturnSampleReturnTextbox.Name = "SampleReturnSampleReturnTextbox";
             this.SampleReturnSampleReturnTextbox.Size = new System.Drawing.Size(90, 35);
@@ -1503,7 +1503,7 @@
             // SampleReturnSampleReturnLabel
             // 
             this.SampleReturnSampleReturnLabel.AutoSize = true;
-            this.SampleReturnSampleReturnLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SampleReturnSampleReturnLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnSampleReturnLabel.Location = new System.Drawing.Point(9, 458);
             this.SampleReturnSampleReturnLabel.Name = "SampleReturnSampleReturnLabel";
             this.SampleReturnSampleReturnLabel.Size = new System.Drawing.Size(209, 29);
@@ -1513,7 +1513,7 @@
             // SampleReturnSampleWeightContentLabel
             // 
             this.SampleReturnSampleWeightContentLabel.AutoSize = true;
-            this.SampleReturnSampleWeightContentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SampleReturnSampleWeightContentLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnSampleWeightContentLabel.Location = new System.Drawing.Point(228, 398);
             this.SampleReturnSampleWeightContentLabel.Name = "SampleReturnSampleWeightContentLabel";
             this.SampleReturnSampleWeightContentLabel.Size = new System.Drawing.Size(62, 29);
@@ -1523,7 +1523,7 @@
             // SampleReturnSampleWeightLabel
             // 
             this.SampleReturnSampleWeightLabel.AutoSize = true;
-            this.SampleReturnSampleWeightLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SampleReturnSampleWeightLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnSampleWeightLabel.Location = new System.Drawing.Point(9, 398);
             this.SampleReturnSampleWeightLabel.Name = "SampleReturnSampleWeightLabel";
             this.SampleReturnSampleWeightLabel.Size = new System.Drawing.Size(213, 29);
@@ -1533,7 +1533,7 @@
             // panel5
             // 
             this.panel5.Controls.Add(this.SRDataGridView);
-            this.panel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel5.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel5.Location = new System.Drawing.Point(400, 31);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1091, 902);
@@ -1624,10 +1624,10 @@
             this.SampleReturnIDColumn.Name = "SampleReturnIDColumn";
             this.SampleReturnIDColumn.ReadOnly = true;
             this.SampleReturnIDColumn.Visible = false;
-            // 
+            //
             // SampleReturnSaveButton
-            // 
-            this.SampleReturnSaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.SampleReturnSaveButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnSaveButton.Location = new System.Drawing.Point(103, 546);
             this.SampleReturnSaveButton.Name = "SampleReturnSaveButton";
             this.SampleReturnSaveButton.Size = new System.Drawing.Size(135, 46);
@@ -1639,7 +1639,7 @@
             // SampleReturnItemcodeContentLabel
             // 
             this.SampleReturnItemcodeContentLabel.AutoSize = true;
-            this.SampleReturnItemcodeContentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SampleReturnItemcodeContentLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnItemcodeContentLabel.Location = new System.Drawing.Point(8, 232);
             this.SampleReturnItemcodeContentLabel.Name = "SampleReturnItemcodeContentLabel";
             this.SampleReturnItemcodeContentLabel.Size = new System.Drawing.Size(134, 31);
@@ -1649,7 +1649,7 @@
             // SampleReturnItemcodeLabel
             // 
             this.SampleReturnItemcodeLabel.AutoSize = true;
-            this.SampleReturnItemcodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SampleReturnItemcodeLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnItemcodeLabel.Location = new System.Drawing.Point(8, 192);
             this.SampleReturnItemcodeLabel.Name = "SampleReturnItemcodeLabel";
             this.SampleReturnItemcodeLabel.Size = new System.Drawing.Size(126, 31);
@@ -1658,7 +1658,7 @@
             // 
             // SampleReturnCustomerContentLabel
             // 
-            this.SampleReturnCustomerContentLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SampleReturnCustomerContentLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnCustomerContentLabel.Location = new System.Drawing.Point(8, 74);
             this.SampleReturnCustomerContentLabel.Name = "SampleReturnCustomerContentLabel";
             this.SampleReturnCustomerContentLabel.Size = new System.Drawing.Size(349, 103);
@@ -1669,7 +1669,7 @@
             // SampleReturnCustomerLabel
             // 
             this.SampleReturnCustomerLabel.AutoSize = true;
-            this.SampleReturnCustomerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SampleReturnCustomerLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnCustomerLabel.Location = new System.Drawing.Point(8, 31);
             this.SampleReturnCustomerLabel.Name = "SampleReturnCustomerLabel";
             this.SampleReturnCustomerLabel.Size = new System.Drawing.Size(132, 31);
@@ -1709,7 +1709,7 @@
             // HistoryCustomerTextbox
             // 
             this.HistoryCustomerTextbox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.HistoryCustomerTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HistoryCustomerTextbox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HistoryCustomerTextbox.Location = new System.Drawing.Point(20, 37);
             this.HistoryCustomerTextbox.Name = "HistoryCustomerTextbox";
             this.HistoryCustomerTextbox.Size = new System.Drawing.Size(251, 31);
@@ -1717,10 +1717,10 @@
             this.HistoryCustomerTextbox.TextChanged += new System.EventHandler(this.HistoryListbox_TextChanged);
             this.HistoryCustomerTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             this.HistoryCustomerTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
-            // 
+            //
             // HistorySearchSpoilButton
-            // 
-            this.HistorySearchSpoilButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.HistorySearchSpoilButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HistorySearchSpoilButton.Location = new System.Drawing.Point(72, 277);
             this.HistorySearchSpoilButton.Name = "HistorySearchSpoilButton";
             this.HistorySearchSpoilButton.Size = new System.Drawing.Size(151, 45);
@@ -1732,7 +1732,7 @@
             // panel6
             // 
             this.panel6.Controls.Add(this.HistoryDataGridView);
-            this.panel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel6.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel6.Location = new System.Drawing.Point(305, 17);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1538, 916);
@@ -1848,10 +1848,10 @@
             this.HistoryDataGridViewIDColumn.Name = "HistoryDataGridViewIDColumn";
             this.HistoryDataGridViewIDColumn.ReadOnly = true;
             this.HistoryDataGridViewIDColumn.Visible = false;
-            // 
+            //
             // HistorySearchButton
-            // 
-            this.HistorySearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.HistorySearchButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HistorySearchButton.Location = new System.Drawing.Point(72, 204);
             this.HistorySearchButton.Name = "HistorySearchButton";
             this.HistorySearchButton.Size = new System.Drawing.Size(151, 45);
@@ -1863,7 +1863,7 @@
             // HistoryItemcodeTextbox
             // 
             this.HistoryItemcodeTextbox.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.HistoryItemcodeTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HistoryItemcodeTextbox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HistoryItemcodeTextbox.Location = new System.Drawing.Point(20, 140);
             this.HistoryItemcodeTextbox.Name = "HistoryItemcodeTextbox";
             this.HistoryItemcodeTextbox.Size = new System.Drawing.Size(251, 31);
@@ -1872,7 +1872,7 @@
             // HistoryItemcodeLabel
             // 
             this.HistoryItemcodeLabel.AutoSize = true;
-            this.HistoryItemcodeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HistoryItemcodeLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HistoryItemcodeLabel.Location = new System.Drawing.Point(14, 94);
             this.HistoryItemcodeLabel.Name = "HistoryItemcodeLabel";
             this.HistoryItemcodeLabel.Size = new System.Drawing.Size(126, 31);
@@ -1882,7 +1882,7 @@
             // HIstoryCustomerLabel
             // 
             this.HIstoryCustomerLabel.AutoSize = true;
-            this.HIstoryCustomerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HIstoryCustomerLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HIstoryCustomerLabel.Location = new System.Drawing.Point(8, 3);
             this.HIstoryCustomerLabel.Name = "HIstoryCustomerLabel";
             this.HIstoryCustomerLabel.Size = new System.Drawing.Size(132, 31);
@@ -1922,7 +1922,7 @@
             // 
             // CustomerCustomerTextbox
             // 
-            this.CustomerCustomerTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomerCustomerTextbox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerCustomerTextbox.Location = new System.Drawing.Point(14, 271);
             this.CustomerCustomerTextbox.Name = "CustomerCustomerTextbox";
             this.CustomerCustomerTextbox.Size = new System.Drawing.Size(251, 31);
@@ -1930,10 +1930,10 @@
             this.CustomerCustomerTextbox.TextChanged += new System.EventHandler(this.CustomerCustomerTextbox_TextChanged);
             this.CustomerCustomerTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CustomerCustomerTextbox_KeyDown);
             this.CustomerCustomerTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CustomerCustomerTextbox_KeyPress);
-            // 
+            //
             // CustomerResetButton
-            // 
-            this.CustomerResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.CustomerResetButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerResetButton.Location = new System.Drawing.Point(67, 401);
             this.CustomerResetButton.Name = "CustomerResetButton";
             this.CustomerResetButton.Size = new System.Drawing.Size(135, 46);
@@ -1945,7 +1945,7 @@
             // panel7
             // 
             this.panel7.Controls.Add(this.CustomerDataGridView);
-            this.panel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel7.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel7.Location = new System.Drawing.Point(290, 17);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(1409, 916);
@@ -1977,10 +1977,10 @@
             this.CustomerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CustomerDataGridView.Size = new System.Drawing.Size(1403, 913);
             this.CustomerDataGridView.TabIndex = 11;
-            // 
+            //
             // CustomerSearchButton
-            // 
-            this.CustomerSearchButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.CustomerSearchButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerSearchButton.Location = new System.Drawing.Point(67, 323);
             this.CustomerSearchButton.Name = "CustomerSearchButton";
             this.CustomerSearchButton.Size = new System.Drawing.Size(135, 46);
@@ -1988,10 +1988,10 @@
             this.CustomerSearchButton.Text = "SEARCH";
             this.CustomerSearchButton.UseVisualStyleBackColor = true;
             this.CustomerSearchButton.Click += new System.EventHandler(this.CustomerSearchButton_Click);
-            // 
+            //
             // CustomerDeleteButton
-            // 
-            this.CustomerDeleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.CustomerDeleteButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerDeleteButton.Location = new System.Drawing.Point(67, 158);
             this.CustomerDeleteButton.Name = "CustomerDeleteButton";
             this.CustomerDeleteButton.Size = new System.Drawing.Size(135, 46);
@@ -1999,10 +1999,10 @@
             this.CustomerDeleteButton.Text = "DELETE";
             this.CustomerDeleteButton.UseVisualStyleBackColor = true;
             this.CustomerDeleteButton.Click += new System.EventHandler(this.CustomerDeleteButton_Click);
-            // 
+            //
             // CustomerEditButton
-            // 
-            this.CustomerEditButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.CustomerEditButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerEditButton.Location = new System.Drawing.Point(67, 84);
             this.CustomerEditButton.Name = "CustomerEditButton";
             this.CustomerEditButton.Size = new System.Drawing.Size(135, 46);
@@ -2010,10 +2010,10 @@
             this.CustomerEditButton.Text = "EDIT";
             this.CustomerEditButton.UseVisualStyleBackColor = true;
             this.CustomerEditButton.Click += new System.EventHandler(this.CustomerEditButton_Click);
-            // 
+            //
             // CustomerNewButton
-            // 
-            this.CustomerNewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.CustomerNewButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerNewButton.Location = new System.Drawing.Point(67, 17);
             this.CustomerNewButton.Name = "CustomerNewButton";
             this.CustomerNewButton.Size = new System.Drawing.Size(135, 46);
@@ -2025,7 +2025,7 @@
             // CustomerCustomerLabel
             // 
             this.CustomerCustomerLabel.AutoSize = true;
-            this.CustomerCustomerLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CustomerCustomerLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerCustomerLabel.Location = new System.Drawing.Point(8, 237);
             this.CustomerCustomerLabel.Name = "CustomerCustomerLabel";
             this.CustomerCustomerLabel.Size = new System.Drawing.Size(132, 31);
@@ -2046,10 +2046,10 @@
             this.CheckingTab.Size = new System.Drawing.Size(1896, 944);
             this.CheckingTab.TabIndex = 6;
             this.CheckingTab.Text = "Checking";
-            // 
+            //
             // CheckingRightResetButton
-            // 
-            this.CheckingRightResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.CheckingRightResetButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingRightResetButton.Location = new System.Drawing.Point(985, 872);
             this.CheckingRightResetButton.Name = "CheckingRightResetButton";
             this.CheckingRightResetButton.Size = new System.Drawing.Size(133, 49);
@@ -2057,10 +2057,10 @@
             this.CheckingRightResetButton.Text = "RESET";
             this.CheckingRightResetButton.UseVisualStyleBackColor = true;
             this.CheckingRightResetButton.Click += new System.EventHandler(this.CheckingRightResetButton_Click);
-            // 
+            //
             // CheckingLeftResetButton
-            // 
-            this.CheckingLeftResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.CheckingLeftResetButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingLeftResetButton.Location = new System.Drawing.Point(196, 872);
             this.CheckingLeftResetButton.Name = "CheckingLeftResetButton";
             this.CheckingLeftResetButton.Size = new System.Drawing.Size(133, 49);
@@ -2068,10 +2068,10 @@
             this.CheckingLeftResetButton.Text = "RESET";
             this.CheckingLeftResetButton.UseVisualStyleBackColor = true;
             this.CheckingLeftResetButton.Click += new System.EventHandler(this.CheckingLeftResetButton_Click);
-            // 
+            //
             // CheckingPrintRightButton
-            // 
-            this.CheckingPrintRightButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.CheckingPrintRightButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingPrintRightButton.Location = new System.Drawing.Point(1158, 872);
             this.CheckingPrintRightButton.Name = "CheckingPrintRightButton";
             this.CheckingPrintRightButton.Size = new System.Drawing.Size(133, 49);
@@ -2142,7 +2142,7 @@
             this.CheckingRightPanel.Controls.Add(this.CheckingFW1TextboxRight);
             this.CheckingRightPanel.Controls.Add(this.CheckingFW2TextboxRight);
             this.CheckingRightPanel.Controls.Add(this.CheckingFWLabelRight);
-            this.CheckingRightPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingRightPanel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingRightPanel.Location = new System.Drawing.Point(797, 18);
             this.CheckingRightPanel.Name = "CheckingRightPanel";
             this.CheckingRightPanel.Size = new System.Drawing.Size(705, 837);
@@ -2151,7 +2151,7 @@
             // CheckingG2LabelRight
             // 
             this.CheckingG2LabelRight.AutoSize = true;
-            this.CheckingG2LabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingG2LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG2LabelRight.Location = new System.Drawing.Point(79, 773);
             this.CheckingG2LabelRight.Name = "CheckingG2LabelRight";
             this.CheckingG2LabelRight.Size = new System.Drawing.Size(50, 31);
@@ -2161,7 +2161,7 @@
             // CheckingG1LabelRight
             // 
             this.CheckingG1LabelRight.AutoSize = true;
-            this.CheckingG1LabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingG1LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG1LabelRight.Location = new System.Drawing.Point(79, 718);
             this.CheckingG1LabelRight.Name = "CheckingG1LabelRight";
             this.CheckingG1LabelRight.Size = new System.Drawing.Size(50, 31);
@@ -2171,7 +2171,7 @@
             // CheckingF2LabelRight
             // 
             this.CheckingF2LabelRight.AutoSize = true;
-            this.CheckingF2LabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingF2LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF2LabelRight.Location = new System.Drawing.Point(81, 663);
             this.CheckingF2LabelRight.Name = "CheckingF2LabelRight";
             this.CheckingF2LabelRight.Size = new System.Drawing.Size(46, 31);
@@ -2181,7 +2181,7 @@
             // CheckingF1LabelRight
             // 
             this.CheckingF1LabelRight.AutoSize = true;
-            this.CheckingF1LabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingF1LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF1LabelRight.Location = new System.Drawing.Point(81, 608);
             this.CheckingF1LabelRight.Name = "CheckingF1LabelRight";
             this.CheckingF1LabelRight.Size = new System.Drawing.Size(46, 31);
@@ -2191,7 +2191,7 @@
             // CheckingE2LabelRight
             // 
             this.CheckingE2LabelRight.AutoSize = true;
-            this.CheckingE2LabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingE2LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE2LabelRight.Location = new System.Drawing.Point(81, 553);
             this.CheckingE2LabelRight.Name = "CheckingE2LabelRight";
             this.CheckingE2LabelRight.Size = new System.Drawing.Size(47, 31);
@@ -2201,7 +2201,7 @@
             // CheckingE1LabelRight
             // 
             this.CheckingE1LabelRight.AutoSize = true;
-            this.CheckingE1LabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingE1LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE1LabelRight.Location = new System.Drawing.Point(81, 498);
             this.CheckingE1LabelRight.Name = "CheckingE1LabelRight";
             this.CheckingE1LabelRight.Size = new System.Drawing.Size(47, 31);
@@ -2211,7 +2211,7 @@
             // CheckingD2LabelRight
             // 
             this.CheckingD2LabelRight.AutoSize = true;
-            this.CheckingD2LabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingD2LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD2LabelRight.Location = new System.Drawing.Point(80, 443);
             this.CheckingD2LabelRight.Name = "CheckingD2LabelRight";
             this.CheckingD2LabelRight.Size = new System.Drawing.Size(49, 31);
@@ -2221,7 +2221,7 @@
             // CheckingD1LabelRight
             // 
             this.CheckingD1LabelRight.AutoSize = true;
-            this.CheckingD1LabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingD1LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD1LabelRight.Location = new System.Drawing.Point(80, 388);
             this.CheckingD1LabelRight.Name = "CheckingD1LabelRight";
             this.CheckingD1LabelRight.Size = new System.Drawing.Size(49, 31);
@@ -2231,7 +2231,7 @@
             // CheckingC2LabelRight
             // 
             this.CheckingC2LabelRight.AutoSize = true;
-            this.CheckingC2LabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingC2LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC2LabelRight.Location = new System.Drawing.Point(80, 333);
             this.CheckingC2LabelRight.Name = "CheckingC2LabelRight";
             this.CheckingC2LabelRight.Size = new System.Drawing.Size(49, 31);
@@ -2241,7 +2241,7 @@
             // CheckingC1LabelRight
             // 
             this.CheckingC1LabelRight.AutoSize = true;
-            this.CheckingC1LabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingC1LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC1LabelRight.Location = new System.Drawing.Point(80, 278);
             this.CheckingC1LabelRight.Name = "CheckingC1LabelRight";
             this.CheckingC1LabelRight.Size = new System.Drawing.Size(49, 31);
@@ -2251,7 +2251,7 @@
             // CheckingB2LabelRight
             // 
             this.CheckingB2LabelRight.AutoSize = true;
-            this.CheckingB2LabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingB2LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB2LabelRight.Location = new System.Drawing.Point(81, 223);
             this.CheckingB2LabelRight.Name = "CheckingB2LabelRight";
             this.CheckingB2LabelRight.Size = new System.Drawing.Size(47, 31);
@@ -2261,7 +2261,7 @@
             // CheckingB1LabelRight
             // 
             this.CheckingB1LabelRight.AutoSize = true;
-            this.CheckingB1LabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingB1LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB1LabelRight.Location = new System.Drawing.Point(81, 168);
             this.CheckingB1LabelRight.Name = "CheckingB1LabelRight";
             this.CheckingB1LabelRight.Size = new System.Drawing.Size(47, 31);
@@ -2271,7 +2271,7 @@
             // CheckingA2LabelRight
             // 
             this.CheckingA2LabelRight.AutoSize = true;
-            this.CheckingA2LabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingA2LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA2LabelRight.Location = new System.Drawing.Point(81, 113);
             this.CheckingA2LabelRight.Name = "CheckingA2LabelRight";
             this.CheckingA2LabelRight.Size = new System.Drawing.Size(47, 31);
@@ -2281,7 +2281,7 @@
             // CheckingA1LabelRight
             // 
             this.CheckingA1LabelRight.AutoSize = true;
-            this.CheckingA1LabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingA1LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA1LabelRight.Location = new System.Drawing.Point(81, 58);
             this.CheckingA1LabelRight.Name = "CheckingA1LabelRight";
             this.CheckingA1LabelRight.Size = new System.Drawing.Size(47, 31);
@@ -2291,7 +2291,7 @@
             // CheckingG2FirstResultLabelRight
             // 
             this.CheckingG2FirstResultLabelRight.AutoSize = true;
-            this.CheckingG2FirstResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingG2FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG2FirstResultLabelRight.Location = new System.Drawing.Point(181, 773);
             this.CheckingG2FirstResultLabelRight.Name = "CheckingG2FirstResultLabelRight";
             this.CheckingG2FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2301,7 +2301,7 @@
             // CheckingG1FirstResultLabelRight
             // 
             this.CheckingG1FirstResultLabelRight.AutoSize = true;
-            this.CheckingG1FirstResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingG1FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG1FirstResultLabelRight.Location = new System.Drawing.Point(181, 718);
             this.CheckingG1FirstResultLabelRight.Name = "CheckingG1FirstResultLabelRight";
             this.CheckingG1FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2311,7 +2311,7 @@
             // CheckingF2FirstResultLabelRight
             // 
             this.CheckingF2FirstResultLabelRight.AutoSize = true;
-            this.CheckingF2FirstResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingF2FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF2FirstResultLabelRight.Location = new System.Drawing.Point(181, 663);
             this.CheckingF2FirstResultLabelRight.Name = "CheckingF2FirstResultLabelRight";
             this.CheckingF2FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2321,7 +2321,7 @@
             // CheckingF1FirstResultLabelRight
             // 
             this.CheckingF1FirstResultLabelRight.AutoSize = true;
-            this.CheckingF1FirstResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingF1FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF1FirstResultLabelRight.Location = new System.Drawing.Point(181, 608);
             this.CheckingF1FirstResultLabelRight.Name = "CheckingF1FirstResultLabelRight";
             this.CheckingF1FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2331,7 +2331,7 @@
             // CheckingE2FirstResultLabelRight
             // 
             this.CheckingE2FirstResultLabelRight.AutoSize = true;
-            this.CheckingE2FirstResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingE2FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE2FirstResultLabelRight.Location = new System.Drawing.Point(181, 553);
             this.CheckingE2FirstResultLabelRight.Name = "CheckingE2FirstResultLabelRight";
             this.CheckingE2FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2341,7 +2341,7 @@
             // CheckingE1FirstResultLabelRight
             // 
             this.CheckingE1FirstResultLabelRight.AutoSize = true;
-            this.CheckingE1FirstResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingE1FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE1FirstResultLabelRight.Location = new System.Drawing.Point(181, 498);
             this.CheckingE1FirstResultLabelRight.Name = "CheckingE1FirstResultLabelRight";
             this.CheckingE1FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2351,7 +2351,7 @@
             // CheckingD2FirstResultLabelRight
             // 
             this.CheckingD2FirstResultLabelRight.AutoSize = true;
-            this.CheckingD2FirstResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingD2FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD2FirstResultLabelRight.Location = new System.Drawing.Point(181, 443);
             this.CheckingD2FirstResultLabelRight.Name = "CheckingD2FirstResultLabelRight";
             this.CheckingD2FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2361,7 +2361,7 @@
             // CheckingD1FirstResultLabelRight
             // 
             this.CheckingD1FirstResultLabelRight.AutoSize = true;
-            this.CheckingD1FirstResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingD1FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD1FirstResultLabelRight.Location = new System.Drawing.Point(181, 388);
             this.CheckingD1FirstResultLabelRight.Name = "CheckingD1FirstResultLabelRight";
             this.CheckingD1FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2371,7 +2371,7 @@
             // CheckingC2FirstResultLabelRight
             // 
             this.CheckingC2FirstResultLabelRight.AutoSize = true;
-            this.CheckingC2FirstResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingC2FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC2FirstResultLabelRight.Location = new System.Drawing.Point(181, 333);
             this.CheckingC2FirstResultLabelRight.Name = "CheckingC2FirstResultLabelRight";
             this.CheckingC2FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2381,7 +2381,7 @@
             // CheckingC1FirstResultLabelRight
             // 
             this.CheckingC1FirstResultLabelRight.AutoSize = true;
-            this.CheckingC1FirstResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingC1FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC1FirstResultLabelRight.Location = new System.Drawing.Point(181, 278);
             this.CheckingC1FirstResultLabelRight.Name = "CheckingC1FirstResultLabelRight";
             this.CheckingC1FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2391,7 +2391,7 @@
             // CheckingB2FirstResultLabelRight
             // 
             this.CheckingB2FirstResultLabelRight.AutoSize = true;
-            this.CheckingB2FirstResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingB2FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB2FirstResultLabelRight.Location = new System.Drawing.Point(181, 223);
             this.CheckingB2FirstResultLabelRight.Name = "CheckingB2FirstResultLabelRight";
             this.CheckingB2FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2401,7 +2401,7 @@
             // CheckingB1FirstResultLabelRight
             // 
             this.CheckingB1FirstResultLabelRight.AutoSize = true;
-            this.CheckingB1FirstResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingB1FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB1FirstResultLabelRight.Location = new System.Drawing.Point(181, 168);
             this.CheckingB1FirstResultLabelRight.Name = "CheckingB1FirstResultLabelRight";
             this.CheckingB1FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2411,7 +2411,7 @@
             // CheckingA2FirstResultLabelRight
             // 
             this.CheckingA2FirstResultLabelRight.AutoSize = true;
-            this.CheckingA2FirstResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingA2FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA2FirstResultLabelRight.Location = new System.Drawing.Point(181, 113);
             this.CheckingA2FirstResultLabelRight.Name = "CheckingA2FirstResultLabelRight";
             this.CheckingA2FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2421,7 +2421,7 @@
             // CheckingA1FirstResultLabelRight
             // 
             this.CheckingA1FirstResultLabelRight.AutoSize = true;
-            this.CheckingA1FirstResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingA1FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA1FirstResultLabelRight.Location = new System.Drawing.Point(181, 58);
             this.CheckingA1FirstResultLabelRight.Name = "CheckingA1FirstResultLabelRight";
             this.CheckingA1FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2431,7 +2431,7 @@
             // CheckingG2SecondResultLabelRight
             // 
             this.CheckingG2SecondResultLabelRight.AutoSize = true;
-            this.CheckingG2SecondResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingG2SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG2SecondResultLabelRight.Location = new System.Drawing.Point(469, 773);
             this.CheckingG2SecondResultLabelRight.Name = "CheckingG2SecondResultLabelRight";
             this.CheckingG2SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2441,7 +2441,7 @@
             // CheckingG1SecondResultLabelRight
             // 
             this.CheckingG1SecondResultLabelRight.AutoSize = true;
-            this.CheckingG1SecondResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingG1SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG1SecondResultLabelRight.Location = new System.Drawing.Point(469, 718);
             this.CheckingG1SecondResultLabelRight.Name = "CheckingG1SecondResultLabelRight";
             this.CheckingG1SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2451,7 +2451,7 @@
             // CheckingF2SecondResultLabelRight
             // 
             this.CheckingF2SecondResultLabelRight.AutoSize = true;
-            this.CheckingF2SecondResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingF2SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF2SecondResultLabelRight.Location = new System.Drawing.Point(469, 663);
             this.CheckingF2SecondResultLabelRight.Name = "CheckingF2SecondResultLabelRight";
             this.CheckingF2SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2461,7 +2461,7 @@
             // CheckingF1SecondResultLabelRight
             // 
             this.CheckingF1SecondResultLabelRight.AutoSize = true;
-            this.CheckingF1SecondResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingF1SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF1SecondResultLabelRight.Location = new System.Drawing.Point(469, 608);
             this.CheckingF1SecondResultLabelRight.Name = "CheckingF1SecondResultLabelRight";
             this.CheckingF1SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2471,7 +2471,7 @@
             // CheckingE2SecondResultLabelRight
             // 
             this.CheckingE2SecondResultLabelRight.AutoSize = true;
-            this.CheckingE2SecondResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingE2SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE2SecondResultLabelRight.Location = new System.Drawing.Point(469, 553);
             this.CheckingE2SecondResultLabelRight.Name = "CheckingE2SecondResultLabelRight";
             this.CheckingE2SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2481,7 +2481,7 @@
             // CheckingE1SecondResultLabelRight
             // 
             this.CheckingE1SecondResultLabelRight.AutoSize = true;
-            this.CheckingE1SecondResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingE1SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE1SecondResultLabelRight.Location = new System.Drawing.Point(469, 498);
             this.CheckingE1SecondResultLabelRight.Name = "CheckingE1SecondResultLabelRight";
             this.CheckingE1SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2491,7 +2491,7 @@
             // CheckingD2SecondResultLabelRight
             // 
             this.CheckingD2SecondResultLabelRight.AutoSize = true;
-            this.CheckingD2SecondResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingD2SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD2SecondResultLabelRight.Location = new System.Drawing.Point(469, 443);
             this.CheckingD2SecondResultLabelRight.Name = "CheckingD2SecondResultLabelRight";
             this.CheckingD2SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2501,7 +2501,7 @@
             // CheckingD1SecondResultLabelRight
             // 
             this.CheckingD1SecondResultLabelRight.AutoSize = true;
-            this.CheckingD1SecondResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingD1SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD1SecondResultLabelRight.Location = new System.Drawing.Point(469, 388);
             this.CheckingD1SecondResultLabelRight.Name = "CheckingD1SecondResultLabelRight";
             this.CheckingD1SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2511,7 +2511,7 @@
             // CheckingC2SecondResultLabelRight
             // 
             this.CheckingC2SecondResultLabelRight.AutoSize = true;
-            this.CheckingC2SecondResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingC2SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC2SecondResultLabelRight.Location = new System.Drawing.Point(469, 333);
             this.CheckingC2SecondResultLabelRight.Name = "CheckingC2SecondResultLabelRight";
             this.CheckingC2SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2521,7 +2521,7 @@
             // CheckingC1SecondResultLabelRight
             // 
             this.CheckingC1SecondResultLabelRight.AutoSize = true;
-            this.CheckingC1SecondResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingC1SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC1SecondResultLabelRight.Location = new System.Drawing.Point(469, 278);
             this.CheckingC1SecondResultLabelRight.Name = "CheckingC1SecondResultLabelRight";
             this.CheckingC1SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2531,7 +2531,7 @@
             // CheckingB2SecondResultLabelRight
             // 
             this.CheckingB2SecondResultLabelRight.AutoSize = true;
-            this.CheckingB2SecondResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingB2SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB2SecondResultLabelRight.Location = new System.Drawing.Point(469, 223);
             this.CheckingB2SecondResultLabelRight.Name = "CheckingB2SecondResultLabelRight";
             this.CheckingB2SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2541,7 +2541,7 @@
             // CheckingB1SecondResultLabelRight
             // 
             this.CheckingB1SecondResultLabelRight.AutoSize = true;
-            this.CheckingB1SecondResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingB1SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB1SecondResultLabelRight.Location = new System.Drawing.Point(469, 168);
             this.CheckingB1SecondResultLabelRight.Name = "CheckingB1SecondResultLabelRight";
             this.CheckingB1SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2551,7 +2551,7 @@
             // CheckingA2SecondResultLabelRight
             // 
             this.CheckingA2SecondResultLabelRight.AutoSize = true;
-            this.CheckingA2SecondResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingA2SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA2SecondResultLabelRight.Location = new System.Drawing.Point(469, 113);
             this.CheckingA2SecondResultLabelRight.Name = "CheckingA2SecondResultLabelRight";
             this.CheckingA2SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2561,7 +2561,7 @@
             // CheckingA1SecondResultLabelRight
             // 
             this.CheckingA1SecondResultLabelRight.AutoSize = true;
-            this.CheckingA1SecondResultLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingA1SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA1SecondResultLabelRight.Location = new System.Drawing.Point(469, 58);
             this.CheckingA1SecondResultLabelRight.Name = "CheckingA1SecondResultLabelRight";
             this.CheckingA1SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
@@ -2570,7 +2570,7 @@
             // 
             // CheckingG2LWTextboxRight
             // 
-            this.CheckingG2LWTextboxRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingG2LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG2LWTextboxRight.Location = new System.Drawing.Point(308, 770);
             this.CheckingG2LWTextboxRight.Name = "CheckingG2LWTextboxRight";
             this.CheckingG2LWTextboxRight.Size = new System.Drawing.Size(117, 38);
@@ -2579,7 +2579,7 @@
             // 
             // CheckingG1LWTextboxRight
             // 
-            this.CheckingG1LWTextboxRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingG1LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG1LWTextboxRight.Location = new System.Drawing.Point(308, 715);
             this.CheckingG1LWTextboxRight.Name = "CheckingG1LWTextboxRight";
             this.CheckingG1LWTextboxRight.Size = new System.Drawing.Size(117, 38);
@@ -2588,7 +2588,7 @@
             // 
             // CheckingF2LWTextboxRight
             // 
-            this.CheckingF2LWTextboxRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingF2LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF2LWTextboxRight.Location = new System.Drawing.Point(308, 660);
             this.CheckingF2LWTextboxRight.Name = "CheckingF2LWTextboxRight";
             this.CheckingF2LWTextboxRight.Size = new System.Drawing.Size(117, 38);
@@ -2597,7 +2597,7 @@
             // 
             // CheckingF1LWTextboxRight
             // 
-            this.CheckingF1LWTextboxRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingF1LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF1LWTextboxRight.Location = new System.Drawing.Point(308, 605);
             this.CheckingF1LWTextboxRight.Name = "CheckingF1LWTextboxRight";
             this.CheckingF1LWTextboxRight.Size = new System.Drawing.Size(117, 38);
@@ -2606,7 +2606,7 @@
             // 
             // CheckingE2LWTextboxRight
             // 
-            this.CheckingE2LWTextboxRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingE2LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE2LWTextboxRight.Location = new System.Drawing.Point(308, 550);
             this.CheckingE2LWTextboxRight.Name = "CheckingE2LWTextboxRight";
             this.CheckingE2LWTextboxRight.Size = new System.Drawing.Size(117, 38);
@@ -2615,7 +2615,7 @@
             // 
             // CheckingE1LWTextboxRight
             // 
-            this.CheckingE1LWTextboxRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingE1LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE1LWTextboxRight.Location = new System.Drawing.Point(308, 495);
             this.CheckingE1LWTextboxRight.Name = "CheckingE1LWTextboxRight";
             this.CheckingE1LWTextboxRight.Size = new System.Drawing.Size(117, 38);
@@ -2624,7 +2624,7 @@
             // 
             // CheckingD2LWTextboxRight
             // 
-            this.CheckingD2LWTextboxRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingD2LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD2LWTextboxRight.Location = new System.Drawing.Point(308, 440);
             this.CheckingD2LWTextboxRight.Name = "CheckingD2LWTextboxRight";
             this.CheckingD2LWTextboxRight.Size = new System.Drawing.Size(117, 38);
@@ -2633,7 +2633,7 @@
             // 
             // CheckingD1LWTextboxRight
             // 
-            this.CheckingD1LWTextboxRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingD1LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD1LWTextboxRight.Location = new System.Drawing.Point(308, 385);
             this.CheckingD1LWTextboxRight.Name = "CheckingD1LWTextboxRight";
             this.CheckingD1LWTextboxRight.Size = new System.Drawing.Size(117, 38);
@@ -2642,7 +2642,7 @@
             // 
             // CheckingC2LWTextboxRight
             // 
-            this.CheckingC2LWTextboxRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingC2LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC2LWTextboxRight.Location = new System.Drawing.Point(308, 330);
             this.CheckingC2LWTextboxRight.Name = "CheckingC2LWTextboxRight";
             this.CheckingC2LWTextboxRight.Size = new System.Drawing.Size(117, 38);
@@ -2651,7 +2651,7 @@
             // 
             // CheckingC1LWTextboxRight
             // 
-            this.CheckingC1LWTextboxRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingC1LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC1LWTextboxRight.Location = new System.Drawing.Point(308, 275);
             this.CheckingC1LWTextboxRight.Name = "CheckingC1LWTextboxRight";
             this.CheckingC1LWTextboxRight.Size = new System.Drawing.Size(117, 38);
@@ -2660,7 +2660,7 @@
             // 
             // CheckingB2LWTextboxRight
             // 
-            this.CheckingB2LWTextboxRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingB2LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB2LWTextboxRight.Location = new System.Drawing.Point(308, 220);
             this.CheckingB2LWTextboxRight.Name = "CheckingB2LWTextboxRight";
             this.CheckingB2LWTextboxRight.Size = new System.Drawing.Size(117, 38);
@@ -2669,7 +2669,7 @@
             // 
             // CheckingB1LWTextboxRight
             // 
-            this.CheckingB1LWTextboxRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingB1LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB1LWTextboxRight.Location = new System.Drawing.Point(308, 165);
             this.CheckingB1LWTextboxRight.Name = "CheckingB1LWTextboxRight";
             this.CheckingB1LWTextboxRight.Size = new System.Drawing.Size(117, 38);
@@ -2678,7 +2678,7 @@
             // 
             // CheckingA2LWTextboxRight
             // 
-            this.CheckingA2LWTextboxRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingA2LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA2LWTextboxRight.Location = new System.Drawing.Point(308, 110);
             this.CheckingA2LWTextboxRight.Name = "CheckingA2LWTextboxRight";
             this.CheckingA2LWTextboxRight.Size = new System.Drawing.Size(117, 38);
@@ -2687,7 +2687,7 @@
             // 
             // CheckingA1LWTextboxRight
             // 
-            this.CheckingA1LWTextboxRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingA1LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA1LWTextboxRight.Location = new System.Drawing.Point(308, 55);
             this.CheckingA1LWTextboxRight.Name = "CheckingA1LWTextboxRight";
             this.CheckingA1LWTextboxRight.Size = new System.Drawing.Size(117, 38);
@@ -2696,7 +2696,7 @@
             // 
             // CheckingFW1TextboxRight
             // 
-            this.CheckingFW1TextboxRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingFW1TextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingFW1TextboxRight.Location = new System.Drawing.Point(163, 10);
             this.CheckingFW1TextboxRight.Name = "CheckingFW1TextboxRight";
             this.CheckingFW1TextboxRight.Size = new System.Drawing.Size(117, 38);
@@ -2705,7 +2705,7 @@
             // 
             // CheckingFW2TextboxRight
             // 
-            this.CheckingFW2TextboxRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingFW2TextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingFW2TextboxRight.Location = new System.Drawing.Point(456, 10);
             this.CheckingFW2TextboxRight.Name = "CheckingFW2TextboxRight";
             this.CheckingFW2TextboxRight.Size = new System.Drawing.Size(117, 38);
@@ -2715,16 +2715,16 @@
             // CheckingFWLabelRight
             // 
             this.CheckingFWLabelRight.AutoSize = true;
-            this.CheckingFWLabelRight.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingFWLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingFWLabelRight.Location = new System.Drawing.Point(338, 13);
             this.CheckingFWLabelRight.Name = "CheckingFWLabelRight";
             this.CheckingFWLabelRight.Size = new System.Drawing.Size(56, 31);
             this.CheckingFWLabelRight.TabIndex = 0;
             this.CheckingFWLabelRight.Text = "FW";
-            // 
+            //
             // CheckingPrintLeftButton
-            // 
-            this.CheckingPrintLeftButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.CheckingPrintLeftButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingPrintLeftButton.Location = new System.Drawing.Point(371, 872);
             this.CheckingPrintLeftButton.Name = "CheckingPrintLeftButton";
             this.CheckingPrintLeftButton.Size = new System.Drawing.Size(133, 49);
@@ -2795,7 +2795,7 @@
             this.CheckingLeftPanel.Controls.Add(this.CheckingFW1Textbox);
             this.CheckingLeftPanel.Controls.Add(this.CheckingFW2Textbox);
             this.CheckingLeftPanel.Controls.Add(this.CheckingFWLabel);
-            this.CheckingLeftPanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingLeftPanel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingLeftPanel.Location = new System.Drawing.Point(8, 18);
             this.CheckingLeftPanel.Name = "CheckingLeftPanel";
             this.CheckingLeftPanel.Size = new System.Drawing.Size(705, 837);
@@ -2804,7 +2804,7 @@
             // CheckingG2Label
             // 
             this.CheckingG2Label.AutoSize = true;
-            this.CheckingG2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingG2Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG2Label.Location = new System.Drawing.Point(79, 773);
             this.CheckingG2Label.Name = "CheckingG2Label";
             this.CheckingG2Label.Size = new System.Drawing.Size(50, 31);
@@ -2814,7 +2814,7 @@
             // CheckingG1Label
             // 
             this.CheckingG1Label.AutoSize = true;
-            this.CheckingG1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingG1Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG1Label.Location = new System.Drawing.Point(79, 718);
             this.CheckingG1Label.Name = "CheckingG1Label";
             this.CheckingG1Label.Size = new System.Drawing.Size(50, 31);
@@ -2824,7 +2824,7 @@
             // CheckingF2Label
             // 
             this.CheckingF2Label.AutoSize = true;
-            this.CheckingF2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingF2Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF2Label.Location = new System.Drawing.Point(81, 663);
             this.CheckingF2Label.Name = "CheckingF2Label";
             this.CheckingF2Label.Size = new System.Drawing.Size(46, 31);
@@ -2834,7 +2834,7 @@
             // CheckingF1Label
             // 
             this.CheckingF1Label.AutoSize = true;
-            this.CheckingF1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingF1Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF1Label.Location = new System.Drawing.Point(81, 608);
             this.CheckingF1Label.Name = "CheckingF1Label";
             this.CheckingF1Label.Size = new System.Drawing.Size(46, 31);
@@ -2844,7 +2844,7 @@
             // CheckingE2Label
             // 
             this.CheckingE2Label.AutoSize = true;
-            this.CheckingE2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingE2Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE2Label.Location = new System.Drawing.Point(81, 553);
             this.CheckingE2Label.Name = "CheckingE2Label";
             this.CheckingE2Label.Size = new System.Drawing.Size(47, 31);
@@ -2854,7 +2854,7 @@
             // CheckingE1Label
             // 
             this.CheckingE1Label.AutoSize = true;
-            this.CheckingE1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingE1Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE1Label.Location = new System.Drawing.Point(81, 498);
             this.CheckingE1Label.Name = "CheckingE1Label";
             this.CheckingE1Label.Size = new System.Drawing.Size(47, 31);
@@ -2864,7 +2864,7 @@
             // CheckingD2Label
             // 
             this.CheckingD2Label.AutoSize = true;
-            this.CheckingD2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingD2Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD2Label.Location = new System.Drawing.Point(80, 443);
             this.CheckingD2Label.Name = "CheckingD2Label";
             this.CheckingD2Label.Size = new System.Drawing.Size(49, 31);
@@ -2874,7 +2874,7 @@
             // CheckingD1Label
             // 
             this.CheckingD1Label.AutoSize = true;
-            this.CheckingD1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingD1Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD1Label.Location = new System.Drawing.Point(80, 388);
             this.CheckingD1Label.Name = "CheckingD1Label";
             this.CheckingD1Label.Size = new System.Drawing.Size(49, 31);
@@ -2884,7 +2884,7 @@
             // CheckingC2Label
             // 
             this.CheckingC2Label.AutoSize = true;
-            this.CheckingC2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingC2Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC2Label.Location = new System.Drawing.Point(80, 333);
             this.CheckingC2Label.Name = "CheckingC2Label";
             this.CheckingC2Label.Size = new System.Drawing.Size(49, 31);
@@ -2894,7 +2894,7 @@
             // CheckingC1Label
             // 
             this.CheckingC1Label.AutoSize = true;
-            this.CheckingC1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingC1Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC1Label.Location = new System.Drawing.Point(80, 278);
             this.CheckingC1Label.Name = "CheckingC1Label";
             this.CheckingC1Label.Size = new System.Drawing.Size(49, 31);
@@ -2904,7 +2904,7 @@
             // CheckingB2Label
             // 
             this.CheckingB2Label.AutoSize = true;
-            this.CheckingB2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingB2Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB2Label.Location = new System.Drawing.Point(81, 223);
             this.CheckingB2Label.Name = "CheckingB2Label";
             this.CheckingB2Label.Size = new System.Drawing.Size(47, 31);
@@ -2914,7 +2914,7 @@
             // CheckingB1Label
             // 
             this.CheckingB1Label.AutoSize = true;
-            this.CheckingB1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingB1Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB1Label.Location = new System.Drawing.Point(81, 168);
             this.CheckingB1Label.Name = "CheckingB1Label";
             this.CheckingB1Label.Size = new System.Drawing.Size(47, 31);
@@ -2924,7 +2924,7 @@
             // CheckingA2Label
             // 
             this.CheckingA2Label.AutoSize = true;
-            this.CheckingA2Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingA2Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA2Label.Location = new System.Drawing.Point(81, 113);
             this.CheckingA2Label.Name = "CheckingA2Label";
             this.CheckingA2Label.Size = new System.Drawing.Size(47, 31);
@@ -2934,7 +2934,7 @@
             // CheckingA1Label
             // 
             this.CheckingA1Label.AutoSize = true;
-            this.CheckingA1Label.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingA1Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA1Label.Location = new System.Drawing.Point(81, 58);
             this.CheckingA1Label.Name = "CheckingA1Label";
             this.CheckingA1Label.Size = new System.Drawing.Size(47, 31);
@@ -2944,7 +2944,7 @@
             // CheckingG2FirstResultLabel
             // 
             this.CheckingG2FirstResultLabel.AutoSize = true;
-            this.CheckingG2FirstResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingG2FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG2FirstResultLabel.Location = new System.Drawing.Point(181, 773);
             this.CheckingG2FirstResultLabel.Name = "CheckingG2FirstResultLabel";
             this.CheckingG2FirstResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -2954,7 +2954,7 @@
             // CheckingG1FirstResultLabel
             // 
             this.CheckingG1FirstResultLabel.AutoSize = true;
-            this.CheckingG1FirstResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingG1FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG1FirstResultLabel.Location = new System.Drawing.Point(181, 718);
             this.CheckingG1FirstResultLabel.Name = "CheckingG1FirstResultLabel";
             this.CheckingG1FirstResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -2964,7 +2964,7 @@
             // CheckingF2FirstResultLabel
             // 
             this.CheckingF2FirstResultLabel.AutoSize = true;
-            this.CheckingF2FirstResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingF2FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF2FirstResultLabel.Location = new System.Drawing.Point(181, 663);
             this.CheckingF2FirstResultLabel.Name = "CheckingF2FirstResultLabel";
             this.CheckingF2FirstResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -2974,7 +2974,7 @@
             // CheckingF1FirstResultLabel
             // 
             this.CheckingF1FirstResultLabel.AutoSize = true;
-            this.CheckingF1FirstResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingF1FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF1FirstResultLabel.Location = new System.Drawing.Point(181, 608);
             this.CheckingF1FirstResultLabel.Name = "CheckingF1FirstResultLabel";
             this.CheckingF1FirstResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -2984,7 +2984,7 @@
             // CheckingE2FirstResultLabel
             // 
             this.CheckingE2FirstResultLabel.AutoSize = true;
-            this.CheckingE2FirstResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingE2FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE2FirstResultLabel.Location = new System.Drawing.Point(181, 553);
             this.CheckingE2FirstResultLabel.Name = "CheckingE2FirstResultLabel";
             this.CheckingE2FirstResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -2994,7 +2994,7 @@
             // CheckingE1FirstResultLabel
             // 
             this.CheckingE1FirstResultLabel.AutoSize = true;
-            this.CheckingE1FirstResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingE1FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE1FirstResultLabel.Location = new System.Drawing.Point(181, 498);
             this.CheckingE1FirstResultLabel.Name = "CheckingE1FirstResultLabel";
             this.CheckingE1FirstResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3004,7 +3004,7 @@
             // CheckingD2FirstResultLabel
             // 
             this.CheckingD2FirstResultLabel.AutoSize = true;
-            this.CheckingD2FirstResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingD2FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD2FirstResultLabel.Location = new System.Drawing.Point(181, 443);
             this.CheckingD2FirstResultLabel.Name = "CheckingD2FirstResultLabel";
             this.CheckingD2FirstResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3014,7 +3014,7 @@
             // CheckingD1FirstResultLabel
             // 
             this.CheckingD1FirstResultLabel.AutoSize = true;
-            this.CheckingD1FirstResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingD1FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD1FirstResultLabel.Location = new System.Drawing.Point(181, 388);
             this.CheckingD1FirstResultLabel.Name = "CheckingD1FirstResultLabel";
             this.CheckingD1FirstResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3024,7 +3024,7 @@
             // CheckingC2FirstResultLabel
             // 
             this.CheckingC2FirstResultLabel.AutoSize = true;
-            this.CheckingC2FirstResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingC2FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC2FirstResultLabel.Location = new System.Drawing.Point(181, 333);
             this.CheckingC2FirstResultLabel.Name = "CheckingC2FirstResultLabel";
             this.CheckingC2FirstResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3034,7 +3034,7 @@
             // CheckingC1FirstResultLabel
             // 
             this.CheckingC1FirstResultLabel.AutoSize = true;
-            this.CheckingC1FirstResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingC1FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC1FirstResultLabel.Location = new System.Drawing.Point(181, 278);
             this.CheckingC1FirstResultLabel.Name = "CheckingC1FirstResultLabel";
             this.CheckingC1FirstResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3044,7 +3044,7 @@
             // CheckingB2FirstResultLabel
             // 
             this.CheckingB2FirstResultLabel.AutoSize = true;
-            this.CheckingB2FirstResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingB2FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB2FirstResultLabel.Location = new System.Drawing.Point(181, 223);
             this.CheckingB2FirstResultLabel.Name = "CheckingB2FirstResultLabel";
             this.CheckingB2FirstResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3054,7 +3054,7 @@
             // CheckingB1FirstResultLabel
             // 
             this.CheckingB1FirstResultLabel.AutoSize = true;
-            this.CheckingB1FirstResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingB1FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB1FirstResultLabel.Location = new System.Drawing.Point(181, 168);
             this.CheckingB1FirstResultLabel.Name = "CheckingB1FirstResultLabel";
             this.CheckingB1FirstResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3064,7 +3064,7 @@
             // CheckingA2FirstResultLabel
             // 
             this.CheckingA2FirstResultLabel.AutoSize = true;
-            this.CheckingA2FirstResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingA2FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA2FirstResultLabel.Location = new System.Drawing.Point(181, 113);
             this.CheckingA2FirstResultLabel.Name = "CheckingA2FirstResultLabel";
             this.CheckingA2FirstResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3074,7 +3074,7 @@
             // CheckingA1FirstResultLabel
             // 
             this.CheckingA1FirstResultLabel.AutoSize = true;
-            this.CheckingA1FirstResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingA1FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA1FirstResultLabel.Location = new System.Drawing.Point(181, 58);
             this.CheckingA1FirstResultLabel.Name = "CheckingA1FirstResultLabel";
             this.CheckingA1FirstResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3084,7 +3084,7 @@
             // CheckingG2SecondResultLabel
             // 
             this.CheckingG2SecondResultLabel.AutoSize = true;
-            this.CheckingG2SecondResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingG2SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG2SecondResultLabel.Location = new System.Drawing.Point(469, 773);
             this.CheckingG2SecondResultLabel.Name = "CheckingG2SecondResultLabel";
             this.CheckingG2SecondResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3094,7 +3094,7 @@
             // CheckingG1SecondResultLabel
             // 
             this.CheckingG1SecondResultLabel.AutoSize = true;
-            this.CheckingG1SecondResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingG1SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG1SecondResultLabel.Location = new System.Drawing.Point(469, 718);
             this.CheckingG1SecondResultLabel.Name = "CheckingG1SecondResultLabel";
             this.CheckingG1SecondResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3104,7 +3104,7 @@
             // CheckingF2SecondResultLabel
             // 
             this.CheckingF2SecondResultLabel.AutoSize = true;
-            this.CheckingF2SecondResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingF2SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF2SecondResultLabel.Location = new System.Drawing.Point(469, 663);
             this.CheckingF2SecondResultLabel.Name = "CheckingF2SecondResultLabel";
             this.CheckingF2SecondResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3114,7 +3114,7 @@
             // CheckingF1SecondResultLabel
             // 
             this.CheckingF1SecondResultLabel.AutoSize = true;
-            this.CheckingF1SecondResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingF1SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF1SecondResultLabel.Location = new System.Drawing.Point(469, 608);
             this.CheckingF1SecondResultLabel.Name = "CheckingF1SecondResultLabel";
             this.CheckingF1SecondResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3124,7 +3124,7 @@
             // CheckingE2SecondResultLabel
             // 
             this.CheckingE2SecondResultLabel.AutoSize = true;
-            this.CheckingE2SecondResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingE2SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE2SecondResultLabel.Location = new System.Drawing.Point(469, 553);
             this.CheckingE2SecondResultLabel.Name = "CheckingE2SecondResultLabel";
             this.CheckingE2SecondResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3134,7 +3134,7 @@
             // CheckingE1SecondResultLabel
             // 
             this.CheckingE1SecondResultLabel.AutoSize = true;
-            this.CheckingE1SecondResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingE1SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE1SecondResultLabel.Location = new System.Drawing.Point(469, 498);
             this.CheckingE1SecondResultLabel.Name = "CheckingE1SecondResultLabel";
             this.CheckingE1SecondResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3144,7 +3144,7 @@
             // CheckingD2SecondResultLabel
             // 
             this.CheckingD2SecondResultLabel.AutoSize = true;
-            this.CheckingD2SecondResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingD2SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD2SecondResultLabel.Location = new System.Drawing.Point(469, 443);
             this.CheckingD2SecondResultLabel.Name = "CheckingD2SecondResultLabel";
             this.CheckingD2SecondResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3154,7 +3154,7 @@
             // CheckingD1SecondResultLabel
             // 
             this.CheckingD1SecondResultLabel.AutoSize = true;
-            this.CheckingD1SecondResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingD1SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD1SecondResultLabel.Location = new System.Drawing.Point(469, 388);
             this.CheckingD1SecondResultLabel.Name = "CheckingD1SecondResultLabel";
             this.CheckingD1SecondResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3164,7 +3164,7 @@
             // CheckingC2SecondResultLabel
             // 
             this.CheckingC2SecondResultLabel.AutoSize = true;
-            this.CheckingC2SecondResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingC2SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC2SecondResultLabel.Location = new System.Drawing.Point(469, 333);
             this.CheckingC2SecondResultLabel.Name = "CheckingC2SecondResultLabel";
             this.CheckingC2SecondResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3174,7 +3174,7 @@
             // CheckingC1SecondResultLabel
             // 
             this.CheckingC1SecondResultLabel.AutoSize = true;
-            this.CheckingC1SecondResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingC1SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC1SecondResultLabel.Location = new System.Drawing.Point(469, 278);
             this.CheckingC1SecondResultLabel.Name = "CheckingC1SecondResultLabel";
             this.CheckingC1SecondResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3184,7 +3184,7 @@
             // CheckingB2SecondResultLabel
             // 
             this.CheckingB2SecondResultLabel.AutoSize = true;
-            this.CheckingB2SecondResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingB2SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB2SecondResultLabel.Location = new System.Drawing.Point(469, 223);
             this.CheckingB2SecondResultLabel.Name = "CheckingB2SecondResultLabel";
             this.CheckingB2SecondResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3194,7 +3194,7 @@
             // CheckingB1SecondResultLabel
             // 
             this.CheckingB1SecondResultLabel.AutoSize = true;
-            this.CheckingB1SecondResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingB1SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB1SecondResultLabel.Location = new System.Drawing.Point(469, 168);
             this.CheckingB1SecondResultLabel.Name = "CheckingB1SecondResultLabel";
             this.CheckingB1SecondResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3204,7 +3204,7 @@
             // CheckingA2SecondResultLabel
             // 
             this.CheckingA2SecondResultLabel.AutoSize = true;
-            this.CheckingA2SecondResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingA2SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA2SecondResultLabel.Location = new System.Drawing.Point(469, 113);
             this.CheckingA2SecondResultLabel.Name = "CheckingA2SecondResultLabel";
             this.CheckingA2SecondResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3214,7 +3214,7 @@
             // CheckingA1SecondResultLabel
             // 
             this.CheckingA1SecondResultLabel.AutoSize = true;
-            this.CheckingA1SecondResultLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingA1SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA1SecondResultLabel.Location = new System.Drawing.Point(469, 58);
             this.CheckingA1SecondResultLabel.Name = "CheckingA1SecondResultLabel";
             this.CheckingA1SecondResultLabel.Size = new System.Drawing.Size(82, 31);
@@ -3223,7 +3223,7 @@
             // 
             // CheckingG2LWTextbox
             // 
-            this.CheckingG2LWTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingG2LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG2LWTextbox.Location = new System.Drawing.Point(308, 770);
             this.CheckingG2LWTextbox.Name = "CheckingG2LWTextbox";
             this.CheckingG2LWTextbox.Size = new System.Drawing.Size(117, 38);
@@ -3233,7 +3233,7 @@
             // 
             // CheckingG1LWTextbox
             // 
-            this.CheckingG1LWTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingG1LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG1LWTextbox.Location = new System.Drawing.Point(308, 715);
             this.CheckingG1LWTextbox.Name = "CheckingG1LWTextbox";
             this.CheckingG1LWTextbox.Size = new System.Drawing.Size(117, 38);
@@ -3243,7 +3243,7 @@
             // 
             // CheckingF2LWTextbox
             // 
-            this.CheckingF2LWTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingF2LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF2LWTextbox.Location = new System.Drawing.Point(308, 660);
             this.CheckingF2LWTextbox.Name = "CheckingF2LWTextbox";
             this.CheckingF2LWTextbox.Size = new System.Drawing.Size(117, 38);
@@ -3253,7 +3253,7 @@
             // 
             // CheckingF1LWTextbox
             // 
-            this.CheckingF1LWTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingF1LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF1LWTextbox.Location = new System.Drawing.Point(308, 605);
             this.CheckingF1LWTextbox.Name = "CheckingF1LWTextbox";
             this.CheckingF1LWTextbox.Size = new System.Drawing.Size(117, 38);
@@ -3263,7 +3263,7 @@
             // 
             // CheckingE2LWTextbox
             // 
-            this.CheckingE2LWTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingE2LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE2LWTextbox.Location = new System.Drawing.Point(308, 550);
             this.CheckingE2LWTextbox.Name = "CheckingE2LWTextbox";
             this.CheckingE2LWTextbox.Size = new System.Drawing.Size(117, 38);
@@ -3273,7 +3273,7 @@
             // 
             // CheckingE1LWTextbox
             // 
-            this.CheckingE1LWTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingE1LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE1LWTextbox.Location = new System.Drawing.Point(308, 495);
             this.CheckingE1LWTextbox.Name = "CheckingE1LWTextbox";
             this.CheckingE1LWTextbox.Size = new System.Drawing.Size(117, 38);
@@ -3283,7 +3283,7 @@
             // 
             // CheckingD2LWTextbox
             // 
-            this.CheckingD2LWTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingD2LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD2LWTextbox.Location = new System.Drawing.Point(308, 440);
             this.CheckingD2LWTextbox.Name = "CheckingD2LWTextbox";
             this.CheckingD2LWTextbox.Size = new System.Drawing.Size(117, 38);
@@ -3293,7 +3293,7 @@
             // 
             // CheckingD1LWTextbox
             // 
-            this.CheckingD1LWTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingD1LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD1LWTextbox.Location = new System.Drawing.Point(308, 385);
             this.CheckingD1LWTextbox.Name = "CheckingD1LWTextbox";
             this.CheckingD1LWTextbox.Size = new System.Drawing.Size(117, 38);
@@ -3303,7 +3303,7 @@
             // 
             // CheckingC2LWTextbox
             // 
-            this.CheckingC2LWTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingC2LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC2LWTextbox.Location = new System.Drawing.Point(308, 330);
             this.CheckingC2LWTextbox.Name = "CheckingC2LWTextbox";
             this.CheckingC2LWTextbox.Size = new System.Drawing.Size(117, 38);
@@ -3313,7 +3313,7 @@
             // 
             // CheckingC1LWTextbox
             // 
-            this.CheckingC1LWTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingC1LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC1LWTextbox.Location = new System.Drawing.Point(308, 275);
             this.CheckingC1LWTextbox.Name = "CheckingC1LWTextbox";
             this.CheckingC1LWTextbox.Size = new System.Drawing.Size(117, 38);
@@ -3323,7 +3323,7 @@
             // 
             // CheckingB2LWTextbox
             // 
-            this.CheckingB2LWTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingB2LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB2LWTextbox.Location = new System.Drawing.Point(308, 220);
             this.CheckingB2LWTextbox.Name = "CheckingB2LWTextbox";
             this.CheckingB2LWTextbox.Size = new System.Drawing.Size(117, 38);
@@ -3333,7 +3333,7 @@
             // 
             // CheckingB1LWTextbox
             // 
-            this.CheckingB1LWTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingB1LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB1LWTextbox.Location = new System.Drawing.Point(308, 165);
             this.CheckingB1LWTextbox.Name = "CheckingB1LWTextbox";
             this.CheckingB1LWTextbox.Size = new System.Drawing.Size(117, 38);
@@ -3343,7 +3343,7 @@
             // 
             // CheckingA2LWTextbox
             // 
-            this.CheckingA2LWTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingA2LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA2LWTextbox.Location = new System.Drawing.Point(308, 110);
             this.CheckingA2LWTextbox.Name = "CheckingA2LWTextbox";
             this.CheckingA2LWTextbox.Size = new System.Drawing.Size(117, 38);
@@ -3353,7 +3353,7 @@
             // 
             // CheckingA1LWTextbox
             // 
-            this.CheckingA1LWTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingA1LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA1LWTextbox.Location = new System.Drawing.Point(308, 55);
             this.CheckingA1LWTextbox.Name = "CheckingA1LWTextbox";
             this.CheckingA1LWTextbox.Size = new System.Drawing.Size(117, 38);
@@ -3363,7 +3363,7 @@
             // 
             // CheckingFW1Textbox
             // 
-            this.CheckingFW1Textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingFW1Textbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingFW1Textbox.Location = new System.Drawing.Point(163, 10);
             this.CheckingFW1Textbox.Name = "CheckingFW1Textbox";
             this.CheckingFW1Textbox.Size = new System.Drawing.Size(117, 38);
@@ -3373,7 +3373,7 @@
             // 
             // CheckingFW2Textbox
             // 
-            this.CheckingFW2Textbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingFW2Textbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingFW2Textbox.Location = new System.Drawing.Point(456, 10);
             this.CheckingFW2Textbox.Name = "CheckingFW2Textbox";
             this.CheckingFW2Textbox.Size = new System.Drawing.Size(117, 38);
@@ -3384,7 +3384,7 @@
             // CheckingFWLabel
             // 
             this.CheckingFWLabel.AutoSize = true;
-            this.CheckingFWLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CheckingFWLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingFWLabel.Location = new System.Drawing.Point(338, 13);
             this.CheckingFWLabel.Name = "CheckingFWLabel";
             this.CheckingFWLabel.Size = new System.Drawing.Size(56, 31);
@@ -3405,10 +3405,10 @@
             this.LogTab.Size = new System.Drawing.Size(1896, 944);
             this.LogTab.TabIndex = 7;
             this.LogTab.Text = "Log";
-            // 
+            //
             // LogResetButton
-            // 
-            this.LogResetButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            //
+            this.LogResetButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogResetButton.Location = new System.Drawing.Point(1033, 10);
             this.LogResetButton.Name = "LogResetButton";
             this.LogResetButton.Size = new System.Drawing.Size(135, 43);
@@ -3420,7 +3420,7 @@
             // LogSearchLabel
             // 
             this.LogSearchLabel.AutoSize = true;
-            this.LogSearchLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogSearchLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogSearchLabel.Location = new System.Drawing.Point(450, 14);
             this.LogSearchLabel.Name = "LogSearchLabel";
             this.LogSearchLabel.Size = new System.Drawing.Size(108, 31);
@@ -3429,7 +3429,7 @@
             // 
             // LogSearchTextbox
             // 
-            this.LogSearchTextbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogSearchTextbox.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogSearchTextbox.Location = new System.Drawing.Point(554, 14);
             this.LogSearchTextbox.Name = "LogSearchTextbox";
             this.LogSearchTextbox.Size = new System.Drawing.Size(315, 35);
@@ -3448,7 +3448,7 @@
             // LogPickdateLabel
             // 
             this.LogPickdateLabel.AutoSize = true;
-            this.LogPickdateLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogPickdateLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogPickdateLabel.Location = new System.Drawing.Point(8, 14);
             this.LogPickdateLabel.Name = "LogPickdateLabel";
             this.LogPickdateLabel.Size = new System.Drawing.Size(139, 31);
@@ -3458,7 +3458,7 @@
             // LogDateCombobox
             // 
             this.LogDateCombobox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.LogDateCombobox.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogDateCombobox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogDateCombobox.FormattingEnabled = true;
             this.LogDateCombobox.Location = new System.Drawing.Point(153, 11);
             this.LogDateCombobox.Name = "LogDateCombobox";

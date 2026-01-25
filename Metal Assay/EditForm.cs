@@ -100,8 +100,6 @@ namespace Metal_Assay
                 if ((sender as TextBox).Text.IndexOf(e.KeyChar) != -1)
                     e.Handled = true;
             }
-
-            
         }
 
         private void TabToNext(object sender, KeyEventArgs e)
@@ -113,5 +111,26 @@ namespace Metal_Assay
             }
         }
 
+        // Hover effects for Save button
+        private void EditSaveButton_MouseEnter(object sender, EventArgs e)
+        {
+            EditSaveButton.BackColor = System.Drawing.Color.FromArgb(184, 134, 11); // Darker gold
+        }
+
+        private void EditSaveButton_MouseLeave(object sender, EventArgs e)
+        {
+            EditSaveButton.BackColor = System.Drawing.Color.FromArgb(218, 165, 32); // Original gold
+        }
+
+        // Hover effects for Cancel button
+        private void CancelSaveButton_MouseEnter(object sender, EventArgs e)
+        {
+            CancelSaveButton.BackColor = System.Drawing.Color.FromArgb(70, 70, 70); // Darker gray
+        }
+
+        private void CancelSaveButton_MouseLeave(object sender, EventArgs e)
+        {
+            CancelSaveButton.BackColor = System.Drawing.Color.FromArgb(100, 100, 100); // Original gray
+        }
     }
 }

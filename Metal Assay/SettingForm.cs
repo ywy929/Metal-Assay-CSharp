@@ -230,5 +230,45 @@ namespace Metal_Assay
                 MessageBox.Show(ex.Message,"Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
+
+        private void SettingLossNewButton_MouseEnter(object sender, EventArgs e)
+        {
+            SettingLossNewButton.BackColor = System.Drawing.Color.FromArgb(184, 134, 11); // Darker gold
+        }
+
+        private void SettingLossNewButton_MouseLeave(object sender, EventArgs e)
+        {
+            SettingLossNewButton.BackColor = System.Drawing.Color.FromArgb(218, 165, 32); // Original gold
+        }
+
+        private void SettingLossEditButton_MouseEnter(object sender, EventArgs e)
+        {
+            SettingLossEditButton.BackColor = System.Drawing.Color.FromArgb(184, 134, 11); // Darker gold
+        }
+
+        private void SettingLossEditButton_MouseLeave(object sender, EventArgs e)
+        {
+            SettingLossEditButton.BackColor = System.Drawing.Color.FromArgb(218, 165, 32); // Original gold
+        }
+
+        private void SettingLossDeleteButton_MouseEnter(object sender, EventArgs e)
+        {
+            SettingLossDeleteButton.BackColor = System.Drawing.Color.FromArgb(90, 98, 104); // Darker gray
+        }
+
+        private void SettingLossDeleteButton_MouseLeave(object sender, EventArgs e)
+        {
+            SettingLossDeleteButton.BackColor = System.Drawing.Color.FromArgb(108, 117, 125); // Original gray
+        }
+
+        private void SettingCompanyInfoSaveButton_MouseEnter(object sender, EventArgs e)
+        {
+            SettingCompanyInfoSaveButton.BackColor = System.Drawing.Color.FromArgb(184, 134, 11); // Darker gold
+        }
+
+        private void SettingCompanyInfoSaveButton_MouseLeave(object sender, EventArgs e)
+        {
+            SettingCompanyInfoSaveButton.BackColor = System.Drawing.Color.FromArgb(218, 165, 32); // Original gold
+        }
     }
 }

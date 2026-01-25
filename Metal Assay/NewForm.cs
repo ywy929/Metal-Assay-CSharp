@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Data.SqlTypes;
 using System.Diagnostics;
 using System.IO;
-using System.Net.Sockets;
 using System.Net;
+using System.Net.Sockets;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace Metal_Assay
 {
@@ -392,6 +393,16 @@ namespace Metal_Assay
             NewCustomerTextbox.SelectionLength = 0;
             NewCustomerListbox.Visible = false;
             NewItemcodeTextbox.Focus();
+        }
+
+        private void NewFormCodeButton_MouseEnter(object sender, EventArgs e)
+        {
+            NewFormCodeButton.BackColor = System.Drawing.Color.FromArgb(90, 98, 104); // Darker gray
+        }
+
+        private void NewFormCodeButton_MouseLeave(object sender, EventArgs e)
+        {
+            NewFormCodeButton.BackColor = System.Drawing.Color.FromArgb(108, 117, 125); // Original gray
         }
     }
 }
