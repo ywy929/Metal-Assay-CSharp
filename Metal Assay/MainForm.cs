@@ -1356,7 +1356,7 @@ namespace Metal_Assay
                 var con = new MySqlConnection(connection_string);
                 con.Open();
 
-                sql = "SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, assayresult.returndate AS returndate, assayresult.color AS color, assayresult.finalresult AS finalresult, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.formcode DESC, assayresult.created DESC LIMIT 500";
+                sql = "SELECT user.name AS customer, assayresult.formcode AS formcode, assayresult.itemcode AS itemcode, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, assayresult.created AS created, assayresult.color AS color, assayresult.finalresult AS finalresult, assayresult.id AS id FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.formcode DESC, assayresult.created DESC LIMIT 500";
                 var cmd = new MySqlCommand(sql, con);
 
                 MySqlDataReader data_reader = cmd.ExecuteReader();
@@ -1429,15 +1429,7 @@ namespace Metal_Assay
                             SRDatagridViewRow.Cells[5].Value = data_reader.GetString("samplereturn");
                         }
 
-                        // Return date - check if NULL
-                        if (data_reader.IsDBNull(data_reader.GetOrdinal("returndate")))
-                        {
-                            SRDatagridViewRow.Cells[6].Value = "";
-                        }
-                        else
-                        {
-                            SRDatagridViewRow.Cells[6].Value = data_reader.GetDateTime("returndate").ToString("dd/MM/yyyy");
-                        }
+                        SRDatagridViewRow.Cells[6].Value = data_reader.GetDateTime("created").ToString("dd/MM/yyyy");
 
                         // ID
                         SRDatagridViewRow.Cells[7].Value = data_reader.GetString("id");

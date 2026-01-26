@@ -29,6 +29,7 @@ namespace Metal_Assay
 
         private void ResultForm_Load(object sender, EventArgs e)
         {
+            this.AcceptButton = ResultOKButton;  // Press Enter to confirm
             ResultPreresultTextbox.Text = average_result;
             ResultCustomerContentLabel.Text = customer;
             ResultItemcodeContentLabel.Text = item_code;
