@@ -178,6 +178,14 @@
             this.CustomerResetButton = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.CustomerDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxLast = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CustomerSearchButton = new System.Windows.Forms.Button();
             this.CustomerDeleteButton = new System.Windows.Forms.Button();
             this.CustomerEditButton = new System.Windows.Forms.Button();
@@ -365,14 +373,6 @@
             this.FWBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.LWBackgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.SRBackgroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxLast = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.MainRightDataGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -407,60 +407,60 @@
             this.SampleReturnContextMenuStrip.SuspendLayout();
             this.HistoryContextMenuStrip.SuspendLayout();
             this.SuspendLayout();
-            //
+            // 
             // MainFormcodeLabel
-            //
+            // 
             this.MainFormcodeLabel.AutoSize = true;
             this.MainFormcodeLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainFormcodeLabel.Location = new System.Drawing.Point(28, 14);
             this.MainFormcodeLabel.Name = "MainFormcodeLabel";
-            this.MainFormcodeLabel.Size = new System.Drawing.Size(124, 29);
+            this.MainFormcodeLabel.Size = new System.Drawing.Size(121, 32);
             this.MainFormcodeLabel.TabIndex = 0;
             this.MainFormcodeLabel.Text = "Formcode";
-            //
+            // 
             // MainCustomerLabel
-            //
+            // 
             this.MainCustomerLabel.AutoSize = true;
             this.MainCustomerLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainCustomerLabel.Location = new System.Drawing.Point(295, 14);
             this.MainCustomerLabel.Name = "MainCustomerLabel";
-            this.MainCustomerLabel.Size = new System.Drawing.Size(117, 29);
+            this.MainCustomerLabel.Size = new System.Drawing.Size(117, 32);
             this.MainCustomerLabel.TabIndex = 1;
             this.MainCustomerLabel.Text = "Customer";
             this.MainCustomerLabel.UseMnemonic = false;
-            //
+            // 
             // MainDateLabel
-            //
+            // 
             this.MainDateLabel.AutoSize = true;
             this.MainDateLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainDateLabel.Location = new System.Drawing.Point(28, 67);
             this.MainDateLabel.Name = "MainDateLabel";
-            this.MainDateLabel.Size = new System.Drawing.Size(63, 29);
+            this.MainDateLabel.Size = new System.Drawing.Size(64, 32);
             this.MainDateLabel.TabIndex = 2;
             this.MainDateLabel.Text = "Date";
-            //
+            // 
             // MainItemcodeLabel
-            //
+            // 
             this.MainItemcodeLabel.AutoSize = true;
             this.MainItemcodeLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainItemcodeLabel.Location = new System.Drawing.Point(481, 67);
             this.MainItemcodeLabel.Name = "MainItemcodeLabel";
-            this.MainItemcodeLabel.Size = new System.Drawing.Size(113, 29);
+            this.MainItemcodeLabel.Size = new System.Drawing.Size(114, 32);
             this.MainItemcodeLabel.TabIndex = 3;
             this.MainItemcodeLabel.Text = "Itemcode";
-            //
+            // 
             // MainSampleWeightLabel
-            //
+            // 
             this.MainSampleWeightLabel.AutoSize = true;
             this.MainSampleWeightLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainSampleWeightLabel.Location = new System.Drawing.Point(804, 67);
             this.MainSampleWeightLabel.Name = "MainSampleWeightLabel";
-            this.MainSampleWeightLabel.Size = new System.Drawing.Size(213, 29);
+            this.MainSampleWeightLabel.Size = new System.Drawing.Size(211, 32);
             this.MainSampleWeightLabel.TabIndex = 4;
             this.MainSampleWeightLabel.Text = "Sample Weight (g)";
-            //
+            // 
             // MainNewButton
-            //
+            // 
             this.MainNewButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainNewButton.Location = new System.Drawing.Point(33, 119);
             this.MainNewButton.Name = "MainNewButton";
@@ -469,9 +469,9 @@
             this.MainNewButton.Text = "NEW";
             this.MainNewButton.UseVisualStyleBackColor = true;
             this.MainNewButton.Click += new System.EventHandler(this.MainNewButton_Click);
-            //
+            // 
             // MainNewRoundButton
-            //
+            // 
             this.MainNewRoundButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainNewRoundButton.Location = new System.Drawing.Point(255, 119);
             this.MainNewRoundButton.Name = "MainNewRoundButton";
@@ -480,9 +480,9 @@
             this.MainNewRoundButton.Text = "NEW ROUND";
             this.MainNewRoundButton.UseVisualStyleBackColor = true;
             this.MainNewRoundButton.Click += new System.EventHandler(this.MainNewRoundButton_Click);
-            //
+            // 
             // MainDeleteButton
-            //
+            // 
             this.MainDeleteButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainDeleteButton.Location = new System.Drawing.Point(477, 119);
             this.MainDeleteButton.Name = "MainDeleteButton";
@@ -491,9 +491,9 @@
             this.MainDeleteButton.Text = "DELETE";
             this.MainDeleteButton.UseVisualStyleBackColor = true;
             this.MainDeleteButton.Click += new System.EventHandler(this.MainDeleteButton_Click);
-            //
+            // 
             // MainEditButton
-            //
+            // 
             this.MainEditButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainEditButton.Location = new System.Drawing.Point(699, 119);
             this.MainEditButton.Name = "MainEditButton";
@@ -502,9 +502,9 @@
             this.MainEditButton.Text = "EDIT";
             this.MainEditButton.UseVisualStyleBackColor = true;
             this.MainEditButton.Click += new System.EventHandler(this.MainEditButton_Click);
-            //
+            // 
             // MainAddButton
-            //
+            // 
             this.MainAddButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainAddButton.Location = new System.Drawing.Point(921, 119);
             this.MainAddButton.Name = "MainAddButton";
@@ -513,9 +513,9 @@
             this.MainAddButton.Text = "ADD";
             this.MainAddButton.UseVisualStyleBackColor = true;
             this.MainAddButton.Click += new System.EventHandler(this.MainAddButton_Click);
-            //
+            // 
             // MainRightDataGridView
-            //
+            // 
             this.MainRightDataGridView.AllowUserToAddRows = false;
             this.MainRightDataGridView.AllowUserToDeleteRows = false;
             this.MainRightDataGridView.ColumnHeadersHeight = 35;
@@ -613,10 +613,10 @@
             this.MainTab.Controls.Add(this.MainDeleteButton);
             this.MainTab.Controls.Add(this.MainNewButton);
             this.MainTab.Controls.Add(this.MainNewRoundButton);
-            this.MainTab.Location = new System.Drawing.Point(4, 29);
+            this.MainTab.Location = new System.Drawing.Point(4, 30);
             this.MainTab.Name = "MainTab";
             this.MainTab.Padding = new System.Windows.Forms.Padding(3);
-            this.MainTab.Size = new System.Drawing.Size(1896, 944);
+            this.MainTab.Size = new System.Drawing.Size(1896, 943);
             this.MainTab.TabIndex = 0;
             this.MainTab.Text = "Main";
             // 
@@ -637,9 +637,9 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(911, 727);
             this.panel1.TabIndex = 13;
-            //
+            // 
             // MainLeftDataGridView
-            //
+            // 
             this.MainLeftDataGridView.AllowUserToAddRows = false;
             this.MainLeftDataGridView.AllowUserToDeleteRows = false;
             this.MainLeftDataGridView.ColumnHeadersHeight = 35;
@@ -707,15 +707,15 @@
             this.FirstWeightTab.Controls.Add(this.FWItemcodeLabel);
             this.FirstWeightTab.Controls.Add(this.FWCustomerContent);
             this.FirstWeightTab.Controls.Add(this.FWCustomerLabel);
-            this.FirstWeightTab.Location = new System.Drawing.Point(4, 29);
+            this.FirstWeightTab.Location = new System.Drawing.Point(4, 30);
             this.FirstWeightTab.Name = "FirstWeightTab";
             this.FirstWeightTab.Padding = new System.Windows.Forms.Padding(3);
-            this.FirstWeightTab.Size = new System.Drawing.Size(1896, 944);
+            this.FirstWeightTab.Size = new System.Drawing.Size(1896, 943);
             this.FirstWeightTab.TabIndex = 1;
             this.FirstWeightTab.Text = "First Weight";
-            //
+            // 
             // FWRedoGroupbox
-            //
+            // 
             this.FWRedoGroupbox.Controls.Add(this.FWGoToRedoButton);
             this.FWRedoGroupbox.Location = new System.Drawing.Point(10, 591);
             this.FWRedoGroupbox.Name = "FWRedoGroupbox";
@@ -723,9 +723,9 @@
             this.FWRedoGroupbox.TabIndex = 13;
             this.FWRedoGroupbox.TabStop = false;
             this.FWRedoGroupbox.Text = "Go to Redo";
-            //
+            // 
             // FWGoToRedoButton
-            //
+            // 
             this.FWGoToRedoButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWGoToRedoButton.Location = new System.Drawing.Point(57, 45);
             this.FWGoToRedoButton.Name = "FWGoToRedoButton";
@@ -744,9 +744,9 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(1040, 901);
             this.panel3.TabIndex = 12;
-            //
+            // 
             // FWDataGridView
-            //
+            // 
             this.FWDataGridView.AllowUserToAddRows = false;
             this.FWDataGridView.AllowUserToDeleteRows = false;
             this.FWDataGridView.AllowUserToResizeRows = false;
@@ -819,9 +819,9 @@
             this.FWFinalResultColumn.Name = "FWFinalResultColumn";
             this.FWFinalResultColumn.ReadOnly = true;
             this.FWFinalResultColumn.Visible = false;
-            //
+            // 
             // FWSaveButton
-            //
+            // 
             this.FWSaveButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWSaveButton.Location = new System.Drawing.Point(76, 471);
             this.FWSaveButton.Name = "FWSaveButton";
@@ -853,7 +853,7 @@
             "333"});
             this.FWSilverPctCombobox.Location = new System.Drawing.Point(109, 403);
             this.FWSilverPctCombobox.Name = "FWSilverPctCombobox";
-            this.FWSilverPctCombobox.Size = new System.Drawing.Size(166, 33);
+            this.FWSilverPctCombobox.Size = new System.Drawing.Size(166, 38);
             this.FWSilverPctCombobox.TabIndex = 9;
             this.FWSilverPctCombobox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TabToNext);
             // 
@@ -862,7 +862,7 @@
             this.FWBTextbox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWBTextbox.Location = new System.Drawing.Point(49, 328);
             this.FWBTextbox.Name = "FWBTextbox";
-            this.FWBTextbox.Size = new System.Drawing.Size(230, 31);
+            this.FWBTextbox.Size = new System.Drawing.Size(230, 35);
             this.FWBTextbox.TabIndex = 8;
             this.FWBTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TabToNext);
             this.FWBTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -872,33 +872,33 @@
             this.FWATextbox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWATextbox.Location = new System.Drawing.Point(49, 279);
             this.FWATextbox.Name = "FWATextbox";
-            this.FWATextbox.Size = new System.Drawing.Size(229, 31);
+            this.FWATextbox.Size = new System.Drawing.Size(229, 35);
             this.FWATextbox.TabIndex = 7;
             this.FWATextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TabToNext);
             this.FWATextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
-            //
+            // 
             // FWSIlverPctLabel
-            //
+            // 
             this.FWSIlverPctLabel.AutoSize = true;
             this.FWSIlverPctLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWSIlverPctLabel.Location = new System.Drawing.Point(7, 405);
             this.FWSIlverPctLabel.Name = "FWSIlverPctLabel";
-            this.FWSIlverPctLabel.Size = new System.Drawing.Size(103, 30);
+            this.FWSIlverPctLabel.Size = new System.Drawing.Size(96, 30);
             this.FWSIlverPctLabel.TabIndex = 6;
             this.FWSIlverPctLabel.Text = "Silver %: ";
-            //
+            // 
             // FWBLabel
-            //
+            // 
             this.FWBLabel.AutoSize = true;
             this.FWBLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWBLabel.Location = new System.Drawing.Point(17, 331);
             this.FWBLabel.Name = "FWBLabel";
-            this.FWBLabel.Size = new System.Drawing.Size(26, 30);
+            this.FWBLabel.Size = new System.Drawing.Size(25, 30);
             this.FWBLabel.TabIndex = 5;
             this.FWBLabel.Text = "B";
-            //
+            // 
             // FWALabel
-            //
+            // 
             this.FWALabel.AutoSize = true;
             this.FWALabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWALabel.Location = new System.Drawing.Point(17, 282);
@@ -906,29 +906,29 @@
             this.FWALabel.Size = new System.Drawing.Size(27, 30);
             this.FWALabel.TabIndex = 4;
             this.FWALabel.Text = "A";
-            //
+            // 
             // FWItemcodeContent
-            //
+            // 
             this.FWItemcodeContent.AutoSize = true;
             this.FWItemcodeContent.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWItemcodeContent.Location = new System.Drawing.Point(17, 216);
             this.FWItemcodeContent.Name = "FWItemcodeContent";
-            this.FWItemcodeContent.Size = new System.Drawing.Size(134, 37);
+            this.FWItemcodeContent.Size = new System.Drawing.Size(139, 37);
             this.FWItemcodeContent.TabIndex = 3;
             this.FWItemcodeContent.Text = "Itemcode";
-            //
+            // 
             // FWItemcodeLabel
-            //
+            // 
             this.FWItemcodeLabel.AutoSize = true;
             this.FWItemcodeLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWItemcodeLabel.Location = new System.Drawing.Point(17, 176);
             this.FWItemcodeLabel.Name = "FWItemcodeLabel";
-            this.FWItemcodeLabel.Size = new System.Drawing.Size(126, 37);
+            this.FWItemcodeLabel.Size = new System.Drawing.Size(128, 37);
             this.FWItemcodeLabel.TabIndex = 2;
             this.FWItemcodeLabel.Text = "Itemcode";
-            //
+            // 
             // FWCustomerContent
-            //
+            // 
             this.FWCustomerContent.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWCustomerContent.Location = new System.Drawing.Point(17, 58);
             this.FWCustomerContent.Name = "FWCustomerContent";
@@ -936,14 +936,14 @@
             this.FWCustomerContent.TabIndex = 1;
             this.FWCustomerContent.Text = "TKC AURUM MANUFACTURING SDN BHD";
             this.FWCustomerContent.UseMnemonic = false;
-            //
+            // 
             // FWCustomerLabel
-            //
+            // 
             this.FWCustomerLabel.AutoSize = true;
             this.FWCustomerLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FWCustomerLabel.Location = new System.Drawing.Point(17, 15);
             this.FWCustomerLabel.Name = "FWCustomerLabel";
-            this.FWCustomerLabel.Size = new System.Drawing.Size(132, 37);
+            this.FWCustomerLabel.Size = new System.Drawing.Size(131, 37);
             this.FWCustomerLabel.TabIndex = 0;
             this.FWCustomerLabel.Text = "Customer";
             // 
@@ -958,10 +958,10 @@
             this.LastWeightTab.Controls.Add(this.LWItemcodeLabel);
             this.LastWeightTab.Controls.Add(this.LWCustomerContent);
             this.LastWeightTab.Controls.Add(this.LWCustomerLabel);
-            this.LastWeightTab.Location = new System.Drawing.Point(4, 29);
+            this.LastWeightTab.Location = new System.Drawing.Point(4, 30);
             this.LastWeightTab.Name = "LastWeightTab";
             this.LastWeightTab.Padding = new System.Windows.Forms.Padding(3);
-            this.LastWeightTab.Size = new System.Drawing.Size(1896, 944);
+            this.LastWeightTab.Size = new System.Drawing.Size(1896, 943);
             this.LastWeightTab.TabIndex = 2;
             this.LastWeightTab.Text = "Last Weight";
             // 
@@ -974,9 +974,9 @@
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Go to Redo";
-            //
+            // 
             // LWGoToRedoButton
-            //
+            // 
             this.LWGoToRedoButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWGoToRedoButton.Location = new System.Drawing.Point(57, 45);
             this.LWGoToRedoButton.Name = "LWGoToRedoButton";
@@ -985,9 +985,9 @@
             this.LWGoToRedoButton.Text = "Go To Redo";
             this.LWGoToRedoButton.UseVisualStyleBackColor = true;
             this.LWGoToRedoButton.Click += new System.EventHandler(this.LWGoToRedoButton_Click);
-            //
+            // 
             // LWEditButton
-            //
+            // 
             this.LWEditButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWEditButton.Location = new System.Drawing.Point(1312, 60);
             this.LWEditButton.Name = "LWEditButton";
@@ -1033,7 +1033,7 @@
             this.LWLastWeightLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWLastWeightLabel.Location = new System.Drawing.Point(49, 28);
             this.LWLastWeightLabel.Name = "LWLastWeightLabel";
-            this.LWLastWeightLabel.Size = new System.Drawing.Size(107, 24);
+            this.LWLastWeightLabel.Size = new System.Drawing.Size(110, 25);
             this.LWLastWeightLabel.TabIndex = 12;
             this.LWLastWeightLabel.Text = "Last Weight";
             // 
@@ -1043,7 +1043,7 @@
             this.LWALabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWALabel.Location = new System.Drawing.Point(27, 75);
             this.LWALabel.Name = "LWALabel";
-            this.LWALabel.Size = new System.Drawing.Size(23, 24);
+            this.LWALabel.Size = new System.Drawing.Size(24, 25);
             this.LWALabel.TabIndex = 8;
             this.LWALabel.Text = "A";
             // 
@@ -1053,7 +1053,7 @@
             this.LWAverageResultTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWAverageResultTextBox.Location = new System.Drawing.Point(446, 92);
             this.LWAverageResultTextBox.Name = "LWAverageResultTextBox";
-            this.LWAverageResultTextBox.Size = new System.Drawing.Size(100, 29);
+            this.LWAverageResultTextBox.Size = new System.Drawing.Size(100, 33);
             this.LWAverageResultTextBox.TabIndex = 29;
             // 
             // LWBLabel
@@ -1062,7 +1062,7 @@
             this.LWBLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWBLabel.Location = new System.Drawing.Point(27, 110);
             this.LWBLabel.Name = "LWBLabel";
-            this.LWBLabel.Size = new System.Drawing.Size(22, 24);
+            this.LWBLabel.Size = new System.Drawing.Size(23, 25);
             this.LWBLabel.TabIndex = 9;
             this.LWBLabel.Text = "B";
             // 
@@ -1072,7 +1072,7 @@
             this.LWDivideByTwoLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWDivideByTwoLabel.Location = new System.Drawing.Point(418, 95);
             this.LWDivideByTwoLabel.Name = "LWDivideByTwoLabel";
-            this.LWDivideByTwoLabel.Size = new System.Drawing.Size(25, 24);
+            this.LWDivideByTwoLabel.Size = new System.Drawing.Size(29, 25);
             this.LWDivideByTwoLabel.TabIndex = 28;
             this.LWDivideByTwoLabel.Text = "/2";
             // 
@@ -1082,7 +1082,7 @@
             this.LWASlashLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWASlashLabel.Location = new System.Drawing.Point(162, 78);
             this.LWASlashLabel.Name = "LWASlashLabel";
-            this.LWASlashLabel.Size = new System.Drawing.Size(15, 24);
+            this.LWASlashLabel.Size = new System.Drawing.Size(19, 25);
             this.LWASlashLabel.TabIndex = 10;
             this.LWASlashLabel.Text = "/";
             // 
@@ -1092,7 +1092,7 @@
             this.LWFinalResultTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWFinalResultTextBox.Location = new System.Drawing.Point(649, 92);
             this.LWFinalResultTextBox.Name = "LWFinalResultTextBox";
-            this.LWFinalResultTextBox.Size = new System.Drawing.Size(100, 29);
+            this.LWFinalResultTextBox.Size = new System.Drawing.Size(100, 33);
             this.LWFinalResultTextBox.TabIndex = 27;
             // 
             // LWBSlashLabel
@@ -1101,7 +1101,7 @@
             this.LWBSlashLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWBSlashLabel.Location = new System.Drawing.Point(162, 113);
             this.LWBSlashLabel.Name = "LWBSlashLabel";
-            this.LWBSlashLabel.Size = new System.Drawing.Size(15, 24);
+            this.LWBSlashLabel.Size = new System.Drawing.Size(19, 25);
             this.LWBSlashLabel.TabIndex = 11;
             this.LWBSlashLabel.Text = "/";
             // 
@@ -1111,7 +1111,7 @@
             this.LWPreresultBTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWPreresultBTextBox.Location = new System.Drawing.Point(312, 110);
             this.LWPreresultBTextBox.Name = "LWPreresultBTextBox";
-            this.LWPreresultBTextBox.Size = new System.Drawing.Size(100, 29);
+            this.LWPreresultBTextBox.Size = new System.Drawing.Size(100, 33);
             this.LWPreresultBTextBox.TabIndex = 26;
             // 
             // LWFirstWeightLabel
@@ -1120,7 +1120,7 @@
             this.LWFirstWeightLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWFirstWeightLabel.Location = new System.Drawing.Point(177, 27);
             this.LWFirstWeightLabel.Name = "LWFirstWeightLabel";
-            this.LWFirstWeightLabel.Size = new System.Drawing.Size(109, 24);
+            this.LWFirstWeightLabel.Size = new System.Drawing.Size(112, 25);
             this.LWFirstWeightLabel.TabIndex = 13;
             this.LWFirstWeightLabel.Text = "First Weight";
             // 
@@ -1130,7 +1130,7 @@
             this.LWPreresultATextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWPreresultATextBox.Location = new System.Drawing.Point(312, 75);
             this.LWPreresultATextBox.Name = "LWPreresultATextBox";
-            this.LWPreresultATextBox.Size = new System.Drawing.Size(100, 29);
+            this.LWPreresultATextBox.Size = new System.Drawing.Size(100, 33);
             this.LWPreresultATextBox.TabIndex = 25;
             // 
             // LWAEqualLabel
@@ -1139,7 +1139,7 @@
             this.LWAEqualLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWAEqualLabel.Location = new System.Drawing.Point(288, 78);
             this.LWAEqualLabel.Name = "LWAEqualLabel";
-            this.LWAEqualLabel.Size = new System.Drawing.Size(21, 24);
+            this.LWAEqualLabel.Size = new System.Drawing.Size(25, 25);
             this.LWAEqualLabel.TabIndex = 14;
             this.LWAEqualLabel.Text = "=";
             // 
@@ -1149,7 +1149,7 @@
             this.LWFirstWeightBTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWFirstWeightBTextBox.Location = new System.Drawing.Point(181, 110);
             this.LWFirstWeightBTextBox.Name = "LWFirstWeightBTextBox";
-            this.LWFirstWeightBTextBox.Size = new System.Drawing.Size(100, 29);
+            this.LWFirstWeightBTextBox.Size = new System.Drawing.Size(100, 33);
             this.LWFirstWeightBTextBox.TabIndex = 24;
             // 
             // LWBEqualLabel
@@ -1158,7 +1158,7 @@
             this.LWBEqualLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWBEqualLabel.Location = new System.Drawing.Point(288, 113);
             this.LWBEqualLabel.Name = "LWBEqualLabel";
-            this.LWBEqualLabel.Size = new System.Drawing.Size(21, 24);
+            this.LWBEqualLabel.Size = new System.Drawing.Size(25, 25);
             this.LWBEqualLabel.TabIndex = 15;
             this.LWBEqualLabel.Text = "=";
             // 
@@ -1168,7 +1168,7 @@
             this.LWFirstWeightATextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWFirstWeightATextBox.Location = new System.Drawing.Point(181, 75);
             this.LWFirstWeightATextBox.Name = "LWFirstWeightATextBox";
-            this.LWFirstWeightATextBox.Size = new System.Drawing.Size(100, 29);
+            this.LWFirstWeightATextBox.Size = new System.Drawing.Size(100, 33);
             this.LWFirstWeightATextBox.TabIndex = 23;
             // 
             // LWLossLabel
@@ -1177,7 +1177,7 @@
             this.LWLossLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWLossLabel.Location = new System.Drawing.Point(572, 28);
             this.LWLossLabel.Name = "LWLossLabel";
-            this.LWLossLabel.Size = new System.Drawing.Size(49, 24);
+            this.LWLossLabel.Size = new System.Drawing.Size(48, 25);
             this.LWLossLabel.TabIndex = 16;
             this.LWLossLabel.Text = "Loss";
             // 
@@ -1186,7 +1186,7 @@
             this.LWLastWeightBTextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWLastWeightBTextBox.Location = new System.Drawing.Point(56, 110);
             this.LWLastWeightBTextBox.Name = "LWLastWeightBTextBox";
-            this.LWLastWeightBTextBox.Size = new System.Drawing.Size(100, 29);
+            this.LWLastWeightBTextBox.Size = new System.Drawing.Size(100, 33);
             this.LWLastWeightBTextBox.TabIndex = 22;
             this.LWLastWeightBTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CalculatePreresultAndShowPopup);
             this.LWLastWeightBTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -1197,7 +1197,7 @@
             this.LWMinusLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWMinusLabel.Location = new System.Drawing.Point(552, 95);
             this.LWMinusLabel.Name = "LWMinusLabel";
-            this.LWMinusLabel.Size = new System.Drawing.Size(16, 24);
+            this.LWMinusLabel.Size = new System.Drawing.Size(20, 25);
             this.LWMinusLabel.TabIndex = 17;
             this.LWMinusLabel.Text = "-";
             // 
@@ -1206,7 +1206,7 @@
             this.LWLastWeightATextBox.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWLastWeightATextBox.Location = new System.Drawing.Point(56, 75);
             this.LWLastWeightATextBox.Name = "LWLastWeightATextBox";
-            this.LWLastWeightATextBox.Size = new System.Drawing.Size(100, 29);
+            this.LWLastWeightATextBox.Size = new System.Drawing.Size(100, 33);
             this.LWLastWeightATextBox.TabIndex = 21;
             this.LWLastWeightATextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TabToNext);
             this.LWLastWeightATextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -1217,7 +1217,7 @@
             this.LWLossContent.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWLossContent.Location = new System.Drawing.Point(574, 95);
             this.LWLossContent.Name = "LWLossContent";
-            this.LWLossContent.Size = new System.Drawing.Size(20, 24);
+            this.LWLossContent.Size = new System.Drawing.Size(22, 25);
             this.LWLossContent.TabIndex = 18;
             this.LWLossContent.Text = "0";
             // 
@@ -1227,7 +1227,7 @@
             this.LWResultLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWResultLabel.Location = new System.Drawing.Point(665, 28);
             this.LWResultLabel.Name = "LWResultLabel";
-            this.LWResultLabel.Size = new System.Drawing.Size(62, 24);
+            this.LWResultLabel.Size = new System.Drawing.Size(62, 25);
             this.LWResultLabel.TabIndex = 20;
             this.LWResultLabel.Text = "Result";
             // 
@@ -1237,7 +1237,7 @@
             this.LWEqualLabel.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWEqualLabel.Location = new System.Drawing.Point(625, 95);
             this.LWEqualLabel.Name = "LWEqualLabel";
-            this.LWEqualLabel.Size = new System.Drawing.Size(21, 24);
+            this.LWEqualLabel.Size = new System.Drawing.Size(25, 25);
             this.LWEqualLabel.TabIndex = 19;
             this.LWEqualLabel.Text = "=";
             // 
@@ -1393,7 +1393,7 @@
             this.LWItemcodeContent.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWItemcodeContent.Location = new System.Drawing.Point(6, 132);
             this.LWItemcodeContent.Name = "LWItemcodeContent";
-            this.LWItemcodeContent.Size = new System.Drawing.Size(107, 25);
+            this.LWItemcodeContent.Size = new System.Drawing.Size(105, 30);
             this.LWItemcodeContent.TabIndex = 7;
             this.LWItemcodeContent.Text = "Itemcode";
             // 
@@ -1403,7 +1403,7 @@
             this.LWItemcodeLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWItemcodeLabel.Location = new System.Drawing.Point(7, 96);
             this.LWItemcodeLabel.Name = "LWItemcodeLabel";
-            this.LWItemcodeLabel.Size = new System.Drawing.Size(99, 25);
+            this.LWItemcodeLabel.Size = new System.Drawing.Size(100, 30);
             this.LWItemcodeLabel.TabIndex = 6;
             this.LWItemcodeLabel.Text = "Itemcode";
             // 
@@ -1423,7 +1423,7 @@
             this.LWCustomerLabel.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LWCustomerLabel.Location = new System.Drawing.Point(7, 3);
             this.LWCustomerLabel.Name = "LWCustomerLabel";
-            this.LWCustomerLabel.Size = new System.Drawing.Size(104, 25);
+            this.LWCustomerLabel.Size = new System.Drawing.Size(102, 30);
             this.LWCustomerLabel.TabIndex = 4;
             this.LWCustomerLabel.Text = "Customer";
             // 
@@ -1442,9 +1442,9 @@
             this.SampleReturnTab.Controls.Add(this.SampleReturnItemcodeLabel);
             this.SampleReturnTab.Controls.Add(this.SampleReturnCustomerContentLabel);
             this.SampleReturnTab.Controls.Add(this.SampleReturnCustomerLabel);
-            this.SampleReturnTab.Location = new System.Drawing.Point(4, 29);
+            this.SampleReturnTab.Location = new System.Drawing.Point(4, 30);
             this.SampleReturnTab.Name = "SampleReturnTab";
-            this.SampleReturnTab.Size = new System.Drawing.Size(1896, 944);
+            this.SampleReturnTab.Size = new System.Drawing.Size(1896, 943);
             this.SampleReturnTab.TabIndex = 3;
             this.SampleReturnTab.Text = "Sample Return";
             this.SampleReturnTab.UseVisualStyleBackColor = true;
@@ -1455,7 +1455,7 @@
             this.SampleReturnResultContentLabel.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnResultContentLabel.Location = new System.Drawing.Point(8, 329);
             this.SampleReturnResultContentLabel.Name = "SampleReturnResultContentLabel";
-            this.SampleReturnResultContentLabel.Size = new System.Drawing.Size(92, 33);
+            this.SampleReturnResultContentLabel.Size = new System.Drawing.Size(93, 40);
             this.SampleReturnResultContentLabel.TabIndex = 36;
             this.SampleReturnResultContentLabel.Text = "999.9";
             // 
@@ -1465,7 +1465,7 @@
             this.SampleReturnResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnResultLabel.Location = new System.Drawing.Point(8, 289);
             this.SampleReturnResultLabel.Name = "SampleReturnResultLabel";
-            this.SampleReturnResultLabel.Size = new System.Drawing.Size(92, 31);
+            this.SampleReturnResultLabel.Size = new System.Drawing.Size(88, 37);
             this.SampleReturnResultLabel.TabIndex = 35;
             this.SampleReturnResultLabel.Text = "Result";
             // 
@@ -1478,9 +1478,9 @@
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Go to Non-Redo";
-            //
+            // 
             // SRGoToNonRedoButton
-            //
+            // 
             this.SRGoToNonRedoButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SRGoToNonRedoButton.Location = new System.Drawing.Point(58, 43);
             this.SRGoToNonRedoButton.Name = "SRGoToNonRedoButton";
@@ -1495,7 +1495,7 @@
             this.SampleReturnSampleReturnTextbox.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnSampleReturnTextbox.Location = new System.Drawing.Point(224, 455);
             this.SampleReturnSampleReturnTextbox.Name = "SampleReturnSampleReturnTextbox";
-            this.SampleReturnSampleReturnTextbox.Size = new System.Drawing.Size(90, 35);
+            this.SampleReturnSampleReturnTextbox.Size = new System.Drawing.Size(90, 39);
             this.SampleReturnSampleReturnTextbox.TabIndex = 29;
             this.SampleReturnSampleReturnTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.SampleReturnSampleReturnTextbox_KeyDown);
             this.SampleReturnSampleReturnTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SampleReturnSampleReturnTextbox_KeyPress);
@@ -1506,7 +1506,7 @@
             this.SampleReturnSampleReturnLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnSampleReturnLabel.Location = new System.Drawing.Point(9, 458);
             this.SampleReturnSampleReturnLabel.Name = "SampleReturnSampleReturnLabel";
-            this.SampleReturnSampleReturnLabel.Size = new System.Drawing.Size(209, 29);
+            this.SampleReturnSampleReturnLabel.Size = new System.Drawing.Size(203, 32);
             this.SampleReturnSampleReturnLabel.TabIndex = 28;
             this.SampleReturnSampleReturnLabel.Text = "Sample Return(g):";
             // 
@@ -1516,7 +1516,7 @@
             this.SampleReturnSampleWeightContentLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnSampleWeightContentLabel.Location = new System.Drawing.Point(228, 398);
             this.SampleReturnSampleWeightContentLabel.Name = "SampleReturnSampleWeightContentLabel";
-            this.SampleReturnSampleWeightContentLabel.Size = new System.Drawing.Size(62, 29);
+            this.SampleReturnSampleWeightContentLabel.Size = new System.Drawing.Size(63, 32);
             this.SampleReturnSampleWeightContentLabel.TabIndex = 26;
             this.SampleReturnSampleWeightContentLabel.Text = "8.88";
             // 
@@ -1526,7 +1526,7 @@
             this.SampleReturnSampleWeightLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnSampleWeightLabel.Location = new System.Drawing.Point(9, 398);
             this.SampleReturnSampleWeightLabel.Name = "SampleReturnSampleWeightLabel";
-            this.SampleReturnSampleWeightLabel.Size = new System.Drawing.Size(213, 29);
+            this.SampleReturnSampleWeightLabel.Size = new System.Drawing.Size(209, 32);
             this.SampleReturnSampleWeightLabel.TabIndex = 25;
             this.SampleReturnSampleWeightLabel.Text = "Sample Weight(g):";
             // 
@@ -1624,9 +1624,9 @@
             this.SampleReturnIDColumn.Name = "SampleReturnIDColumn";
             this.SampleReturnIDColumn.ReadOnly = true;
             this.SampleReturnIDColumn.Visible = false;
-            //
+            // 
             // SampleReturnSaveButton
-            //
+            // 
             this.SampleReturnSaveButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnSaveButton.Location = new System.Drawing.Point(103, 546);
             this.SampleReturnSaveButton.Name = "SampleReturnSaveButton";
@@ -1642,7 +1642,7 @@
             this.SampleReturnItemcodeContentLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnItemcodeContentLabel.Location = new System.Drawing.Point(8, 232);
             this.SampleReturnItemcodeContentLabel.Name = "SampleReturnItemcodeContentLabel";
-            this.SampleReturnItemcodeContentLabel.Size = new System.Drawing.Size(134, 31);
+            this.SampleReturnItemcodeContentLabel.Size = new System.Drawing.Size(139, 37);
             this.SampleReturnItemcodeContentLabel.TabIndex = 16;
             this.SampleReturnItemcodeContentLabel.Text = "Itemcode";
             // 
@@ -1652,7 +1652,7 @@
             this.SampleReturnItemcodeLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnItemcodeLabel.Location = new System.Drawing.Point(8, 192);
             this.SampleReturnItemcodeLabel.Name = "SampleReturnItemcodeLabel";
-            this.SampleReturnItemcodeLabel.Size = new System.Drawing.Size(126, 31);
+            this.SampleReturnItemcodeLabel.Size = new System.Drawing.Size(128, 37);
             this.SampleReturnItemcodeLabel.TabIndex = 15;
             this.SampleReturnItemcodeLabel.Text = "Itemcode";
             // 
@@ -1672,7 +1672,7 @@
             this.SampleReturnCustomerLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SampleReturnCustomerLabel.Location = new System.Drawing.Point(8, 31);
             this.SampleReturnCustomerLabel.Name = "SampleReturnCustomerLabel";
-            this.SampleReturnCustomerLabel.Size = new System.Drawing.Size(132, 31);
+            this.SampleReturnCustomerLabel.Size = new System.Drawing.Size(131, 37);
             this.SampleReturnCustomerLabel.TabIndex = 13;
             this.SampleReturnCustomerLabel.Text = "Customer";
             // 
@@ -1686,10 +1686,10 @@
             this.HistoryTab.Controls.Add(this.HistoryItemcodeTextbox);
             this.HistoryTab.Controls.Add(this.HistoryItemcodeLabel);
             this.HistoryTab.Controls.Add(this.HIstoryCustomerLabel);
-            this.HistoryTab.Location = new System.Drawing.Point(4, 29);
+            this.HistoryTab.Location = new System.Drawing.Point(4, 30);
             this.HistoryTab.Name = "HistoryTab";
             this.HistoryTab.Padding = new System.Windows.Forms.Padding(3);
-            this.HistoryTab.Size = new System.Drawing.Size(1896, 944);
+            this.HistoryTab.Size = new System.Drawing.Size(1896, 943);
             this.HistoryTab.TabIndex = 4;
             this.HistoryTab.Text = "History";
             this.HistoryTab.UseVisualStyleBackColor = true;
@@ -1697,10 +1697,10 @@
             // HistoryListbox
             // 
             this.HistoryListbox.FormattingEnabled = true;
-            this.HistoryListbox.ItemHeight = 20;
+            this.HistoryListbox.ItemHeight = 21;
             this.HistoryListbox.Location = new System.Drawing.Point(20, 68);
             this.HistoryListbox.Name = "HistoryListbox";
-            this.HistoryListbox.Size = new System.Drawing.Size(251, 384);
+            this.HistoryListbox.Size = new System.Drawing.Size(251, 382);
             this.HistoryListbox.TabIndex = 28;
             this.HistoryListbox.Visible = false;
             this.HistoryListbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.HistoryListbox_KeyDown);
@@ -1712,14 +1712,14 @@
             this.HistoryCustomerTextbox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HistoryCustomerTextbox.Location = new System.Drawing.Point(20, 37);
             this.HistoryCustomerTextbox.Name = "HistoryCustomerTextbox";
-            this.HistoryCustomerTextbox.Size = new System.Drawing.Size(251, 31);
+            this.HistoryCustomerTextbox.Size = new System.Drawing.Size(251, 35);
             this.HistoryCustomerTextbox.TabIndex = 27;
             this.HistoryCustomerTextbox.TextChanged += new System.EventHandler(this.HistoryListbox_TextChanged);
             this.HistoryCustomerTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             this.HistoryCustomerTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
-            //
+            // 
             // HistorySearchSpoilButton
-            //
+            // 
             this.HistorySearchSpoilButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HistorySearchSpoilButton.Location = new System.Drawing.Point(72, 277);
             this.HistorySearchSpoilButton.Name = "HistorySearchSpoilButton";
@@ -1848,9 +1848,9 @@
             this.HistoryDataGridViewIDColumn.Name = "HistoryDataGridViewIDColumn";
             this.HistoryDataGridViewIDColumn.ReadOnly = true;
             this.HistoryDataGridViewIDColumn.Visible = false;
-            //
+            // 
             // HistorySearchButton
-            //
+            // 
             this.HistorySearchButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HistorySearchButton.Location = new System.Drawing.Point(72, 204);
             this.HistorySearchButton.Name = "HistorySearchButton";
@@ -1866,7 +1866,7 @@
             this.HistoryItemcodeTextbox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HistoryItemcodeTextbox.Location = new System.Drawing.Point(20, 140);
             this.HistoryItemcodeTextbox.Name = "HistoryItemcodeTextbox";
-            this.HistoryItemcodeTextbox.Size = new System.Drawing.Size(251, 31);
+            this.HistoryItemcodeTextbox.Size = new System.Drawing.Size(251, 35);
             this.HistoryItemcodeTextbox.TabIndex = 17;
             // 
             // HistoryItemcodeLabel
@@ -1875,7 +1875,7 @@
             this.HistoryItemcodeLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HistoryItemcodeLabel.Location = new System.Drawing.Point(14, 94);
             this.HistoryItemcodeLabel.Name = "HistoryItemcodeLabel";
-            this.HistoryItemcodeLabel.Size = new System.Drawing.Size(126, 31);
+            this.HistoryItemcodeLabel.Size = new System.Drawing.Size(128, 37);
             this.HistoryItemcodeLabel.TabIndex = 13;
             this.HistoryItemcodeLabel.Text = "Itemcode";
             // 
@@ -1885,7 +1885,7 @@
             this.HIstoryCustomerLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.HIstoryCustomerLabel.Location = new System.Drawing.Point(8, 3);
             this.HIstoryCustomerLabel.Name = "HIstoryCustomerLabel";
-            this.HIstoryCustomerLabel.Size = new System.Drawing.Size(132, 31);
+            this.HIstoryCustomerLabel.Size = new System.Drawing.Size(131, 37);
             this.HIstoryCustomerLabel.TabIndex = 11;
             this.HIstoryCustomerLabel.Text = "Customer";
             // 
@@ -1900,10 +1900,10 @@
             this.CustomerTab.Controls.Add(this.CustomerEditButton);
             this.CustomerTab.Controls.Add(this.CustomerNewButton);
             this.CustomerTab.Controls.Add(this.CustomerCustomerLabel);
-            this.CustomerTab.Location = new System.Drawing.Point(4, 29);
+            this.CustomerTab.Location = new System.Drawing.Point(4, 30);
             this.CustomerTab.Name = "CustomerTab";
             this.CustomerTab.Padding = new System.Windows.Forms.Padding(3);
-            this.CustomerTab.Size = new System.Drawing.Size(1896, 944);
+            this.CustomerTab.Size = new System.Drawing.Size(1896, 943);
             this.CustomerTab.TabIndex = 5;
             this.CustomerTab.Text = "Customer";
             this.CustomerTab.UseVisualStyleBackColor = true;
@@ -1911,10 +1911,10 @@
             // CustomerCustomerListbox
             // 
             this.CustomerCustomerListbox.FormattingEnabled = true;
-            this.CustomerCustomerListbox.ItemHeight = 20;
+            this.CustomerCustomerListbox.ItemHeight = 21;
             this.CustomerCustomerListbox.Location = new System.Drawing.Point(14, 308);
             this.CustomerCustomerListbox.Name = "CustomerCustomerListbox";
-            this.CustomerCustomerListbox.Size = new System.Drawing.Size(251, 384);
+            this.CustomerCustomerListbox.Size = new System.Drawing.Size(251, 382);
             this.CustomerCustomerListbox.TabIndex = 32;
             this.CustomerCustomerListbox.Visible = false;
             this.CustomerCustomerListbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CustomerCustomerListbox_KeyDown);
@@ -1925,14 +1925,14 @@
             this.CustomerCustomerTextbox.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerCustomerTextbox.Location = new System.Drawing.Point(14, 271);
             this.CustomerCustomerTextbox.Name = "CustomerCustomerTextbox";
-            this.CustomerCustomerTextbox.Size = new System.Drawing.Size(251, 31);
+            this.CustomerCustomerTextbox.Size = new System.Drawing.Size(251, 35);
             this.CustomerCustomerTextbox.TabIndex = 31;
             this.CustomerCustomerTextbox.TextChanged += new System.EventHandler(this.CustomerCustomerTextbox_TextChanged);
             this.CustomerCustomerTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.CustomerCustomerTextbox_KeyDown);
             this.CustomerCustomerTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CustomerCustomerTextbox_KeyPress);
-            //
+            // 
             // CustomerResetButton
-            //
+            // 
             this.CustomerResetButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerResetButton.Location = new System.Drawing.Point(67, 401);
             this.CustomerResetButton.Name = "CustomerResetButton";
@@ -1977,9 +1977,64 @@
             this.CustomerDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.CustomerDataGridView.Size = new System.Drawing.Size(1403, 913);
             this.CustomerDataGridView.TabIndex = 11;
-            //
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.HeaderText = "Customer";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 360;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.HeaderText = "Phone";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 130;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Email";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 170;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.HeaderText = "Fax";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.HeaderText = "A";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.HeaderText = "B";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.HeaderText = "C";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            this.dataGridViewTextBoxColumn11.Width = 110;
+            // 
+            // dataGridViewTextBoxLast
+            // 
+            this.dataGridViewTextBoxLast.HeaderText = "Last";
+            this.dataGridViewTextBoxLast.Name = "dataGridViewTextBoxLast";
+            this.dataGridViewTextBoxLast.ReadOnly = true;
+            this.dataGridViewTextBoxLast.Width = 150;
+            // 
             // CustomerSearchButton
-            //
+            // 
             this.CustomerSearchButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerSearchButton.Location = new System.Drawing.Point(67, 323);
             this.CustomerSearchButton.Name = "CustomerSearchButton";
@@ -1988,9 +2043,9 @@
             this.CustomerSearchButton.Text = "SEARCH";
             this.CustomerSearchButton.UseVisualStyleBackColor = true;
             this.CustomerSearchButton.Click += new System.EventHandler(this.CustomerSearchButton_Click);
-            //
+            // 
             // CustomerDeleteButton
-            //
+            // 
             this.CustomerDeleteButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerDeleteButton.Location = new System.Drawing.Point(67, 158);
             this.CustomerDeleteButton.Name = "CustomerDeleteButton";
@@ -1999,9 +2054,9 @@
             this.CustomerDeleteButton.Text = "DELETE";
             this.CustomerDeleteButton.UseVisualStyleBackColor = true;
             this.CustomerDeleteButton.Click += new System.EventHandler(this.CustomerDeleteButton_Click);
-            //
+            // 
             // CustomerEditButton
-            //
+            // 
             this.CustomerEditButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerEditButton.Location = new System.Drawing.Point(67, 84);
             this.CustomerEditButton.Name = "CustomerEditButton";
@@ -2010,9 +2065,9 @@
             this.CustomerEditButton.Text = "EDIT";
             this.CustomerEditButton.UseVisualStyleBackColor = true;
             this.CustomerEditButton.Click += new System.EventHandler(this.CustomerEditButton_Click);
-            //
+            // 
             // CustomerNewButton
-            //
+            // 
             this.CustomerNewButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerNewButton.Location = new System.Drawing.Point(67, 17);
             this.CustomerNewButton.Name = "CustomerNewButton";
@@ -2028,7 +2083,7 @@
             this.CustomerCustomerLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerCustomerLabel.Location = new System.Drawing.Point(8, 237);
             this.CustomerCustomerLabel.Name = "CustomerCustomerLabel";
-            this.CustomerCustomerLabel.Size = new System.Drawing.Size(132, 31);
+            this.CustomerCustomerLabel.Size = new System.Drawing.Size(131, 37);
             this.CustomerCustomerLabel.TabIndex = 21;
             this.CustomerCustomerLabel.Text = "Customer";
             // 
@@ -2041,14 +2096,14 @@
             this.CheckingTab.Controls.Add(this.CheckingRightPanel);
             this.CheckingTab.Controls.Add(this.CheckingPrintLeftButton);
             this.CheckingTab.Controls.Add(this.CheckingLeftPanel);
-            this.CheckingTab.Location = new System.Drawing.Point(4, 29);
+            this.CheckingTab.Location = new System.Drawing.Point(4, 30);
             this.CheckingTab.Name = "CheckingTab";
-            this.CheckingTab.Size = new System.Drawing.Size(1896, 944);
+            this.CheckingTab.Size = new System.Drawing.Size(1896, 943);
             this.CheckingTab.TabIndex = 6;
             this.CheckingTab.Text = "Checking";
-            //
+            // 
             // CheckingRightResetButton
-            //
+            // 
             this.CheckingRightResetButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingRightResetButton.Location = new System.Drawing.Point(985, 872);
             this.CheckingRightResetButton.Name = "CheckingRightResetButton";
@@ -2057,9 +2112,9 @@
             this.CheckingRightResetButton.Text = "RESET";
             this.CheckingRightResetButton.UseVisualStyleBackColor = true;
             this.CheckingRightResetButton.Click += new System.EventHandler(this.CheckingRightResetButton_Click);
-            //
+            // 
             // CheckingLeftResetButton
-            //
+            // 
             this.CheckingLeftResetButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingLeftResetButton.Location = new System.Drawing.Point(196, 872);
             this.CheckingLeftResetButton.Name = "CheckingLeftResetButton";
@@ -2068,9 +2123,9 @@
             this.CheckingLeftResetButton.Text = "RESET";
             this.CheckingLeftResetButton.UseVisualStyleBackColor = true;
             this.CheckingLeftResetButton.Click += new System.EventHandler(this.CheckingLeftResetButton_Click);
-            //
+            // 
             // CheckingPrintRightButton
-            //
+            // 
             this.CheckingPrintRightButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingPrintRightButton.Location = new System.Drawing.Point(1158, 872);
             this.CheckingPrintRightButton.Name = "CheckingPrintRightButton";
@@ -2154,7 +2209,7 @@
             this.CheckingG2LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG2LabelRight.Location = new System.Drawing.Point(79, 773);
             this.CheckingG2LabelRight.Name = "CheckingG2LabelRight";
-            this.CheckingG2LabelRight.Size = new System.Drawing.Size(50, 31);
+            this.CheckingG2LabelRight.Size = new System.Drawing.Size(51, 37);
             this.CheckingG2LabelRight.TabIndex = 85;
             this.CheckingG2LabelRight.Text = "G2";
             // 
@@ -2164,7 +2219,7 @@
             this.CheckingG1LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG1LabelRight.Location = new System.Drawing.Point(79, 718);
             this.CheckingG1LabelRight.Name = "CheckingG1LabelRight";
-            this.CheckingG1LabelRight.Size = new System.Drawing.Size(50, 31);
+            this.CheckingG1LabelRight.Size = new System.Drawing.Size(51, 37);
             this.CheckingG1LabelRight.TabIndex = 84;
             this.CheckingG1LabelRight.Text = "G1";
             // 
@@ -2174,7 +2229,7 @@
             this.CheckingF2LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF2LabelRight.Location = new System.Drawing.Point(81, 663);
             this.CheckingF2LabelRight.Name = "CheckingF2LabelRight";
-            this.CheckingF2LabelRight.Size = new System.Drawing.Size(46, 31);
+            this.CheckingF2LabelRight.Size = new System.Drawing.Size(45, 37);
             this.CheckingF2LabelRight.TabIndex = 83;
             this.CheckingF2LabelRight.Text = "F2";
             // 
@@ -2184,7 +2239,7 @@
             this.CheckingF1LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF1LabelRight.Location = new System.Drawing.Point(81, 608);
             this.CheckingF1LabelRight.Name = "CheckingF1LabelRight";
-            this.CheckingF1LabelRight.Size = new System.Drawing.Size(46, 31);
+            this.CheckingF1LabelRight.Size = new System.Drawing.Size(45, 37);
             this.CheckingF1LabelRight.TabIndex = 82;
             this.CheckingF1LabelRight.Text = "F1";
             // 
@@ -2194,7 +2249,7 @@
             this.CheckingE2LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE2LabelRight.Location = new System.Drawing.Point(81, 553);
             this.CheckingE2LabelRight.Name = "CheckingE2LabelRight";
-            this.CheckingE2LabelRight.Size = new System.Drawing.Size(47, 31);
+            this.CheckingE2LabelRight.Size = new System.Drawing.Size(46, 37);
             this.CheckingE2LabelRight.TabIndex = 81;
             this.CheckingE2LabelRight.Text = "E2";
             // 
@@ -2204,7 +2259,7 @@
             this.CheckingE1LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE1LabelRight.Location = new System.Drawing.Point(81, 498);
             this.CheckingE1LabelRight.Name = "CheckingE1LabelRight";
-            this.CheckingE1LabelRight.Size = new System.Drawing.Size(47, 31);
+            this.CheckingE1LabelRight.Size = new System.Drawing.Size(46, 37);
             this.CheckingE1LabelRight.TabIndex = 80;
             this.CheckingE1LabelRight.Text = "E1";
             // 
@@ -2214,7 +2269,7 @@
             this.CheckingD2LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD2LabelRight.Location = new System.Drawing.Point(80, 443);
             this.CheckingD2LabelRight.Name = "CheckingD2LabelRight";
-            this.CheckingD2LabelRight.Size = new System.Drawing.Size(49, 31);
+            this.CheckingD2LabelRight.Size = new System.Drawing.Size(51, 37);
             this.CheckingD2LabelRight.TabIndex = 79;
             this.CheckingD2LabelRight.Text = "D2";
             // 
@@ -2224,7 +2279,7 @@
             this.CheckingD1LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD1LabelRight.Location = new System.Drawing.Point(80, 388);
             this.CheckingD1LabelRight.Name = "CheckingD1LabelRight";
-            this.CheckingD1LabelRight.Size = new System.Drawing.Size(49, 31);
+            this.CheckingD1LabelRight.Size = new System.Drawing.Size(51, 37);
             this.CheckingD1LabelRight.TabIndex = 78;
             this.CheckingD1LabelRight.Text = "D1";
             // 
@@ -2234,7 +2289,7 @@
             this.CheckingC2LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC2LabelRight.Location = new System.Drawing.Point(80, 333);
             this.CheckingC2LabelRight.Name = "CheckingC2LabelRight";
-            this.CheckingC2LabelRight.Size = new System.Drawing.Size(49, 31);
+            this.CheckingC2LabelRight.Size = new System.Drawing.Size(49, 37);
             this.CheckingC2LabelRight.TabIndex = 77;
             this.CheckingC2LabelRight.Text = "C2";
             // 
@@ -2244,7 +2299,7 @@
             this.CheckingC1LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC1LabelRight.Location = new System.Drawing.Point(80, 278);
             this.CheckingC1LabelRight.Name = "CheckingC1LabelRight";
-            this.CheckingC1LabelRight.Size = new System.Drawing.Size(49, 31);
+            this.CheckingC1LabelRight.Size = new System.Drawing.Size(49, 37);
             this.CheckingC1LabelRight.TabIndex = 76;
             this.CheckingC1LabelRight.Text = "C1";
             // 
@@ -2254,7 +2309,7 @@
             this.CheckingB2LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB2LabelRight.Location = new System.Drawing.Point(81, 223);
             this.CheckingB2LabelRight.Name = "CheckingB2LabelRight";
-            this.CheckingB2LabelRight.Size = new System.Drawing.Size(47, 31);
+            this.CheckingB2LabelRight.Size = new System.Drawing.Size(47, 37);
             this.CheckingB2LabelRight.TabIndex = 75;
             this.CheckingB2LabelRight.Text = "B2";
             // 
@@ -2264,7 +2319,7 @@
             this.CheckingB1LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB1LabelRight.Location = new System.Drawing.Point(81, 168);
             this.CheckingB1LabelRight.Name = "CheckingB1LabelRight";
-            this.CheckingB1LabelRight.Size = new System.Drawing.Size(47, 31);
+            this.CheckingB1LabelRight.Size = new System.Drawing.Size(47, 37);
             this.CheckingB1LabelRight.TabIndex = 74;
             this.CheckingB1LabelRight.Text = "B1";
             // 
@@ -2274,7 +2329,7 @@
             this.CheckingA2LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA2LabelRight.Location = new System.Drawing.Point(81, 113);
             this.CheckingA2LabelRight.Name = "CheckingA2LabelRight";
-            this.CheckingA2LabelRight.Size = new System.Drawing.Size(47, 31);
+            this.CheckingA2LabelRight.Size = new System.Drawing.Size(49, 37);
             this.CheckingA2LabelRight.TabIndex = 73;
             this.CheckingA2LabelRight.Text = "A2";
             // 
@@ -2284,7 +2339,7 @@
             this.CheckingA1LabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA1LabelRight.Location = new System.Drawing.Point(81, 58);
             this.CheckingA1LabelRight.Name = "CheckingA1LabelRight";
-            this.CheckingA1LabelRight.Size = new System.Drawing.Size(47, 31);
+            this.CheckingA1LabelRight.Size = new System.Drawing.Size(49, 37);
             this.CheckingA1LabelRight.TabIndex = 72;
             this.CheckingA1LabelRight.Text = "A1";
             // 
@@ -2294,7 +2349,7 @@
             this.CheckingG2FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG2FirstResultLabelRight.Location = new System.Drawing.Point(181, 773);
             this.CheckingG2FirstResultLabelRight.Name = "CheckingG2FirstResultLabelRight";
-            this.CheckingG2FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingG2FirstResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingG2FirstResultLabelRight.TabIndex = 71;
             this.CheckingG2FirstResultLabelRight.Text = "000.0";
             // 
@@ -2304,7 +2359,7 @@
             this.CheckingG1FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG1FirstResultLabelRight.Location = new System.Drawing.Point(181, 718);
             this.CheckingG1FirstResultLabelRight.Name = "CheckingG1FirstResultLabelRight";
-            this.CheckingG1FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingG1FirstResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingG1FirstResultLabelRight.TabIndex = 70;
             this.CheckingG1FirstResultLabelRight.Text = "000.0";
             // 
@@ -2314,7 +2369,7 @@
             this.CheckingF2FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF2FirstResultLabelRight.Location = new System.Drawing.Point(181, 663);
             this.CheckingF2FirstResultLabelRight.Name = "CheckingF2FirstResultLabelRight";
-            this.CheckingF2FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingF2FirstResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingF2FirstResultLabelRight.TabIndex = 69;
             this.CheckingF2FirstResultLabelRight.Text = "000.0";
             // 
@@ -2324,7 +2379,7 @@
             this.CheckingF1FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF1FirstResultLabelRight.Location = new System.Drawing.Point(181, 608);
             this.CheckingF1FirstResultLabelRight.Name = "CheckingF1FirstResultLabelRight";
-            this.CheckingF1FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingF1FirstResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingF1FirstResultLabelRight.TabIndex = 68;
             this.CheckingF1FirstResultLabelRight.Text = "000.0";
             // 
@@ -2334,7 +2389,7 @@
             this.CheckingE2FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE2FirstResultLabelRight.Location = new System.Drawing.Point(181, 553);
             this.CheckingE2FirstResultLabelRight.Name = "CheckingE2FirstResultLabelRight";
-            this.CheckingE2FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingE2FirstResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingE2FirstResultLabelRight.TabIndex = 67;
             this.CheckingE2FirstResultLabelRight.Text = "000.0";
             // 
@@ -2344,7 +2399,7 @@
             this.CheckingE1FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE1FirstResultLabelRight.Location = new System.Drawing.Point(181, 498);
             this.CheckingE1FirstResultLabelRight.Name = "CheckingE1FirstResultLabelRight";
-            this.CheckingE1FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingE1FirstResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingE1FirstResultLabelRight.TabIndex = 66;
             this.CheckingE1FirstResultLabelRight.Text = "000.0";
             // 
@@ -2354,7 +2409,7 @@
             this.CheckingD2FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD2FirstResultLabelRight.Location = new System.Drawing.Point(181, 443);
             this.CheckingD2FirstResultLabelRight.Name = "CheckingD2FirstResultLabelRight";
-            this.CheckingD2FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingD2FirstResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingD2FirstResultLabelRight.TabIndex = 65;
             this.CheckingD2FirstResultLabelRight.Text = "000.0";
             // 
@@ -2364,7 +2419,7 @@
             this.CheckingD1FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD1FirstResultLabelRight.Location = new System.Drawing.Point(181, 388);
             this.CheckingD1FirstResultLabelRight.Name = "CheckingD1FirstResultLabelRight";
-            this.CheckingD1FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingD1FirstResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingD1FirstResultLabelRight.TabIndex = 64;
             this.CheckingD1FirstResultLabelRight.Text = "000.0";
             // 
@@ -2374,7 +2429,7 @@
             this.CheckingC2FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC2FirstResultLabelRight.Location = new System.Drawing.Point(181, 333);
             this.CheckingC2FirstResultLabelRight.Name = "CheckingC2FirstResultLabelRight";
-            this.CheckingC2FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingC2FirstResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingC2FirstResultLabelRight.TabIndex = 63;
             this.CheckingC2FirstResultLabelRight.Text = "000.0";
             // 
@@ -2384,7 +2439,7 @@
             this.CheckingC1FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC1FirstResultLabelRight.Location = new System.Drawing.Point(181, 278);
             this.CheckingC1FirstResultLabelRight.Name = "CheckingC1FirstResultLabelRight";
-            this.CheckingC1FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingC1FirstResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingC1FirstResultLabelRight.TabIndex = 62;
             this.CheckingC1FirstResultLabelRight.Text = "000.0";
             // 
@@ -2394,7 +2449,7 @@
             this.CheckingB2FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB2FirstResultLabelRight.Location = new System.Drawing.Point(181, 223);
             this.CheckingB2FirstResultLabelRight.Name = "CheckingB2FirstResultLabelRight";
-            this.CheckingB2FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingB2FirstResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingB2FirstResultLabelRight.TabIndex = 61;
             this.CheckingB2FirstResultLabelRight.Text = "000.0";
             // 
@@ -2404,7 +2459,7 @@
             this.CheckingB1FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB1FirstResultLabelRight.Location = new System.Drawing.Point(181, 168);
             this.CheckingB1FirstResultLabelRight.Name = "CheckingB1FirstResultLabelRight";
-            this.CheckingB1FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingB1FirstResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingB1FirstResultLabelRight.TabIndex = 60;
             this.CheckingB1FirstResultLabelRight.Text = "000.0";
             // 
@@ -2414,7 +2469,7 @@
             this.CheckingA2FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA2FirstResultLabelRight.Location = new System.Drawing.Point(181, 113);
             this.CheckingA2FirstResultLabelRight.Name = "CheckingA2FirstResultLabelRight";
-            this.CheckingA2FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingA2FirstResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingA2FirstResultLabelRight.TabIndex = 59;
             this.CheckingA2FirstResultLabelRight.Text = "000.0";
             // 
@@ -2424,7 +2479,7 @@
             this.CheckingA1FirstResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA1FirstResultLabelRight.Location = new System.Drawing.Point(181, 58);
             this.CheckingA1FirstResultLabelRight.Name = "CheckingA1FirstResultLabelRight";
-            this.CheckingA1FirstResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingA1FirstResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingA1FirstResultLabelRight.TabIndex = 58;
             this.CheckingA1FirstResultLabelRight.Text = "000.0";
             // 
@@ -2434,7 +2489,7 @@
             this.CheckingG2SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG2SecondResultLabelRight.Location = new System.Drawing.Point(469, 773);
             this.CheckingG2SecondResultLabelRight.Name = "CheckingG2SecondResultLabelRight";
-            this.CheckingG2SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingG2SecondResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingG2SecondResultLabelRight.TabIndex = 57;
             this.CheckingG2SecondResultLabelRight.Text = "000.0";
             // 
@@ -2444,7 +2499,7 @@
             this.CheckingG1SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG1SecondResultLabelRight.Location = new System.Drawing.Point(469, 718);
             this.CheckingG1SecondResultLabelRight.Name = "CheckingG1SecondResultLabelRight";
-            this.CheckingG1SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingG1SecondResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingG1SecondResultLabelRight.TabIndex = 56;
             this.CheckingG1SecondResultLabelRight.Text = "000.0";
             // 
@@ -2454,7 +2509,7 @@
             this.CheckingF2SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF2SecondResultLabelRight.Location = new System.Drawing.Point(469, 663);
             this.CheckingF2SecondResultLabelRight.Name = "CheckingF2SecondResultLabelRight";
-            this.CheckingF2SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingF2SecondResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingF2SecondResultLabelRight.TabIndex = 55;
             this.CheckingF2SecondResultLabelRight.Text = "000.0";
             // 
@@ -2464,7 +2519,7 @@
             this.CheckingF1SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF1SecondResultLabelRight.Location = new System.Drawing.Point(469, 608);
             this.CheckingF1SecondResultLabelRight.Name = "CheckingF1SecondResultLabelRight";
-            this.CheckingF1SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingF1SecondResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingF1SecondResultLabelRight.TabIndex = 54;
             this.CheckingF1SecondResultLabelRight.Text = "000.0";
             // 
@@ -2474,7 +2529,7 @@
             this.CheckingE2SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE2SecondResultLabelRight.Location = new System.Drawing.Point(469, 553);
             this.CheckingE2SecondResultLabelRight.Name = "CheckingE2SecondResultLabelRight";
-            this.CheckingE2SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingE2SecondResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingE2SecondResultLabelRight.TabIndex = 53;
             this.CheckingE2SecondResultLabelRight.Text = "000.0";
             // 
@@ -2484,7 +2539,7 @@
             this.CheckingE1SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE1SecondResultLabelRight.Location = new System.Drawing.Point(469, 498);
             this.CheckingE1SecondResultLabelRight.Name = "CheckingE1SecondResultLabelRight";
-            this.CheckingE1SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingE1SecondResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingE1SecondResultLabelRight.TabIndex = 52;
             this.CheckingE1SecondResultLabelRight.Text = "000.0";
             // 
@@ -2494,7 +2549,7 @@
             this.CheckingD2SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD2SecondResultLabelRight.Location = new System.Drawing.Point(469, 443);
             this.CheckingD2SecondResultLabelRight.Name = "CheckingD2SecondResultLabelRight";
-            this.CheckingD2SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingD2SecondResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingD2SecondResultLabelRight.TabIndex = 51;
             this.CheckingD2SecondResultLabelRight.Text = "000.0";
             // 
@@ -2504,7 +2559,7 @@
             this.CheckingD1SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD1SecondResultLabelRight.Location = new System.Drawing.Point(469, 388);
             this.CheckingD1SecondResultLabelRight.Name = "CheckingD1SecondResultLabelRight";
-            this.CheckingD1SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingD1SecondResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingD1SecondResultLabelRight.TabIndex = 50;
             this.CheckingD1SecondResultLabelRight.Text = "000.0";
             // 
@@ -2514,7 +2569,7 @@
             this.CheckingC2SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC2SecondResultLabelRight.Location = new System.Drawing.Point(469, 333);
             this.CheckingC2SecondResultLabelRight.Name = "CheckingC2SecondResultLabelRight";
-            this.CheckingC2SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingC2SecondResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingC2SecondResultLabelRight.TabIndex = 49;
             this.CheckingC2SecondResultLabelRight.Text = "000.0";
             // 
@@ -2524,7 +2579,7 @@
             this.CheckingC1SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC1SecondResultLabelRight.Location = new System.Drawing.Point(469, 278);
             this.CheckingC1SecondResultLabelRight.Name = "CheckingC1SecondResultLabelRight";
-            this.CheckingC1SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingC1SecondResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingC1SecondResultLabelRight.TabIndex = 48;
             this.CheckingC1SecondResultLabelRight.Text = "000.0";
             // 
@@ -2534,7 +2589,7 @@
             this.CheckingB2SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB2SecondResultLabelRight.Location = new System.Drawing.Point(469, 223);
             this.CheckingB2SecondResultLabelRight.Name = "CheckingB2SecondResultLabelRight";
-            this.CheckingB2SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingB2SecondResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingB2SecondResultLabelRight.TabIndex = 47;
             this.CheckingB2SecondResultLabelRight.Text = "000.0";
             // 
@@ -2544,7 +2599,7 @@
             this.CheckingB1SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB1SecondResultLabelRight.Location = new System.Drawing.Point(469, 168);
             this.CheckingB1SecondResultLabelRight.Name = "CheckingB1SecondResultLabelRight";
-            this.CheckingB1SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingB1SecondResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingB1SecondResultLabelRight.TabIndex = 46;
             this.CheckingB1SecondResultLabelRight.Text = "000.0";
             // 
@@ -2554,7 +2609,7 @@
             this.CheckingA2SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA2SecondResultLabelRight.Location = new System.Drawing.Point(469, 113);
             this.CheckingA2SecondResultLabelRight.Name = "CheckingA2SecondResultLabelRight";
-            this.CheckingA2SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingA2SecondResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingA2SecondResultLabelRight.TabIndex = 45;
             this.CheckingA2SecondResultLabelRight.Text = "000.0";
             // 
@@ -2564,7 +2619,7 @@
             this.CheckingA1SecondResultLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA1SecondResultLabelRight.Location = new System.Drawing.Point(469, 58);
             this.CheckingA1SecondResultLabelRight.Name = "CheckingA1SecondResultLabelRight";
-            this.CheckingA1SecondResultLabelRight.Size = new System.Drawing.Size(82, 31);
+            this.CheckingA1SecondResultLabelRight.Size = new System.Drawing.Size(83, 37);
             this.CheckingA1SecondResultLabelRight.TabIndex = 44;
             this.CheckingA1SecondResultLabelRight.Text = "000.0";
             // 
@@ -2573,7 +2628,7 @@
             this.CheckingG2LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG2LWTextboxRight.Location = new System.Drawing.Point(308, 770);
             this.CheckingG2LWTextboxRight.Name = "CheckingG2LWTextboxRight";
-            this.CheckingG2LWTextboxRight.Size = new System.Drawing.Size(117, 38);
+            this.CheckingG2LWTextboxRight.Size = new System.Drawing.Size(117, 43);
             this.CheckingG2LWTextboxRight.TabIndex = 43;
             this.CheckingG2LWTextboxRight.TextChanged += new System.EventHandler(this.CheckingG2LWTextboxRight_TextChanged);
             // 
@@ -2582,7 +2637,7 @@
             this.CheckingG1LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG1LWTextboxRight.Location = new System.Drawing.Point(308, 715);
             this.CheckingG1LWTextboxRight.Name = "CheckingG1LWTextboxRight";
-            this.CheckingG1LWTextboxRight.Size = new System.Drawing.Size(117, 38);
+            this.CheckingG1LWTextboxRight.Size = new System.Drawing.Size(117, 43);
             this.CheckingG1LWTextboxRight.TabIndex = 41;
             this.CheckingG1LWTextboxRight.TextChanged += new System.EventHandler(this.CheckingG1LWTextboxRight_TextChanged);
             // 
@@ -2591,7 +2646,7 @@
             this.CheckingF2LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF2LWTextboxRight.Location = new System.Drawing.Point(308, 660);
             this.CheckingF2LWTextboxRight.Name = "CheckingF2LWTextboxRight";
-            this.CheckingF2LWTextboxRight.Size = new System.Drawing.Size(117, 38);
+            this.CheckingF2LWTextboxRight.Size = new System.Drawing.Size(117, 43);
             this.CheckingF2LWTextboxRight.TabIndex = 39;
             this.CheckingF2LWTextboxRight.TextChanged += new System.EventHandler(this.CheckingF2LWTextboxRight_TextChanged);
             // 
@@ -2600,7 +2655,7 @@
             this.CheckingF1LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF1LWTextboxRight.Location = new System.Drawing.Point(308, 605);
             this.CheckingF1LWTextboxRight.Name = "CheckingF1LWTextboxRight";
-            this.CheckingF1LWTextboxRight.Size = new System.Drawing.Size(117, 38);
+            this.CheckingF1LWTextboxRight.Size = new System.Drawing.Size(117, 43);
             this.CheckingF1LWTextboxRight.TabIndex = 37;
             this.CheckingF1LWTextboxRight.TextChanged += new System.EventHandler(this.CheckingF1LWTextboxRight_TextChanged);
             // 
@@ -2609,7 +2664,7 @@
             this.CheckingE2LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE2LWTextboxRight.Location = new System.Drawing.Point(308, 550);
             this.CheckingE2LWTextboxRight.Name = "CheckingE2LWTextboxRight";
-            this.CheckingE2LWTextboxRight.Size = new System.Drawing.Size(117, 38);
+            this.CheckingE2LWTextboxRight.Size = new System.Drawing.Size(117, 43);
             this.CheckingE2LWTextboxRight.TabIndex = 35;
             this.CheckingE2LWTextboxRight.TextChanged += new System.EventHandler(this.CheckingE2LWTextboxRight_TextChanged);
             // 
@@ -2618,7 +2673,7 @@
             this.CheckingE1LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE1LWTextboxRight.Location = new System.Drawing.Point(308, 495);
             this.CheckingE1LWTextboxRight.Name = "CheckingE1LWTextboxRight";
-            this.CheckingE1LWTextboxRight.Size = new System.Drawing.Size(117, 38);
+            this.CheckingE1LWTextboxRight.Size = new System.Drawing.Size(117, 43);
             this.CheckingE1LWTextboxRight.TabIndex = 33;
             this.CheckingE1LWTextboxRight.TextChanged += new System.EventHandler(this.CheckingE1LWTextboxRight_TextChanged);
             // 
@@ -2627,7 +2682,7 @@
             this.CheckingD2LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD2LWTextboxRight.Location = new System.Drawing.Point(308, 440);
             this.CheckingD2LWTextboxRight.Name = "CheckingD2LWTextboxRight";
-            this.CheckingD2LWTextboxRight.Size = new System.Drawing.Size(117, 38);
+            this.CheckingD2LWTextboxRight.Size = new System.Drawing.Size(117, 43);
             this.CheckingD2LWTextboxRight.TabIndex = 31;
             this.CheckingD2LWTextboxRight.TextChanged += new System.EventHandler(this.CheckingD2LWTextboxRight_TextChanged);
             // 
@@ -2636,7 +2691,7 @@
             this.CheckingD1LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD1LWTextboxRight.Location = new System.Drawing.Point(308, 385);
             this.CheckingD1LWTextboxRight.Name = "CheckingD1LWTextboxRight";
-            this.CheckingD1LWTextboxRight.Size = new System.Drawing.Size(117, 38);
+            this.CheckingD1LWTextboxRight.Size = new System.Drawing.Size(117, 43);
             this.CheckingD1LWTextboxRight.TabIndex = 29;
             this.CheckingD1LWTextboxRight.TextChanged += new System.EventHandler(this.CheckingD1LWTextboxRight_TextChanged);
             // 
@@ -2645,7 +2700,7 @@
             this.CheckingC2LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC2LWTextboxRight.Location = new System.Drawing.Point(308, 330);
             this.CheckingC2LWTextboxRight.Name = "CheckingC2LWTextboxRight";
-            this.CheckingC2LWTextboxRight.Size = new System.Drawing.Size(117, 38);
+            this.CheckingC2LWTextboxRight.Size = new System.Drawing.Size(117, 43);
             this.CheckingC2LWTextboxRight.TabIndex = 27;
             this.CheckingC2LWTextboxRight.TextChanged += new System.EventHandler(this.CheckingC2LWTextboxRight_TextChanged);
             // 
@@ -2654,7 +2709,7 @@
             this.CheckingC1LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC1LWTextboxRight.Location = new System.Drawing.Point(308, 275);
             this.CheckingC1LWTextboxRight.Name = "CheckingC1LWTextboxRight";
-            this.CheckingC1LWTextboxRight.Size = new System.Drawing.Size(117, 38);
+            this.CheckingC1LWTextboxRight.Size = new System.Drawing.Size(117, 43);
             this.CheckingC1LWTextboxRight.TabIndex = 25;
             this.CheckingC1LWTextboxRight.TextChanged += new System.EventHandler(this.CheckingC1LWTextboxRight_TextChanged);
             // 
@@ -2663,7 +2718,7 @@
             this.CheckingB2LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB2LWTextboxRight.Location = new System.Drawing.Point(308, 220);
             this.CheckingB2LWTextboxRight.Name = "CheckingB2LWTextboxRight";
-            this.CheckingB2LWTextboxRight.Size = new System.Drawing.Size(117, 38);
+            this.CheckingB2LWTextboxRight.Size = new System.Drawing.Size(117, 43);
             this.CheckingB2LWTextboxRight.TabIndex = 23;
             this.CheckingB2LWTextboxRight.TextChanged += new System.EventHandler(this.CheckingB2LWTextboxRight_TextChanged);
             // 
@@ -2672,7 +2727,7 @@
             this.CheckingB1LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB1LWTextboxRight.Location = new System.Drawing.Point(308, 165);
             this.CheckingB1LWTextboxRight.Name = "CheckingB1LWTextboxRight";
-            this.CheckingB1LWTextboxRight.Size = new System.Drawing.Size(117, 38);
+            this.CheckingB1LWTextboxRight.Size = new System.Drawing.Size(117, 43);
             this.CheckingB1LWTextboxRight.TabIndex = 21;
             this.CheckingB1LWTextboxRight.TextChanged += new System.EventHandler(this.CheckingB1LWTextboxRight_TextChanged);
             // 
@@ -2681,7 +2736,7 @@
             this.CheckingA2LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA2LWTextboxRight.Location = new System.Drawing.Point(308, 110);
             this.CheckingA2LWTextboxRight.Name = "CheckingA2LWTextboxRight";
-            this.CheckingA2LWTextboxRight.Size = new System.Drawing.Size(117, 38);
+            this.CheckingA2LWTextboxRight.Size = new System.Drawing.Size(117, 43);
             this.CheckingA2LWTextboxRight.TabIndex = 19;
             this.CheckingA2LWTextboxRight.TextChanged += new System.EventHandler(this.CheckingA2LWTextboxRight_TextChanged);
             // 
@@ -2690,7 +2745,7 @@
             this.CheckingA1LWTextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA1LWTextboxRight.Location = new System.Drawing.Point(308, 55);
             this.CheckingA1LWTextboxRight.Name = "CheckingA1LWTextboxRight";
-            this.CheckingA1LWTextboxRight.Size = new System.Drawing.Size(117, 38);
+            this.CheckingA1LWTextboxRight.Size = new System.Drawing.Size(117, 43);
             this.CheckingA1LWTextboxRight.TabIndex = 17;
             this.CheckingA1LWTextboxRight.TextChanged += new System.EventHandler(this.CheckingA1LWTextboxRight_TextChanged);
             // 
@@ -2699,7 +2754,7 @@
             this.CheckingFW1TextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingFW1TextboxRight.Location = new System.Drawing.Point(163, 10);
             this.CheckingFW1TextboxRight.Name = "CheckingFW1TextboxRight";
-            this.CheckingFW1TextboxRight.Size = new System.Drawing.Size(117, 38);
+            this.CheckingFW1TextboxRight.Size = new System.Drawing.Size(117, 43);
             this.CheckingFW1TextboxRight.TabIndex = 16;
             this.CheckingFW1TextboxRight.TextChanged += new System.EventHandler(this.CheckingFW1TextboxRight_TextChanged);
             // 
@@ -2708,7 +2763,7 @@
             this.CheckingFW2TextboxRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingFW2TextboxRight.Location = new System.Drawing.Point(456, 10);
             this.CheckingFW2TextboxRight.Name = "CheckingFW2TextboxRight";
-            this.CheckingFW2TextboxRight.Size = new System.Drawing.Size(117, 38);
+            this.CheckingFW2TextboxRight.Size = new System.Drawing.Size(117, 43);
             this.CheckingFW2TextboxRight.TabIndex = 15;
             this.CheckingFW2TextboxRight.TextChanged += new System.EventHandler(this.CheckingFW2TextboxRight_TextChanged);
             // 
@@ -2718,12 +2773,12 @@
             this.CheckingFWLabelRight.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingFWLabelRight.Location = new System.Drawing.Point(338, 13);
             this.CheckingFWLabelRight.Name = "CheckingFWLabelRight";
-            this.CheckingFWLabelRight.Size = new System.Drawing.Size(56, 31);
+            this.CheckingFWLabelRight.Size = new System.Drawing.Size(55, 37);
             this.CheckingFWLabelRight.TabIndex = 0;
             this.CheckingFWLabelRight.Text = "FW";
-            //
+            // 
             // CheckingPrintLeftButton
-            //
+            // 
             this.CheckingPrintLeftButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingPrintLeftButton.Location = new System.Drawing.Point(371, 872);
             this.CheckingPrintLeftButton.Name = "CheckingPrintLeftButton";
@@ -2807,7 +2862,7 @@
             this.CheckingG2Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG2Label.Location = new System.Drawing.Point(79, 773);
             this.CheckingG2Label.Name = "CheckingG2Label";
-            this.CheckingG2Label.Size = new System.Drawing.Size(50, 31);
+            this.CheckingG2Label.Size = new System.Drawing.Size(51, 37);
             this.CheckingG2Label.TabIndex = 85;
             this.CheckingG2Label.Text = "G2";
             // 
@@ -2817,7 +2872,7 @@
             this.CheckingG1Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG1Label.Location = new System.Drawing.Point(79, 718);
             this.CheckingG1Label.Name = "CheckingG1Label";
-            this.CheckingG1Label.Size = new System.Drawing.Size(50, 31);
+            this.CheckingG1Label.Size = new System.Drawing.Size(51, 37);
             this.CheckingG1Label.TabIndex = 84;
             this.CheckingG1Label.Text = "G1";
             // 
@@ -2827,7 +2882,7 @@
             this.CheckingF2Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF2Label.Location = new System.Drawing.Point(81, 663);
             this.CheckingF2Label.Name = "CheckingF2Label";
-            this.CheckingF2Label.Size = new System.Drawing.Size(46, 31);
+            this.CheckingF2Label.Size = new System.Drawing.Size(45, 37);
             this.CheckingF2Label.TabIndex = 83;
             this.CheckingF2Label.Text = "F2";
             // 
@@ -2837,7 +2892,7 @@
             this.CheckingF1Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF1Label.Location = new System.Drawing.Point(81, 608);
             this.CheckingF1Label.Name = "CheckingF1Label";
-            this.CheckingF1Label.Size = new System.Drawing.Size(46, 31);
+            this.CheckingF1Label.Size = new System.Drawing.Size(45, 37);
             this.CheckingF1Label.TabIndex = 82;
             this.CheckingF1Label.Text = "F1";
             // 
@@ -2847,7 +2902,7 @@
             this.CheckingE2Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE2Label.Location = new System.Drawing.Point(81, 553);
             this.CheckingE2Label.Name = "CheckingE2Label";
-            this.CheckingE2Label.Size = new System.Drawing.Size(47, 31);
+            this.CheckingE2Label.Size = new System.Drawing.Size(46, 37);
             this.CheckingE2Label.TabIndex = 81;
             this.CheckingE2Label.Text = "E2";
             // 
@@ -2857,7 +2912,7 @@
             this.CheckingE1Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE1Label.Location = new System.Drawing.Point(81, 498);
             this.CheckingE1Label.Name = "CheckingE1Label";
-            this.CheckingE1Label.Size = new System.Drawing.Size(47, 31);
+            this.CheckingE1Label.Size = new System.Drawing.Size(46, 37);
             this.CheckingE1Label.TabIndex = 80;
             this.CheckingE1Label.Text = "E1";
             // 
@@ -2867,7 +2922,7 @@
             this.CheckingD2Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD2Label.Location = new System.Drawing.Point(80, 443);
             this.CheckingD2Label.Name = "CheckingD2Label";
-            this.CheckingD2Label.Size = new System.Drawing.Size(49, 31);
+            this.CheckingD2Label.Size = new System.Drawing.Size(51, 37);
             this.CheckingD2Label.TabIndex = 79;
             this.CheckingD2Label.Text = "D2";
             // 
@@ -2877,7 +2932,7 @@
             this.CheckingD1Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD1Label.Location = new System.Drawing.Point(80, 388);
             this.CheckingD1Label.Name = "CheckingD1Label";
-            this.CheckingD1Label.Size = new System.Drawing.Size(49, 31);
+            this.CheckingD1Label.Size = new System.Drawing.Size(51, 37);
             this.CheckingD1Label.TabIndex = 78;
             this.CheckingD1Label.Text = "D1";
             // 
@@ -2887,7 +2942,7 @@
             this.CheckingC2Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC2Label.Location = new System.Drawing.Point(80, 333);
             this.CheckingC2Label.Name = "CheckingC2Label";
-            this.CheckingC2Label.Size = new System.Drawing.Size(49, 31);
+            this.CheckingC2Label.Size = new System.Drawing.Size(49, 37);
             this.CheckingC2Label.TabIndex = 77;
             this.CheckingC2Label.Text = "C2";
             // 
@@ -2897,7 +2952,7 @@
             this.CheckingC1Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC1Label.Location = new System.Drawing.Point(80, 278);
             this.CheckingC1Label.Name = "CheckingC1Label";
-            this.CheckingC1Label.Size = new System.Drawing.Size(49, 31);
+            this.CheckingC1Label.Size = new System.Drawing.Size(49, 37);
             this.CheckingC1Label.TabIndex = 76;
             this.CheckingC1Label.Text = "C1";
             // 
@@ -2907,7 +2962,7 @@
             this.CheckingB2Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB2Label.Location = new System.Drawing.Point(81, 223);
             this.CheckingB2Label.Name = "CheckingB2Label";
-            this.CheckingB2Label.Size = new System.Drawing.Size(47, 31);
+            this.CheckingB2Label.Size = new System.Drawing.Size(47, 37);
             this.CheckingB2Label.TabIndex = 75;
             this.CheckingB2Label.Text = "B2";
             // 
@@ -2917,7 +2972,7 @@
             this.CheckingB1Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB1Label.Location = new System.Drawing.Point(81, 168);
             this.CheckingB1Label.Name = "CheckingB1Label";
-            this.CheckingB1Label.Size = new System.Drawing.Size(47, 31);
+            this.CheckingB1Label.Size = new System.Drawing.Size(47, 37);
             this.CheckingB1Label.TabIndex = 74;
             this.CheckingB1Label.Text = "B1";
             // 
@@ -2927,7 +2982,7 @@
             this.CheckingA2Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA2Label.Location = new System.Drawing.Point(81, 113);
             this.CheckingA2Label.Name = "CheckingA2Label";
-            this.CheckingA2Label.Size = new System.Drawing.Size(47, 31);
+            this.CheckingA2Label.Size = new System.Drawing.Size(49, 37);
             this.CheckingA2Label.TabIndex = 73;
             this.CheckingA2Label.Text = "A2";
             // 
@@ -2937,7 +2992,7 @@
             this.CheckingA1Label.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA1Label.Location = new System.Drawing.Point(81, 58);
             this.CheckingA1Label.Name = "CheckingA1Label";
-            this.CheckingA1Label.Size = new System.Drawing.Size(47, 31);
+            this.CheckingA1Label.Size = new System.Drawing.Size(49, 37);
             this.CheckingA1Label.TabIndex = 72;
             this.CheckingA1Label.Text = "A1";
             // 
@@ -2947,7 +3002,7 @@
             this.CheckingG2FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG2FirstResultLabel.Location = new System.Drawing.Point(181, 773);
             this.CheckingG2FirstResultLabel.Name = "CheckingG2FirstResultLabel";
-            this.CheckingG2FirstResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingG2FirstResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingG2FirstResultLabel.TabIndex = 71;
             this.CheckingG2FirstResultLabel.Text = "000.0";
             // 
@@ -2957,7 +3012,7 @@
             this.CheckingG1FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG1FirstResultLabel.Location = new System.Drawing.Point(181, 718);
             this.CheckingG1FirstResultLabel.Name = "CheckingG1FirstResultLabel";
-            this.CheckingG1FirstResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingG1FirstResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingG1FirstResultLabel.TabIndex = 70;
             this.CheckingG1FirstResultLabel.Text = "000.0";
             // 
@@ -2967,7 +3022,7 @@
             this.CheckingF2FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF2FirstResultLabel.Location = new System.Drawing.Point(181, 663);
             this.CheckingF2FirstResultLabel.Name = "CheckingF2FirstResultLabel";
-            this.CheckingF2FirstResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingF2FirstResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingF2FirstResultLabel.TabIndex = 69;
             this.CheckingF2FirstResultLabel.Text = "000.0";
             // 
@@ -2977,7 +3032,7 @@
             this.CheckingF1FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF1FirstResultLabel.Location = new System.Drawing.Point(181, 608);
             this.CheckingF1FirstResultLabel.Name = "CheckingF1FirstResultLabel";
-            this.CheckingF1FirstResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingF1FirstResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingF1FirstResultLabel.TabIndex = 68;
             this.CheckingF1FirstResultLabel.Text = "000.0";
             // 
@@ -2987,7 +3042,7 @@
             this.CheckingE2FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE2FirstResultLabel.Location = new System.Drawing.Point(181, 553);
             this.CheckingE2FirstResultLabel.Name = "CheckingE2FirstResultLabel";
-            this.CheckingE2FirstResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingE2FirstResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingE2FirstResultLabel.TabIndex = 67;
             this.CheckingE2FirstResultLabel.Text = "000.0";
             // 
@@ -2997,7 +3052,7 @@
             this.CheckingE1FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE1FirstResultLabel.Location = new System.Drawing.Point(181, 498);
             this.CheckingE1FirstResultLabel.Name = "CheckingE1FirstResultLabel";
-            this.CheckingE1FirstResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingE1FirstResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingE1FirstResultLabel.TabIndex = 66;
             this.CheckingE1FirstResultLabel.Text = "000.0";
             // 
@@ -3007,7 +3062,7 @@
             this.CheckingD2FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD2FirstResultLabel.Location = new System.Drawing.Point(181, 443);
             this.CheckingD2FirstResultLabel.Name = "CheckingD2FirstResultLabel";
-            this.CheckingD2FirstResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingD2FirstResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingD2FirstResultLabel.TabIndex = 65;
             this.CheckingD2FirstResultLabel.Text = "000.0";
             // 
@@ -3017,7 +3072,7 @@
             this.CheckingD1FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD1FirstResultLabel.Location = new System.Drawing.Point(181, 388);
             this.CheckingD1FirstResultLabel.Name = "CheckingD1FirstResultLabel";
-            this.CheckingD1FirstResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingD1FirstResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingD1FirstResultLabel.TabIndex = 64;
             this.CheckingD1FirstResultLabel.Text = "000.0";
             // 
@@ -3027,7 +3082,7 @@
             this.CheckingC2FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC2FirstResultLabel.Location = new System.Drawing.Point(181, 333);
             this.CheckingC2FirstResultLabel.Name = "CheckingC2FirstResultLabel";
-            this.CheckingC2FirstResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingC2FirstResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingC2FirstResultLabel.TabIndex = 63;
             this.CheckingC2FirstResultLabel.Text = "000.0";
             // 
@@ -3037,7 +3092,7 @@
             this.CheckingC1FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC1FirstResultLabel.Location = new System.Drawing.Point(181, 278);
             this.CheckingC1FirstResultLabel.Name = "CheckingC1FirstResultLabel";
-            this.CheckingC1FirstResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingC1FirstResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingC1FirstResultLabel.TabIndex = 62;
             this.CheckingC1FirstResultLabel.Text = "000.0";
             // 
@@ -3047,7 +3102,7 @@
             this.CheckingB2FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB2FirstResultLabel.Location = new System.Drawing.Point(181, 223);
             this.CheckingB2FirstResultLabel.Name = "CheckingB2FirstResultLabel";
-            this.CheckingB2FirstResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingB2FirstResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingB2FirstResultLabel.TabIndex = 61;
             this.CheckingB2FirstResultLabel.Text = "000.0";
             // 
@@ -3057,7 +3112,7 @@
             this.CheckingB1FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB1FirstResultLabel.Location = new System.Drawing.Point(181, 168);
             this.CheckingB1FirstResultLabel.Name = "CheckingB1FirstResultLabel";
-            this.CheckingB1FirstResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingB1FirstResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingB1FirstResultLabel.TabIndex = 60;
             this.CheckingB1FirstResultLabel.Text = "000.0";
             // 
@@ -3067,7 +3122,7 @@
             this.CheckingA2FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA2FirstResultLabel.Location = new System.Drawing.Point(181, 113);
             this.CheckingA2FirstResultLabel.Name = "CheckingA2FirstResultLabel";
-            this.CheckingA2FirstResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingA2FirstResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingA2FirstResultLabel.TabIndex = 59;
             this.CheckingA2FirstResultLabel.Text = "000.0";
             // 
@@ -3077,7 +3132,7 @@
             this.CheckingA1FirstResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA1FirstResultLabel.Location = new System.Drawing.Point(181, 58);
             this.CheckingA1FirstResultLabel.Name = "CheckingA1FirstResultLabel";
-            this.CheckingA1FirstResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingA1FirstResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingA1FirstResultLabel.TabIndex = 58;
             this.CheckingA1FirstResultLabel.Text = "000.0";
             // 
@@ -3087,7 +3142,7 @@
             this.CheckingG2SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG2SecondResultLabel.Location = new System.Drawing.Point(469, 773);
             this.CheckingG2SecondResultLabel.Name = "CheckingG2SecondResultLabel";
-            this.CheckingG2SecondResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingG2SecondResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingG2SecondResultLabel.TabIndex = 57;
             this.CheckingG2SecondResultLabel.Text = "000.0";
             // 
@@ -3097,7 +3152,7 @@
             this.CheckingG1SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG1SecondResultLabel.Location = new System.Drawing.Point(469, 718);
             this.CheckingG1SecondResultLabel.Name = "CheckingG1SecondResultLabel";
-            this.CheckingG1SecondResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingG1SecondResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingG1SecondResultLabel.TabIndex = 56;
             this.CheckingG1SecondResultLabel.Text = "000.0";
             // 
@@ -3107,7 +3162,7 @@
             this.CheckingF2SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF2SecondResultLabel.Location = new System.Drawing.Point(469, 663);
             this.CheckingF2SecondResultLabel.Name = "CheckingF2SecondResultLabel";
-            this.CheckingF2SecondResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingF2SecondResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingF2SecondResultLabel.TabIndex = 55;
             this.CheckingF2SecondResultLabel.Text = "000.0";
             // 
@@ -3117,7 +3172,7 @@
             this.CheckingF1SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF1SecondResultLabel.Location = new System.Drawing.Point(469, 608);
             this.CheckingF1SecondResultLabel.Name = "CheckingF1SecondResultLabel";
-            this.CheckingF1SecondResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingF1SecondResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingF1SecondResultLabel.TabIndex = 54;
             this.CheckingF1SecondResultLabel.Text = "000.0";
             // 
@@ -3127,7 +3182,7 @@
             this.CheckingE2SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE2SecondResultLabel.Location = new System.Drawing.Point(469, 553);
             this.CheckingE2SecondResultLabel.Name = "CheckingE2SecondResultLabel";
-            this.CheckingE2SecondResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingE2SecondResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingE2SecondResultLabel.TabIndex = 53;
             this.CheckingE2SecondResultLabel.Text = "000.0";
             // 
@@ -3137,7 +3192,7 @@
             this.CheckingE1SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE1SecondResultLabel.Location = new System.Drawing.Point(469, 498);
             this.CheckingE1SecondResultLabel.Name = "CheckingE1SecondResultLabel";
-            this.CheckingE1SecondResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingE1SecondResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingE1SecondResultLabel.TabIndex = 52;
             this.CheckingE1SecondResultLabel.Text = "000.0";
             // 
@@ -3147,7 +3202,7 @@
             this.CheckingD2SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD2SecondResultLabel.Location = new System.Drawing.Point(469, 443);
             this.CheckingD2SecondResultLabel.Name = "CheckingD2SecondResultLabel";
-            this.CheckingD2SecondResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingD2SecondResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingD2SecondResultLabel.TabIndex = 51;
             this.CheckingD2SecondResultLabel.Text = "000.0";
             // 
@@ -3157,7 +3212,7 @@
             this.CheckingD1SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD1SecondResultLabel.Location = new System.Drawing.Point(469, 388);
             this.CheckingD1SecondResultLabel.Name = "CheckingD1SecondResultLabel";
-            this.CheckingD1SecondResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingD1SecondResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingD1SecondResultLabel.TabIndex = 50;
             this.CheckingD1SecondResultLabel.Text = "000.0";
             // 
@@ -3167,7 +3222,7 @@
             this.CheckingC2SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC2SecondResultLabel.Location = new System.Drawing.Point(469, 333);
             this.CheckingC2SecondResultLabel.Name = "CheckingC2SecondResultLabel";
-            this.CheckingC2SecondResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingC2SecondResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingC2SecondResultLabel.TabIndex = 49;
             this.CheckingC2SecondResultLabel.Text = "000.0";
             // 
@@ -3177,7 +3232,7 @@
             this.CheckingC1SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC1SecondResultLabel.Location = new System.Drawing.Point(469, 278);
             this.CheckingC1SecondResultLabel.Name = "CheckingC1SecondResultLabel";
-            this.CheckingC1SecondResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingC1SecondResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingC1SecondResultLabel.TabIndex = 48;
             this.CheckingC1SecondResultLabel.Text = "000.0";
             // 
@@ -3187,7 +3242,7 @@
             this.CheckingB2SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB2SecondResultLabel.Location = new System.Drawing.Point(469, 223);
             this.CheckingB2SecondResultLabel.Name = "CheckingB2SecondResultLabel";
-            this.CheckingB2SecondResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingB2SecondResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingB2SecondResultLabel.TabIndex = 47;
             this.CheckingB2SecondResultLabel.Text = "000.0";
             // 
@@ -3197,7 +3252,7 @@
             this.CheckingB1SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB1SecondResultLabel.Location = new System.Drawing.Point(469, 168);
             this.CheckingB1SecondResultLabel.Name = "CheckingB1SecondResultLabel";
-            this.CheckingB1SecondResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingB1SecondResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingB1SecondResultLabel.TabIndex = 46;
             this.CheckingB1SecondResultLabel.Text = "000.0";
             // 
@@ -3207,7 +3262,7 @@
             this.CheckingA2SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA2SecondResultLabel.Location = new System.Drawing.Point(469, 113);
             this.CheckingA2SecondResultLabel.Name = "CheckingA2SecondResultLabel";
-            this.CheckingA2SecondResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingA2SecondResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingA2SecondResultLabel.TabIndex = 45;
             this.CheckingA2SecondResultLabel.Text = "000.0";
             // 
@@ -3217,7 +3272,7 @@
             this.CheckingA1SecondResultLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA1SecondResultLabel.Location = new System.Drawing.Point(469, 58);
             this.CheckingA1SecondResultLabel.Name = "CheckingA1SecondResultLabel";
-            this.CheckingA1SecondResultLabel.Size = new System.Drawing.Size(82, 31);
+            this.CheckingA1SecondResultLabel.Size = new System.Drawing.Size(83, 37);
             this.CheckingA1SecondResultLabel.TabIndex = 44;
             this.CheckingA1SecondResultLabel.Text = "000.0";
             // 
@@ -3226,7 +3281,7 @@
             this.CheckingG2LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG2LWTextbox.Location = new System.Drawing.Point(308, 770);
             this.CheckingG2LWTextbox.Name = "CheckingG2LWTextbox";
-            this.CheckingG2LWTextbox.Size = new System.Drawing.Size(117, 38);
+            this.CheckingG2LWTextbox.Size = new System.Drawing.Size(117, 43);
             this.CheckingG2LWTextbox.TabIndex = 43;
             this.CheckingG2LWTextbox.TextChanged += new System.EventHandler(this.CheckingG2LWTextbox_TextChanged);
             this.CheckingG2LWTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -3236,7 +3291,7 @@
             this.CheckingG1LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingG1LWTextbox.Location = new System.Drawing.Point(308, 715);
             this.CheckingG1LWTextbox.Name = "CheckingG1LWTextbox";
-            this.CheckingG1LWTextbox.Size = new System.Drawing.Size(117, 38);
+            this.CheckingG1LWTextbox.Size = new System.Drawing.Size(117, 43);
             this.CheckingG1LWTextbox.TabIndex = 41;
             this.CheckingG1LWTextbox.TextChanged += new System.EventHandler(this.CheckingG1LWTextbox_TextChanged);
             this.CheckingG1LWTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -3246,7 +3301,7 @@
             this.CheckingF2LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF2LWTextbox.Location = new System.Drawing.Point(308, 660);
             this.CheckingF2LWTextbox.Name = "CheckingF2LWTextbox";
-            this.CheckingF2LWTextbox.Size = new System.Drawing.Size(117, 38);
+            this.CheckingF2LWTextbox.Size = new System.Drawing.Size(117, 43);
             this.CheckingF2LWTextbox.TabIndex = 39;
             this.CheckingF2LWTextbox.TextChanged += new System.EventHandler(this.CheckingF2LWTextbox_TextChanged);
             this.CheckingF2LWTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -3256,7 +3311,7 @@
             this.CheckingF1LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingF1LWTextbox.Location = new System.Drawing.Point(308, 605);
             this.CheckingF1LWTextbox.Name = "CheckingF1LWTextbox";
-            this.CheckingF1LWTextbox.Size = new System.Drawing.Size(117, 38);
+            this.CheckingF1LWTextbox.Size = new System.Drawing.Size(117, 43);
             this.CheckingF1LWTextbox.TabIndex = 37;
             this.CheckingF1LWTextbox.TextChanged += new System.EventHandler(this.CheckingF1LWTextbox_TextChanged);
             this.CheckingF1LWTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -3266,7 +3321,7 @@
             this.CheckingE2LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE2LWTextbox.Location = new System.Drawing.Point(308, 550);
             this.CheckingE2LWTextbox.Name = "CheckingE2LWTextbox";
-            this.CheckingE2LWTextbox.Size = new System.Drawing.Size(117, 38);
+            this.CheckingE2LWTextbox.Size = new System.Drawing.Size(117, 43);
             this.CheckingE2LWTextbox.TabIndex = 35;
             this.CheckingE2LWTextbox.TextChanged += new System.EventHandler(this.CheckingE2LWTextbox_TextChanged);
             this.CheckingE2LWTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -3276,7 +3331,7 @@
             this.CheckingE1LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingE1LWTextbox.Location = new System.Drawing.Point(308, 495);
             this.CheckingE1LWTextbox.Name = "CheckingE1LWTextbox";
-            this.CheckingE1LWTextbox.Size = new System.Drawing.Size(117, 38);
+            this.CheckingE1LWTextbox.Size = new System.Drawing.Size(117, 43);
             this.CheckingE1LWTextbox.TabIndex = 33;
             this.CheckingE1LWTextbox.TextChanged += new System.EventHandler(this.CheckingE1LWTextbox_TextChanged);
             this.CheckingE1LWTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -3286,7 +3341,7 @@
             this.CheckingD2LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD2LWTextbox.Location = new System.Drawing.Point(308, 440);
             this.CheckingD2LWTextbox.Name = "CheckingD2LWTextbox";
-            this.CheckingD2LWTextbox.Size = new System.Drawing.Size(117, 38);
+            this.CheckingD2LWTextbox.Size = new System.Drawing.Size(117, 43);
             this.CheckingD2LWTextbox.TabIndex = 31;
             this.CheckingD2LWTextbox.TextChanged += new System.EventHandler(this.CheckingD2LWTextbox_TextChanged);
             this.CheckingD2LWTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -3296,7 +3351,7 @@
             this.CheckingD1LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingD1LWTextbox.Location = new System.Drawing.Point(308, 385);
             this.CheckingD1LWTextbox.Name = "CheckingD1LWTextbox";
-            this.CheckingD1LWTextbox.Size = new System.Drawing.Size(117, 38);
+            this.CheckingD1LWTextbox.Size = new System.Drawing.Size(117, 43);
             this.CheckingD1LWTextbox.TabIndex = 29;
             this.CheckingD1LWTextbox.TextChanged += new System.EventHandler(this.CheckingD1LWTextbox_TextChanged);
             this.CheckingD1LWTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -3306,7 +3361,7 @@
             this.CheckingC2LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC2LWTextbox.Location = new System.Drawing.Point(308, 330);
             this.CheckingC2LWTextbox.Name = "CheckingC2LWTextbox";
-            this.CheckingC2LWTextbox.Size = new System.Drawing.Size(117, 38);
+            this.CheckingC2LWTextbox.Size = new System.Drawing.Size(117, 43);
             this.CheckingC2LWTextbox.TabIndex = 27;
             this.CheckingC2LWTextbox.TextChanged += new System.EventHandler(this.CheckingC2LWTextbox_TextChanged);
             this.CheckingC2LWTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -3316,7 +3371,7 @@
             this.CheckingC1LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingC1LWTextbox.Location = new System.Drawing.Point(308, 275);
             this.CheckingC1LWTextbox.Name = "CheckingC1LWTextbox";
-            this.CheckingC1LWTextbox.Size = new System.Drawing.Size(117, 38);
+            this.CheckingC1LWTextbox.Size = new System.Drawing.Size(117, 43);
             this.CheckingC1LWTextbox.TabIndex = 25;
             this.CheckingC1LWTextbox.TextChanged += new System.EventHandler(this.CheckingC1LWTextbox_TextChanged);
             this.CheckingC1LWTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -3326,7 +3381,7 @@
             this.CheckingB2LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB2LWTextbox.Location = new System.Drawing.Point(308, 220);
             this.CheckingB2LWTextbox.Name = "CheckingB2LWTextbox";
-            this.CheckingB2LWTextbox.Size = new System.Drawing.Size(117, 38);
+            this.CheckingB2LWTextbox.Size = new System.Drawing.Size(117, 43);
             this.CheckingB2LWTextbox.TabIndex = 23;
             this.CheckingB2LWTextbox.TextChanged += new System.EventHandler(this.CheckingB2LWTextbox_TextChanged);
             this.CheckingB2LWTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -3336,7 +3391,7 @@
             this.CheckingB1LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingB1LWTextbox.Location = new System.Drawing.Point(308, 165);
             this.CheckingB1LWTextbox.Name = "CheckingB1LWTextbox";
-            this.CheckingB1LWTextbox.Size = new System.Drawing.Size(117, 38);
+            this.CheckingB1LWTextbox.Size = new System.Drawing.Size(117, 43);
             this.CheckingB1LWTextbox.TabIndex = 21;
             this.CheckingB1LWTextbox.TextChanged += new System.EventHandler(this.CheckingB1LWTextbox_TextChanged);
             this.CheckingB1LWTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -3346,7 +3401,7 @@
             this.CheckingA2LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA2LWTextbox.Location = new System.Drawing.Point(308, 110);
             this.CheckingA2LWTextbox.Name = "CheckingA2LWTextbox";
-            this.CheckingA2LWTextbox.Size = new System.Drawing.Size(117, 38);
+            this.CheckingA2LWTextbox.Size = new System.Drawing.Size(117, 43);
             this.CheckingA2LWTextbox.TabIndex = 19;
             this.CheckingA2LWTextbox.TextChanged += new System.EventHandler(this.CheckingA2LWTextbox_TextChanged);
             this.CheckingA2LWTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -3356,7 +3411,7 @@
             this.CheckingA1LWTextbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingA1LWTextbox.Location = new System.Drawing.Point(308, 55);
             this.CheckingA1LWTextbox.Name = "CheckingA1LWTextbox";
-            this.CheckingA1LWTextbox.Size = new System.Drawing.Size(117, 38);
+            this.CheckingA1LWTextbox.Size = new System.Drawing.Size(117, 43);
             this.CheckingA1LWTextbox.TabIndex = 17;
             this.CheckingA1LWTextbox.TextChanged += new System.EventHandler(this.CheckingA1LWTextbox_TextChanged);
             this.CheckingA1LWTextbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -3366,7 +3421,7 @@
             this.CheckingFW1Textbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingFW1Textbox.Location = new System.Drawing.Point(163, 10);
             this.CheckingFW1Textbox.Name = "CheckingFW1Textbox";
-            this.CheckingFW1Textbox.Size = new System.Drawing.Size(117, 38);
+            this.CheckingFW1Textbox.Size = new System.Drawing.Size(117, 43);
             this.CheckingFW1Textbox.TabIndex = 16;
             this.CheckingFW1Textbox.TextChanged += new System.EventHandler(this.CheckingFW1Textbox_TextChanged);
             this.CheckingFW1Textbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -3376,7 +3431,7 @@
             this.CheckingFW2Textbox.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingFW2Textbox.Location = new System.Drawing.Point(456, 10);
             this.CheckingFW2Textbox.Name = "CheckingFW2Textbox";
-            this.CheckingFW2Textbox.Size = new System.Drawing.Size(117, 38);
+            this.CheckingFW2Textbox.Size = new System.Drawing.Size(117, 43);
             this.CheckingFW2Textbox.TabIndex = 15;
             this.CheckingFW2Textbox.TextChanged += new System.EventHandler(this.CheckingFW2Textbox_TextChanged);
             this.CheckingFW2Textbox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckInteger);
@@ -3387,7 +3442,7 @@
             this.CheckingFWLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CheckingFWLabel.Location = new System.Drawing.Point(338, 13);
             this.CheckingFWLabel.Name = "CheckingFWLabel";
-            this.CheckingFWLabel.Size = new System.Drawing.Size(56, 31);
+            this.CheckingFWLabel.Size = new System.Drawing.Size(55, 37);
             this.CheckingFWLabel.TabIndex = 0;
             this.CheckingFWLabel.Text = "FW";
             // 
@@ -3400,14 +3455,14 @@
             this.LogTab.Controls.Add(this.listBox1);
             this.LogTab.Controls.Add(this.LogPickdateLabel);
             this.LogTab.Controls.Add(this.LogDateCombobox);
-            this.LogTab.Location = new System.Drawing.Point(4, 29);
+            this.LogTab.Location = new System.Drawing.Point(4, 30);
             this.LogTab.Name = "LogTab";
-            this.LogTab.Size = new System.Drawing.Size(1896, 944);
+            this.LogTab.Size = new System.Drawing.Size(1896, 943);
             this.LogTab.TabIndex = 7;
             this.LogTab.Text = "Log";
-            //
+            // 
             // LogResetButton
-            //
+            // 
             this.LogResetButton.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogResetButton.Location = new System.Drawing.Point(1033, 10);
             this.LogResetButton.Name = "LogResetButton";
@@ -3423,7 +3478,7 @@
             this.LogSearchLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogSearchLabel.Location = new System.Drawing.Point(450, 14);
             this.LogSearchLabel.Name = "LogSearchLabel";
-            this.LogSearchLabel.Size = new System.Drawing.Size(108, 31);
+            this.LogSearchLabel.Size = new System.Drawing.Size(101, 37);
             this.LogSearchLabel.TabIndex = 4;
             this.LogSearchLabel.Text = "Search:";
             // 
@@ -3432,14 +3487,14 @@
             this.LogSearchTextbox.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogSearchTextbox.Location = new System.Drawing.Point(554, 14);
             this.LogSearchTextbox.Name = "LogSearchTextbox";
-            this.LogSearchTextbox.Size = new System.Drawing.Size(315, 35);
+            this.LogSearchTextbox.Size = new System.Drawing.Size(315, 39);
             this.LogSearchTextbox.TabIndex = 3;
             this.LogSearchTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.LogSearchTextbox_KeyDown);
             // 
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 20;
+            this.listBox1.ItemHeight = 21;
             this.listBox1.Location = new System.Drawing.Point(14, 71);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(1858, 844);
@@ -3451,7 +3506,7 @@
             this.LogPickdateLabel.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LogPickdateLabel.Location = new System.Drawing.Point(8, 14);
             this.LogPickdateLabel.Name = "LogPickdateLabel";
-            this.LogPickdateLabel.Size = new System.Drawing.Size(139, 31);
+            this.LogPickdateLabel.Size = new System.Drawing.Size(133, 37);
             this.LogPickdateLabel.TabIndex = 1;
             this.LogPickdateLabel.Text = "Pick Date:";
             // 
@@ -3462,7 +3517,7 @@
             this.LogDateCombobox.FormattingEnabled = true;
             this.LogDateCombobox.Location = new System.Drawing.Point(153, 11);
             this.LogDateCombobox.Name = "LogDateCombobox";
-            this.LogDateCombobox.Size = new System.Drawing.Size(256, 39);
+            this.LogDateCombobox.Size = new System.Drawing.Size(256, 45);
             this.LogDateCombobox.TabIndex = 0;
             this.LogDateCombobox.SelectedIndexChanged += new System.EventHandler(this.LogDateCombobox_SelectedIndexChanged);
             // 
@@ -3633,7 +3688,7 @@
             this.printSplitToolStripMenuItem,
             this.printMultipleToolStripMenuItem});
             this.SampleReturnContextMenuStrip.Name = "SampleReturnContextMenuStrip";
-            this.SampleReturnContextMenuStrip.Size = new System.Drawing.Size(188, 108);
+            this.SampleReturnContextMenuStrip.Size = new System.Drawing.Size(188, 130);
             // 
             // printFormcodeToolStripMenuItem
             // 
@@ -3837,61 +3892,6 @@
             // SRBackgroundWorker
             // 
             this.SRBackgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.SRBackgroundWorker_DoWork);
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Customer";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 360;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Phone";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 130;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.HeaderText = "Email";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 170;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.HeaderText = "Fax";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.HeaderText = "A";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 110;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.HeaderText = "B";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Width = 110;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.HeaderText = "C";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            this.dataGridViewTextBoxColumn11.Width = 110;
-            // 
-            // dataGridViewTextBoxLast
-            // 
-            this.dataGridViewTextBoxLast.HeaderText = "Last";
-            this.dataGridViewTextBoxLast.Name = "dataGridViewTextBoxLast";
-            this.dataGridViewTextBoxLast.ReadOnly = true;
-            this.dataGridViewTextBoxLast.Width = 150;
             // 
             // Main
             // 

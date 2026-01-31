@@ -3274,10 +3274,12 @@ namespace Metal_Assay
             GeneratePDF(right_click_source, right_click_customer, right_click_date);
             //Open Preview
             previewForm.PreviewActionButton.Text = "PRINT";
+            previewForm.action = "PRINT";
             previewForm.customer = right_click_customer;
             previewForm.pdf_count = 1;
             previewForm.ItemcodeList = ItemcodeList;
             previewForm.button_enable = true;
+            previewForm.other_button_enable = true;
             previewForm.ShowDialog();
         }
 
@@ -3292,10 +3294,12 @@ namespace Metal_Assay
             GeneratePDF(right_click_source, right_click_customer, right_click_date);
             //Open Preview            
             previewForm.PreviewActionButton.Text = "PRINT";
+            previewForm.action = "PRINT";
             previewForm.customer = right_click_customer;
             previewForm.pdf_count = 1;
             previewForm.ItemcodeList = ItemcodeList;
             previewForm.button_enable = true;
+            previewForm.other_button_enable = true;
             previewForm.ShowDialog();
         }
 
@@ -3309,6 +3313,7 @@ namespace Metal_Assay
             chooseItemForm.source = right_click_source;
             chooseItemForm.split = true;
             chooseItemForm.action = "PRINT ALL";
+
             chooseItemForm.ShowDialog();
         }
 
@@ -3816,10 +3821,12 @@ namespace Metal_Assay
             GeneratePDF(right_click_source, right_click_customer, right_click_date);
             //Open Preview
             previewForm.PreviewActionButton.Text = "PRINT";
+            previewForm.action = "PRINT";
             previewForm.customer = right_click_customer;
             previewForm.pdf_count = 1;
             previewForm.ItemcodeList = ItemcodeList;
             previewForm.button_enable = true;
+            previewForm.other_button_enable = true;
             previewForm.ShowDialog();
         }
 
@@ -3834,10 +3841,12 @@ namespace Metal_Assay
             GeneratePDF(right_click_source, right_click_customer, right_click_date);
             //Open Preview            
             previewForm.PreviewActionButton.Text = "PRINT";
+            previewForm.action = "PRINT";
             previewForm.customer = right_click_customer;
             previewForm.pdf_count = 1;
             previewForm.ItemcodeList = ItemcodeList;
             previewForm.button_enable = true;
+            previewForm.other_button_enable = true;            
             previewForm.ShowDialog();
         }
 

@@ -122,7 +122,8 @@ namespace Metal_Assay
                 else if (action.Contains("PRINT"))
                 {
                     previewForm.button_enable = true;
-                    previewForm.other_button_enable = false;
+                    previewForm.other_button_enable = true;
+                    previewForm.action = "PRINT";
                 }
                 else if (action.Contains("EMAIL"))
                 {

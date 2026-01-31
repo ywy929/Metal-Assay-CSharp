@@ -75,6 +75,10 @@ namespace Metal_Assay
                     {
                         PreviewOtherButton.Text = "EMAIL TO OTHERS";
                     }
+                    if (action.Contains("PRINT"))
+                    {
+                        PreviewOtherButton.Text = "PRINT x2";
+                    }
 
                 }
                 WriteToLogFile("Preview Form Opened.");
@@ -275,6 +279,38 @@ namespace Metal_Assay
                 sendToOther.itemcode_list = ItemcodeList;
                 sendToOther.pdf_count = pdf_count;
                 sendToOther.ShowDialog();
+            }
+            else if (PreviewOtherButton.Text == "PRINT x2")
+            {
+                for (int i = 0; i < pdf_count; i++)
+                {
+                    try
+                    {
+                        MainForm.PrintPDF(Path.GetFullPath($"temp/{i}.pdf"));
+                        //File.Copy($"temp/{i}.pdf", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"{customer.Replace("/", " ")} {ItemcodeList[i].Replace("/", " ")} {DateTime.Now.ToString("yyMMdd HHmmss")}.pdf"), true);
+                        WriteToLogFile($"Printed PDF. Customer:{customer}");
+                    }
+                    catch (Exception ex)
+                    {
+                        WriteToLogFile($"Exception: {ex.ToString()}");
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                for (int i = 0; i < pdf_count; i++)
+                {
+                    try
+                    {
+                        MainForm.PrintPDF(Path.GetFullPath($"temp/{i}.pdf"));
+                        //File.Copy($"temp/{i}.pdf", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"{customer.Replace("/", " ")} {ItemcodeList[i].Replace("/", " ")} {DateTime.Now.ToString("yyMMdd HHmmss")}.pdf"), true);
+                        WriteToLogFile($"Printed PDF. Customer:{customer}");
+                    }
+                    catch (Exception ex)
+                    {
+                        WriteToLogFile($"Exception: {ex.ToString()}");
+                        MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                Close();
             }
         }
 
