@@ -12,6 +12,7 @@ using System.Reflection;
 using System.Windows.Forms;
 using FAXCOMEXLib;
 using System.Runtime.InteropServices;
+using System.Threading.Tasks;
 using MySqlX.XDevAPI.Relational;
 using System.ComponentModel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
@@ -1840,7 +1841,7 @@ namespace Metal_Assay
 
         }
 
-        public void PrintPDF(string printpath)
+        public async Task PrintPDF(string printpath)
         {
             ProcessStartInfo info = new ProcessStartInfo();
             info.Verb = "print";
@@ -1848,9 +1849,27 @@ namespace Metal_Assay
             info.CreateNoWindow = true;
             info.WindowStyle = ProcessWindowStyle.Hidden;
 
-            Process p = new Process();
-            p.StartInfo = info;
-            p.Start();
+            using (Process p = new Process())
+            {
+                p.StartInfo = info;
+                p.EnableRaisingEvents = true;
+
+                var tcs = new TaskCompletionSource<bool>();
+                p.Exited += (s, e) => tcs.TrySetResult(true);
+
+                p.Start();
+
+                // Wait for the print process to finish before returning,
+                // so the next print job doesn't overlap and cause blank pages.
+                // Timeout after 30 seconds to avoid hanging the app if the
+                // PDF reader gets stuck.
+                var completed = await Task.WhenAny(tcs.Task, Task.Delay(30000));
+                if (completed != tcs.Task)
+                {
+                    try { p.Kill(); } catch { }
+                    WriteToLogFile($"Print process timed out and was killed for: {printpath}");
+                }
+            }
         }
 
         public void GeneratePDF(string source, string customer, string date, string filename = "0")

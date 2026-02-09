@@ -105,7 +105,7 @@ namespace Metal_Assay
             return clean_filename;
         }
 
-        private void PreviewActionButton_Click(object sender, EventArgs e)
+        private async void PreviewActionButton_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(PreviewActionButton.Text);
             if (PreviewActionButton.Text == "SAVE" || PreviewActionButton.Text == "SAVE ALL")
@@ -186,7 +186,7 @@ namespace Metal_Assay
                 {
                     try
                     {
-                        MainForm.PrintPDF(Path.GetFullPath($"temp/{i}.pdf"));
+                        await MainForm.PrintPDF(Path.GetFullPath($"temp/{i}.pdf"));
                         //File.Copy($"temp/{i}.pdf", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"{customer.Replace("/", " ")} {ItemcodeList[i].Replace("/", " ")} {DateTime.Now.ToString("yyMMdd HHmmss")}.pdf"), true);
                         WriteToLogFile($"Printed PDF. Customer:{customer}");
                     }
@@ -261,7 +261,7 @@ namespace Metal_Assay
             Close();
         }
 
-        private void PreviewOtherButton_Click(object sender, EventArgs e)
+        private async void PreviewOtherButton_Click(object sender, EventArgs e)
         {
 
             if (PreviewOtherButton.Text == "FAX TO OTHERS")
@@ -286,7 +286,7 @@ namespace Metal_Assay
                 {
                     try
                     {
-                        MainForm.PrintPDF(Path.GetFullPath($"temp/{i}.pdf"));
+                        await MainForm.PrintPDF(Path.GetFullPath($"temp/{i}.pdf"));
                         //File.Copy($"temp/{i}.pdf", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"{customer.Replace("/", " ")} {ItemcodeList[i].Replace("/", " ")} {DateTime.Now.ToString("yyMMdd HHmmss")}.pdf"), true);
                         WriteToLogFile($"Printed PDF. Customer:{customer}");
                     }
@@ -300,7 +300,7 @@ namespace Metal_Assay
                 {
                     try
                     {
-                        MainForm.PrintPDF(Path.GetFullPath($"temp/{i}.pdf"));
+                        await MainForm.PrintPDF(Path.GetFullPath($"temp/{i}.pdf"));
                         //File.Copy($"temp/{i}.pdf", Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), $"{customer.Replace("/", " ")} {ItemcodeList[i].Replace("/", " ")} {DateTime.Now.ToString("yyMMdd HHmmss")}.pdf"), true);
                         WriteToLogFile($"Printed PDF. Customer:{customer}");
                     }
