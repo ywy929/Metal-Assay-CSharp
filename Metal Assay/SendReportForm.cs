@@ -54,7 +54,7 @@ namespace Metal_Assay
             con.Open();
             sql = $"SELECT user.billing AS billing, user.coupon AS coupon FROM assayresult INNER JOIN user ON assayresult.customer = user.id " +
                 $"WHERE assayresult.created >= '{fromDateTimePicker.Value:yyyy-MM-dd HH:mm:ss}' and assayresult.created <= '{toDateTimePicker.Value.AddDays(1):yyyy-MM-dd HH:mm:ss}' " +
-                $"and user.area = 'BW' ORDER BY assayresult.formcode, assayresult.created";
+                $"and user.area = 'BW' AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.formcode, assayresult.created";
             cmd = new MySqlCommand(sql, con);
             data_reader = cmd.ExecuteReader();
             if (data_reader.HasRows)
@@ -110,7 +110,7 @@ namespace Metal_Assay
             con.Open();
             sql = $"SELECT user.billing AS billing, user.coupon AS coupon FROM assayresult INNER JOIN user ON assayresult.customer = user.id " +
                 $"WHERE assayresult.created >= '{fromDateTimePicker.Value:yyyy-MM-dd HH:mm:ss}' and assayresult.created <= '{toDateTimePicker.Value.AddDays(1):yyyy-MM-dd HH:mm:ss}' " +
-                $"and user.area = 'PG' ORDER BY assayresult.formcode, assayresult.created";
+                $"and user.area = 'PG' AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.formcode, assayresult.created";
             cmd = new MySqlCommand(sql, con);
             data_reader = cmd.ExecuteReader();
             if (data_reader.HasRows)

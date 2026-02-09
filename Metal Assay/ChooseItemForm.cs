@@ -41,7 +41,7 @@ namespace Metal_Assay
                 //get itemcode list and insert into checkedlist 
                 var con = new MySqlConnection(connection_string);
                 con.Open();
-                sql = $"SELECT itemcode FROM assayresult WHERE formcode = '{formcode}'";
+                sql = $"SELECT itemcode FROM assayresult WHERE formcode = '{formcode}' AND (deleted = 0 OR deleted IS NULL)";
                 var cmd = new MySqlCommand(sql, con);
                 MySqlDataReader data_reader = cmd.ExecuteReader();
                 checkedListBox1.Items.Clear();
@@ -89,7 +89,7 @@ namespace Metal_Assay
                     itemcodes += $"'{checkedListBox1.CheckedItems[i]}',";
                 }
                 itemcodes = itemcodes.Remove(itemcodes.Length - 1);
-                string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = '{formcode}' And assayresult.itemcode IN ({itemcodes})";
+                string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = '{formcode}' AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL) And assayresult.itemcode IN ({itemcodes})";
                 //Update List
                 MainForm.UpdateFormcodeItemList(query);
                 if (split == true)

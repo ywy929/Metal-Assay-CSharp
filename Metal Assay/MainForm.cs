@@ -3204,7 +3204,7 @@ namespace Metal_Assay
         private void saveFormcodePDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
             right_click_source = "LW";
-            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} ORDER BY assayresult.created;";
+            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.created;";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
             UpdateFormcodeItemList(query);
@@ -3221,7 +3221,7 @@ namespace Metal_Assay
         private void saveItemPDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
             right_click_source = "LW";
-            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id};";
+            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id} AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL);";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
             UpdateFormcodeItemList(query);
@@ -3266,7 +3266,7 @@ namespace Metal_Assay
         private void printFormcodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             right_click_source = "SR";
-            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} ORDER BY assayresult.created;";
+            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.created;";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
             UpdateFormcodeItemList(query);
@@ -3286,7 +3286,7 @@ namespace Metal_Assay
         private void printItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             right_click_source = "SR";
-            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id};";
+            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id} AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL);";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
             UpdateFormcodeItemList(query);
@@ -3333,7 +3333,7 @@ namespace Metal_Assay
         private void faxFormcodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             right_click_source = "LW";
-            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} ORDER BY assayresult.created;";
+            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.created;";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
             UpdateFormcodeItemList(query);
@@ -3387,7 +3387,7 @@ namespace Metal_Assay
         private void faxItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             right_click_source = "LW";
-            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id};";
+            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id} AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL);";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
             UpdateFormcodeItemList(query);
@@ -3465,7 +3465,7 @@ namespace Metal_Assay
         private void emailFormcodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             right_click_source = "LW";
-            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} ORDER BY assayresult.created;";
+            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.created;";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
             UpdateFormcodeItemList(query);
@@ -3520,7 +3520,7 @@ namespace Metal_Assay
         private void emailItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             right_click_source = "LW";
-            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id};";
+            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id} AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL);";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
             UpdateFormcodeItemList(query);
@@ -3618,7 +3618,7 @@ namespace Metal_Assay
         private void HistorySaveFormCodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             right_click_source = "History";
-            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} ORDER BY assayresult.created;";
+            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.created;";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
             UpdateFormcodeItemList(query);
@@ -3637,7 +3637,7 @@ namespace Metal_Assay
         private void HistorySaveItemsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             right_click_source = "History";
-            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id};";
+            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id} AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL);";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
             UpdateFormcodeItemList(query);
@@ -3681,7 +3681,7 @@ namespace Metal_Assay
         private void HistoryFaxFormCodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             right_click_source = "History";
-            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} ORDER BY assayresult.created;";
+            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.created;";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
             UpdateFormcodeItemList(query);
@@ -3734,7 +3734,7 @@ namespace Metal_Assay
         private void HistoryFaxItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             right_click_source = "History";
-            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id};";
+            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id} AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL);";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
             UpdateFormcodeItemList(query);
@@ -3813,7 +3813,7 @@ namespace Metal_Assay
         private void HistoryPrintFormcodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             right_click_source = "History";
-            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} ORDER BY assayresult.created;";
+            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.created;";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
             UpdateFormcodeItemList(query);
@@ -3833,7 +3833,7 @@ namespace Metal_Assay
         private void HistoryPrintItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             right_click_source = "History";
-            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id};";
+            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id} AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL);";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
             UpdateFormcodeItemList(query);
@@ -3879,7 +3879,7 @@ namespace Metal_Assay
         private void HistoryEmailFormcodeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             right_click_source = "History";
-            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} ORDER BY assayresult.created;";
+            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.formcode = {right_click_formcode} AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL) ORDER BY assayresult.created;";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
             UpdateFormcodeItemList(query);
@@ -3932,7 +3932,7 @@ namespace Metal_Assay
         private void HistoryEmailItemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             right_click_source = "History";
-            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id};";
+            string query = $"SELECT assayresult.itemcode AS itemcode, assayresult.finalresult AS finalresult, assayresult.sampleweight AS sampleweight, assayresult.samplereturn AS samplereturn, user.fax AS fax FROM assayresult INNER JOIN user ON assayresult.customer = user.id WHERE assayresult.id = {right_click_id} AND (assayresult.deleted = 0 OR assayresult.deleted IS NULL);";
             PreviewForm previewForm = new PreviewForm(this);
             //Update List
             UpdateFormcodeItemList(query);

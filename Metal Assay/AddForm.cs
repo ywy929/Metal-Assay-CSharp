@@ -42,7 +42,7 @@ namespace Metal_Assay
                 var con = new MySqlConnection(connection_string);
                 con.Open();
 
-                sql = $"SELECT itemcode FROM assayresult WHERE formcode='{AddFormCodeContent.Text}'";
+                sql = $"SELECT itemcode FROM assayresult WHERE formcode='{AddFormCodeContent.Text}' AND (deleted = 0 OR deleted IS NULL)";
                 var cmd = new MySqlCommand(sql, con);
 
                 MySqlDataReader data_reader = cmd.ExecuteReader();
